@@ -1,3 +1,7 @@
 export default function Home() {
-  return <div>checke d push sazdgasdgasdgas </div>;
+  return (
+    <div>
+      <p>chaked</p>
+    </div>
+  );
 }
