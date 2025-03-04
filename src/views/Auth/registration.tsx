@@ -1,7 +1,7 @@
 import React from "react";
 
-const registrationIndex = () => {
+const RegistrationIndex = () => {
   return <div>registrationIndex</div>;
 };
 
-export default registrationIndex;
+export default RegistrationIndex;

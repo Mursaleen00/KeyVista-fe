@@ -1,7 +1,11 @@
+import BackButton from "@/components/buttons/back-button";
+import Button from "@/components/buttons/button";
+
 export default function Home() {
   return (
     <div>
-      <p>chaked</p>
+      <Button text="submit" className="" isOutline />
+      <BackButton />
     </div>
   );
 }
