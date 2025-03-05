@@ -1,7 +1,7 @@
 import React from "react";
 
-const MapIndex = () => {
+const MapView = () => {
   return <div>MapIndex</div>;
 };
 
-export default MapIndex;
+export default MapView;

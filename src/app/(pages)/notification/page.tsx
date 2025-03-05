@@ -1,12 +1,6 @@
-import NotificationIndex from "@/views/Notification";
+import NotificationView from "@/views/Notification";
 import React from "react";
 
-const NotificationPage = () => {
-  return (
-    <div>
-      <NotificationIndex />
-    </div>
-  );
-};
+const NotificationPage = () => <NotificationView />;
 
 export default NotificationPage;

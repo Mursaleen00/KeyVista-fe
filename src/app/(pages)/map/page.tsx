@@ -1,12 +1,5 @@
-import MapIndex from "@/views/Map";
+import MapView from "@/views/Map";
 import React from "react";
 
-const MapPage = () => {
-  return (
-    <div>
-      <MapIndex />
-    </div>
-  );
-};
-
+const MapPage = () => <MapView />;
 export default MapPage;

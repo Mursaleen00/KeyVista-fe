@@ -1,7 +1,7 @@
 import React from "react";
 
-const PasswordIndex = () => {
+const PasswordView = () => {
   return <div>PasswordIndex</div>;
 };
 
-export default PasswordIndex;
+export default PasswordView;
