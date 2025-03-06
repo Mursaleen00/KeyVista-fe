@@ -4,5 +4,5 @@ export interface ButtonInterface {
   className?: string;
   icon?: string;
   onclick?: () => void;
-  type?: "submit" | "button";
+  type?: 'submit' | 'button';
 }

@@ -1,5 +1,4 @@
-import FavoriteView from "@/views/favorite";
-import React from "react";
+import FavoriteView from '@/views/favorite';
 
 const FavoritePage = () => <FavoriteView />;
 

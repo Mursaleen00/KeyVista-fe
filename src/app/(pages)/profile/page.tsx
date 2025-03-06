@@ -1,5 +1,4 @@
-import ProfileView from "@/views/Profile";
-import React from "react";
+import ProfileView from '@/views/Profile';
 
 const ProfilePage = () => <ProfileView />;
 

@@ -1,29 +1,28 @@
-import Image from "next/image";
-import React from "react";
-import house from "@/../public/images/bgHouse.png";
-import whiteLogo from "@/../public/images/whiteLogo.png";
-import { RegistrationData } from "@/constant/auth/registration-data";
-import Input from "@/components/inputs/input ";
+import house from '@/../public/images/bgHouse.png';
+import whiteLogo from '@/../public/images/whiteLogo.png';
+import Input from '@/components/inputs/input ';
+import { RegistrationData } from '@/constant/auth/registration-data';
+import Image from 'next/image';
 
 const RegistrationView = () => {
   return (
-    <div className="grid grid-cols-2 border justify-center ">
-      <div className=" relative ">
+    <div className='grid grid-cols-2 border justify-center '>
+      <div className=' relative '>
         <Image
           src={house}
-          alt="house"
+          alt='house'
           width={400}
           height={100}
-          className="flex "
+          className='flex '
         />
-        <div className="">
+        <div className=''>
           <Image
             src={whiteLogo}
-            alt="whiteLogo"
+            alt='whiteLogo'
             width={200}
-            className=" flex absolute top-12 left-10 bg-black"
+            className=' flex absolute top-12 left-10 bg-black'
           />
-          <p className="grid absolute bottom-12 left-5 text-white text-4xl  font-semibold">
+          <p className='grid absolute bottom-12 left-5 text-white text-4xl  font-semibold'>
             Lorem Ipsum is simply <br />
             dummy text of the <br />
             printing and
@@ -33,8 +32,14 @@ const RegistrationView = () => {
 
       <div>
         {RegistrationData.map((item, i) => (
-          <div key={i} className="">
-            <Input {...item} className="text-gray-700 w-full" />
+          <div
+            key={i}
+            className=''
+          >
+            <Input
+              {...item}
+              className='text-gray-700 w-full'
+            />
           </div>
         ))}
       </div>

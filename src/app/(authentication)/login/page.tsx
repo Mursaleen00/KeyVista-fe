@@ -1,5 +1,5 @@
-import LoginView from "@/views/Auth/login";
-import React from "react";
+import LoginView from '@/views/Auth/login';
+import React from 'react';
 
 const LoginPage = () => <LoginView />;
 

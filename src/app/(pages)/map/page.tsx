@@ -1,5 +1,4 @@
-import MapView from "@/views/Map";
-import React from "react";
+import MapView from '@/views/Map';
 
 const MapPage = () => <MapView />;
 export default MapPage;
