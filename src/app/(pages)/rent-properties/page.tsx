@@ -1,12 +1,6 @@
-import RentPropertiesIndex from "@/views/Rent-Properties";
+import RentPropertiesIndex from "@/views/Rent-Properties/Add";
 import React from "react";
 
-const RentPropertiesPage = () => {
-  return (
-    <div>
-      <RentPropertiesIndex />
-    </div>
-  );
-};
+const RentPropertiesPage = () => <RentPropertiesIndex />;
 
 export default RentPropertiesPage;

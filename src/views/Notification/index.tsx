@@ -1,7 +1,7 @@
 import React from "react";
 
-const NotificationIndex = () => {
+const NotificationView = () => {
   return <div>NutificationIndex</div>;
 };
 
-export default NotificationIndex;
+export default NotificationView;

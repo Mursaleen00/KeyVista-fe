@@ -1,7 +1,7 @@
 import React from "react";
 
-const ChatIndex = () => {
+const ChatView = () => {
   return <div>ChatIndex</div>;
 };
 
-export default ChatIndex;
+export default ChatView;

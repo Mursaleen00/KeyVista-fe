@@ -1,12 +1,6 @@
-import ChatIndex from "@/views/Chat";
+import ChatView from "@/views/Chat";
 import React from "react";
 
-const ChatPage = () => {
-  return (
-    <div>
-      <ChatIndex />
-    </div>
-  );
-};
+const ChatPage = () => <ChatView />;
 
 export default ChatPage;

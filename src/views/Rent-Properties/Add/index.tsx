@@ -1,7 +1,7 @@
 import React from "react";
 
-const RentPropertiesIndex = () => {
+const RentPropertiesView = () => {
   return <div>RentPropertiesIndex</div>;
 };
 
-export default RentPropertiesIndex;
+export default RentPropertiesView;

@@ -1,11 +1,8 @@
-import BackButton from "@/components/buttons/back-button";
-import Button from "@/components/buttons/button";
+// src/app/page.tsx
 
-export default function Home() {
-  return (
-    <div>
-      <Button text="submit" className="" isOutline />
-      <BackButton />
-    </div>
-  );
-}
+// HomeView Import
+import HomeView from "@/views/Home";
+
+const Home = () => <HomeView />;
+
+export default Home;
