@@ -1,7 +1,5 @@
-import React from "react";
+import PropertyDetailsView from '@/views/Rent-Properties/propertyDetails';
 
-const RentPropertiesPage = () => {
-  return <div>RentPropertiesPage</div>;
-};
+const RentPropertiesPage = () => <PropertyDetailsView />;
 
 export default RentPropertiesPage;

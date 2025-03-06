@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const propertyDetails = () => {
+const PropertyDetailsView = () => {
   return <div>propertyDetails</div>;
 };
 
-export default propertyDetails;
+export default PropertyDetailsView;

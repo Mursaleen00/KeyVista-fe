@@ -1,8 +1,5 @@
-import React from "react";
+import ProfileView from '@/views/Profile';
 
-const ProfilePage = () => {
-  return <div>ProfilePage</div>;
-};
+const ProfilePage = () => <ProfileView />;
 
 export default ProfilePage;
-        

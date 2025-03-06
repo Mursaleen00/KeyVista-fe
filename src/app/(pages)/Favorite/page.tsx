@@ -1,7 +1,5 @@
-import React from "react";
+import FavoriteView from '@/views/favorite';
 
-const FavoritePage = () => {
-  return <div>FavoritePage</div>;
-};
+const FavoritePage = () => <FavoriteView />;
 
 export default FavoritePage;

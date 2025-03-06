@@ -1,7 +1,4 @@
-import React from "react";
+import MapView from '@/views/Map';
 
-const MapPage = () => {
-  return <div>MapPage</div>;
-};
-
+const MapPage = () => <MapView />;
 export default MapPage;

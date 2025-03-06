@@ -1,7 +1,8 @@
-export default function Home() {
-  return (
-    <div>
-      <p>chaked</p>
-    </div>
-  );
-}
+// src/app/page.tsx
+
+// HomeView Import
+import HomeView from '@/views/Home';
+
+const Home = () => <HomeView />;
+
+export default Home;

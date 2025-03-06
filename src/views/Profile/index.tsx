@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const ProfileIndex = () => {
+const ProfileView = () => {
   return <div>ProfielIndex</div>;
 };
 
-export default ProfileIndex;
+export default ProfileView;
