@@ -1,5 +1,5 @@
-import RegistrationView from "@/views/Auth/registration";
-import React from "react";
+import RegistrationView from '@/views/Auth/registration';
+import React from 'react';
 
 const RegistrationPage = () => <RegistrationView />;
 

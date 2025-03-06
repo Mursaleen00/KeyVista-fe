@@ -1,5 +1,4 @@
-import NotificationView from "@/views/Notification";
-import React from "react";
+import NotificationView from '@/views/Notification';
 
 const NotificationPage = () => <NotificationView />;
 

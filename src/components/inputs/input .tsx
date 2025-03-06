@@ -1,13 +1,13 @@
 // src/Components/inputs/input.tsx
-"use client";
+'use client';
 
 // Lib import
-import { cn } from "@/lib/cn-utils";
+import { cn } from '@/lib/cn-utils';
 
 // React import
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState } from 'react';
 // import { useTranslation } from 'react-i18next';
-import { FiEye, FiEyeOff } from "react-icons/fi";
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 // Use interface InputProps
 interface InputProps {
@@ -36,54 +36,57 @@ const Input = ({
 
   return (
     // Label
-    <label htmlFor="input" className="space-y-1 ">
+    <label
+      htmlFor='input'
+      className='space-y-1 '
+    >
       {label && (
-        <p className="text-secondary-700 text-sm font-normal capitalize line-clamp-1">
+        <p className='text-secondary-700 text-sm font-normal capitalize line-clamp-1'>
           {label}
-          {required && <span className="text-red">*</span>}
+          {required && <span className='text-red'>*</span>}
         </p>
       )}
       {/* Cn  */}
       <div
         className={cn(
-          "w-full h-11",
-          "bg-white",
-          "border !border-[#C5C8B9]",
-          "rounded-lg shadow-box-shadow",
-          "pr-3",
-          "flex justify-between items-center",
+          'w-full h-11',
+          'bg-white',
+          'border !border-[#C5C8B9]',
+          'rounded-lg shadow-box-shadow',
+          'pr-3',
+          'flex justify-between items-center',
           className,
-          isError && "!border-red-400"
+          isError && '!border-red-400',
         )}
       >
         {/* Input  */}
         <input
-          type={type === "password" ? (isVisible ? "text" : "password") : type}
-          id="input"
-          className="w-full h-full px-3 py-2 outline-none ring-0 rounded-xl"
+          type={type === 'password' ? (isVisible ? 'text' : 'password') : type}
+          id='input'
+          className='w-full h-full px-3 py-2 outline-none ring-0 rounded-xl'
           {...res}
         />
-        {type === "password" && (
+        {type === 'password' && (
           // Fragment
           <Fragment>
             {isVisible ? (
               <FiEye
                 size={24}
                 onClick={() => setIsVisible(!isVisible)}
-                className="cursor-pointer text-secondary-300"
+                className='cursor-pointer text-secondary-300'
               />
             ) : (
               <FiEyeOff
                 size={24}
                 onClick={() => setIsVisible(!isVisible)}
-                className="cursor-pointer text-secondary-300"
+                className='cursor-pointer text-secondary-300'
               />
             )}
           </Fragment>
         )}
       </div>
       {/* Error  */}
-      {isError && <p className="text-red-600 text-xs">{error}</p>}
+      {isError && <p className='text-red-600 text-xs'>{error}</p>}
     </label>
   );
 };

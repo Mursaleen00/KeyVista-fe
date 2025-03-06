@@ -1,5 +1,4 @@
-import ChatView from "@/views/Chat";
-import React from "react";
+import ChatView from '@/views/Chat';
 
 const ChatPage = () => <ChatView />;
 

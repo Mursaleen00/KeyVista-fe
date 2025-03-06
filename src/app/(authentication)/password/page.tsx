@@ -1,5 +1,5 @@
-import PasswordView from "@/views/Auth/password";
-import React from "react";
+import PasswordView from '@/views/Auth/password';
+import React from 'react';
 
 const PasswordPage = () => <PasswordView />;
 
