@@ -1,6 +1,6 @@
+import Navbar from '@/components/layouts/navbar';
 import type { Metadata } from 'next';
 import './globals.css';
-import Navbar from '@/components/layouts/navbar';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
