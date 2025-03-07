@@ -1,10 +1,24 @@
 const HoneView = () => {
   return (
-    <div>
-      <div className='text-primary'>This text will be #25D7D2</div>
-      <div className='bg-secondary'>This background will be #0F6A62</div>
-      <div className='text-heading'>This text will be #2C254B</div>
-      <div className='border-text'>This border will be #9F9CAD</div>
+    <div className='grid grid-cols-6 gap-4 place-items-center px-4'>
+      <div className='w-full flex items-center justify-center h-40 shadow-md rounded-2xl border bg-primary'>
+        primary
+      </div>
+      <div className='w-full flex items-center justify-center h-40 shadow-md rounded-2xl border bg-primary-light'>
+        primary-light
+      </div>
+      <div className='w-full flex items-center justify-center h-40 shadow-md rounded-2xl border bg-text'>
+        text
+      </div>
+      <div className='w-full flex items-center justify-center h-40 shadow-md rounded-2xl border bg-text-light'>
+        text-light
+      </div>
+      <div className='w-full flex items-center justify-center text-white h-40 shadow-md rounded-2xl border bg-heading'>
+        heading
+      </div>
+      <div className='w-full flex items-center justify-center h-40 shadow-md rounded-2xl border bg-red'>
+        red
+      </div>
     </div>
   );
 };
