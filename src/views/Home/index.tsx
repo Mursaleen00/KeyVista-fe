@@ -1,7 +1,7 @@
 import React from 'react';
 
 const HoneView = () => {
-  return <div>HoneView</div>;
+  return <div></div>;
 };
 
 export default HoneView;

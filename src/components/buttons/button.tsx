@@ -5,7 +5,7 @@ import React from 'react';
 const Button = ({
   type,
   isOutline,
-  onclick,
+  onClick,
   className,
   icon,
   text,
@@ -13,7 +13,7 @@ const Button = ({
   return (
     <button
       type={type}
-      onClick={onclick}
+      onClick={onClick}
       className={`${
         isOutline
           ? 'border border-[#25D7D2] text-primary bg-white shadow-sm shadow-[#25D7D2]'

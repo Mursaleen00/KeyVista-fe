@@ -51,7 +51,7 @@ const Input = ({
         className={cn(
           'w-full h-11',
           'bg-white',
-          'border !border-[#C5C8B9]',
+          'border !border-border',
           'rounded-lg shadow-box-shadow',
           'pr-3',
           'flex justify-between items-center',

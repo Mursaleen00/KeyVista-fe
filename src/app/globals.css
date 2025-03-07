@@ -1,10 +1,9 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
 
-/* @import "tailwindcss"; */
 /* Size  */
 ::-webkit-scrollbar {
   width: 6px;
@@ -18,4 +17,15 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #2e817f;
+}
+/* Input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }

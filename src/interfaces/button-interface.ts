@@ -3,6 +3,6 @@ export interface ButtonInterface {
   isOutline?: boolean;
   className?: string;
   icon?: string;
-  onclick?: () => void;
+  onClick?: () => void | string | object;
   type?: 'submit' | 'button';
 }
