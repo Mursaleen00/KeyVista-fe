@@ -3,12 +3,12 @@ export const PasswordData = [
     label: 'Password',
     type: 'password',
     placeholder: 'Enter Password',
-    name: 'Password',
+    name: 'password',
   },
   {
     label: 'Conform Password',
     type: 'password',
     placeholder: 'Enter Password',
-    name: 'Password',
+    name: 'conformPassword',
   },
 ];

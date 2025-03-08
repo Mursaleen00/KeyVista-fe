@@ -1,11 +1,25 @@
+'use client';
 import Button from '@/components/buttons/button';
 import GreenHouse from '@/components/common/green-house';
 import Input from '@/components/inputs/input';
 // import Input from '@/components/inputs/input ';
 import { LoginData } from '@/constant/auth/login-data';
+import { loginSchema } from '@/schemas/login-schema';
+import { useFormik } from 'formik';
 import React from 'react';
+import { IoToggleOutline } from 'react-icons/io5';
 
+const initialValues = {
+  email: '',
+  password: '',
+};
 const LoginView = () => {
+  const formik = useFormik({
+    initialValues,
+    validationSchema: loginSchema,
+    onSubmit: () => {},
+  });
+  const { values, errors, touched, handleChange, handleSubmit } = formik;
   return (
     <div className='flex flex-col md:flex-row items-center justify-items-center'>
       <GreenHouse />
@@ -25,6 +39,10 @@ const LoginView = () => {
             <Input
               {...item}
               className='flex  text-gray-700'
+              value={values[item.name as keyof typeof values]}
+              error={errors[item.name as keyof typeof errors]}
+              touched={touched[item.name as keyof typeof touched]}
+              onChange={handleChange}
             />
           </div>
         ))}
@@ -35,6 +53,7 @@ const LoginView = () => {
         <Button
           text='Login'
           className='flex  w-full mt-7'
+          onClick={handleSubmit}
         />
       </div>
     </div>
