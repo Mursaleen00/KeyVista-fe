@@ -1,7 +1,5 @@
-import Navbar from '@/components/layouts/navbar';
 import type { Metadata } from 'next';
 import './globals.css';
-import Footer from '@/components/layouts/footer';
 
 export const metadata: Metadata = {
   title: 'Key Vista',
@@ -18,11 +16,7 @@ export default function RootLayout({
       lang='en'
       suppressHydrationWarning
     >
-      <body className={``}>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+      <body className={`antialiased`}>{children}</body>
     </html>
   );
 }
