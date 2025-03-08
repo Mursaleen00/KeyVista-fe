@@ -8,11 +8,16 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { HiMenuAlt3 } from 'react-icons/hi';
 import Button from '../buttons/button';
+import React, { useState } from 'react';
+import { NavbarProps } from '@/interfaces/navbar-interfaces';
+import SideBar from './sideBar';
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const router = useRouter();
   return (
-    <nav className='flex lg:flex-col py-3 justify-center items-center '>
+    <nav className='flex flex-col py-3 justify-center  w-full'>
       <div className='flex  justify-around items-center w-full'>
         <div className='cursor-pointer'>
           <Image
@@ -23,7 +28,14 @@ const Navbar = () => {
             onClick={() => router.push(urls.home)}
           />
         </div>
-        <div className=' lg:flex hidden gap-x-4 cursor-pointer'>
+        <div data-aos='fade-right'>
+          <HiMenuAlt3
+            size={30}
+            className='md:hidden cursor-pointer'
+            onClick={() => setIsOpen(!isOpen)}
+          />
+        </div>
+        <div className=' md:flex hidden gap-x-4 cursor-pointer'>
           <Button
             text='Sell a property'
             isOutline
@@ -48,9 +60,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* Second section border  */}
-      <div className='flex   border-black pt-3'></div>
-      {/* 3rd pages section */}
-      <div className='lg:flex hidden justify-center gap-6 cursor-pointer '>
+      <div className='md:flex hidden border border-[#F2F4F7] w-full p-4 mt-5 justify-center items-center  gap-6 cursor-pointer '>
         {NavbarPagesData.map((item, i) => (
           <div
             key={i}
@@ -72,14 +82,12 @@ const Navbar = () => {
           </div>
         ))}
       </div>
+
       {/* side bar */}
-      <div data-aos='fade-right'>
-        <HiMenuAlt3
-          size={30}
-          className='lg:hidden cursor-pointer'
-          // onClick={() => setIsOpen(!isOpen)}
-        />
-      </div>
+      <SideBar
+        isOpen={isOpen}
+        setIsOpen={() => setIsOpen(!isOpen)}
+      />
     </nav>
   );
 };
