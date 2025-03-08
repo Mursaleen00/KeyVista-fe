@@ -5,7 +5,7 @@ import React from 'react';
 
 const GreenHouse = () => {
   return (
-    <div className=' relative grid w-screen lg:w-[1000px]'>
+    <div className='relative grid'>
       <Image
         src={house}
         alt='house'

@@ -1,4 +1,3 @@
-import Navbar from '@/components/layouts/navbar';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -17,10 +16,7 @@ export default function RootLayout({
       lang='en'
       suppressHydrationWarning
     >
-      <body className={`antialiased`}>
-        <Navbar />
-        {children}
-      </body>
+      <body className={`antialiased`}>{children}</body>
     </html>
   );
 }
