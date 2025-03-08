@@ -1,10 +1,10 @@
 'use client';
 import Image from 'next/image';
 import React from 'react';
-import notFound from '@/../public/images/not found.avif';
 import Button from '@/components/buttons/button';
 import { urls } from '@/constant/urls-data';
 import { useRouter } from 'next/navigation';
+import notFound from '@/../public/images/not found.jpg';
 
 const NotFound = () => {
   const router = useRouter();
