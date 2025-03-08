@@ -56,7 +56,7 @@ const Input = ({
           'pr-3',
           'flex justify-between items-center',
           className,
-          isError && '!border-red-400',
+          isError && '!border-red',
         )}
       >
         {/* Input  */}
@@ -86,7 +86,7 @@ const Input = ({
         )}
       </div>
       {/* Error  */}
-      {isError && <p className='text-red-600 text-xs'>{error}</p>}
+      {isError && <p className='text-red text-xs'>{error}</p>}
     </label>
   );
 };

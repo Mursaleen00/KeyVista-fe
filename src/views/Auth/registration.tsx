@@ -2,8 +2,10 @@
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
 import { RegistrationData } from '@/constant/auth/registration-data';
+import { urls } from '@/constant/urls-data';
 import { registrationSchema } from '@/schemas/registration-schema';
 import { useFormik } from 'formik';
+import { useRouter } from 'next/navigation';
 
 const initialValues = {
   fullName: '',
@@ -12,6 +14,7 @@ const initialValues = {
   conformPassword: '',
 };
 const RegistrationView = () => {
+  const router = useRouter();
   const formik = useFormik({
     initialValues,
     validationSchema: registrationSchema,
@@ -21,10 +24,16 @@ const RegistrationView = () => {
   return (
     <div className='grid w-full right-64  gap-y-5 p-4'>
       <div className='flex gap-x-3  items-end justify-end md:absolute text-xl md:top-10  right-20 md:right-40'>
-        Already have an Account? <span>Login</span>
+        Already have an Account?{' '}
+        <span
+          className='text-primary'
+          onClick={() => router.push(urls.login)}
+        >
+          Login
+        </span>
       </div>
       <div className='text-3xl pb-6'>
-        Register to <span> Agile </span>Spaces
+        Register to <span className='text-primary'> Agile </span>Spaces
       </div>
       {/* Inputs */}
       {RegistrationData.map((item, i) => (
@@ -42,14 +51,15 @@ const RegistrationView = () => {
           />
         </div>
       ))}
-      <div className='flex w-full pl-3 gap-x-4 '>
+      <div className='flex w-full gap-x-2 items-start'>
         <input
-          type='radio'
-          className='flex  rounded-lg w-[50px]'
+          type='checkbox'
+          className='flex w-[20px] text-primary'
         />
-        <p>
-          By signing up, you agree to our <span>Privacy Policy </span> &
-          <span>Terms of Service</span>
+        <p className='flex gap-2'>
+          By signing up, you agree to our
+          <span className='text-primary'>Privacy Policy </span> &
+          <span className='text-primary'>Terms of Service</span>
         </p>
       </div>
       {/* button  */}
