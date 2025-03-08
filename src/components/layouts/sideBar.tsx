@@ -1,10 +1,10 @@
 import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
 import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
+import { NavbarProps } from '@/interfaces/navbar-interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import Button from '../buttons/button';
-import { NavbarProps } from '@/interfaces/navbar-interfaces';
 
 const SideBar: React.FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
   if (!isOpen) return null;
