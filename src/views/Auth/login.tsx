@@ -1,7 +1,6 @@
 'use client';
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
-// import Input from '@/components/inputs/input ';
 import { LoginData } from '@/constant/auth/login-data';
 import { loginSchema } from '@/schemas/login-schema';
 import { useFormik } from 'formik';
@@ -36,6 +35,10 @@ const LoginView = () => {
           <Input
             {...item}
             className='flex  text-gray-700'
+            value={values[item.name as keyof typeof values]}
+            error={errors[item.name as keyof typeof errors]}
+            touched={touched[item.name as keyof typeof touched]}
+            onChange={handleChange}
           />
         </div>
       ))}
@@ -48,6 +51,8 @@ const LoginView = () => {
       <Button
         text='Login'
         className='flex w-full mt-7'
+        onClick={handleSubmit}
+        isOutline
       />
     </div>
   );
