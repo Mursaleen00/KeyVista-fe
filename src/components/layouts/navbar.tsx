@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 import { HiMenuAlt3 } from 'react-icons/hi';
 import Button from '../buttons/button';
 import React, { useState } from 'react';
-import { NavbarProps } from '@/interfaces/navbar-interfaces';
+// import { NavbarProps } from '@/interfaces/navbar-interfaces';
 import SideBar from './sideBar';
 
 const Navbar = () => {
