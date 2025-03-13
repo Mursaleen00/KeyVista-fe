@@ -1,17 +1,21 @@
 'use client';
 import Button from '@/components/buttons/button';
-import GreenHouse from '@/components/common/green-house';
 import Input from '@/components/inputs/input';
 import { PasswordData } from '@/constant/auth/password-data';
 import { passwordSchema } from '@/schemas/password-schema';
 import { useFormik } from 'formik';
 import React from 'react';
+import { useRouter } from 'next/navigation';
+import logo from '@/../public/images/logo.png';
+import Image from 'next/image';
+import { urls } from '@/constant/urls-data';
 
 const initialValues = {
   password: '',
   conformPassword: '',
 };
 const PasswordView = () => {
+  const router = useRouter();
   const formik = useFormik({
     initialValues,
     validationSchema: passwordSchema,
@@ -21,15 +25,21 @@ const PasswordView = () => {
 
   return (
     <div className='flex flex-col md:flex-row items-center justify-items-center'>
-      <GreenHouse />
-      <div className='grid w-full right-64 sm:px-20 lg:px-40 gap-y-5 p-4'>
-        <div className='flex gap-x-3  items-end justify-end md:absolute text-md md:top-10  right-20 md:right-40'>
-          AlReady have an account?<span>Log in </span>
+      {/* <GreenHouse /> */}
+      <div className='grid w-full right-64  gap-y-5 p-4'>
+        <Image
+          src={logo}
+          alt='logo'
+          width={200}
+          height={100}
+          className='flex lg:hidden pb-11'
+        />
+        <div className='text-3xl text-primary'>
+          New <span className='text-black'>Password</span>
         </div>
-        <div className='text-3xl '>
-          New <span>Password</span>
-        </div>
-        <p>Enter your new password and remember it.</p>
+        <p className='text-text-light'>
+          Enter your new password and remember it.
+        </p>
         {/* Inputs */}
         {PasswordData.map((item, i) => (
           <div
@@ -53,6 +63,18 @@ const PasswordView = () => {
           className='flex  w-full mt-7'
           onClick={handleSubmit}
         />
+        <div
+          className='flex gap-x-3  items-end justify-center  lg:absolute text-lg
+               md:top-10  right-20 md:right-40 text-black'
+        >
+          Already have an Account?
+          <span
+            className='text-primary'
+            onClick={() => router.push(urls.login)}
+          >
+            Login
+          </span>
+        </div>
       </div>
     </div>
   );

@@ -5,11 +5,13 @@ import Button from '@/components/buttons/button';
 import { urls } from '@/constant/urls-data';
 import { useRouter } from 'next/navigation';
 import notFound from '@/../public/images/not found.jpg';
+import Navbar from '@/components/layouts/navbar';
 
 const NotFound = () => {
   const router = useRouter();
   return (
     <div className='grid items-center justify-items-center w-full'>
+      <Navbar />
       <Image
         src={notFound}
         alt='notFound'
