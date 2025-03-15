@@ -9,7 +9,7 @@ import { emailVerificationSchema } from '@/schemas/email-verification-schema';
 import { useFormik } from 'formik';
 
 const initialValues = {
-  text: '',
+  number: '',
 };
 
 const EmailVerificationView = () => {
@@ -20,7 +20,7 @@ const EmailVerificationView = () => {
   });
   const { values, errors, touched, handleChange, handleSubmit } = formik;
   return (
-    <div className='grid  w-full gap-y-9 justify-center'>
+    <div className='grid  w-full gap-y-9 justify-center p-4'>
       <Image
         src={logo}
         alt='logo'
@@ -32,16 +32,20 @@ const EmailVerificationView = () => {
         <div className='text-3xl font-semibold'>
           <span>Email</span> verification
         </div>
-        <p>Enter the 6-digit verification code send to your email address.</p>
+        <p className='text-text-light'>
+          Enter the 6-digit verification code send to your email address.
+        </p>
       </div>
 
       {/* Inputs */}
-      <div className='flex flex-wrap gap-2 p-2'>
+      <div className='flex flex-wrap gap-2 p-2 justify-center'>
         {EmailVerificationData.map((item, i) => (
           <div
             key={i}
-            className='grid '
+            className='grid'
           >
+            {/* {item.data && ''} */}
+            {/* <input> {item.data && ''} </input> */}
             <Input
               {...item}
               value={values[item.name as keyof typeof values]}
@@ -54,8 +58,8 @@ const EmailVerificationView = () => {
         ))}
       </div>
 
-      <div className='grid items-center justify-items-center gap-y-2 w-full  pt-0 '>
-        <p>(00:52) </p>
+      <div className='grid items-center justify-items-center gap-y-2 w-full pt-0 '>
+        <p>(00:52)</p>
         <p>
           Did not receive the code?
           <span className='text-md font-semibold'> Resend Code</span>

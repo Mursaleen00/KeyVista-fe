@@ -9,6 +9,7 @@ const config: Config = {
         text: { DEFAULT: '#9F9CAD', light: '#6B6681' },
         heading: '#2C254B',
         red: '#F55D5D',
+        white: '#FFFFFF',
       },
     },
   },
