@@ -1,13 +1,12 @@
 import { propertyByCategoryData } from '@/constant/property-by-category-data';
 import Image from 'next/image';
 import React from 'react';
+import Title from './title';
 
 const PropertyByCategory = () => {
   return (
     <div className='grid '>
-      <h1 className='flex p-3 font-semibold text-2xl'>
-        Browse Property by Category
-      </h1>
+      <Title text='Browse Property by Category' />
       <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-6 gap-5 bg'>
         {propertyByCategoryData.map((item, i) => (
           <div

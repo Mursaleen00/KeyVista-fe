@@ -10,6 +10,7 @@ const config: Config = {
         heading: '#2C254B',
         red: '#F55D5D',
         white: '#FFFFFF',
+        light: { SeGreen: '#ECF8F8' },
       },
     },
   },

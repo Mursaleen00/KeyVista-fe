@@ -28,6 +28,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/constant/layouts-data/navbar-icon-data.tsx"
-  ],
+, "src/components/cards/property-by-city-card.tsx"  ],
   "exclude": ["node_modules"]
 }

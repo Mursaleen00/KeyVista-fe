@@ -7,7 +7,7 @@ interface Props {
 
 const Title: React.FC<Props> = ({ text, className }) => (
   <p
-    className={`text-black text-xl capitalize 
+    className={`text-black text-2xl p-3 font-semibold  
     ${className}`}
   >
     {text}

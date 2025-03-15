@@ -1,4 +1,7 @@
+import Button from '@/components/buttons/button';
+import PropertyByCityCard from '@/components/cards/property-by-city-card';
 import PropertyByCategory from '@/components/common/property-by-category';
+import Title from '@/components/common/title';
 
 const HomeView = () => {
   return (
@@ -22,7 +25,7 @@ const HomeView = () => {
         red
       </div> */}
       <PropertyByCategory />
-
+      {/* Browse Properties */}
       <div>
         {/* Text section  */}
         <div className='flex flex-col w-full justify-center pl-4'>
@@ -72,6 +75,23 @@ const HomeView = () => {
           >
             Rent
           </button>
+        </div>
+      </div>
+      {/* Browse Properties by city  */}
+
+      <div className='grid bg-light-SeGreen w-full p-9'>
+        <div>
+          <Title text='Browse Properties by city' />
+          <p className='text-text-light px-3'>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry.
+          </p>
+        </div>
+
+        <PropertyByCityCard />
+
+        <div className='flex justify-around'>
+          <Button text='Show more' />
         </div>
       </div>
     </div>
