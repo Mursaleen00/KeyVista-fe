@@ -2,14 +2,20 @@
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
 import { LoginData } from '@/constant/auth/login-data';
+import { urls } from '@/constant/urls-data';
 import { loginSchema } from '@/schemas/login-schema';
 import { useFormik } from 'formik';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import logo from '@/../public/images/logo.png';
 
 const initialValues = {
   email: '',
   password: '',
 };
 const LoginView = () => {
+  const router = useRouter();
+
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
@@ -18,12 +24,15 @@ const LoginView = () => {
   const { values, errors, touched, handleChange, handleSubmit } = formik;
   return (
     <div className='space-y-3'>
-      {/* <div className='flex gap-x-3 items-end justify-end md:absolute text-md md:top-10  right-20 md:right-40'>
-        New User? <span> Create an Account</span>
-      </div> */}
-
-      <div className='text-3xl pb-6'>
-        Log in to <span> Agile </span>Spaces
+      <Image
+        src={logo}
+        alt='logo'
+        width={200}
+        height={100}
+        className='flex lg:hidden absolute top-10 left-10'
+      />
+      <div className='text-3xl pb-6 font-semibold'>
+        Log in to <span className='text-primary'> Agile </span>Spaces
       </div>
 
       {/* Inputs */}
@@ -34,7 +43,7 @@ const LoginView = () => {
         >
           <Input
             {...item}
-            className='flex  text-gray-700'
+            className='flex  text-gray-700 p-2'
             value={values[item.name as keyof typeof values]}
             error={errors[item.name as keyof typeof errors]}
             touched={touched[item.name as keyof typeof touched]}
@@ -43,8 +52,11 @@ const LoginView = () => {
         </div>
       ))}
 
-      <div className='flex w-full items-end justify-end pt-0 '>
-        <p>Forgot password?</p>
+      <div
+        className='flex w-full items-end justify-end pt-0 text-primary cursor-pointer'
+        onClick={() => router.push(urls.forgetPassword)}
+      >
+        Forgot password?
       </div>
 
       {/* button  */}
@@ -52,8 +64,16 @@ const LoginView = () => {
         text='Login'
         className='flex w-full mt-7'
         onClick={handleSubmit}
-        isOutline
       />
+      <div className='flex gap-x-3 items-end justify-center lg:absolute text-sm sm:text-lg md:top-3  right-20 md:right-40 text-black pt-5'>
+        New user?
+        <span
+          className='text-primary cursor-pointer'
+          onClick={() => router.push(urls.registration)}
+        >
+          Create an account
+        </span>
+      </div>
     </div>
   );
 };

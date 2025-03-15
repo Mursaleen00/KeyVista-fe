@@ -6,11 +6,30 @@ export const RegistrationData = [
     name: 'fullName',
   },
   {
+    label: 'phone Number',
+    type: 'number',
+    placeholder: 'Number',
+    name: 'number',
+  },
+  {
     label: 'Email Address',
     type: 'email',
     placeholder: 'Enter Email Address',
     name: 'email',
   },
+  {
+    label: 'Country',
+    type: 'country',
+    placeholder: 'Country name ',
+    name: 'country',
+  },
+  {
+    label: 'City',
+    type: 'city',
+    placeholder: 'City name',
+    name: 'city',
+  },
+
   {
     label: 'Password',
     type: 'password',
