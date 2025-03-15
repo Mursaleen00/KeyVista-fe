@@ -5,7 +5,7 @@ import Button from '@/components/buttons/button';
 import { urls } from '@/constant/urls-data';
 import { useRouter } from 'next/navigation';
 import notFound from '@/../public/images/not found.jpg';
-import Navbar from '@/components/layouts/navbar';
+import Navbar from '@/components/pages-layouts/navbar';
 
 const NotFound = () => {
   const router = useRouter();

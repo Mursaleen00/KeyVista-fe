@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className='grid lg:grid-cols-2 xl:grid-cols-3 max-h-screen overflow-hidden h-full'>
+    <div className='grid lg:grid-cols-2 xl:grid-cols-3  overflow-hidden h-full'>
       <div className='relative hidden lg:block'>
         <Image
           src={house}
@@ -28,7 +28,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
         </div>
       </div>
 
-      <div className='xl:col-span-2 px-6 grid min-h-screen place-items-center'>
+      <div className='xl:col-span-2 px-6 grid  place-items-center h-full'>
         <div className='max-w-2xl w-full'>{children}</div>
       </div>
     </div>

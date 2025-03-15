@@ -2,13 +2,13 @@
 
 // export urls
 export const urls = {
-  home: '/',
+  home: '/home',
   map: '/map',
   chat: '/chat',
   login: '/login',
   profile: '/profile',
   favorite: '/favorite',
-  password: '/password ',
+  forgetPassword: '/forgot-password',
   addProperty: '/add-property',
   notification: '/notification',
   verification: '/verification',

@@ -1,11 +1,24 @@
+'use client';
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
 import { EmailVerificationData } from '@/constant/auth/email-verification-data';
 import Image from 'next/image';
 import React from 'react';
 import logo from '@/../public/images/logo.png';
+import { emailVerificationSchema } from '@/schemas/email-verification-schema';
+import { useFormik } from 'formik';
+
+const initialValues = {
+  text: '',
+};
 
 const EmailVerificationView = () => {
+  const formik = useFormik({
+    initialValues,
+    validationSchema: emailVerificationSchema,
+    onSubmit: () => {},
+  });
+  const { values, errors, touched, handleChange, handleSubmit } = formik;
   return (
     <div className='grid  w-full gap-y-9 justify-center'>
       <Image
@@ -23,7 +36,7 @@ const EmailVerificationView = () => {
       </div>
 
       {/* Inputs */}
-      <div className='flex flex-wrap gap-2 '>
+      <div className='flex flex-wrap gap-2 p-2'>
         {EmailVerificationData.map((item, i) => (
           <div
             key={i}
@@ -31,6 +44,10 @@ const EmailVerificationView = () => {
           >
             <Input
               {...item}
+              value={values[item.name as keyof typeof values]}
+              error={errors[item.name as keyof typeof errors]}
+              touched={touched[item.name as keyof typeof touched]}
+              onChange={handleChange}
               className='flex text-gray-700 w-[80px] h-[80px] hover:border-primary'
             />
           </div>
@@ -48,6 +65,7 @@ const EmailVerificationView = () => {
       <Button
         text='verify'
         className='flex w-full'
+        onClick={handleSubmit}
       />
     </div>
   );
