@@ -49,7 +49,7 @@ const Input = ({
       {/* Cn  */}
       <div
         className={cn(
-          'w-full h-',
+          'w-full ',
           'bg-white',
           'border !border-border',
           'rounded-xl shadow-box-shadow',
@@ -63,7 +63,7 @@ const Input = ({
         <input
           type={type === 'password' ? (isVisible ? 'text' : 'password') : type}
           id='input'
-          className='w-full h-full px-3 py-5 outline-none ring-0 rounded-xl'
+          className='w-full h-full px-3 py-3 outline-none ring-0 rounded-xl'
           {...res}
         />
         {type === 'password' && (

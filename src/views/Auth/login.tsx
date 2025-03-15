@@ -31,7 +31,7 @@ const LoginView = () => {
         height={100}
         className='flex lg:hidden absolute top-10 left-10'
       />
-      <div className='text-3xl pb-6'>
+      <div className='text-3xl pb-6 font-semibold'>
         Log in to <span className='text-primary'> Agile </span>Spaces
       </div>
 
@@ -43,7 +43,7 @@ const LoginView = () => {
         >
           <Input
             {...item}
-            className='flex  text-gray-700'
+            className='flex  text-gray-700 p-2'
             value={values[item.name as keyof typeof values]}
             error={errors[item.name as keyof typeof errors]}
             touched={touched[item.name as keyof typeof touched]}
@@ -52,7 +52,10 @@ const LoginView = () => {
         </div>
       ))}
 
-      <div className='flex w-full items-end justify-end pt-0 text-primary'>
+      <div
+        className='flex w-full items-end justify-end pt-0 text-primary cursor-pointer'
+        onClick={() => router.push(urls.forgetPassword)}
+      >
         Forgot password?
       </div>
 
@@ -62,13 +65,13 @@ const LoginView = () => {
         className='flex w-full mt-7'
         onClick={handleSubmit}
       />
-      <div className='flex gap-x-3 items-end justify-center lg:absolute text-md sm:text-lg md:top-3  right-20 md:right-40 text-black pt-5'>
+      <div className='flex gap-x-3 items-end justify-center lg:absolute text-sm sm:text-lg md:top-3  right-20 md:right-40 text-black pt-5'>
         New user?
         <span
-          className='text-primary'
+          className='text-primary cursor-pointer'
           onClick={() => router.push(urls.registration)}
         >
-          Create an Account
+          Create an account
         </span>
       </div>
     </div>

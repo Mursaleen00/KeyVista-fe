@@ -14,6 +14,9 @@ const initialValues = {
   email: '',
   password: '',
   conformPassword: '',
+  country: '',
+  city: '',
+  number: '',
 };
 const RegistrationView = () => {
   // router
@@ -34,34 +37,36 @@ const RegistrationView = () => {
         height={100}
         className='flex lg:hidden pb-11'
       />
-      <div className='text-3xl pb-6'>
+      <div className='text-3xl pb-6 font-semibold'>
         Register to <span className='text-primary'> Agile </span>Spaces
       </div>
       {/* Inputs */}
-      {RegistrationData.map((item, i) => (
-        <div
-          key={i}
-          className='grid w-full gap-y-5'
-        >
-          <Input
-            {...item}
-            className='flex  text-gray-700'
-            value={values[item.name as keyof typeof values]}
-            error={errors[item.name as keyof typeof errors]}
-            touched={touched[item.name as keyof typeof touched]}
-            onChange={handleChange}
-          />
-        </div>
-      ))}
+      <div className='grid  gap-2'>
+        {RegistrationData.map((item, i) => (
+          <div
+            key={i}
+            className={` ${item.type == 'country' || item.type == 'city' || item.type == 'email' ? 'md:col-span-2' : ''}`}
+          >
+            <Input
+              {...item}
+              className=' text-gray-700'
+              value={values[item.name as keyof typeof values]}
+              error={errors[item.name as keyof typeof errors]}
+              touched={touched[item.name as keyof typeof touched]}
+              onChange={handleChange}
+            />
+          </div>
+        ))}
+      </div>
       <div className='flex w-full gap-x-2 items-start'>
-        <div className='flex pt-1'>
+        <div className='flex pt-1 items-center'>
           <input
             type='checkbox'
-            className='flex w-[20px] text-primary bg-primary pt-2'
+            className='flex w-[20px] items-center pt-3 accent-primary'
           />
         </div>
 
-        <p className=' items-center '>
+        <p className=' items-center text-text-light '>
           By signing up, you agree to our
           <span className='text-primary'> Privacy Policy </span> &
           <span className='text-primary'> Terms of Service</span>
@@ -75,12 +80,12 @@ const RegistrationView = () => {
       />
       {/* go to login */}
       <div
-        className='flex gap-x-3  items-end justify-center  lg:absolute text-lg
+        className='flex gap-x-3  items-end justify-center  lg:absolute text-md
        md:top-7  right-20 md:right-40 text-black'
       >
         Already have an Account?
         <span
-          className='text-primary'
+          className='text-primary cursor-pointer'
           onClick={() => router.push(urls.login)}
         >
           Login
