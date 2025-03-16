@@ -58,15 +58,15 @@ const RegistrationView = () => {
           </div>
         ))}
       </div>
-      <div className='flex w-full gap-x-2 items-start'>
-        <div className='flex pt-1 items-center'>
-          <input
-            type='checkbox'
-            className='flex w-[20px] items-center pt-3 accent-primary'
-          />
-        </div>
+      <div className='flex w-full gap-x-2 items-center'>
+        {/* <div className='flex pt-1 items-center'> */}
+        <input
+          type='checkbox'
+          className='flex w-[20px]  accent-primary border border-black '
+        />
+        {/* </div> */}
 
-        <p className=' items-center text-text-light '>
+        <p className='text-text-light '>
           By signing up, you agree to our
           <span className='text-primary'> Privacy Policy </span> &
           <span className='text-primary'> Terms of Service</span>
