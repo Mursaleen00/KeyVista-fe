@@ -1,9 +1,6 @@
 // src/Components/inputs/input.tsx
 'use client';
 
-// Lib import
-import { cn } from '@/lib/cn-utils';
-
 // React import
 import React, { Fragment, useState } from 'react';
 // import { useTranslation } from 'react-i18next';
@@ -31,9 +28,6 @@ const Input = ({
   // is Error
   const isError = error && touched;
 
-  // Translation
-  // const { t } = useTranslation();
-
   return (
     // Label
     <label
@@ -48,16 +42,7 @@ const Input = ({
       )}
       {/* Cn  */}
       <div
-        className={cn(
-          'w-full ',
-          'bg-white',
-          'border !border-border',
-          'rounded-xl shadow-box-shadow',
-          'pr-3',
-          'flex justify-between items-center',
-          className,
-          isError && '!border-red',
-        )}
+        className={`flex justify-between items-center w-full bg-white border !border-border rounded-xl shadow-box-shadow pr-3 ${className} ${isError && `!border-red`}`}
       >
         {/* Input  */}
         <input

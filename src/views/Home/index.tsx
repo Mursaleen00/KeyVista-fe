@@ -2,28 +2,14 @@ import Button from '@/components/buttons/button';
 import PropertyByCityCard from '@/components/cards/property-by-city-card';
 import PropertyByCategory from '@/components/common/property-by-category';
 import Title from '@/components/common/title';
+import Footer from '@/components/pages-layouts/footer';
+import RentCard from '@/components/cards/rent-Card';
+import BuyCard from '@/components/cards/buy-card';
+import Paragraph from '@/components/common/paragraph';
 
 const HomeView = () => {
   return (
     <div className='grid '>
-      {/* <div className='w-full flex items-center justify-center h-40 shadow-md rounded-2xl border bg-primary'>
-        primary
-      </div>
-      <div className='w-full flex items-center justify-center h-40 shadow-md rounded-2xl border bg-primary-light'>
-        primary-light
-      </div>
-      <div className='w-full flex items-center justify-center h-40 shadow-md rounded-2xl border bg-text'>
-        text
-      </div>
-      <div className='w-full flex items-center justify-center h-40 shadow-md rounded-2xl border bg-text-light'>
-        text-light
-      </div>
-      <div className='w-full flex items-center justify-center text-white h-40 shadow-md rounded-2xl border bg-heading'>
-        heading
-      </div>
-      <div className='w-full flex items-center justify-center h-40 shadow-md rounded-2xl border bg-red'>
-        red
-      </div> */}
       <PropertyByCategory />
       {/* Browse Properties */}
       <div>
@@ -77,23 +63,30 @@ const HomeView = () => {
           </button>
         </div>
       </div>
-      {/* Browse Properties by city  */}
+      <RentCard />
+      <BuyCard />
 
-      <div className='grid bg-light-SeGreen w-full p-9'>
-        <div>
+      {/* Browse Properties by city  */}
+      <div className='grid bg-light-SeGreen w-full p-9 '>
+        {/* text section */}
+        <div className='grid gap-y-5'>
           <Title text='Browse Properties by city' />
-          <p className='text-text-light px-3'>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry.
-          </p>
+          <Paragraph
+            text='Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry.'
+            className='text-text-light '
+          />
         </div>
+        {/* PropertyByCityCard */}
 
         <PropertyByCityCard />
 
+        {/* button */}
         <div className='flex justify-around'>
           <Button text='Show more' />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -28,8 +28,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
         </div>
       </div>
 
-      <div className='xl:col-span-2 px-6 grid  place-items-center h-full'>
-        <div className='max-w-2xl w-full'>{children}</div>
+      <div className='xl:col-span-2 px-6 grid place-items-center h-full'>
+        <div className='max-w-3xl w-full'>{children}</div>
       </div>
     </div>
   );

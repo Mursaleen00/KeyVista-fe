@@ -20,13 +20,13 @@ export const RegistrationData = [
   {
     label: 'Country',
     type: 'country',
-    placeholder: 'Country name ',
+    placeholder: ' Enter Country Name ',
     name: 'country',
   },
   {
     label: 'City',
     type: 'city',
-    placeholder: 'City name',
+    placeholder: 'Enter City Name',
     name: 'city',
   },
 
@@ -39,7 +39,7 @@ export const RegistrationData = [
   {
     label: 'Conform Password',
     type: 'password',
-    placeholder: 'conform Password',
+    placeholder: 'Enter Conform Password',
     name: 'conformPassword',
   },
 ];

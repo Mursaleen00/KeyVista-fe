@@ -32,9 +32,7 @@ const PasswordView = () => {
         height={100}
         className='flex lg:hidden pb-11'
       />
-      <div className='text-3xl '>
-        New <span className='text-black'>Password</span>
-      </div>
+      <div className='text-3xl text-heading'>New Password</div>
       <p className='text-text-light'>
         Enter your new password and remember it.
       </p>

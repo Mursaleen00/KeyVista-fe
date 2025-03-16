@@ -8,6 +8,7 @@ import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import logo from '@/../public/images/logo.png';
+import AuthHeading from '@/components/common/auth-heading';
 
 const initialValues = {
   fullName: '',
@@ -37,9 +38,8 @@ const RegistrationView = () => {
         height={100}
         className='flex lg:hidden pb-11'
       />
-      <div className='text-3xl pb-6 font-semibold'>
-        Register to <span className='text-primary'> Agile </span>Spaces
-      </div>
+      <AuthHeading text='Register to' />
+
       {/* Inputs */}
       <div className='grid  gap-2'>
         {RegistrationData.map((item, i) => (
