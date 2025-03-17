@@ -6,7 +6,10 @@ import Title from './title';
 const PropertyByCategory = () => {
   return (
     <div className='grid '>
-      <Title text='Browse Property by Category' />
+      <Title
+        text='Browse Property by Category'
+        className='px-6'
+      />
       <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-6 gap-5 bg'>
         {propertyByCategoryData.map((item, i) => (
           <div
