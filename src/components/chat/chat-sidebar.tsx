@@ -1,37 +1,25 @@
 'use client';
 import { chatHeads } from '@/constant/chat/chat-heads';
+import { ChatHeadProps } from '@/interfaces/chat.interface';
 import Image from 'next/image';
 import React, { useEffect } from 'react';
 
-interface ChatHead {
-  selectedUser: {
-    id: number;
-    name: string;
-    image: string;
-  };
-  setSelectedUser: React.Dispatch<
-    React.SetStateAction<{
-      id: number;
-      name: string;
-      image: string;
-    }>
-  >;
-}
-
-const ChatSidebar: React.FC<ChatHead> = ({ selectedUser, setSelectedUser }) => {
-  const firstUser = chatHeads[0];
+const ChatSidebar: React.FC<ChatHeadProps> = ({
+  selectedUser,
+  setSelectedUser,
+}) => {
   const isSelected = (id: number) => id == selectedUser.id;
 
-  useEffect(() => {
-    setSelectedUser(firstUser);
-  }, []);
+  useEffect(() => setSelectedUser(chatHeads[0]), []);
 
   return (
-    <div className='hidden md:flex flex-col h-full overflow-y-auto max-h-[60dvh]'>
+    <div
+      className={`${selectedUser.name ? 'hidden md:flex' : 'flex'} flex-col h-full overflow-y-auto max-h-[60dvh]`}
+    >
       {chatHeads.map(chatHead => (
         <div
           key={chatHead.id}
-          className={`px-6 py-4 rounded-2xl w-full flex items-center gap-x-4 cursor-pointer ${isSelected(chatHead.id) ? 'bg-primary-light' : ''}`}
+          className={`px-6 py-4 rounded-2xl w-full flex items-center gap-x-4 cursor-pointer ${isSelected(chatHead.id) && 'bg-primary-light'}`}
           onClick={() => setSelectedUser(chatHead)}
         >
           <Image
@@ -49,7 +37,7 @@ const ChatSidebar: React.FC<ChatHead> = ({ selectedUser, setSelectedUser }) => {
               </span>
             </h3>
             <p
-              className={`text-text-light text-sm line-clamp-1 ${isSelected(chatHead.id) ? 'font-medium' : ''}`}
+              className={`text-text-light text-sm line-clamp-1 ${isSelected(chatHead.id) && 'font-medium'}`}
             >
               {chatHead.message}
             </p>
