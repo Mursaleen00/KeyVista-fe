@@ -8,7 +8,8 @@
     "validate": "pnpm format & pnpm lint & pnpm build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\""
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
+    "prepare": "husky"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
