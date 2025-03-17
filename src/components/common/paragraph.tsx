@@ -5,13 +5,13 @@ interface Props {
   className?: string;
 }
 
-const Title: React.FC<Props> = ({ text, className }) => (
+const Paragraph: React.FC<Props> = ({ text, className }) => (
   <p
-    className={`text-black text-2xl  font-semibold  
+    className={`text-text-light text-sm  
     ${className}`}
   >
     {text}
   </p>
 );
 
-export default Title;
+export default Paragraph;

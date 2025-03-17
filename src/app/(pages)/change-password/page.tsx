@@ -1,4 +1,4 @@
-import ChangePasswordView from '@/views/change-password';
+import ChangePasswordView from '@/views/Change Password';
 import React from 'react';
 
 const ChangePasswordPage = () => {

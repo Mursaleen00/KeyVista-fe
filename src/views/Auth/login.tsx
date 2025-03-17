@@ -8,6 +8,7 @@ import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import logo from '@/../public/images/logo.png';
+import AuthHeading from '@/components/common/auth-heading';
 
 const initialValues = {
   email: '',
@@ -23,7 +24,7 @@ const LoginView = () => {
   });
   const { values, errors, touched, handleChange, handleSubmit } = formik;
   return (
-    <div className='space-y-3'>
+    <div className=' grid w-full   gap-y-5 p-4 mt-40 lg:mt-0'>
       <Image
         src={logo}
         alt='logo'
@@ -31,9 +32,11 @@ const LoginView = () => {
         height={100}
         className='flex lg:hidden absolute top-10 left-10'
       />
-      <div className='text-3xl pb-6 font-semibold'>
-        Log in to <span className='text-primary'> Agile </span>Spaces
-      </div>
+      <AuthHeading text='Log in to' />
+      {/* <div className='text-2xl pb-6 font-semibold text-text-light'>
+        Log in to <span className='text-primary'> Agile</span>
+        <span>Space</span>
+      </div> */}
 
       {/* Inputs */}
       {LoginData.map((item, i) => (
@@ -53,7 +56,7 @@ const LoginView = () => {
       ))}
 
       <div
-        className='flex w-full items-end justify-end pt-0 text-primary cursor-pointer'
+        className='flex w-full items-end justify-end text-primary cursor-pointer'
         onClick={() => router.push(urls.forgetPassword)}
       >
         Forgot password?
@@ -65,7 +68,7 @@ const LoginView = () => {
         className='flex w-full mt-7'
         onClick={handleSubmit}
       />
-      <div className='flex gap-x-3 items-end justify-center lg:absolute text-sm sm:text-lg md:top-3  right-20 md:right-40 text-black pt-5'>
+      <div className='flex gap-x-3 items-end justify-center lg:absolute text-lg xl:text-xl  md:top-3  right-20 md:right-40 text-black pt-5'>
         New user?
         <span
           className='text-primary cursor-pointer'
