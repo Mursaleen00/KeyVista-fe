@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React from 'react';
 import Button from '@/components/buttons/button';
-import { urls } from '@/constant/urls-data';
+import { urls } from '@/constant/routers-data';
 import { useRouter } from 'next/navigation';
 import notFound from '@/../public/images/not found.jpg';
 import Navbar from '@/components/pages-layouts/navbar';

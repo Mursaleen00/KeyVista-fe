@@ -1,25 +1,23 @@
 'use client';
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
-import { LoginData } from '@/constant/auth/login-data';
 import { urls } from '@/constant/routers-data';
-import { loginSchema } from '@/schema/login-schema';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import logo from '@/../public/images/logo.png';
-import AuthHeading from '@/components/common/auth-heading';
+import { OtpEmailData } from '@/constant/auth/otp-email-data';
+import { OtpEmailSchema } from '@/schema/otp-email-schema';
 
 const initialValues = {
   email: '',
-  password: '',
 };
-const LoginView = () => {
+const OtpEmailView = () => {
   const router = useRouter();
 
   const formik = useFormik({
     initialValues,
-    validationSchema: loginSchema,
+    validationSchema: OtpEmailSchema,
     onSubmit: () => {},
   });
   const { values, errors, touched, handleChange, handleSubmit } = formik;
@@ -32,14 +30,9 @@ const LoginView = () => {
         height={100}
         className='flex lg:hidden absolute top-10 left-10'
       />
-      <AuthHeading text='Log in to' />
-      {/* <div className='text-2xl pb-6 font-semibold text-text-light'>
-        Log in to <span className='text-primary'> Agile</span>
-        <span>Space</span>
-      </div> */}
 
       {/* Inputs */}
-      {LoginData.map((item, i) => (
+      {OtpEmailData.map((item, i) => (
         <div
           key={i}
           className='grid  w-full gap-y-5'
@@ -55,16 +48,9 @@ const LoginView = () => {
         </div>
       ))}
 
-      <div
-        className='flex w-full items-end justify-end text-primary cursor-pointer'
-        onClick={() => router.push(urls.otpEmail)}
-      >
-        Forgot password?
-      </div>
-
       {/* button  */}
       <Button
-        text='Login'
+        text='Continue'
         className='flex w-full mt-7'
         onClick={handleSubmit}
       />
@@ -81,4 +67,4 @@ const LoginView = () => {
   );
 };
 
-export default LoginView;
+export default OtpEmailView;

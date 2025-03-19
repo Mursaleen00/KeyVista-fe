@@ -2,7 +2,7 @@
 import logo from '@/../public/images/logo.png';
 import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
 import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
-import { urls } from '@/constant/urls-data';
+import { urls } from '@/constant/routers-data';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';

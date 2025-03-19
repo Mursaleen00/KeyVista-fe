@@ -22,6 +22,7 @@ export const urls = {
   verification: '/verification',
   registration: '/registration ',
   changePassword: '/change-password ',
+  otpEmail: '/otp-email',
 
   //  privacyPolicy
   privatePolicy: '/private-policy ',

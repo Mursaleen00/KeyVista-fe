@@ -2,15 +2,17 @@ import Button from '@/components/buttons/button';
 import PropertyByCityCard from '@/components/cards/property-by-city-card';
 import PropertyByCategory from '@/components/common/property-by-category';
 import Title from '@/components/common/title';
-import Footer from '@/components/pages-layouts/footer';
 import RentCard from '@/components/cards/rent-Card';
 import BuyCard from '@/components/cards/buy-card';
 import Paragraph from '@/components/common/paragraph';
+import Filter from '@/components/common/filter';
 
 const HomeView = () => {
   return (
     <div className='grid '>
       <PropertyByCategory />
+      <Filter />
+
       {/* Browse Properties */}
       <div>
         {/* Text section  */}
@@ -86,7 +88,6 @@ const HomeView = () => {
           <Button text='Show more' />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
