@@ -1,6 +1,6 @@
-import { ChatMRoomProps } from '@/interfaces/chat.interface';
 import Image from 'next/image';
 import React from 'react';
+import { ChatMRoomProps } from '@/interfaces/chat.interface';
 
 import attachmentIcon from '@/../public/icons/attachment.svg';
 import imageIcon from '@/../public/icons/image.svg';
@@ -10,7 +10,9 @@ import threeDotsIcon from '@/../public/icons/three-dots.svg';
 
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
+import { chatMessages } from '@/constant/chat/messages';
 import { FaArrowLeft } from 'react-icons/fa6';
+import Avatar from '../common/avatar';
 import Message from './message';
 
 const ChatRoom: React.FC<ChatMRoomProps> = ({ handleBack, selectedUser }) => {
@@ -21,15 +23,9 @@ const ChatRoom: React.FC<ChatMRoomProps> = ({ handleBack, selectedUser }) => {
         <div className='flex items-center gap-x-4'>
           <FaArrowLeft
             onClick={handleBack}
-            className='cursor-pointer md:hidden'
+            className='cursor-pointer md:hidden min-w-[16px] min-h-[16px] text-heading'
           />
-          <Image
-            alt='profile'
-            src={selectedUser.image || '/'}
-            width={100}
-            height={100}
-            className='rounded-full w-10 h-10'
-          />
+          <Avatar avatar={selectedUser.image} />
           <div>
             <h1 className='text-heading text-sm font-medium line-clamp-1'>
               {selectedUser.name}
@@ -54,14 +50,17 @@ const ChatRoom: React.FC<ChatMRoomProps> = ({ handleBack, selectedUser }) => {
       </div>
 
       {/* Messages */}
-      <div className='p-6 overflow-y-auto h-[40dvh]'>
-        <Message
-          isMyMessage={true}
-          message="Hi! Just a quick check-in. How's everything in the apartment?"
-          name='Wade Warren'
-          timestamp='19 hours ago'
-          profile={selectedUser.image || ''}
-        />
+      <div className='p-6 overflow-y-auto flex flex-col gap-y-6 h-[40dvh]'>
+        {chatMessages.map((message, i) => (
+          <Message
+            key={i}
+            message={message.message ?? ''}
+            name={message.isMyMessage ? 'Me' : selectedUser.name}
+            timestamp={message.timestamp ?? ''}
+            profile={selectedUser.image}
+            isMyMessage={message.isMyMessage ?? false}
+          />
+        ))}
       </div>
 
       {/* Footer */}

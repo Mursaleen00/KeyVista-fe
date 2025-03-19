@@ -1,8 +1,8 @@
 'use client';
 import { chatHeads } from '@/constant/chat/chat-heads';
 import { ChatHeadProps } from '@/interfaces/chat.interface';
-import Image from 'next/image';
 import React, { useEffect } from 'react';
+import Avatar from '../common/avatar';
 
 const ChatSidebar: React.FC<ChatHeadProps> = ({
   selectedUser,
@@ -22,13 +22,7 @@ const ChatSidebar: React.FC<ChatHeadProps> = ({
           className={`px-6 py-4 rounded-2xl w-full flex items-center gap-x-4 cursor-pointer ${isSelected(chatHead.id) && 'bg-primary-light'}`}
           onClick={() => setSelectedUser(chatHead)}
         >
-          <Image
-            alt='profile'
-            src={chatHead.image}
-            width={40}
-            height={40}
-            className='rounded-full w-10 h-10'
-          />
+          <Avatar avatar={chatHead.image} />
           <div className='flex flex-col w-full'>
             <h3 className='font-medium text-heading flex items-center justify-between gap-x-2'>
               <span className='line-clamp-1'>{chatHead.name}</span>

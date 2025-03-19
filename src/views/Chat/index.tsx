@@ -28,10 +28,12 @@ const ChatView = () => {
             selectedUser={selectedUser}
             setSelectedUser={setSelectedUser}
           />
-          <ChatRoom
-            handleBack={handleBack}
-            selectedUser={selectedUser}
-          />
+          {selectedUser.name && (
+            <ChatRoom
+              handleBack={handleBack}
+              selectedUser={selectedUser}
+            />
+          )}
         </div>
       </div>
     </div>
