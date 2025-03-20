@@ -13,8 +13,8 @@ export const NavbarPagesData: PagesT[] = [
   },
   {
     icon: properties.src,
-    name: 'Rent Properties',
-    link: urls.rentProperties,
+    name: 'Properties',
+    link: urls.Properties,
   },
   {
     icon: map.src,

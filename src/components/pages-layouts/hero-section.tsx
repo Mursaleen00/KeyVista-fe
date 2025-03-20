@@ -10,10 +10,10 @@ const HeroSection = () => {
         alt='heroSection'
         width={2000}
         height={600}
-        className='grid  w-full h-[500px]'
+        className='grid w-full h-[400px]'
       />
       <div className='absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-white  justify-center flex flex-col items-center gap-y-7'>
-        <h1 className='flex text-5xl font-bold '>
+        <h1 className='flex text-5xl font-bold md:text-center'>
           Buy, Rent, or Sell Your
           <br /> Property Easily
         </h1>

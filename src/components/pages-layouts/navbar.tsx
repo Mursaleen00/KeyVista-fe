@@ -17,7 +17,7 @@ const Navbar = () => {
 
   const router = useRouter();
   return (
-    <nav className='flex flex-col py-3 justify-center  w-full'>
+    <nav className='flex flex-col pt-5 justify-center  w-full py-5 md:py-0 mt-5'>
       <div className='flex  justify-around items-center w-full'>
         <div className='cursor-pointer'>
           <Image
@@ -52,7 +52,7 @@ const Navbar = () => {
                   alt='icon'
                   width={30}
                   height={10}
-                  className='flex   '
+                  className='flex'
                 />
               </Link>
             </div>
@@ -60,7 +60,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* Second section border  */}
-      <div className='md:flex hidden border border-[#F2F4F7] w-full p-4 mt-5 justify-center items-center  gap-6 cursor-pointer '>
+      <div className='md:flex hidden border border-[#F2F4F7] w-full p-4 mt-3 justify-center items-center  gap-6 cursor-pointer '>
         {NavbarPagesData.map((item, i) => (
           <div
             key={i}

@@ -5,13 +5,11 @@ import Title from '@/components/common/title';
 import RentCard from '@/components/cards/rent-Card';
 import BuyCard from '@/components/cards/buy-card';
 import Paragraph from '@/components/common/paragraph';
-import Filter from '@/components/common/filter';
 
 const HomeView = () => {
   return (
     <div className='grid '>
       <PropertyByCategory />
-      <Filter />
 
       {/* Browse Properties */}
       <div>
@@ -71,7 +69,7 @@ const HomeView = () => {
       {/* Browse Properties by city  */}
       <div className='grid bg-light-SeGreen w-full p-9 '>
         {/* text section */}
-        <div className='grid gap-y-5'>
+        <div className='grid gap-y-5 '>
           <Title text='Browse Properties by city' />
           <Paragraph
             text='Lorem Ipsum is simply dummy text of the printing and typesetting

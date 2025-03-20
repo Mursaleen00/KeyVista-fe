@@ -13,7 +13,9 @@ export const urls = {
   // Properties
   addProperty: '/add-property',
   myProperties: '/my-properties',
-  rentProperties: '/rent-properties ',
+  Properties: '/properties ',
+  rentProperties: '/properties/rent-properties',
+  buyProperties: '/properties/buy-properties',
   propertyDetails: (id: string) => `/property-details/${id}`,
 
   // Authentication
