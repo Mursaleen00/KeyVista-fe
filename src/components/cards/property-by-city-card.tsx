@@ -7,7 +7,7 @@ import React from 'react';
 const PropertyByCityCard = () => {
   return (
     <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-around py-9 gap-6'>
-      <div className=' bg-white w-full rounded-3xl shadow-xl '>
+      <div className=' bg-white w-full rounded-3xl shadow-xl'>
         <Image
           src={building}
           alt=''

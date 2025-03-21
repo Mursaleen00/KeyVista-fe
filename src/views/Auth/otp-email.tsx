@@ -1,7 +1,7 @@
 'use client';
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
-import { urls } from '@/constant/routers-data';
+import { urls } from '@/constant/routes';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -22,7 +22,7 @@ const OtpEmailView = () => {
   });
   const { values, errors, touched, handleChange, handleSubmit } = formik;
   return (
-    <div className=' grid w-full   gap-y-5 p-4 mt-40 lg:mt-0'>
+    <div className=' grid w-full gap-y-5 p-4 mt-40 lg:mt-0'>
       <Image
         src={logo}
         alt='logo'
@@ -31,15 +31,20 @@ const OtpEmailView = () => {
         className='flex lg:hidden absolute top-10 left-10'
       />
 
+      <div className='text-2xl text-heading font-semibold'>Forgot Password</div>
+      <p className='text-text-light'>
+        Enter a email address associated Your account
+      </p>
       {/* Inputs */}
       {OtpEmailData.map((item, i) => (
         <div
           key={i}
-          className='grid  w-full gap-y-5'
+          className='grid w-full gap-y-5'
         >
           <Input
             {...item}
-            className='flex  text-gray-700 p-2'
+            type='email'
+            className='flex text-gray-700 p-2'
             value={values[item.name as keyof typeof values]}
             error={errors[item.name as keyof typeof errors]}
             touched={touched[item.name as keyof typeof touched]}

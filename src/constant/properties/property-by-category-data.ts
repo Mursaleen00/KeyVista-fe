@@ -21,7 +21,7 @@ export const propertyByCategoryData = [
   },
   {
     icon: Accommodation.src,
-    tittle: 'student Accommodation',
+    tittle: 'Student Accommodation',
     text: '100 property',
   },
 ];

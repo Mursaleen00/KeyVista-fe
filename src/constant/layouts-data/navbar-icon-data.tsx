@@ -9,11 +9,11 @@ import favorite from '@/../public/navbar/favorite.svg';
 // import profile from "@/../public/navbarIcon/profile.svg";
 
 import { IconT } from '@/types/navbar-types';
-import { urls } from '../routers-data';
+import { urls } from '../routes';
 
 export const NavbarIconData: IconT[] = [
-  { icon: favorite.src, link: urls.favorite },
-  { icon: notification.src, link: urls.notification },
-  { icon: profile.src, link: urls.notification },
-  { icon: logout.src, link: urls.chat },
+  { icon: favorite.src, link: urls.favorite, name: 'favorite' },
+  { icon: notification.src, link: urls.notification, name: 'notification' },
+  { icon: profile.src, name: 'profile' },
+  { icon: logout.src, link: urls.chat, name: 'logout' },
 ];

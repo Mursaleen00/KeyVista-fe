@@ -8,7 +8,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import logo from '@/../public/images/logo.png';
 import Image from 'next/image';
-import { urls } from '@/constant/routers-data';
+import { urls } from '@/constant/routes';
 
 const initialValues = {
   password: '',

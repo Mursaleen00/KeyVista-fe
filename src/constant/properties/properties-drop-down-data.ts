@@ -1,4 +1,4 @@
-import { urls } from '../routers-data';
+import { urls } from '../routes';
 
 export const PropertiesDropDownData = [
   { text: 'Rent', link: urls.rentProperties },
