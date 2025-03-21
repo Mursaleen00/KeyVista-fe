@@ -8,7 +8,7 @@ export const PasswordData = [
   {
     label: 'Conform Password',
     type: 'password',
-    placeholder: 'Enter conform Password',
+    placeholder: 'Conform New Password',
     name: 'conformPassword',
   },
 ];

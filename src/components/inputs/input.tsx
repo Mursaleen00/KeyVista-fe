@@ -3,15 +3,10 @@
 
 // React import
 import React, { Fragment, useState } from 'react';
-// import { useTranslation } from 'react-i18next';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { InputProps } from '@/interfaces/input-interface';
 
 // Use interface InputProps
-interface InputProps {
-  label?: string;
-  error?: string;
-  touched?: boolean;
-}
 
 const Input = ({
   label,

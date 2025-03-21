@@ -2,8 +2,8 @@
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
 import { LoginData } from '@/constant/auth/login-data';
-import { urls } from '@/constant/urls-data';
-import { loginSchema } from '@/schemas/login-schema';
+import { urls } from '@/constant/routers-data';
+import { loginSchema } from '@/schema/login-schema';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -57,7 +57,7 @@ const LoginView = () => {
 
       <div
         className='flex w-full items-end justify-end text-primary cursor-pointer'
-        onClick={() => router.push(urls.forgetPassword)}
+        onClick={() => router.push(urls.otpEmail)}
       >
         Forgot password?
       </div>
@@ -68,8 +68,8 @@ const LoginView = () => {
         className='flex w-full mt-7'
         onClick={handleSubmit}
       />
-      <div className='flex gap-x-3 items-end justify-center lg:absolute text-lg xl:text-xl  md:top-3  right-20 md:right-40 text-black pt-5'>
-        New user?
+      <div className='flex gap-x-2 items-end justify-center lg:absolute text-lg xl:text-xl  md:top-3  right-20 md:right-40 text-black pt-5'>
+        New User?
         <span
           className='text-primary cursor-pointer'
           onClick={() => router.push(urls.registration)}

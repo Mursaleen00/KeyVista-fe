@@ -1,5 +1,5 @@
 import { PagesT } from '@/types/navbar-types';
-import { urls } from '../urls-data';
+import { urls } from '../routers-data';
 import home from '@/../public/navbar/home.svg';
 import chat from '@/../public/navbar/chat.svg';
 import properties from '@/../public/navbar/properties.svg';
@@ -13,8 +13,8 @@ export const NavbarPagesData: PagesT[] = [
   },
   {
     icon: properties.src,
-    name: 'Rent Properties',
-    link: urls.rentProperties,
+    name: 'Properties',
+    link: urls.Properties,
   },
   {
     icon: map.src,

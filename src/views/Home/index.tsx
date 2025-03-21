@@ -2,7 +2,6 @@ import Button from '@/components/buttons/button';
 import PropertyByCityCard from '@/components/cards/property-by-city-card';
 import PropertyByCategory from '@/components/common/property-by-category';
 import Title from '@/components/common/title';
-import Footer from '@/components/pages-layouts/footer';
 import RentCard from '@/components/cards/rent-Card';
 import BuyCard from '@/components/cards/buy-card';
 import Paragraph from '@/components/common/paragraph';
@@ -11,6 +10,7 @@ const HomeView = () => {
   return (
     <div className='grid '>
       <PropertyByCategory />
+
       {/* Browse Properties */}
       <div>
         {/* Text section  */}
@@ -69,7 +69,7 @@ const HomeView = () => {
       {/* Browse Properties by city  */}
       <div className='grid bg-light-SeGreen w-full p-9 '>
         {/* text section */}
-        <div className='grid gap-y-5'>
+        <div className='grid gap-y-5 '>
           <Title text='Browse Properties by city' />
           <Paragraph
             text='Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -86,7 +86,6 @@ const HomeView = () => {
           <Button text='Show more' />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

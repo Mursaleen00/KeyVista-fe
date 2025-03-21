@@ -1,4 +1,4 @@
-import { propertyByCategoryData } from '@/constant/property-by-category-data';
+import { propertyByCategoryData } from '@/constant/properties/property-by-category-data';
 import Image from 'next/image';
 import React from 'react';
 import Title from './title';
