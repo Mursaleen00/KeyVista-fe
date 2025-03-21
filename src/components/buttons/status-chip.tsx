@@ -1,8 +1,5 @@
 import React from 'react';
-interface Props {
-  text: string;
-  className?: string;
-}
+import { Props } from '@/interfaces/status-chip-interface';
 
 const StatusChip = ({ text, className }: Props) => {
   return (

@@ -1,9 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import Heart from '@/../public/icons/Heart.svg';
-interface Props {
-  className: string;
-}
+import { Props } from '@/interfaces/herat-icon-interface';
 
 const HeartIcon = ({ className }: Props) => {
   return (

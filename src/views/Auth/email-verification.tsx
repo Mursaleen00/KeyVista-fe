@@ -1,24 +1,12 @@
 'use client';
 import Button from '@/components/buttons/button';
-import Input from '@/components/inputs/input';
-import { EmailVerificationData } from '@/constant/auth/email-verification-data';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '@/../public/images/logo.png';
-import { emailVerificationSchema } from '@/schemas/email-verification-schema';
-import { useFormik } from 'formik';
-
-const initialValues = {
-  number: '',
-};
-
+import OTPInput from 'react-otp-input';
 const EmailVerificationView = () => {
-  const formik = useFormik({
-    initialValues,
-    validationSchema: emailVerificationSchema,
-    onSubmit: () => {},
-  });
-  const { values, errors, touched, handleChange, handleSubmit } = formik;
+  const [otp, setOtp] = useState('');
+
   return (
     <div className='grid  w-full gap-y-9 justify-center p-4'>
       <Image
@@ -38,24 +26,20 @@ const EmailVerificationView = () => {
       </div>
 
       {/* Inputs */}
-      <div className='flex flex-wrap gap-2 p-2 justify-center'>
-        {EmailVerificationData.map((item, i) => (
-          <div
-            key={i}
-            className='grid'
-          >
-            {/* {item.data && ''} */}
-            {/* <input> {item.data && ''} </input> */}
-            <Input
-              {...item}
-              value={values[item.name as keyof typeof values]}
-              error={errors[item.name as keyof typeof errors]}
-              touched={touched[item.name as keyof typeof touched]}
-              onChange={handleChange}
-              className='flex text-gray-700 w-[80px] h-[80px] hover:border-primary'
+      <div className='grid justify-center text-black'>
+        <OTPInput
+          value={otp}
+          onChange={setOtp}
+          numInputs={6}
+          renderSeparator={<span className=''></span>}
+          renderInput={props => (
+            <input
+              {...props}
+              className='flex justify-center text-gray-700 hover:border-primary text-center border w-[90px] h-[80px] rounded-lg m-1 py-2 px-9 '
             />
-          </div>
-        ))}
+          )}
+          inputType='number'
+        />
       </div>
 
       <div className='grid items-center justify-items-center gap-y-2 w-full pt-0 '>
@@ -69,7 +53,6 @@ const EmailVerificationView = () => {
       <Button
         text='verify'
         className='flex w-full'
-        onClick={handleSubmit}
       />
     </div>
   );

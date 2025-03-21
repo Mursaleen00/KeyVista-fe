@@ -9,7 +9,7 @@ import favorite from '@/../public/navbar/favorite.svg';
 // import profile from "@/../public/navbarIcon/profile.svg";
 
 import { IconT } from '@/types/navbar-types';
-import { urls } from '../urls-data';
+import { urls } from '../routers-data';
 
 export const NavbarIconData: IconT[] = [
   { icon: favorite.src, link: urls.favorite },

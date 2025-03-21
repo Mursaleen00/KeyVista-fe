@@ -1,14 +1,14 @@
 'use client';
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
-import { PasswordData } from '@/constant/auth/password-data';
-import { passwordSchema } from '@/schemas/password-schema';
+import { PasswordData } from '@/constant/auth/forgot-password-data';
+import { passwordSchema } from '@/schema/forgot-password-schema';
 import { useFormik } from 'formik';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import logo from '@/../public/images/logo.png';
 import Image from 'next/image';
-import { urls } from '@/constant/urls-data';
+import { urls } from '@/constant/routers-data';
 
 const initialValues = {
   password: '',
@@ -32,7 +32,7 @@ const PasswordView = () => {
         height={100}
         className='flex lg:hidden pb-11'
       />
-      <div className='text-3xl text-heading'>New Password</div>
+      <div className='text-2xl text-heading font-semibold '>New Password</div>
       <p className='text-text-light'>
         Enter your new password and remember it.
       </p>

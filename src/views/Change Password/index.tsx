@@ -1,7 +1,7 @@
 import Button from '@/components/buttons/button';
 import Title from '@/components/common/title';
 import Input from '@/components/inputs/input';
-import { ChangePasswordData } from '@/constant/change-password-data';
+import { ChangePasswordData } from '@/constant/common/change-password-data';
 import React from 'react';
 
 const ChangePasswordView = () => {
