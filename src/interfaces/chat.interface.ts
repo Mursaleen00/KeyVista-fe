@@ -12,6 +12,7 @@ export interface ChatHeadProps {
 export interface ChatMRoomProps {
   handleBack: () => void;
   selectedUser: User;
+  handleSend: React.Dispatch<string>;
 }
 
 export interface MessageProps {

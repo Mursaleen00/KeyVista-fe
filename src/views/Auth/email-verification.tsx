@@ -3,7 +3,7 @@ import Button from '@/components/buttons/button';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import logo from '@/../public/images/logo.png';
-import OTPInput from 'react-otp-input';
+import OtpInput from 'react-otp-input';
 const EmailVerificationView = () => {
   const [otp, setOtp] = useState('');
 
@@ -26,18 +26,22 @@ const EmailVerificationView = () => {
       </div>
 
       {/* Inputs */}
-      <div className='grid justify-center text-black'>
-        <OTPInput
+      <div className='grid justify-center'>
+        <OtpInput
           value={otp}
           onChange={setOtp}
           numInputs={6}
-          renderSeparator={<span className=''></span>}
-          renderInput={props => (
-            <input
-              {...props}
-              className='flex justify-center text-gray-700 hover:border-primary text-center border w-[90px] h-[80px] rounded-lg m-1 py-2 px-9 '
-            />
-          )}
+          renderInput={props => <input {...props} />}
+          inputStyle={{
+            width: '54px',
+            height: '54px',
+            margin: '0 0.5rem',
+            fontSize: '1.5rem',
+            borderRadius: '10px',
+            color: '#2C254B',
+            backgroundColor: '#0FA6A214',
+            textAlign: 'center',
+          }}
           inputType='number'
         />
       </div>
