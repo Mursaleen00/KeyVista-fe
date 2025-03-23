@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import StatusChip from '../buttons/status-chip';
+import StatusChip from '../common/status-chip';
 import Title from '../common/title';
 import Paragraph from '../common/paragraph';
 import HeartIcon from '../common/heart-icon';
@@ -30,19 +30,16 @@ const RentCard = () => {
       <div className='relative px-4  pt-4 gap-y-3 grid'>
         <HeartIcon className='absolute top-3 right-3' />
         <Title text='Tha Cozy condo' />
-        <Paragraph
-          text='123 Elm Street, Toronto, ON M5V 1J2'
-          className=''
-        />
-        <p className='text-primary text-2xl items-center flex '>
-          $1,200 <span className='text-text-light text-[15px] '> /month</span>
+        <Paragraph text='123 Elm Street, Toronto, ON M5V 1J2' />
+        <p className='text-primary text-2xl items-center flex'>
+          $1,200 <span className='text-text-light text-[15px]'> /month</span>
         </p>
       </div>
       {/* border */}
-      <div className='border border-border-light  m-4 '></div>
+      <div className='border border-border-light m-4'></div>
       {/* Home information */}
       <div className='flex px-2 sm:px-4 pb-4 gap-4 justify-around items-center'>
-        <div className='flex flex-col sm:flex-row gap-y-2  sm:gap-x-1 items-start sm:items-center text-center justify-center'>
+        <div className='flex flex-col sm:flex-row gap-y-2 sm:gap-x-1 items-start sm:items-center text-center justify-center'>
           <Image
             src={bedrooms}
             alt=''
@@ -53,7 +50,7 @@ const RentCard = () => {
             className='text-heading'
           />
         </div>
-        <div className='flex flex-col sm:flex-row gap-y-2  sm:gap-x-1 items-start sm:items-center'>
+        <div className='flex flex-col sm:flex-row gap-y-2 sm:gap-x-1 items-start sm:items-center'>
           <Image
             src={bathrooms}
             alt=''
@@ -63,7 +60,7 @@ const RentCard = () => {
             className='text-heading'
           />
         </div>
-        <div className='flex flex-col sm:flex-row gap-y-2  sm:gap-x-1 items-start sm:items-center'>
+        <div className='flex flex-col sm:flex-row gap-y-2 sm:gap-x-1 items-start sm:items-center'>
           <Image
             src={HomeSpace}
             alt=''

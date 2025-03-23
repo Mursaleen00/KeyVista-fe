@@ -1,10 +1,12 @@
 export type IconT = {
-  link: string;
+  link?: string;
   icon: string;
+  name: string;
+  width?: object | string;
 };
 
 export type PagesT = {
-  link: string;
+  link?: string;
   name: string;
   icon?: string;
 };

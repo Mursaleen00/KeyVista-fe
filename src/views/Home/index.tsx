@@ -5,11 +5,28 @@ import Title from '@/components/common/title';
 import RentCard from '@/components/cards/rent-Card';
 import BuyCard from '@/components/cards/buy-card';
 import Paragraph from '@/components/common/paragraph';
+import { propertyByCategoryData } from '@/constant/properties/property-by-category-data';
 
 const HomeView = () => {
   return (
-    <div className='grid '>
-      <PropertyByCategory />
+    <div className='grid'>
+      {/* Browse Property by Category */}
+      <div className='grid my-10'>
+        <Title
+          text='Browse Property by Category'
+          className='px-6'
+        />
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-5 w-full '>
+          {propertyByCategoryData.map((item, i) => (
+            <PropertyByCategory
+              key={i}
+              icon={item.icon}
+              tittle={item.tittle}
+              text={item.text}
+            />
+          ))}
+        </div>
+      </div>
 
       {/* Browse Properties */}
       <div>
@@ -62,23 +79,23 @@ const HomeView = () => {
             Rent
           </button>
         </div>
+        <RentCard />
+        <BuyCard />
       </div>
-      <RentCard />
-      <BuyCard />
 
       {/* Browse Properties by city  */}
-      <div className='grid bg-light-SeGreen w-full p-9 '>
+      <div className='grid bg-light-SeGreen w-full p-9'>
         {/* text section */}
-        <div className='grid gap-y-5 '>
+        <div className='grid gap-y-5'>
           <Title text='Browse Properties by city' />
           <Paragraph
             text='Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry.'
-            className='text-text-light '
+            className='text-text-light'
           />
         </div>
-        {/* PropertyByCityCard */}
 
+        {/* PropertyByCityCard */}
         <PropertyByCityCard />
 
         {/* button */}

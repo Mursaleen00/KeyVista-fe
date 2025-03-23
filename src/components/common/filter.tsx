@@ -8,8 +8,6 @@ import Arrow from '@/../public/icons/DownArrow.svg';
 
 const Filter = () => {
   return (
-    // <div className='flex  h-[1000px] bg-primary w-full justify-center items-center'>
-
     <div className='grid  bg-white max-w-4xl p-6 gap-3 rounded-xl m-3 shadow-md z-50'>
       {/* 1st section  */}
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3'>
@@ -107,7 +105,6 @@ const Filter = () => {
         </div>
       </div>
     </div>
-    // </div>
   );
 };
 

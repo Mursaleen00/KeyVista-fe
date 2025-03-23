@@ -1,4 +1,4 @@
-import EmailView from '@/views/Auth/email';
+import EmailView from '@/views/Auth/otp-email';
 import React from 'react';
 
 const EmailPage = () => <EmailView />;
