@@ -1,25 +1,40 @@
+// src/components/pages-layouts/sideBar.tsx
+
 'use client';
-import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
-import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
-import { NavbarProps } from '@/interfaces/navbar-interfaces';
+// Next & React Imports
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
-import Button from '../buttons/button';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { urls } from '@/constant/routes';
 import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
+
+// DropdownMenu package Imports
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+
+// constant Imports
+import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
+import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
+import { urls } from '@/constant/routes';
+
+// interfaces Import
+import { NavbarProps } from '@/interfaces/navbar-interfaces';
+
+// component Import
+import Button from '../buttons/button';
 
 const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
+  //  UseStates
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDropdownIconOpen, setIsDropdownIconOpen] = useState(false);
-
+  // router
   const router = useRouter();
 
+  // isOpen;
   if (!isOpen) return null;
   return (
     <div className='flex flex-col md:hidden'>
-      <div className='flex flex-col md:hidden border border-[#F2F4F7] py-7  w-full mt-5 justify-start items-start  gap-6 cursor-pointer pl-9 '>
+      {/* First Section */}
+      <div className='flex flex-col md:hidden border border-[#F2F4F7] py-7  w-full mt-5 justify-start items-start  gap-6 cursor-pointer pl-9'>
+        {/* Navbar Pages Data  */}
         {NavbarPagesData.map((item, i) => (
           <div
             key={i}
@@ -82,8 +97,9 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
           </div>
         ))}
       </div>
+      {/* Second section */}
       <div className='flex flex-col md:hidden gap-x-4 cursor-pointer pl-7 pt-9 gap-6'>
-        <div className='flex gap-x-3 '>
+        <div className='flex gap-x-3'>
           {NavbarIconData.map((item, i) => (
             <div
               key={i}
@@ -109,7 +125,7 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
                     </button>
                   </DropdownMenu.Trigger>
                   <DropdownMenu.Portal>
-                    <DropdownMenu.Content className='absolute flex flex-col  gap-y-4 -left-24 mt-3  bg-white  shadow-lg rounded-xl p-3 '>
+                    <DropdownMenu.Content className='absolute flex flex-col  gap-y-4 -left-24 mt-3  bg-white  shadow-lg rounded-xl p-3'>
                       <DropdownMenu.Item
                         className='p-2  px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white'
                         onClick={() => router.push(urls.profile)}
@@ -151,6 +167,7 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
           ))}
         </div>
       </div>
+      {/* Button */}
       <div className='flex pl-10 pt-6 items-end justify-start'>
         <Button
           text='Sell a property'

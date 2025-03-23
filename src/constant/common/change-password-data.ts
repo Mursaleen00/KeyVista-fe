@@ -1,3 +1,6 @@
+// src/constant/common/change-password-data.ts
+
+// Export ChangePasswordData
 export const ChangePasswordData = [
   {
     label: 'Enter Old Password',

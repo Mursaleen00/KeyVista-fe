@@ -1,4 +1,8 @@
+// src/components/buttons/button.tsx
+// Interfaces Import
 import { ButtonInterface } from '@/interfaces/button-interface';
+
+// Next & React Imports
 import Image from 'next/image';
 import React from 'react';
 
@@ -11,6 +15,7 @@ const Button = ({
   text,
 }: ButtonInterface) => {
   return (
+    // button
     <button
       type={type}
       onClick={onClick}
@@ -21,6 +26,7 @@ const Button = ({
       } ${className} flex px-11 rounded-lg items-center justify-center w-fit h-11 text-lg`}
     >
       {icon && (
+        // Image
         <Image
           src={icon}
           alt='icon'

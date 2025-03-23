@@ -1,28 +1,46 @@
+// src/app/views/Auth/otp-email.tsx
+
 'use client';
+// components Imports
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
+
+// constants Imports
+import { OtpEmailData } from '@/constant/auth/otp-email-data';
 import { urls } from '@/constant/routes';
+
+// formik Import
 import { useFormik } from 'formik';
+
+// Next Imports
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+
+// Images Import
 import logo from '@/../public/images/logo.png';
-import { OtpEmailData } from '@/constant/auth/otp-email-data';
+
+// schema Import
 import { OtpEmailSchema } from '@/schema/otp-email-schema';
 
+// initialValues
 const initialValues = {
   email: '',
 };
 const OtpEmailView = () => {
+  // router
   const router = useRouter();
 
+  // formik
   const formik = useFormik({
     initialValues,
     validationSchema: OtpEmailSchema,
     onSubmit: () => {},
   });
   const { values, errors, touched, handleChange, handleSubmit } = formik;
+
   return (
-    <div className=' grid w-full gap-y-5 p-4 mt-40 lg:mt-0'>
+    <div className='grid w-full gap-y-5 p-4 mt-40 lg:mt-0'>
+      {/* Image  */}
       <Image
         src={logo}
         alt='logo'
@@ -30,7 +48,7 @@ const OtpEmailView = () => {
         height={100}
         className='flex lg:hidden absolute top-10 left-10'
       />
-
+      {/* heading */}
       <div className='text-2xl text-heading font-semibold'>Forgot Password</div>
       <p className='text-text-light'>
         Enter a email address associated Your account
