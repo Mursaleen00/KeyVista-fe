@@ -1,8 +1,10 @@
 'use client';
-import { useState } from 'react';
-import ChatSidebar from '../../components/chat/chat-sidebar';
-import ChatRoom from '../../components/chat/chat-room';
 import { selectedUserT } from '@/types/chat-selected-user';
+// import { useQueryClient } from '@tanstack/react-query';
+import { useCallback, useState } from 'react';
+import { io } from 'socket.io-client';
+import ChatRoom from '../../components/chat/chat-room';
+import ChatSidebar from '../../components/chat/chat-sidebar';
 
 const ChatView = () => {
   const [selectedUser, setSelectedUser] = useState<selectedUserT>({
@@ -10,6 +12,43 @@ const ChatView = () => {
     name: '',
     image: '',
   });
+  const socketIO = io('http://localhost:3000', {
+    query: { userId: 'your_user_id' },
+  });
+
+  socketIO.on('connect', () => {
+    console.log('Connected to server');
+    socketIO.emit('joinChat', 'chat_id');
+  });
+
+  socketIO.on('receiveMessage', message => {
+    console.log('New message:', message);
+  });
+
+  // const queryClient = useQueryClient();
+
+  const addLastMessage = () => {
+    // queryClient.invalidateQueries({
+    //   queryKey: ['chats-by-id'],
+    //   refetchType: 'all',
+    // });
+    // queryClient.invalidateQueries({
+    //   queryKey: ['chats'],
+    //   refetchType: 'all',
+    // });
+  };
+
+  const onSend = useCallback(
+    (message: string) => {
+      socketIO.emit('sendMessage', {
+        chatId: selectedUser.id,
+        content: message,
+      });
+
+      addLastMessage();
+    },
+    [selectedUser, addLastMessage],
+  );
 
   const handleBack = () => {
     setSelectedUser({
@@ -30,6 +69,7 @@ const ChatView = () => {
           />
           {selectedUser.name && (
             <ChatRoom
+              handleSend={onSend}
               handleBack={handleBack}
               selectedUser={selectedUser}
             />

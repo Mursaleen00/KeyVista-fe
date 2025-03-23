@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import React from 'react';
 import { ChatMRoomProps } from '@/interfaces/chat.interface';
@@ -15,7 +16,12 @@ import { FaArrowLeft } from 'react-icons/fa6';
 import Avatar from '../common/avatar';
 import Message from './message';
 
-const ChatRoom: React.FC<ChatMRoomProps> = ({ handleBack, selectedUser }) => {
+const ChatRoom: React.FC<ChatMRoomProps> = ({
+  handleBack,
+  selectedUser,
+  handleSend,
+}) => {
+  const [message, setMessage] = React.useState('');
   return (
     <div className='lg:col-span-2 flex flex-col justify-between'>
       {/* Header */}
@@ -68,6 +74,8 @@ const ChatRoom: React.FC<ChatMRoomProps> = ({ handleBack, selectedUser }) => {
         <Input
           placeholder='Type your reply'
           className='!border-primary !border-2 !rounded-lg'
+          value={message}
+          onChange={e => setMessage(e.target.value)}
         />
 
         <div className='flex justify-between items-center'>
@@ -92,6 +100,7 @@ const ChatRoom: React.FC<ChatMRoomProps> = ({ handleBack, selectedUser }) => {
             text='Send'
             className='!rounded-xl !h-9 !w-[107px] !text-sm gap-x-2'
             icon={sendIcon}
+            onClick={() => handleSend(message)}
           />
         </div>
       </div>
