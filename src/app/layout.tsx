@@ -1,3 +1,4 @@
+import Providers from '@/providers';
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -17,7 +18,7 @@ export default function RootLayout({
         className={`antialiased`}
         suppressHydrationWarning
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

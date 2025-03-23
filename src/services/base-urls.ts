@@ -1,10 +1,11 @@
 const isLive = true;
 
-const apiUrls = 'https://keyvista-be-production.up.railway.app';
+const apiUrls = process.env.NEXT_PUBLIC_API_BASE_URL as string;
 
 const localhost = 'http://localhost:3000';
 
 const baseUrl = isLive ? apiUrls : localhost;
+
 export const URLS = {
   GET_ME: `${baseUrl}/user/me`,
   PATCH_UPDATE: `${baseUrl}/user/update`,
