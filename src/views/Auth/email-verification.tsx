@@ -3,6 +3,7 @@ import Button from '@/components/buttons/button';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import logo from '@/../public/images/logo.png';
+
 import OtpInput from 'react-otp-input';
 const EmailVerificationView = () => {
   const [otp, setOtp] = useState('');

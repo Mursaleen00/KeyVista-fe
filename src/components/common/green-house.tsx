@@ -18,7 +18,7 @@ const GreenHouse = () => {
           src={whiteLogo}
           alt='whiteLogo'
           width={200}
-          className=' flex absolute top-12 left-10 '
+          className=' flex absolute top-12 left-10'
         />
         <p className='grid absolute bottom-12 left-4 right-4 text-white text-4xl  font-semibold'>
           Lorem Ipsum is simply dummy text of the printing and

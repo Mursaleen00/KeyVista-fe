@@ -2,7 +2,7 @@
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
 import { LoginData } from '@/constant/auth/login-data';
-import { urls } from '@/constant/routers-data';
+import { urls } from '@/constant/routes';
 import { loginSchema } from '@/schema/login-schema';
 import { useFormik } from 'formik';
 import Image from 'next/image';

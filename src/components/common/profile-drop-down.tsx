@@ -10,7 +10,7 @@ import React from 'react';
 // }
 const ProfileDropDown = () => {
   return (
-    <div className='grid bg-white h-fit  rounded-3xl p-5 gap-y-1'>
+    <div className='grid bg-white h-fit rounded-3xl p-5 gap-y-1'>
       {ProfileDropDownData.map((item, i) => (
         <Link
           key={i}
@@ -22,7 +22,6 @@ const ProfileDropDown = () => {
               alt=''
               width={30}
               height={20}
-              className=''
             />
             {item.text}
           </div>
@@ -33,4 +32,3 @@ const ProfileDropDown = () => {
 };
 
 export default ProfileDropDown;
-// : React.FC<props>
