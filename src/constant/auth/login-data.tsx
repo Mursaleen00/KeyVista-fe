@@ -1,3 +1,6 @@
+// src/app/constant/auth/login-data.tsx
+
+// Export LoginData
 export const LoginData = [
   {
     label: 'Email',

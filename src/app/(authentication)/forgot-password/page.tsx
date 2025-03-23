@@ -1,6 +1,11 @@
-import PasswordView from '@/views/Auth/forgot-password';
+// src/app/(authentication)/forgot-password/page.tsx
+
+// View Import
+import ForgotPasswordView from '@/views/Auth/forgot-password';
+
+// React Import
 import React from 'react';
 
-const PasswordPage = () => <PasswordView />;
+const ForgotPasswordPage = () => <ForgotPasswordView />;
 
-export default PasswordPage;
+export default ForgotPasswordPage;

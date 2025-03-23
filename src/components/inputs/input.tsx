@@ -4,6 +4,8 @@
 // React import
 import React, { Fragment, useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
+
+// interface Import
 import { InputProps } from '@/interfaces/input-interface';
 
 // Use interface InputProps
@@ -27,7 +29,7 @@ const Input = ({
     // Label
     <label
       htmlFor='input'
-      className='space-y-1 '
+      className='space-y-1'
     >
       {label && (
         <p className='text-secondary-700 text-sm font-normal capitalize line-clamp-1'>

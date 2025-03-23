@@ -1,10 +1,11 @@
+'use client';
 import Button from '@/components/buttons/button';
+import BuyCard from '@/components/cards/buy-card';
 import PropertyByCityCard from '@/components/cards/property-by-city-card';
+import RentCard from '@/components/cards/rent-Card';
+import Paragraph from '@/components/common/paragraph';
 import PropertyByCategory from '@/components/common/property-by-category';
 import Title from '@/components/common/title';
-import RentCard from '@/components/cards/rent-Card';
-import BuyCard from '@/components/cards/buy-card';
-import Paragraph from '@/components/common/paragraph';
 import { propertyByCategoryData } from '@/constant/properties/property-by-category-data';
 
 const HomeView = () => {

@@ -12,8 +12,6 @@ const config: Config = {
         white: '#FFFFFF',
         light: { SeGreen: '#ECF8F8' },
         border: { DEFAULT: '#E0DEEA', light: '#F2F1F5' },
-
-        // border: '#E0DEEA',
       },
     },
   },

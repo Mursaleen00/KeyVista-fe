@@ -1,4 +1,7 @@
-export const PasswordData = [
+// src/app/constant/auth/forgot-password-data.tsx
+
+// Export ForgotPasswordData
+export const ForgotPasswordData = [
   {
     label: 'Password',
     type: 'password',

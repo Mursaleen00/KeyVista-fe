@@ -1,3 +1,6 @@
+// src/types/navbar-types.ts
+
+// export IconT
 export type IconT = {
   link?: string;
   icon: string;
@@ -5,6 +8,7 @@ export type IconT = {
   width?: object | string;
 };
 
+// export IconT
 export type PagesT = {
   link?: string;
   name: string;
