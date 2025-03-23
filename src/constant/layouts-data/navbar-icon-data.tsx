@@ -1,16 +1,18 @@
+// src/constant/layouts-data/navbar-icon-data.tsx
+
+// Icons Imports
 import profile from '@/../public/navbar/profile.svg';
 import logout from '@/../public/navbar/logout.svg';
 import notification from '@/../public/navbar/notification.svg';
 import favorite from '@/../public/navbar/favorite.svg';
 
-// import favorite from "@/../public/navbarIcon/favorite.svg";
-// import logout from "@/../public/navbarIcon/logout.svg";
-// import notification from "@/../public/navbarIcon/notification.svg";
-// import profile from "@/../public/navbarIcon/profile.svg";
-
+// Types Import
 import { IconT } from '@/types/navbar-types';
+
+// Urls Import
 import { urls } from '../routes';
 
+// NavbarIconData Export
 export const NavbarIconData: IconT[] = [
   { icon: favorite.src, link: urls.favorite, name: 'favorite' },
   { icon: notification.src, link: urls.notification, name: 'notification' },

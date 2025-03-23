@@ -1,15 +1,29 @@
+// src/app/views/Auth/email-verification.tsx
+
 'use client';
+
+// component Import
 import Button from '@/components/buttons/button';
+
+// Next Import
 import Image from 'next/image';
+
+// React Import
 import React, { useState } from 'react';
+
+// Images Import
 import logo from '@/../public/images/logo.png';
+
+//  package OTPInput Import
 import OTPInput from 'react-otp-input';
 
 const EmailVerificationView = () => {
+  // UseState
   const [otp, setOtp] = useState('');
 
   return (
-    <div className='grid  w-full gap-y-9 justify-center p-4'>
+    <div className='grid w-full gap-y-9 justify-center p-4'>
+      {/* Image  */}
       <Image
         src={logo}
         alt='logo'
@@ -17,6 +31,7 @@ const EmailVerificationView = () => {
         height={100}
         className='flex lg:hidden pb-11'
       />
+      {/* heading */}
       <div className='grid gap-y-3'>
         <div className='text-3xl font-semibold'>
           <span>Email</span> verification
@@ -28,6 +43,7 @@ const EmailVerificationView = () => {
 
       {/* Inputs */}
       <div className='grid justify-center text-black'>
+        {/* OTPInput */}
         <OTPInput
           value={otp}
           onChange={setOtp}
@@ -42,7 +58,7 @@ const EmailVerificationView = () => {
           inputType='number'
         />
       </div>
-
+      {/* Timer */}
       <div className='grid items-center justify-items-center gap-y-2 w-full pt-0 '>
         <p>(00:52)</p>
         <p>

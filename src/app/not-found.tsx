@@ -1,14 +1,26 @@
+// src/app/nat-found.tsx
+
 'use client';
+
+// Next & React Imports
 import Image from 'next/image';
-import React from 'react';
-import Button from '@/components/buttons/button';
-import { urls } from '@/constant/routes';
 import { useRouter } from 'next/navigation';
-import notFound from '@/../public/images/not found.jpg';
+import React from 'react';
+
+// Components Imports
+import Button from '@/components/buttons/button';
 import Navbar from '@/components/pages-layouts/navbar';
 
+// Constant Import
+import { urls } from '@/constant/routes';
+
+// Image  Import
+import notFound from '@/../public/images/not found.jpg';
+
 const NotFound = () => {
+  // router
   const router = useRouter();
+
   return (
     <div className='grid items-center justify-items-center w-full'>
       <Navbar />

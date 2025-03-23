@@ -1,10 +1,17 @@
-import { PagesT } from '@/types/navbar-types';
-import { urls } from '../routes';
+// src/constant/layouts-data/navbar-pages-data.tsx
+
+// Images Imports
 import home from '@/../public/navbar/home.svg';
 import chat from '@/../public/navbar/chat.svg';
 import properties from '@/../public/navbar/properties.svg';
 import map from '@/../public/navbar/map.svg';
 
+// Types Import
+import { PagesT } from '@/types/navbar-types';
+
+import { urls } from '../routes';
+
+// Export NavbarPagesData
 export const NavbarPagesData: PagesT[] = [
   {
     icon: home.src,

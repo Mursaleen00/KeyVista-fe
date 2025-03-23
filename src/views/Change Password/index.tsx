@@ -1,15 +1,25 @@
+// src/app/views/Auth/Change-password/index.tsx
+
+// components Imports
 import Button from '@/components/buttons/button';
 import Title from '@/components/common/title';
 import Input from '@/components/inputs/input';
+
+// Constant Import
 import { ChangePasswordData } from '@/constant/common/change-password-data';
+
+// React Import
 import React from 'react';
 
-const ChangePasswordView = () => {
+const ForgotPasswordView = () => {
   return (
     <div className='bg-white shadow-lg p-9 rounded-2xl'>
+      {/* Title */}
       <h1>
         <Title text='Change Password' />
       </h1>
+
+      {/* Password Data */}
       <div className='flex flex-col items-center justify-around w-full border gap-7'>
         {ChangePasswordData.map((item, i) => (
           <div
@@ -19,6 +29,8 @@ const ChangePasswordView = () => {
             <Input {...item} />
           </div>
         ))}
+
+        {/* Button  */}
         <div className='flex items-start justify-start'>
           <Button text='Conform' />
         </div>
@@ -27,4 +39,4 @@ const ChangePasswordView = () => {
   );
 };
 
-export default ChangePasswordView;
+export default ForgotPasswordView;
