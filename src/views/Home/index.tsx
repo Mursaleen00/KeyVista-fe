@@ -1,10 +1,15 @@
-import Button from '@/components/buttons/button';
+// src/app/views/Auth/Home/index.tsx
+
+// components Imports
 import PropertyByCityCard from '@/components/cards/property-by-city-card';
 import PropertyByCategory from '@/components/common/property-by-category';
+import Button from '@/components/buttons/button';
 import Title from '@/components/common/title';
 import RentCard from '@/components/cards/rent-Card';
 import BuyCard from '@/components/cards/buy-card';
 import Paragraph from '@/components/common/paragraph';
+
+// constants Import
 import { propertyByCategoryData } from '@/constant/properties/property-by-category-data';
 
 const HomeView = () => {
@@ -16,7 +21,7 @@ const HomeView = () => {
           text='Browse Property by Category'
           className='px-6'
         />
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-5 w-full '>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-5 w-full'>
           {propertyByCategoryData.map((item, i) => (
             <PropertyByCategory
               key={i}

@@ -12,7 +12,6 @@ const ChatView = () => {
     name: '',
     image: '',
   });
-
   const socketIO = io('http://localhost:3000', {
     query: { userId: 'your_user_id' },
   });

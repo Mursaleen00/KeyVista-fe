@@ -1,4 +1,9 @@
+// src/component/common/auth-heading.tsx
+
+// React Import
 import React from 'react';
+
+// interfaces Import
 import { Props } from '@/interfaces/auth-heading-interface';
 
 const AuthHeading = ({ text, className }: Props) => {

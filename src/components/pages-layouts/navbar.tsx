@@ -1,26 +1,41 @@
+// src/components/pages-layouts/navbar.tsx
+
 'use client';
-import logo from '@/../public/images/logo.png';
-import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
-import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
-import { urls } from '@/constant/routes';
+
+// Next & React Imports
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { HiMenuAlt3 } from 'react-icons/hi';
-import Button from '../buttons/button';
 import React, { useState } from 'react';
-import SideBar from './sideBar';
+
+// DropdownMenu package Import
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
+// Components Imports
+import Button from '../buttons/button';
+import SideBar from './sideBar';
+
+// constant Imports
+import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
+import { urls } from '@/constant/routes';
+import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
+
+// Images Import
+import logo from '@/../public/images/logo.png';
+
 const Navbar = () => {
+  // use states
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownIconOpen, setIsDropdownIconOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  // router
   const router = useRouter();
   return (
     <nav className='flex flex-col pt-5 justify-center  w-full py-5 md:py-0 mt-5'>
-      <div className='flex  justify-around items-center w-full'>
+      {/* First Section */}
+      <div className='flex justify-around items-center w-full'>
+        {/* Logo  */}
         <div className='cursor-pointer'>
           <Image
             src={logo}
@@ -30,6 +45,7 @@ const Navbar = () => {
             onClick={() => router.push(urls.home)}
           />
         </div>
+        {/* Sidebar isOpen Icon */}
         <div data-aos='fade-right'>
           <HiMenuAlt3
             size={30}
@@ -38,12 +54,12 @@ const Navbar = () => {
           />
         </div>
         {/* icon section  */}
-        <div className=' md:flex hidden gap-x-4 cursor-pointer'>
+        <div className='md:flex hidden gap-x-4 cursor-pointer'>
           <Button
             text='Sell a property'
             isOutline
           />
-
+          {/* Navbar Icon Data */}
           {NavbarIconData.map((item, i) => (
             <div
               key={i}
@@ -111,6 +127,7 @@ const Navbar = () => {
       </div>
       {/* Second section border end pages */}
       <div className='md:flex hidden border border-[#F2F4F7] w-full p-4 mt-3 justify-center items-center  gap-6 cursor-pointer'>
+        {/* Navbar Pages Data */}
         {NavbarPagesData.map((item, i) => (
           <div
             key={i}
@@ -137,7 +154,7 @@ const Navbar = () => {
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Portal>
                   <div className='flex p-2'>
-                    <DropdownMenu.Content className='absolute flex flex-col  gap-y-4 -left-16 mt-3  bg-white  shadow-lg rounded-xl p-3 '>
+                    <DropdownMenu.Content className='absolute flex flex-col  gap-y-4 -left-16 mt-3  bg-white  shadow-lg rounded-xl p-3'>
                       <DropdownMenu.Item
                         className='p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white'
                         onClick={() => router.push(urls.rentProperties)}

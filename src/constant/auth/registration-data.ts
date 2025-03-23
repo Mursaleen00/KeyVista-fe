@@ -1,7 +1,10 @@
+// src/app/constant/auth/registration-data.tsx
+
+// Export RegistrationData
 export const RegistrationData = [
   {
     label: 'Full Name',
-    type: ' text',
+    type: 'text',
     placeholder: 'Enter Name',
     name: 'fullName',
   },
@@ -20,7 +23,7 @@ export const RegistrationData = [
   {
     label: 'Country',
     type: 'country',
-    placeholder: ' Enter Country Name ',
+    placeholder: 'Enter Country Name',
     name: 'country',
   },
   {
