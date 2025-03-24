@@ -6,7 +6,7 @@ const config: Config = {
     extend: {
       colors: {
         primary: { DEFAULT: '#0FA6A2', medium: '#E8FFFE', light: '#0FA6A214' },
-        text: { DEFAULT: '#9F9CAD', light: '#6B6681' },
+        text: { DEFAULT: '#9F9CAD', light: '#6B6681', dark: '#2C254B' },
         heading: '#2C254B',
         red: '#F55D5D',
         white: '#FFFFFF',

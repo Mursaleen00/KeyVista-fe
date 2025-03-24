@@ -99,7 +99,7 @@ const Navbar = () => {
                       </DropdownMenu.Item>
                       <DropdownMenu.Item
                         className='-mt-2 p-2  px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
-                        onClick={() => router.push(urls.buyProperties)}
+                        onClick={() => router.push(urls.myProperties)}
                       >
                         My Properties
                       </DropdownMenu.Item>
