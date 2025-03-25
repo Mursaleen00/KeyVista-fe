@@ -14,8 +14,8 @@ export const urls = {
   addProperty: '/add-property',
   myProperties: '/my-properties',
   Properties: '/properties ',
-  rentProperties: '/properties/rent-properties',
-  buyProperties: '/properties/buy-properties',
+  rentProperties: '/rent-properties',
+  buyProperties: 'buy-properties',
   propertyDetails: (id: string) => `/property-details/${id}`,
 
   // Authentication

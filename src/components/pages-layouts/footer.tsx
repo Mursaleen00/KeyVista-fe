@@ -6,17 +6,17 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <div className='flex p-2  sm:p-9 justify-center'>
-      <div className='grid lg:grid-cols-2 grid-cols-1 bg-[#0FA6A2]  justify-items-center rounded-3xl pt-6'>
-        <div className='flex flex-col p-9 text-white gap-y-9'>
+    <div className='flex  pb-20 pt-11 px-5 sm:px-16 justify-center w-full'>
+      <div className='relative grid lg:grid-cols-2 grid-cols-1 bg-[#0FA6A2] justify-items-center rounded-3xl pt-3 w-full lg items-center'>
+        <div className='flex flex-col p-3 sm:px-7 text-white gap-y-4 md:gap-9'>
           <h1 className='flex font-semibold text-2xl'>
             Get Started with your Journey by joining AgileSpace Today !
           </h1>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry
+            Lorem Ipsum is simply dummy text <br />
+            of the printing and typesetting industry
           </p>
-          <div className='flex flex-col sm:flex-row gap-3'>
+          <div className='flex flex-col lg:flex-row gap-3'>
             <Image
               src={googlePlay}
               alt='AppStore'
@@ -31,7 +31,7 @@ const Footer = () => {
             />
           </div>
         </div>
-        <div>
+        <div className='md bottom-0 right-4'>
           <Image
             src={mobile}
             alt='mobile'

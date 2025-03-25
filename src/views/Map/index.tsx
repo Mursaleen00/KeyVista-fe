@@ -1,7 +1,7 @@
-import React from 'react';
+import Map from '@/components/map/map';
 
 const MapView = () => {
-  return <div>MapIndex</div>;
+  return <Map height='100dvh' />;
 };
 
 export default MapView;
