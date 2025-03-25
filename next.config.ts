@@ -1,15 +1,21 @@
 import type { NextConfig } from 'next';
-/** @type {import('next').NextConfig} */
 
 const nextConfig: NextConfig = {
   /* config options here */
-};
-
-export default nextConfig;
-const nextConfigs = {
+  env: {
+    GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
+  },
   images: {
-    domains: ['placehold.co'], // Allowed image domains
+    dangerouslyAllowSVG: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
 };
 
-module.exports = nextConfigs;
+module.exports = nextConfig;
