@@ -5,6 +5,8 @@ import React from 'react';
 import location from '@/../public/icons/location.svg';
 import share from '@/../public/icons/share.svg';
 import Heart from '@/../public/icons/blackHeart.svg';
+import Owner from '@/../public/images/owner.png';
+
 // import blackHouse from '@/../public/images/blackHouse.png';
 // import stairs from '@/../public/images/stairs.png';
 // import TvLaunch from '@/../public/images/TvLaunch.png';
@@ -15,10 +17,12 @@ import Sketch from '@/../public/images/Sketch.png';
 import PropertyFeatures from '@/components/properties/property-features';
 import PropertiesPrice from '@/components/properties/properties-price';
 import FeaturesAmenities from '@/components/properties/features-amenities';
+import Reviews from '@/components/properties/reviews';
+// import Map from '@/components/map/map';
 
 const PropertyDetailsView = () => {
   return (
-    <div className='grid px-4 sm:px-14 py-9 gap-y-4'>
+    <div className='grid px-3 sm:px-9 py-9 gap-y-4'>
       {/* BreadCrumb */}
       <BreadCrumb />
       {/* Title */}
@@ -28,7 +32,7 @@ const PropertyDetailsView = () => {
           className='flex'
         />
         {/* location section */}
-        <div className='flex md:flex-row flex-col md:justify-between gap-4'>
+        <div className='flex md:flex-row flex-col md:justify-between gap-y-4'>
           {/* location */}
           <div className='flex items-start gap-1'>
             <Image
@@ -59,12 +63,13 @@ const PropertyDetailsView = () => {
           </div>
         </div>
       </div>
-      {/* PropertyFeatures & Price */}
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
-        {/* 1st section */}
-        <div className='grid gap-y-12 col-span-2'>
+      {/* more details */}
+      <div className='grid grid-cols-1 xl:grid-cols-3 xl:gap-x-5 gap-y-9 lg:gap-y-0'>
+        {/* 1st section  */}
+        <div className='flex flex-col col-span-2 gap-y-8'>
           <PropertyFeatures />
-          <div className='grid gap-y-7'>
+
+          <div className='grid gap-y-5'>
             <Title text='About This Villa' />
             <p>
               Welcome to this luxurious villa, a perfect blend of elegance and
@@ -78,19 +83,23 @@ const PropertyDetailsView = () => {
               both stylish and welcoming.
             </p>
           </div>
+
+          <FeaturesAmenities />
         </div>
         {/* 2nd section */}
-        <div className='grid col-span-1'>
+        <div className='grid w-full max-w-lg gap-y-6 '>
           <PropertiesPrice />
+          <Reviews />
+          {/* Map */}
+          {/* <div className='grid w-[300px] gap-y-4'>
+            <Title text='Location' />
+            <Map />
+          </div> */}
         </div>
       </div>
 
-      {/* FeaturesAmenities */}
-      <div className='flex '>
-        <FeaturesAmenities />
-      </div>
       {/* Sketch */}
-      <div className='grid pt-7 gap-y-6 '>
+      <div className='grid pt-7 gap-y-6'>
         <Title text='Sketch' />
         <Image
           src={Sketch}
@@ -99,6 +108,21 @@ const PropertyDetailsView = () => {
           className='flex w-full max-w-[600px] md:pl-32'
         />
       </div>
+
+      {/* Owner */}
+      <div className='grid gap-y-7'>
+        <Title text='Owner' />
+        <div className='grid items-center shadow-md w-fit py-4 px-7 justify-center text-center gap-y-3 rounded-2xl sm:ml-10 bg-white'>
+          <Image
+            src={Owner}
+            alt=''
+            width={150}
+          />
+          <Title text='Jhon Doe' />
+          <p className='text-primary text-sm'>+92 398 765 985 </p>
+        </div>
+      </div>
+
       {/* image section */}
       {/* <div className='flex flex-col md:flex-row gap-7 w-full'>
         <Image

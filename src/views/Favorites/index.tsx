@@ -1,10 +1,17 @@
 // src/app/views/Auth/favorites/index.tsx
 
+import RentCard from '@/components/cards/rent-Card';
+import Title from '@/components/common/title';
+
 // React Import
-import React from 'react';
 
 const FavoriteView = () => {
-  return <div>FavoriteIndex</div>;
+  return (
+    <div className='grid p-3 sm:p-12 gap-y-9'>
+      <Title text='Favorite Properties' />
+      <RentCard />
+    </div>
+  );
 };
 
 export default FavoriteView;
