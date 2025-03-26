@@ -5,7 +5,7 @@ import BuyCard from '../cards/buy-card';
 
 const BuyProperties = () => {
   return (
-    <div className='grid  gap-4 px-9'>
+    <div className='grid gap-4 sm:px-9'>
       <div className='grid p-4 gap-4 pt-9'>
         <Title text='Buy Properties' />
         <Paragraph

@@ -16,48 +16,48 @@ const FeaturesAmenities = () => {
   return (
     <div className='grid gap-6'>
       <Title text='Features / Amenities' />
-      <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+      <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-y-4 text-md'>
         <div className='flex gap-x-4'>
           <Image
             src={MountainView}
             alt='MountainView'
           />
-          <p>Mountain View</p>
+          <p>Mountain view</p>
         </div>
         <div className='flex gap-x-4'>
           <Image
             src={AirConditioning}
             alt='AirConditioning'
           />
-          <p>Air Conditioning</p>
+          <p>Air conditioning</p>
         </div>
         <div className='flex gap-x-4'>
           <Image
             src={Smoke}
             alt='Smoke'
           />
-          <p>Smoke</p>
+          <p>Smoke alarm</p>
         </div>
         <div className='flex gap-x-4'>
           <Image
             src={car}
             alt='Car'
           />
-          <p>Car</p>
+          <p>Free parking on premises</p>
         </div>
         <div className='flex gap-x-4'>
           <Image
             src={tv}
             alt='Tv'
           />
-          <p>Tv</p>
+          <p>TV with Apple TV, Netflix</p>
         </div>
         <div className='flex gap-x-4'>
           <Image
             src={HotPot}
             alt='HotPot'
           />
-          <p>HotPot</p>
+          <p>Private hot tub</p>
         </div>
 
         <div className='flex gap-x-4'>
@@ -72,7 +72,7 @@ const FeaturesAmenities = () => {
             src={Ratio}
             alt='Ratio'
           />
-          <p>Ratio</p>
+          <p>Private patio or balcony</p>
         </div>
 
         <div className='flex gap-x-4'>
@@ -80,14 +80,14 @@ const FeaturesAmenities = () => {
             src={carbon}
             alt='carbon'
           />
-          <p>carbon</p>
+          <p>Carbon monoxide alarm</p>
         </div>
         <div className='flex gap-x-4'>
           <Image
             src={ValleyView}
             alt='ValleyView'
           />
-          <p>ValleyView</p>
+          <p>Valley view</p>
         </div>
       </div>
     </div>
