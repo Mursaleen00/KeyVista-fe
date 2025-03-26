@@ -1,4 +1,4 @@
-import PropertyDetailsView from '@/views/Properties/propertyDetails';
+import PropertyDetailsView from '@/views/Properties/property-details';
 
 const RentPropertiesPage = () => <PropertyDetailsView />;
 
