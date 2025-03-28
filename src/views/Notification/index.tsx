@@ -1,7 +1,12 @@
+import ProductCardHorizontal from '@/components/cards/product-card-horizontal';
 import React from 'react';
 
 const NotificationView = () => {
-  return <div>NutificationIndex</div>;
+  return (
+    <div>
+      <ProductCardHorizontal />
+    </div>
+  );
 };
 
 export default NotificationView;
