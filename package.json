@@ -6,7 +6,6 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "validate": "pnpm format & pnpm lint & pnpm build",
-    "yarn-validate": "yarn format & yarn lint & yarn build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
