@@ -1,7 +1,7 @@
-import greenHome from '@/../public/images/greenHome.png';
-import Accommodation from '@/../public/images/Accommodation.png';
-import Apartments from '@/../public/images/Apartments.png';
-import office from '@/../public/images/office.png';
+import Accommodation from '@/../public/icons/accommodation.svg';
+import Apartments from '@/../public/icons/apartments.svg';
+import greenHome from '@/../public/icons/house.svg';
+import office from '@/../public/icons/office.svg';
 
 export const propertyByCategoryData = [
   {
