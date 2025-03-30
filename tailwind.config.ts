@@ -4,8 +4,18 @@ const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
+      backgroundImage: {
+        'footer-gradient': 'linear-gradient(180deg, #25D7D2 0%, #0FA6A2 90.1%)',
+        'profile-gradient':
+          'linear-gradient(215.36deg, #2FE1DD -15.4%, #0FA6A2 90.16%)',
+      },
       colors: {
-        primary: { DEFAULT: '#0FA6A2', medium: '#E8FFFE', light: '#0FA6A214' },
+        primary: {
+          DEFAULT: '#6A4C65', // Dusty Plum
+          medium: '#9E7B8A',
+          normal: '#D29BB0',
+          light: '#D0B4C3',
+        },
         text: {
           DEFAULT: '#9F9CAD',
           light: '#6B6681',
@@ -24,3 +34,4 @@ const config: Config = {
   plugins: [],
 };
 export default config;
+  

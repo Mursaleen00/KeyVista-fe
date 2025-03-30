@@ -3,8 +3,9 @@ import React from 'react';
 import Button from '../buttons/button';
 import Input from '../inputs/input';
 import location from '@/../public/icons/location.svg';
-import FilterSelect from './select';
+// import FilterSelect from './select';
 import Arrow from '@/../public/icons/DownArrow.svg';
+import AllSelect from './select';
 
 const Filter = () => {
   return (
@@ -13,7 +14,7 @@ const Filter = () => {
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3'>
         <div className='col-span-1'>
           {/* <CitySelect /> */}
-          <FilterSelect
+          <AllSelect
             label={'City'}
             placeholder={'Select City'}
             icon={Arrow}
@@ -25,7 +26,7 @@ const Filter = () => {
           />
         </div>
         <div className='md:col-span-2'>
-          <FilterSelect
+          <AllSelect
             label={'Location'}
             placeholder={'Add location'}
             icon={location}
@@ -37,31 +38,35 @@ const Filter = () => {
           />
         </div>
       </div>
-      {/* 2nd section */}
+
       <div className='grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-3 '>
-        <FilterSelect
-          label={'Property'}
-          placeholder={'Select Property Type'}
-          icon={Arrow}
-          options={[
-            { value: 'house', label: 'House' },
-            { value: 'apartment', label: 'Apartment' },
-            { value: 'villa', label: 'Villa' },
-          ]}
-        />
-        <FilterSelect
-          label={'Purpose'}
-          placeholder={'Select Purpose'}
-          icon={Arrow}
-          options={[
-            { value: 'house', label: 'House' },
-            { value: 'apartment', label: 'Apartment' },
-            { value: 'villa', label: 'Villa' },
-          ]}
-        />
+        <div>
+          <AllSelect
+            label={'Property'}
+            placeholder={'Select Property Type'}
+            icon={Arrow}
+            options={[
+              { value: 'house', label: 'House' },
+              { value: 'apartment', label: 'Apartment' },
+              { value: 'villa', label: 'Villa' },
+            ]}
+          />
+        </div>
+        <div>
+          <AllSelect
+            label={'Purpose'}
+            placeholder={'Select Purpose'}
+            icon={Arrow}
+            options={[
+              { value: 'house', label: 'House' },
+              { value: 'apartment', label: 'Apartment' },
+              { value: 'villa', label: 'Villa' },
+            ]}
+          />
+        </div>
 
         <div className=' sm:col-span-2 md:col-span-1'>
-          <FilterSelect
+          <AllSelect
             label={'Beds'}
             placeholder={'Select Beds'}
             icon={Arrow}

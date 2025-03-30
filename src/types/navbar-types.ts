@@ -5,7 +5,8 @@ export type IconT = {
   link?: string;
   icon: string;
   name: string;
-  width?: object | string;
+  width?: number;
+  hight?: number;
 };
 
 // export IconT

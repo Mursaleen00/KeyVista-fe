@@ -23,8 +23,10 @@ const PrivacyPolicyView = () => {
               We may collect personal identification information from users in
               various ways, including but not limited to when users visit our
               app, register on the app, subscribe to newsletters, fill out
-              forms, and in connection with other activities, services,
-              features, or resources we make available
+              forms, and in connection with other activities, services, forms,
+              and in connection with other activities, services, features, or
+              resources we make available features, or resources we make
+              available features, or resources we make available
             </p>
           </li>
           <li></li>
