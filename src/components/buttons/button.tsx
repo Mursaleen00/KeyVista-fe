@@ -21,8 +21,8 @@ const Button = ({
       onClick={onClick}
       className={`${
         isOutline
-          ? 'border border-primary text-primary bg-white shadow-sm shadow-[#25D7D2]'
-          : 'bg-primary text-white shadow-sm shadow-primary hover:bg-[#36b1ad]'
+          ? 'border border-primary text-primary bg-white font-semibold '
+          : 'bg-primary text-white shadow-sm shadow-primary hover:bg-primary-normal '
       } ${className} flex px-11 rounded-lg items-center justify-center w-fit h-11 text-lg`}
     >
       {icon && (

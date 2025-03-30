@@ -14,8 +14,20 @@ import { urls } from '../routes';
 
 // NavbarIconData Export
 export const NavbarIconData: IconT[] = [
-  { icon: favorite.src, link: urls.favorite, name: 'favorite' },
-  { icon: notification.src, link: urls.notification, name: 'notification' },
+  {
+    icon: favorite.src,
+    link: urls.favorite,
+    name: 'favorite',
+    width: 50,
+    hight: 50,
+  },
+  {
+    icon: notification.src,
+    link: urls.notification,
+    name: 'notification',
+    width: 50,
+    hight: 50,
+  },
   { icon: profile.src, name: 'profile' },
-  { icon: logout.src, link: urls.chat, name: 'logout' },
+  { icon: logout.src, link: urls.chat, name: 'logout', width: 30, hight: 40 },
 ];

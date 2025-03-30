@@ -109,14 +109,15 @@ const Navbar = () => {
               ) : (
                 <Link
                   href={item.link || ''}
-                  className='flex gap-x-1'
+                  className='flex gap-x-1 items-center'
                 >
                   {item.icon && (
                     <Image
                       src={item.icon}
                       alt=''
-                      width={50}
-                      height={10}
+                      width={item.width}
+                      height={item.hight}
+                      // className='flex w-full h-full'
                     />
                   )}
                 </Link>
@@ -154,9 +155,9 @@ const Navbar = () => {
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Portal>
                   <div className='flex p-2'>
-                    <DropdownMenu.Content className='absolute flex flex-col  gap-y-4 -left-16 mt-3  bg-white  shadow-lg rounded-xl p-3'>
+                    <DropdownMenu.Content className='absolute flex flex-col gap-y-4 -left-16 mt-3 bg-white shadow-lg rounded-xl p-3'>
                       <DropdownMenu.Item
-                        className='p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white'
+                        className='p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
                         onClick={() => router.push(urls.rentProperties)}
                       >
                         Rent

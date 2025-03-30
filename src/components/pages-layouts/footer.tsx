@@ -7,7 +7,7 @@ import Image from 'next/image';
 const Footer = () => {
   return (
     <div className='flex  pb-20 pt-11 px-5 sm:px-16 justify-center w-full'>
-      <div className='relative grid lg:grid-cols-2 grid-cols-1 bg-[#0FA6A2] justify-items-center rounded-3xl pt-3 w-full lg items-center'>
+      <div className='relative grid lg:grid-cols-2 bg-footer-gradient grid-cols-1 justify-items-center rounded-3xl pt-3 w-full lg items-center'>
         <div className='flex flex-col p-3 sm:px-7 text-white gap-y-4 md:gap-9'>
           <h1 className='flex font-semibold text-2xl'>
             Get Started with your Journey by joining AgileSpace Today !

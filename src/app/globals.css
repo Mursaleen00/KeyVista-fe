@@ -13,10 +13,10 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #25d7d2;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2e817f;
+  background: #0fa6a2;
 }
 /* Input */
 input::-webkit-outer-spin-button,
