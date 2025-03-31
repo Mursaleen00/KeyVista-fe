@@ -12,11 +12,11 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #25d7d2;
+  background: #6a4c65;
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0fa6a2;
+  background: #9e7b8a;
 }
 /* Input */
 input::-webkit-outer-spin-button,
