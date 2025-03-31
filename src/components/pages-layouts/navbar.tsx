@@ -150,7 +150,7 @@ const Navbar = () => {
                         height={10}
                       />
                     )}
-                    <p className='flex text-xl'>{item.name}</p>
+                    <p className='flex text-xl text-text'>{item.name}</p>
                   </button>
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Portal>
@@ -185,7 +185,7 @@ const Navbar = () => {
                     height={10}
                   />
                 )}
-                <p className='flex text-xl'>{item.name}</p>
+                <p className='flex text-xl text-text'>{item.name}</p>
               </Link>
             )}
           </div>
