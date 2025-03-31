@@ -1,7 +1,8 @@
 // src/app/(authentication)/layout.tsx
 
 // Images Imports
-import house from '@/../public/images/bgHouse.png';
+import purpleAuthHouse from '@/../public/new/purpleAuthHouse.png';
+
 import whiteLogo from '@/../public/images/whiteLogo.png';
 
 // Next Import
@@ -16,8 +17,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <div className='relative hidden lg:block'>
         {/* Image */}
         <Image
-          src={house}
-          alt='house'
+          src={purpleAuthHouse}
+          alt='purpleAuthHouse'
           width={400}
           height={100}
           className='flex h-[600px] md:h-screen w-full'

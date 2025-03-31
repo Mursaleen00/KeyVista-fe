@@ -17,7 +17,7 @@ const HomeView = () => {
           text='Browse Property by Category'
           className='px-6'
         />
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-5 w-full '>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-5 w-full'>
           {propertyByCategoryData.map((item, i) => (
             <PropertyByCategory
               key={i}
