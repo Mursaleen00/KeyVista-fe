@@ -10,7 +10,7 @@ import {
 import { useState } from 'react';
 
 import { dummyMarkersData } from '@/constant/map/dummy-markers';
-import { IMapProps } from '@/interfaces/map.interface';
+import { IMapProps } from '@/interfaces/common/map.interface';
 import { TCurrentLocation, TMarkersData } from '@/types/map.type';
 import Image from 'next/image';
 import MarkerIcon from './../../../public/icons/Marker.svg';

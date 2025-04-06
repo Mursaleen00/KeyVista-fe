@@ -31,6 +31,6 @@
     "src/components/cards/property-by-city-card.tsx",
     "src/components/common/profile-drop-down.tsx",
     "src/components/common/select.jsx"
-, "src/constant/cards/rents-buys-cards-data.jsx"  ],
+, "src/constant/cards/rents-buys-cards-data.tsx"  ],
   "exclude": ["node_modules"]
 }

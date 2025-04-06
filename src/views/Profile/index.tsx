@@ -11,6 +11,8 @@ import { ProfileData } from '@/constant/common/profile-data';
 import Input from '@/components/inputs/input';
 import Arrow from '@/../public/icons/DownArrow.svg';
 import AllSelect from '@/components/common/select';
+import Button from '@/components/buttons/button';
+import Edit from '@/../public/icons/edit.svg';
 
 // const initialValues = {
 //   name: '',
@@ -28,21 +30,29 @@ const ProfileView = () => {
   return (
     <div className='grid bg-white shadow-2xl p-4 sm:p-9 rounded-3xl my-16 m-2 sm:m-6 md:mx-16 gap-y-6'>
       {/* Profile section */}
-      <div className='flex sm:flex-row flex-col rounded-3xl bg-profile-gradient w-full p-8 items-center gap-x-8 text-center'>
-        <Image
-          src={profile}
-          alt=''
-          width={150}
-          height={500}
-          className='rounded-full'
-        />
-        <div>
-          <Title
-            text='jhon doe'
-            className='text-white'
+      <div className='flex rounded-3xl bg-profile-gradient w-full p-8 items-center justify-between'>
+        <div className='flex sm:flex-row flex-col items-center gap-x-8 text-center'>
+          <Image
+            src={profile}
+            alt=''
+            width={150}
+            height={500}
+            className='rounded-full'
           />
-          <p className='text-sm text-text-veryLight'>JohnDoe@gmail.com</p>
+          <div>
+            <Title
+              text='jhon doe'
+              className='text-white'
+            />
+            <p className='text-sm text-text-veryLight'>JohnDoe@gmail.com</p>
+          </div>
         </div>
+        <Button
+          text='Edit Profile'
+          isOutline
+          icon={Edit}
+          className='flex gap-x-2 py-7 px-8'
+        />
       </div>
       {/* Input Section */}
       <div className='grid gap-y-5'>
@@ -62,8 +72,8 @@ const ProfileView = () => {
         <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-x-5'>
           <div>
             <AllSelect
-              label={'City'}
-              placeholder={'Select City'}
+              label={'Country'}
+              placeholder={'Select Country'}
               icon={Arrow}
               options={[
                 { value: 'house', label: 'House' },

@@ -3,13 +3,12 @@
 // Images Imports
 import purpleAuthHouse from '@/../public/new/purpleAuthHouse.png';
 
-import whiteLogo from '@/../public/images/whiteLogo.png';
-
 // Next Import
 import Image from 'next/image';
 
 // React Import
 import { ReactNode } from 'react';
+import Logo from '@/components/logo/purple-logo';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -25,12 +24,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
         />
         {/* logo */}
         <div>
-          <Image
-            src={whiteLogo}
-            alt='whiteLogo'
-            width={200}
-            className='flex absolute top-12 left-10'
-          />
+          <div className='flex absolute top-12 left-10'>
+            <Logo WhiteLogo />
+          </div>
           <p className='grid absolute bottom-12 left-4 right-4 text-white text-4xl font-semibold'>
             Lorem Ipsum is simply dummy text of the printing and
           </p>

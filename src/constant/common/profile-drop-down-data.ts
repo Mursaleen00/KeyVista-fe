@@ -1,4 +1,4 @@
-import { urls } from '../routes';
+import { urls } from '../router/routes';
 import profile from '@/../public/images/profile.webp';
 import myProperties from '@/../public/icons/myProperties.svg';
 import changePassword from '@/../public/icons/changePassword.svg';

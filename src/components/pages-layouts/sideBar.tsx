@@ -13,10 +13,10 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 // constant Imports
 import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
 import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
-import { urls } from '@/constant/routes';
+import { urls } from '@/constant/router/routes';
 
 // interfaces Import
-import { NavbarProps } from '@/interfaces/navbar-interfaces';
+import { NavbarProps } from '@/interfaces/common/navbar-interfaces';
 
 // component Import
 import Button from '../buttons/button';

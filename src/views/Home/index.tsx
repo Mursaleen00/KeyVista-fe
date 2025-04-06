@@ -7,6 +7,7 @@ import Title from '@/components/common/title';
 import { CardsData } from '@/constant/cards/rents-buys-cards-data';
 import { propertyByCategoryData } from '@/constant/properties/property-by-category-data';
 import { useState } from 'react';
+import Logo from '@/components/logo/purple-logo';
 
 const HomeView = () => {
   const [selectedTab, setSelectedTab] = useState('all');
@@ -14,7 +15,6 @@ const HomeView = () => {
     selectedTab === 'all'
       ? CardsData
       : CardsData.filter(card => card.category === selectedTab);
-  console.log('🚀 ~ HomeView ~ CardsData:', CardsData);
 
   return (
     <div className='grid'>
@@ -34,6 +34,9 @@ const HomeView = () => {
             />
           ))}
         </div>
+      </div>
+      <div>
+        <Logo />
       </div>
 
       {/* Browse Properties */}
@@ -98,7 +101,7 @@ const HomeView = () => {
       </div>
 
       {/* Browse Properties by city  */}
-      <div className='grid bg-light-SeGreen w-full p-9'>
+      <div className='grid bg-light-SeGreen w-full p-4 sm:p-9 gap-y-9'>
         {/* text section */}
         <div className='grid gap-y-5'>
           <Title text='Browse Properties by city' />
@@ -110,7 +113,13 @@ const HomeView = () => {
         </div>
 
         {/* PropertyByCityCard */}
-        <PropertyByCityCard />
+        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-6'>
+          <PropertyByCityCard
+            icon=''
+            cityName='Karachi'
+            description='Browse 120 Properties'
+          />
+        </div>
 
         {/* button */}
         <div className='flex justify-around'>
