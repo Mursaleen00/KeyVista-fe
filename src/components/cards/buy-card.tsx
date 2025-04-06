@@ -11,7 +11,7 @@ import beautifulHouse from '@/../public/images/beautifulHouse.png';
 
 const BuyCard = () => {
   return (
-    <div className='grid w-fit border border-border rounded-3xl m-2'>
+    <div className='grid w-full border border-border rounded-3xl m-2'>
       {/* Image Section  */}
       <div className='relative'>
         <Image
