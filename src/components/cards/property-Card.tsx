@@ -3,11 +3,12 @@ import React from 'react';
 import StatusChip from '../common/status-chip';
 import Title from '../common/title';
 import Paragraph from '../common/paragraph';
-import HeartIcon from '../common/heart-icon';
 import Bathrooms from '@/../public/icons/bathrooms.svg';
 import Bedrooms from '@/../public/icons/bedrooms.svg';
 import HomeSpace from '@/../public/icons/homeSpace.svg';
 import { CardsInterfaces } from '@/interfaces/properties/cards-interface';
+import Heart from '@/../public/icons/Heart.svg';
+// import PurpleHeart from '@/../public/new/PurpleHeart.png';
 
 const PropertyCard = ({
   icon,
@@ -20,19 +21,36 @@ const PropertyCard = ({
   bathrooms,
   area,
 }: CardsInterfaces) => {
+  // const handleLikeProduct = () => {
+  //   if (!isProductLiked) {
+  //     dispatch(
+  //       addToLikeProduct({
+  //         icon,
+  //         statusChip,
+  //         title,
+  //         location,
+  //         price,
+  //         thumbnail,
+  //         bedrooms,
+  //         bathrooms,
+  //         area,
+  //       }),
+  //     );
+  //   } else {
+  //     dispatch(removeToLikeProduct(id));
+  //   }
+  // };
   return (
     <div className='grid w-full border border-border rounded-3xl m-2'>
       {/* Image Section  */}
       <div className='relative'>
-        {icon && (
-          <Image
-            src={icon}
-            alt='building'
-            width={260}
-            height={10}
-            className='w-full'
-          />
-        )}
+        <Image
+          src={icon || ''}
+          alt='building'
+          width={260}
+          height={10}
+          className='w-full'
+        />
 
         <StatusChip
           text={statusChip}
@@ -41,7 +59,15 @@ const PropertyCard = ({
       </div>
       {/* Properties details section */}
       <div className='relative px-4 pt-4 gap-y-3 grid'>
-        <HeartIcon className='absolute top-3 right-3' />
+        <div
+          className={`absolute top-3 right-3 bg-primary-light w-fit p-3 rounded-full items-center justify-center text-primary`}
+        >
+          <Image
+            src={Heart}
+            alt=''
+          />
+        </div>
+        {/* <HeartIcon className='absolute top-3 right-3' /> */}
         <Title text={title} />
         <Paragraph text={location} />
         <p className='text-primary text-2xl items-center flex'>
