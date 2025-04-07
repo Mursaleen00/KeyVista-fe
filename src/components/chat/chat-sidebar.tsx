@@ -1,6 +1,6 @@
 'use client';
 import { chatHeads } from '@/constant/chat/chat-heads';
-import { ChatHeadProps } from '@/interfaces/chat.interface';
+import { ChatHeadProps } from '@/interfaces/common/chat.interface';
 import React, { useEffect } from 'react';
 import Avatar from '../common/avatar';
 

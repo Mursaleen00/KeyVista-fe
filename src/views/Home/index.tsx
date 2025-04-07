@@ -1,14 +1,21 @@
 'use client';
 import Button from '@/components/buttons/button';
-import BuyCard from '@/components/cards/buy-card';
 import PropertyByCityCard from '@/components/cards/property-by-city-card';
-import RentCard from '@/components/cards/rent-Card';
 import Paragraph from '@/components/common/paragraph';
 import PropertyByCategory from '@/components/common/property-by-category';
 import Title from '@/components/common/title';
+import { CardsData } from '@/constant/cards/rents-buys-cards-data';
 import { propertyByCategoryData } from '@/constant/properties/property-by-category-data';
+import { useState } from 'react';
+import Logo from '@/components/logo/purple-logo';
 
 const HomeView = () => {
+  const [selectedTab, setSelectedTab] = useState('all');
+  const filteredCard =
+    selectedTab === 'all'
+      ? CardsData
+      : CardsData.filter(card => card.category === selectedTab);
+
   return (
     <div className='grid'>
       {/* Browse Property by Category */}
@@ -28,13 +35,14 @@ const HomeView = () => {
           ))}
         </div>
       </div>
+      <div>
+        <Logo />
+      </div>
 
       {/* Browse Properties */}
-      <div>
+      <div className='grid md:px-10 xl:px-16'>
         {/* Text section  */}
         <div className='flex flex-col w-full justify-center pl-4'>
-          {/* <div className='flex flex-col gap-y-2'> */}
-
           <h1 className='text-2xl font-semibold'>Our Work in Action</h1>
           {/* </div> */}
           <div className='flex flex-col gap-y-3 pt-5'>
@@ -50,42 +58,50 @@ const HomeView = () => {
 
         <div className='flex gap-x-4 sm:gap-x-14 justify-start pl-8 py-4 text-text-light'>
           <button
-          // onClick={() => setSelectedTab('all')}
-          // className={` ${
-          //   selectedTab === 'all'
-          //     ? 'text-primary border-b-2 border-b-primary font-semibold '
-          //     : 'border-none'
-          // }`}
+            onClick={() => setSelectedTab('all')}
+            className={` ${
+              selectedTab === 'all'
+                ? 'text-primary border-b-2 border-b-primary font-semibold '
+                : 'border-none'
+            }`}
           >
             All
           </button>
           <button
-          // onClick={() => setSelectedTab('generator')}
-          // className={` ${
-          //   selectedTab === 'generator'
-          //     ? 'text-primary border-b-2 border-b-primary font-semibold pb-[1px]'
-          //     : ' border-none'
-          // } `}
+            onClick={() => setSelectedTab('generator')}
+            className={` ${
+              selectedTab === 'buy'
+                ? 'text-primary border-b-2 border-b-primary font-semibold pb-[1px]'
+                : ' border-none'
+            } `}
           >
             Buy
           </button>
           <button
-          // onClick={() => setSelectedTab('cooling tower')}
-          // className={` ${
-          //   selectedTab === 'cooling tower'
-          //     ? 'text-primary border-b-2 border-b-primary font-semibold'
-          //     : ' border-none'
-          // }`}
+            onClick={() => setSelectedTab('cooling tower')}
+            className={` ${
+              selectedTab === 'rent'
+                ? 'text-primary border-b-2 border-b-primary font-semibold'
+                : ' border-none'
+            }`}
           >
             Rent
           </button>
         </div>
-        <RentCard />
-        <BuyCard />
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  w-full gap-x-0'>
+          {filteredCard.map((item, i) => (
+            <div
+              key={i}
+              className='flex'
+            >
+              {item.component}
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Browse Properties by city  */}
-      <div className='grid bg-light-SeGreen w-full p-9'>
+      <div className='grid bg-light-SeGreen w-full p-4 sm:p-9 gap-y-9'>
         {/* text section */}
         <div className='grid gap-y-5'>
           <Title text='Browse Properties by city' />
@@ -97,7 +113,13 @@ const HomeView = () => {
         </div>
 
         {/* PropertyByCityCard */}
-        <PropertyByCityCard />
+        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-6'>
+          <PropertyByCityCard
+            icon=''
+            cityName='Karachi'
+            description='Browse 120 Properties'
+          />
+        </div>
 
         {/* button */}
         <div className='flex justify-around'>

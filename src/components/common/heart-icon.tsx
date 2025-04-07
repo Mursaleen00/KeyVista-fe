@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import Heart from '@/../public/icons/Heart.svg';
-import { Props } from '@/interfaces/herat-icon-interface';
+import { Props } from '@/interfaces/common/herat-icon-interface';
 
 const HeartIcon = ({ className }: Props) => {
   return (

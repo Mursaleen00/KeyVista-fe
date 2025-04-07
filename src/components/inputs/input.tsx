@@ -6,7 +6,7 @@ import React, { Fragment, useState } from 'react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 // interface Import
-import { InputProps } from '@/interfaces/input-interface';
+import { InputProps } from '@/interfaces/common/input-interface';
 
 // Use interface InputProps
 

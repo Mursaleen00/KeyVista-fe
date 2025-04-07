@@ -9,7 +9,7 @@ import AuthHeading from '@/components/common/auth-heading';
 
 // constant Imports
 import { LoginData } from '@/constant/auth/login-data';
-import { urls } from '@/constant/routes';
+import { urls } from '@/constant/router/routes';
 
 // schema Import
 import { loginSchema } from '@/schema/login-schema';

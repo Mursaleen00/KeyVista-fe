@@ -9,13 +9,33 @@ import Button from '@/components/buttons/button';
 import Image from 'next/image';
 
 // React Import
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // Images Import
 import logo from '@/../public/images/logo.png';
 
 import OtpInput from 'react-otp-input';
 const EmailVerificationView = () => {
+  const [timer, setTimer] = useState(60);
+  const [isActive, setIsActive] = useState(true);
+
+  useEffect(() => {
+    let a: NodeJS.Timeout | null = null;
+    if (isActive && timer > 0) {
+      a = setInterval(() => {
+        setTimer(prev => prev - 1);
+      }, 1000);
+    }
+    return () => {
+      if (a) clearInterval(a);
+    };
+  }, [isActive, timer]);
+
+  const handleResend = () => {
+    setTimer(60);
+    setIsActive(true);
+  };
+
   // UseState
   const [otp, setOtp] = useState('');
 
@@ -53,7 +73,7 @@ const EmailVerificationView = () => {
             fontSize: '1.5rem',
             borderRadius: '10px',
             color: '#2C254B',
-            backgroundColor: '#0FA6A214',
+            backgroundColor: '#D0B4C3',
             textAlign: 'center',
           }}
           inputType='number'
@@ -61,10 +81,19 @@ const EmailVerificationView = () => {
       </div>
       {/* Timer */}
       <div className='grid items-center justify-items-center gap-y-2 w-full pt-0 '>
-        <p>(00:52)</p>
         <p>
-          Did not receive the code?
-          <span className='text-md font-semibold'> Resend Code</span>
+          {timer > 0 ? `(00:${timer < 10 ? `0${timer}` : timer})` : '(00:00)'}
+        </p>
+        <p>
+          Did not receive the code?{' '}
+          <button
+            className='text-md font-semibold'
+            onClick={handleResend}
+            disabled={timer > 0}
+          >
+            {' '}
+            Resend Code
+          </button>
         </p>
       </div>
       {/* button  */}

@@ -12,7 +12,7 @@ import Button from '@/components/buttons/button';
 import Navbar from '@/components/pages-layouts/navbar';
 
 // Constant Import
-import { urls } from '@/constant/routes';
+import { urls } from '@/constant/router/routes';
 
 // Image  Import
 import notFound from '@/../public/images/not found.jpg';
