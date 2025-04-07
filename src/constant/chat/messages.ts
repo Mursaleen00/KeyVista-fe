@@ -1,4 +1,4 @@
-import { MessageProps } from '@/interfaces/chat.interface';
+import { MessageProps } from '@/interfaces/common/chat.interface';
 
 export const chatMessages: Partial<MessageProps>[] = [
   {

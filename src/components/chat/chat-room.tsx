@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import React from 'react';
-import { ChatMRoomProps } from '@/interfaces/chat.interface';
+import { ChatMRoomProps } from '@/interfaces/common/chat.interface';
 
 import attachmentIcon from '@/../public/icons/attachment.svg';
 import imageIcon from '@/../public/icons/image.svg';

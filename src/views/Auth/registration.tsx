@@ -8,7 +8,7 @@ import AuthHeading from '@/components/common/auth-heading';
 
 // constants Imports
 import { RegistrationData } from '@/constant/auth/registration-data';
-import { urls } from '@/constant/routes';
+import { urls } from '@/constant/router/routes';
 
 // schema Import
 import { registrationSchema } from '@/schema/registration-schema';

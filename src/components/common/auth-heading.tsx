@@ -4,7 +4,7 @@
 import React from 'react';
 
 // interfaces Import
-import { Props } from '@/interfaces/auth-heading-interface';
+import { Props } from '@/interfaces/common/auth-heading-interface';
 
 const AuthHeading = ({ text, className }: Props) => {
   return (

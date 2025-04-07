@@ -9,7 +9,7 @@ import map from '@/../public/navbar/map.svg';
 // Types Import
 import { PagesT } from '@/types/navbar-types';
 
-import { urls } from '../routes';
+import { urls } from '../router/routes';
 
 // Export NavbarPagesData
 export const NavbarPagesData: PagesT[] = [

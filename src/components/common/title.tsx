@@ -4,7 +4,7 @@
 import React from 'react';
 
 // interfaces Import
-import { Props } from '@/interfaces/title-interface';
+import { Props } from '@/interfaces/common/title-interface';
 
 const Title: React.FC<Props> = ({ text, className }) => (
   <p className={`text-black text-2xl font-semibold ${className}`}>{text}</p>

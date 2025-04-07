@@ -1,5 +1,4 @@
-//  src/interfaces/properties/button-interface.tsx
-//  src/interfaces/properties/
+//  src/interfaces/properties/property-by-category-interface.tsx
 
 export interface props {
   icon: string;

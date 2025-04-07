@@ -7,7 +7,7 @@ import Input from '@/components/inputs/input';
 
 // constants Imports
 import { OtpEmailData } from '@/constant/auth/otp-email-data';
-import { urls } from '@/constant/routes';
+import { urls } from '@/constant/router/routes';
 
 // formik Import
 import { useFormik } from 'formik';

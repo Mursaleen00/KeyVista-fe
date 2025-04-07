@@ -1,5 +1,5 @@
 'use client';
-import { urls } from '@/constant/routes';
+import { urls } from '@/constant/router/routes';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
