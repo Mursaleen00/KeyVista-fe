@@ -10,7 +10,7 @@ import favorite from '@/../public/navbar/favorite.svg';
 import { IconT } from '@/types/navbar-types';
 
 // Urls Import
-import { urls } from '../routes';
+import { urls } from '../router/routes';
 
 // NavbarIconData Export
 export const NavbarIconData: IconT[] = [

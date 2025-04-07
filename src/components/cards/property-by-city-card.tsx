@@ -1,7 +1,7 @@
 // src/app/components/cards/property-by-city-card.tsx
 
 // Image Import
-import building from '@/../public/images/building.png';
+import { PropertyByCityInterfaces } from '@/interfaces/properties/property-by-city-card-interface';
 
 // Next Import
 import Image from 'next/image';
@@ -9,23 +9,28 @@ import Image from 'next/image';
 // React Import
 import React from 'react';
 
-const PropertyByCityCard = () => {
+const PropertyByCityCard = ({
+  icon,
+  cityName,
+  description,
+}: PropertyByCityInterfaces) => {
   return (
-    <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-around py-9 gap-6'>
-      <div className='bg-white w-full rounded-3xl shadow-xl'>
-        {/* Image */}
+    <div className='grid bg-white w-full rounded-3xl shadow-xl max-w-sm'>
+      {/* Image */}
+      {icon && (
         <Image
-          src={building}
+          src={icon}
           alt=''
-          width={300}
+          width={500}
           height={100}
           className='w-full'
         />
-        {/* Text section */}
-        <div className='p-4'>
-          <h1 className='font-semibold text-xl'>Karachi </h1>
-          <p className='text-text-light'>Browse 250 Properties </p>
-        </div>
+      )}
+
+      {/* Text section */}
+      <div className='p-4'>
+        <h1 className='font-semibold text-xl'>{cityName} </h1>
+        <p className='text-text-light'>{description} </p>
       </div>
     </div>
   );

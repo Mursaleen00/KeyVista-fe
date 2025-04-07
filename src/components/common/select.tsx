@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import Image from 'next/image';
-import { SelectI } from '@/interfaces/select-interface';
+import { SelectI } from '@/interfaces/common/select-interface';
 
 const AllSelect = ({ label, placeholder, icon, options }: SelectI) => {
   const [selected, setSelected] = useState('');

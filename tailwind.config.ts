@@ -5,9 +5,8 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'footer-gradient': 'linear-gradient(180deg, #25D7D2 0%, #0FA6A2 90.1%)',
-        'profile-gradient':
-          'linear-gradient(215.36deg, #2FE1DD -15.4%, #0FA6A2 90.16%)',
+        'footer-gradient': 'linear-gradient(180deg, #D48F9A 0%, #6A4C65 90.1%)',
+        'profile-gradient': 'linear-gradient(180deg, #B87A8C 0%, #6A4C65 100%)',
       },
       colors: {
         primary: {
@@ -34,4 +33,3 @@ const config: Config = {
   plugins: [],
 };
 export default config;
-  

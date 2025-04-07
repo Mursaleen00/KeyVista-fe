@@ -8,7 +8,7 @@ import Input from '@/components/inputs/input';
 
 // constants Imports
 import { ForgotPasswordData } from '@/constant/auth/forgot-password-data';
-import { urls } from '@/constant/routes';
+import { urls } from '@/constant/router/routes';
 
 // schema Import
 import { ForgotPasswordSchema } from '@/schema/forgot-password-schema';

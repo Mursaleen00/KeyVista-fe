@@ -1,5 +1,5 @@
 import React from 'react';
-import { Props } from '@/interfaces/paragraph-interface';
+import { Props } from '@/interfaces/common/paragraph-interface';
 
 const Paragraph: React.FC<Props> = ({ text, className }) => (
   <p

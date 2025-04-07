@@ -1,4 +1,4 @@
-import { MessageProps } from '@/interfaces/chat.interface';
+import { MessageProps } from '@/interfaces/common/chat.interface';
 import moment from 'moment';
 import React from 'react';
 import Avatar from '../common/avatar';

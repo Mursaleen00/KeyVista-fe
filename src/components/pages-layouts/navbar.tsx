@@ -18,11 +18,11 @@ import SideBar from './sideBar';
 
 // constant Imports
 import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
-import { urls } from '@/constant/routes';
+import { urls } from '@/constant/router/routes';
 import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
 
 // Images Import
-import logo from '@/../public/images/logo.png';
+import Logo from '../logo/purple-logo';
 
 const Navbar = () => {
   // use states
@@ -36,7 +36,10 @@ const Navbar = () => {
       {/* First Section */}
       <div className='flex justify-around items-center w-full'>
         {/* Logo  */}
-        <div className='cursor-pointer'>
+        <div>
+          <Logo />
+        </div>
+        {/* <div className='cursor-pointer'>
           <Image
             src={logo}
             alt='logo'
@@ -44,7 +47,7 @@ const Navbar = () => {
             height={100}
             onClick={() => router.push(urls.home)}
           />
-        </div>
+        </div> */}
         {/* Sidebar isOpen Icon */}
         <div data-aos='fade-right'>
           <HiMenuAlt3
@@ -150,7 +153,7 @@ const Navbar = () => {
                         height={10}
                       />
                     )}
-                    <p className='flex text-xl'>{item.name}</p>
+                    <p className='flex text-xl text-text'>{item.name}</p>
                   </button>
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Portal>
@@ -185,7 +188,7 @@ const Navbar = () => {
                     height={10}
                   />
                 )}
-                <p className='flex text-xl'>{item.name}</p>
+                <p className='flex text-xl text-text'>{item.name}</p>
               </Link>
             )}
           </div>

@@ -62,6 +62,9 @@ importers:
       husky:
         specifier: ^9.1.7
         version: 9.1.7
+      libphonenumber-js:
+        specifier: ^1.12.6
+        version: 1.12.6
       lint:
         specifier: ^1.1.2
         version: 1.1.2
