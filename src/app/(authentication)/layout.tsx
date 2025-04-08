@@ -1,14 +1,14 @@
 // src/app/(authentication)/layout.tsx
 
 // Images Imports
-import purpleAuthHouse from '@/../public/new/purpleAuthHouse.png';
+import purpleAuthHouse from '@/../public/images/purpleAuthHouse.png';
 
 // Next Import
 import Image from 'next/image';
 
 // React Import
 import { ReactNode } from 'react';
-import Logo from '@/components/logo/purple-logo';
+import Logo from '@/components/logo/logo';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (

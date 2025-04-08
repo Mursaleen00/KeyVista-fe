@@ -26,6 +26,10 @@ export const urls = {
   changePassword: '/change-password ',
   otpEmail: '/otp-email',
 
+  // Payment
+  success: '/Payment/success',
+  cancel: '/Payment/cancel',
+
   //  privacyPolicy
   privatePolicy: '/private-policy ',
   termsAndConditions: '/terms-and-conditions',
