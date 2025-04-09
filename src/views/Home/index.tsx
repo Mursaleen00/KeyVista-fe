@@ -1,13 +1,13 @@
 'use client';
 import Button from '@/components/buttons/button';
 import PropertyByCityCard from '@/components/cards/property-by-city-card';
+import PropertyCard from '@/components/cards/property-Card';
 import Paragraph from '@/components/common/paragraph';
 import PropertyByCategory from '@/components/common/property-by-category';
 import Title from '@/components/common/title';
 import { CardsData } from '@/constant/cards/rents-buys-cards-data';
 import { propertyByCategoryData } from '@/constant/properties/property-by-category-data';
 import { useState } from 'react';
-import Logo from '@/components/logo/purple-logo';
 
 const HomeView = () => {
   const [selectedTab, setSelectedTab] = useState('all');
@@ -34,9 +34,6 @@ const HomeView = () => {
             />
           ))}
         </div>
-      </div>
-      <div>
-        <Logo />
       </div>
 
       {/* Browse Properties */}
@@ -68,7 +65,7 @@ const HomeView = () => {
             All
           </button>
           <button
-            onClick={() => setSelectedTab('generator')}
+            onClick={() => setSelectedTab('buy')}
             className={` ${
               selectedTab === 'buy'
                 ? 'text-primary border-b-2 border-b-primary font-semibold pb-[1px]'
@@ -78,7 +75,7 @@ const HomeView = () => {
             Buy
           </button>
           <button
-            onClick={() => setSelectedTab('cooling tower')}
+            onClick={() => setSelectedTab('rent')}
             className={` ${
               selectedTab === 'rent'
                 ? 'text-primary border-b-2 border-b-primary font-semibold'
@@ -88,14 +85,21 @@ const HomeView = () => {
             Rent
           </button>
         </div>
+        {/* filteredCard */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  w-full gap-x-0'>
           {filteredCard.map((item, i) => (
-            <div
+            <PropertyCard
               key={i}
-              className='flex'
-            >
-              {item.component}
-            </div>
+              icon={item.icon && ''}
+              title={item.title}
+              location={item.location}
+              thumbnail={item.thumbnail}
+              price={item.price}
+              statusChip={item.statusChip}
+              bathrooms={item.bathrooms}
+              bedrooms={item.bedrooms}
+              area={item.area}
+            />
           ))}
         </div>
       </div>

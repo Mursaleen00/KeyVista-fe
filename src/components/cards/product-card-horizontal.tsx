@@ -7,7 +7,7 @@ import bathrooms from '@/../public/icons/bathrooms.svg';
 import bedrooms from '@/../public/icons/bedrooms.svg';
 import HomeSpace from '@/../public/icons/homeSpace.svg';
 import Paragraph from '../common/paragraph';
-import HeartIcon from '../common/heart-icon';
+// import HeartIcon from '../common/heart-icon';
 import house from '@/../public/images/CardHouse.png';
 
 const ProductCardHorizontal = () => {
@@ -75,9 +75,7 @@ const ProductCardHorizontal = () => {
             />
             <Paragraph text='1213 Rue Papineau, Montreal, QC H2L 3B5' />
           </div>
-          <div className='absolute right-0 top-0'>
-            <HeartIcon />
-          </div>
+          <div className='absolute right-0 top-0'>{/* <HeartIcon /> */}</div>
         </div>
         <div className='grid gap-y-4'>
           {/* Prise And rate */}
