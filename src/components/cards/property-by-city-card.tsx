@@ -10,23 +10,22 @@ import Image from 'next/image';
 import React from 'react';
 
 const PropertyByCityCard = ({
-  icon,
+  thumbnail,
   cityName,
   description,
 }: PropertyByCityInterfaces) => {
   return (
     <div className='grid bg-white w-full rounded-3xl shadow-xl max-w-sm'>
       {/* Image */}
-      {icon && (
+      {thumbnail && (
         <Image
-          src={icon}
+          src={thumbnail}
           alt=''
           width={500}
-          height={100}
+          height={600}
           className='w-full'
         />
       )}
-
       {/* Text section */}
       <div className='p-4'>
         <h1 className='font-semibold text-xl'>{cityName} </h1>

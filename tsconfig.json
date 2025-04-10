@@ -30,7 +30,8 @@
     "src/constant/layouts-data/navbar-icon-data.tsx",
     "src/components/cards/property-by-city-card.tsx",
     "src/components/common/profile-drop-down.tsx",
-    "src/components/common/select.jsx"
-, "src/constant/cards/rents-buys-cards-data.tsx"  ],
+    "src/components/common/select.jsx",
+    "src/constant/cards/rent-buy-cards-data.ts"
+  ],
   "exclude": ["node_modules"]
 }

@@ -4,6 +4,7 @@
 // components Imports
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
+import Logo from '@/components/logo/logo';
 
 // constants Imports
 import { OtpEmailData } from '@/constant/auth/otp-email-data';
@@ -13,11 +14,7 @@ import { urls } from '@/constant/router/routes';
 import { useFormik } from 'formik';
 
 // Next Imports
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-
-// Images Import
-import logo from '@/../public/images/logo.png';
 
 // schema Import
 import { OtpEmailSchema } from '@/schema/otp-email-schema';
@@ -40,14 +37,9 @@ const OtpEmailView = () => {
 
   return (
     <div className='grid w-full gap-y-5 p-4 mt-40 lg:mt-0'>
-      {/* Image  */}
-      <Image
-        src={logo}
-        alt='logo'
-        width={200}
-        height={100}
-        className='flex lg:hidden absolute top-10 left-10'
-      />
+      {/* logo */}
+      <Logo className='flex lg:hidden pb-11' />
+
       {/* heading */}
       <div className='text-2xl text-heading font-semibold'>Forgot Password</div>
       <p className='text-text-light'>
