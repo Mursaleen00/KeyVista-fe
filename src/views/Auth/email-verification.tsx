@@ -5,16 +5,12 @@
 // component Import
 import Button from '@/components/buttons/button';
 
-// Next Import
-import Image from 'next/image';
-
 // React Import
 import React, { useEffect, useState } from 'react';
 
-// Images Import
-import logo from '@/../public/images/logo.png';
-
 import OtpInput from 'react-otp-input';
+import Logo from '@/components/logo/logo';
+
 const EmailVerificationView = () => {
   const [timer, setTimer] = useState(60);
   const [isActive, setIsActive] = useState(true);
@@ -41,14 +37,9 @@ const EmailVerificationView = () => {
 
   return (
     <div className='grid w-full gap-y-9 justify-center p-4'>
-      {/* Image  */}
-      <Image
-        src={logo}
-        alt='logo'
-        width={200}
-        height={100}
-        className='flex lg:hidden pb-11'
-      />
+      {/* logo */}
+      <Logo className='flex lg:hidden pb-11' />
+
       {/* heading */}
       <div className='grid gap-y-3'>
         <div className='text-3xl font-semibold'>

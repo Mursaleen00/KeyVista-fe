@@ -6,6 +6,6 @@ import HomeView from '@/views/Home';
 // React Import
 import React from 'react';
 
-const Home = () => <HomeView />;
+const HomePage = () => <HomeView />;
 
-export default Home;
+export default HomePage;

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import heroHouse from '@/../public/new/heroHouse.png';
+import heroHouse from '@/../public/images/heroHouse.png';
 
 const HeroSection = () => {
   return (

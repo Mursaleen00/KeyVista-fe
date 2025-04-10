@@ -3,6 +3,7 @@
 'use client';
 
 // components Imports
+import Logo from '@/components/logo/logo';
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
 import AuthHeading from '@/components/common/auth-heading';
@@ -18,11 +19,7 @@ import { loginSchema } from '@/schema/login-schema';
 import { useFormik } from 'formik';
 
 // Next Import
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-
-// Image Import
-import logo from '@/../public/images/logo.png';
 
 // initialValues
 const initialValues = {
@@ -44,14 +41,9 @@ const LoginView = () => {
 
   return (
     <div className='grid w-full gap-y-5 p-4 mt-40 lg:mt-0'>
-      {/* Image  */}
-      <Image
-        src={logo}
-        alt='logo'
-        width={200}
-        height={100}
-        className='flex lg:hidden absolute top-10 left-10'
-      />
+      {/* logo */}
+      <Logo className='flex lg:hidden pb-11' />
+
       {/* AuthHeading */}
       <AuthHeading text='Log in to' />
 

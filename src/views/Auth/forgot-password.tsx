@@ -5,6 +5,7 @@
 // components Imports
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
+import Logo from '@/components/logo/logo';
 
 // constants Imports
 import { ForgotPasswordData } from '@/constant/auth/forgot-password-data';
@@ -17,12 +18,8 @@ import { ForgotPasswordSchema } from '@/schema/forgot-password-schema';
 import { useFormik } from 'formik';
 
 // Next & React Import
-import Image from 'next/image';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-
-// Image Import
-import logo from '@/../public/images/logo.png';
 
 // initialValues
 const initialValues = {
@@ -43,13 +40,9 @@ const ForgotPasswordView = () => {
 
   return (
     <div className='grid w-full gap-y-5 p-5'>
-      <Image
-        src={logo}
-        alt='logo'
-        width={200}
-        height={100}
-        className='flex lg:hidden pb-11'
-      />
+      {/* logo */}
+      <Logo className='flex lg:hidden pb-11' />
+
       <div className='text-2xl text-heading font-semibold'>New Password</div>
       <p className='text-text-light'>
         Enter your new password and remember it.

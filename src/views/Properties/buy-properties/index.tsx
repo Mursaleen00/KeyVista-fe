@@ -2,11 +2,12 @@ import PropertyCard from '@/components/cards/property-Card';
 import Paragraph from '@/components/common/paragraph';
 import Title from '@/components/common/title';
 import React from 'react';
-import grayHouse from '@/../public/icons/grayHouse.svg';
+import { BuyPropertyData } from '@/constant/cards/buy-property-data';
 
 const BuyPropertiesIndex = () => {
   return (
     <div className='grid gap-4 sm:px-9'>
+      {/* Text section */}
       <div className='grid p-4 gap-4 pt-9'>
         <Title text='Buy Properties' />
         <Paragraph
@@ -14,73 +15,21 @@ const BuyPropertiesIndex = () => {
           className='flex text-lg'
         />
       </div>
-      <div className='grid lg:grid-cols-4 gap-x-4'>
-        <PropertyCard
-          icon={grayHouse}
-          title='the city card'
-          location='1011 Robson Street, Vancouver, BC V6E 1C2'
-          thumbnail='/mouth'
-          price='$ 8000'
-          statusChip='rent'
-          bathrooms=' 6 bathrooms'
-          bedrooms='5 bedrooms'
-          area='700 SQ.YD'
-        />
-        <PropertyCard
-          icon={grayHouse}
-          title='the city card'
-          location='1011 Robson Street, Vancouver, BC V6E 1C2'
-          thumbnail='/mouth'
-          price='$ 8000'
-          statusChip='rent'
-          bathrooms=' 6 bathrooms'
-          bedrooms='5 bedrooms'
-          area='700 SQ.YD'
-        />
-        <PropertyCard
-          icon={grayHouse}
-          title='the city card'
-          location='1011 Robson Street, Vancouver, BC V6E 1C2'
-          thumbnail='/mouth'
-          price='$ 8000'
-          statusChip='rent'
-          bathrooms=' 6 bathrooms'
-          bedrooms='5 bedrooms'
-          area='700 SQ.YD'
-        />
-        <PropertyCard
-          icon={grayHouse}
-          title='the city card'
-          location='1011 Robson Street, Vancouver, BC V6E 1C2'
-          thumbnail='/mouth'
-          price='$ 8000'
-          statusChip='rent'
-          bathrooms=' 6 bathrooms'
-          bedrooms='5 bedrooms'
-          area='700 SQ.YD'
-        />
-        <PropertyCard
-          icon={grayHouse}
-          title='the city card'
-          location='1011 Robson Street, Vancouver, BC V6E 1C2'
-          thumbnail='/mouth'
-          price='$ 8000'
-          statusChip='rent'
-          bathrooms=' 6 bathrooms'
-          bedrooms='5 bedrooms'
-          area='700 SQ.YD'
-        />
-        <PropertyCard
-          icon={grayHouse}
-          title='the city card'
-          location='1011 Robson Street, Vancouver, BC V6E 1C2'
-          thumbnail='/mouth'
-          price='$ 8000'
-          statusChip='rent'
-          bathrooms=' 6 bathrooms'
-          bedrooms='5 bedrooms'
-          area='700 SQ.YD'
-        />
+      {/* Buy Property */}
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2'>
+        {BuyPropertyData.map((item, i) => (
+          <PropertyCard
+            key={i}
+            thumbnail={item.thumbnail}
+            title={item.title}
+            location={item.location}
+            status={item.status || ''}
+            price={item.price}
+            bathrooms={item.bathrooms}
+            bedrooms={item.bedrooms}
+            area={item.area}
+          />
+        ))}
       </div>
     </div>
   );

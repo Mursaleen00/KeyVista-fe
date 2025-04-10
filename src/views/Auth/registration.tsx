@@ -4,11 +4,12 @@
 // components Imports
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
+import Logo from '@/components/logo/logo';
 import AuthHeading from '@/components/common/auth-heading';
 
 // constants Imports
-import { RegistrationData } from '@/constant/auth/registration-data';
 import { urls } from '@/constant/router/routes';
+import { RegistrationData } from '@/constant/auth/registration-data';
 
 // schema Import
 import { registrationSchema } from '@/schema/registration-schema';
@@ -21,7 +22,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 // Images Imports
-import logo from '@/../public/images/logo.png';
 import profile from '@/../public/images/profile.webp';
 
 // initialValues
@@ -48,14 +48,9 @@ const RegistrationView = () => {
 
   return (
     <div className='grid w-full'>
-      {/* Image */}
-      <Image
-        src={logo}
-        alt='logo'
-        width={200}
-        height={100}
-        className='flex lg:hidden pb-11'
-      />
+      {/* logo */}
+      <Logo className='flex lg:hidden pb-11' />
+
       {/* AuthHeading & Profile */}
       <div className='flex flex-col md:flex-row items-center justify-between'>
         <AuthHeading

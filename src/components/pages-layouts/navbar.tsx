@@ -22,7 +22,7 @@ import { urls } from '@/constant/router/routes';
 import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
 
 // Images Import
-import Logo from '../logo/purple-logo';
+import Logo from '../logo/logo';
 
 const Navbar = () => {
   // use states
