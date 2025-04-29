@@ -1,0 +1,48 @@
+import house from '@/../public/images/CardHouse.png';
+
+export const MyPropertiesData = [
+  {
+    thumbnail: house.src,
+    washRoom: 'https://placehold.co/600x600/png',
+    tvLaunch: 'https://placehold.co/600x600/png',
+    lounge: 'https://placehold.co/600x600/png',
+    kitchen: 'https://placehold.co/600x600/png',
+    location: '1213 Rue Papineau, Montreal, QC H2L 3B5',
+    posted: 'May 08',
+    title: 'Arabian Villas',
+    price: '$ 1,050',
+  },
+  {
+    thumbnail: house.src,
+    washRoom: 'https://placehold.co/600x600/png',
+    tvLaunch: 'https://placehold.co/600x600/png',
+    lounge: 'https://placehold.co/600x600/png',
+    kitchen: 'https://placehold.co/600x600/png',
+    location: '1213 Rue Papineau, Montreal, QC H2L 3B5',
+    posted: 'May 08',
+    title: 'Arabian Villas',
+    price: '$ 1,050',
+  },
+  {
+    thumbnail: house.src,
+    washRoom: 'https://placehold.co/600x600/png',
+    tvLaunch: 'https://placehold.co/600x600/png',
+    lounge: 'https://placehold.co/600x600/png',
+    kitchen: 'https://placehold.co/600x600/png',
+    location: '1213 Rue Papineau, Montreal, QC H2L 3B5',
+    posted: 'May 08',
+    title: 'Arabian Villas',
+    price: '$ 1,050',
+  },
+  {
+    thumbnail: house.src,
+    washRoom: 'https://placehold.co/600x600/png',
+    tvLaunch: 'https://placehold.co/600x600/png',
+    lounge: 'https://placehold.co/600x600/png',
+    kitchen: 'https://placehold.co/600x600/png',
+    location: '1213 Rue Papineau, Montreal, QC H2L 3B5',
+    posted: 'May 08',
+    title: 'Arabian Villas',
+    price: '$ 1,050',
+  },
+];

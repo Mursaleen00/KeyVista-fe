@@ -33,7 +33,7 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
   return (
     <div className='flex flex-col md:hidden'>
       {/* First Section */}
-      <div className='flex flex-col md:hidden border border-[#F2F4F7] py-7  w-full mt-5 justify-start items-start  gap-6 cursor-pointer pl-9'>
+      <div className='flex flex-col md:hidden border border-[#F2F4F7] py-7 w-full mt-5 justify-start items-start gap-6 cursor-pointer pl-9'>
         {/* Navbar Pages Data  */}
         {NavbarPagesData.map((item, i) => (
           <div

@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`antialiased scroll-smooth ${inter.className} `}
+        className={`scroll-smooth ${inter.className} flex  pt-36`}
         suppressHydrationWarning
       >
         <Providers>{children}</Providers>
