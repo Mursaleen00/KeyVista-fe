@@ -32,9 +32,12 @@ const Navbar = () => {
   // router
   const router = useRouter();
   return (
-    <nav className='flex flex-col pt-5 justify-center  w-full py-5 md:py-0 mt-5'>
+    <nav
+      className='flex flex-col justify-center w-full py-5 md:py-0  border-b md:border-none border-border top-0 fixed
+     bg-white'
+    >
       {/* First Section */}
-      <div className='flex justify-around items-center w-full'>
+      <div className='flex justify-around items-center w-full pt-5'>
         {/* Logo  */}
         <div>
           <Logo />
@@ -66,7 +69,7 @@ const Navbar = () => {
           {NavbarIconData.map((item, i) => (
             <div
               key={i}
-              className='flex relative border-white border'
+              className='flex relative'
             >
               {/* Properties Drop down */}
               {item.name === 'profile' ? (
@@ -130,12 +133,12 @@ const Navbar = () => {
         </div>
       </div>
       {/* Second section border end pages */}
-      <div className='md:flex hidden border border-[#F2F4F7] w-full p-4 mt-3 justify-center items-center  gap-6 cursor-pointer'>
+      <div className='md:flex hidden border border-text w-full p-4 mt-3 justify-center items-center  gap-6 cursor-pointer'>
         {/* Navbar Pages Data */}
         {NavbarPagesData.map((item, i) => (
           <div
             key={i}
-            className='flex relative border-white border'
+            className='flex relative'
           >
             {/* Properties Drop down */}
             {item.name === 'Properties' ? (
@@ -144,7 +147,7 @@ const Navbar = () => {
                 onOpenChange={setIsDropdownOpen}
               >
                 <DropdownMenu.Trigger asChild>
-                  <button className='flex items-center gap-x-1'>
+                  <button className='flex items-center gap-x-1 z-50'>
                     {item.icon && (
                       <Image
                         src={item.icon}

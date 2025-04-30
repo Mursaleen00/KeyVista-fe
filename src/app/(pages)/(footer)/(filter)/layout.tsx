@@ -6,7 +6,7 @@ const layout = ({ children }: { children: ReactNode }) => {
   return (
     <div>
       <HeroSection />
-      <div className='flex justify-center -mt-20'>
+      <div className='flex justify-center -mt-16'>
         <Filter />
       </div>
       {children}

@@ -1,11 +1,7 @@
-// src/app/(pages)/home/page.tsx
+// src/app/(authentication)/page.tsx
 
-// view Import
+// HomeView Import
 import HomeView from '@/views/Home';
 
-// React Import
-import React from 'react';
-
 const HomePage = () => <HomeView />;
-
 export default HomePage;

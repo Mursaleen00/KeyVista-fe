@@ -1,6 +1,5 @@
 'use client';
 import { selectedUserT } from '@/types/chat-selected-user';
-// import { useQueryClient } from '@tanstack/react-query';
 import { useCallback, useState } from 'react';
 import { io } from 'socket.io-client';
 import ChatRoom from '../../components/chat/chat-room';
@@ -24,8 +23,6 @@ const ChatView = () => {
   socketIO.on('receiveMessage', message => {
     console.log('New message:', message);
   });
-
-  // const queryClient = useQueryClient();
 
   const addLastMessage = () => {
     // queryClient.invalidateQueries({

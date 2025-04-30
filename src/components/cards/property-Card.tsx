@@ -8,9 +8,7 @@ import Bathrooms from '@/../public/icons/bathrooms.svg';
 import Bedrooms from '@/../public/icons/bedrooms.svg';
 import HomeSpace from '@/../public/icons/homeSpace.svg';
 import { CardsInterfaces } from '@/interfaces/properties/cards-interface';
-import { useState } from 'react';
-import { IoMdHeartEmpty } from 'react-icons/io';
-import { GoHeartFill } from 'react-icons/go';
+import HeartIcon from '../common/heart-icon';
 
 const PropertyCard = ({
   duration,
@@ -23,8 +21,6 @@ const PropertyCard = ({
   bathrooms,
   area,
 }: CardsInterfaces) => {
-  const [liked, setLiked] = useState(false);
-
   return (
     <div className='grid w-full border border-border rounded-3xl'>
       {/* Image Section  */}
@@ -44,14 +40,14 @@ const PropertyCard = ({
       </div>
       {/* Properties details section */}
       <div className='relative px-4 pt-4 gap-y-3 grid'>
-        <button
+        {/* <button
           onClick={() => setLiked(!liked)}
           className={`absolute top-3 right-3 bg-primary-light w-fit p-3 rounded-full items-center 
             justify-center text-primary`}
         >
           {liked ? <GoHeartFill /> : <IoMdHeartEmpty />}
-        </button>
-        {/* <HeartIcon className='absolute top-3 right-3' /> */}
+        </button> */}
+        <HeartIcon />
         <Title text={title} />
         <Paragraph text={location} />
         <p className='text-primary text-2xl items-center flex'>

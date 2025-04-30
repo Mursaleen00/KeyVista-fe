@@ -3,13 +3,12 @@ import React from 'react';
 import Button from '../buttons/button';
 import Input from '../inputs/input';
 import location from '@/../public/icons/location.svg';
-// import FilterSelect from './select';
 import Arrow from '@/../public/icons/DownArrow.svg';
 import AllSelect from './select';
 
 const Filter = () => {
   return (
-    <div className='grid  bg-white max-w-4xl p-6 gap-3 rounded-xl m-3 shadow-md z-50'>
+    <div className='grid bg-white max-w-4xl p-6 gap-3 rounded-xl m-3 shadow-md'>
       {/* 1st section  */}
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3'>
         <div className='col-span-1'>
@@ -39,7 +38,7 @@ const Filter = () => {
         </div>
       </div>
 
-      <div className='grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-3 '>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3'>
         <div>
           <AllSelect
             label={'Property'}
@@ -65,7 +64,7 @@ const Filter = () => {
           />
         </div>
 
-        <div className=' sm:col-span-2 md:col-span-1'>
+        <div className='sm:col-span-2 md:col-span-1'>
           <AllSelect
             label={'Beds'}
             placeholder={'Select Beds'}
