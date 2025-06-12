@@ -9,7 +9,7 @@ const HeartIcon = () => {
   return (
     <button
       onClick={() => setLiked(!liked)}
-      className={`absolute top-3 right-3 bg-primary-light w-fit p-3 rounded-full items-center 
+      className={`bg-primary-light w-fit p-3 rounded-full items-center 
                 justify-center text-primary`}
     >
       {liked ? <GoHeartFill /> : <IoMdHeartEmpty />}
