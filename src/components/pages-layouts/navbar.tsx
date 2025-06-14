@@ -33,24 +33,19 @@ const Navbar = () => {
   const router = useRouter();
   return (
     <nav
-      className='flex flex-col justify-center w-full py-5 md:py-0  border-b md:border-none border-border top-0 fixed
+      className='flex flex-col w-full py-5 md:py-0 border-b md:border-none border-border sticky top-0
      bg-white'
     >
       {/* First Section */}
       <div className='flex justify-around items-center w-full pt-5'>
         {/* Logo  */}
-        <div>
+        <div
+          className='cursor-pointer'
+          onClick={() => router.push(urls.home)}
+        >
           <Logo />
         </div>
-        {/* <div className='cursor-pointer'>
-          <Image
-            src={logo}
-            alt='logo'
-            width={150}
-            height={100}
-            onClick={() => router.push(urls.home)}
-          />
-        </div> */}
+
         {/* Sidebar isOpen Icon */}
         <div data-aos='fade-right'>
           <HiMenuAlt3
@@ -123,7 +118,6 @@ const Navbar = () => {
                       alt=''
                       width={item.width}
                       height={item.hight}
-                      // className='flex w-full h-full'
                     />
                   )}
                 </Link>
@@ -133,7 +127,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* Second section border end pages */}
-      <div className='md:flex hidden border border-text w-full p-4 mt-3 justify-center items-center  gap-6 cursor-pointer'>
+      <div className='md:flex hidden border-t border-text w-full p-4 mt-3 justify-center items-center gap-6 cursor-pointer'>
         {/* Navbar Pages Data */}
         {NavbarPagesData.map((item, i) => (
           <div

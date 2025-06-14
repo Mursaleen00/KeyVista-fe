@@ -21,10 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body
-        className={`scroll-smooth ${inter.className} flex  pt-36`}
-        suppressHydrationWarning
-      >
+      <body className={`scroll-smooth ${inter.className} flex`}>
         <Providers>{children}</Providers>
       </body>
     </html>
