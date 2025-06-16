@@ -1,5 +1,9 @@
 import ProfileView from '@/views/Profile';
 
-const ProfilePage = () => <ProfileView />;
+const ProfilePage = () => (
+  <div>
+    <ProfileView /> <ProfileView />
+  </div>
+);
 
 export default ProfilePage;

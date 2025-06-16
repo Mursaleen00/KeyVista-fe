@@ -85,9 +85,9 @@ const Navbar = () => {
                     </button>
                   </DropdownMenu.Trigger>
                   <DropdownMenu.Portal>
-                    <DropdownMenu.Content className='absolute flex flex-col  gap-y-4 -left-24 mt-3  bg-white  shadow-lg rounded-xl p-3'>
+                    <DropdownMenu.Content className='absolute flex flex-col gap-y-4 -left-24 mt-3 bg-white shadow-lg rounded-xl p-3'>
                       <DropdownMenu.Item
-                        className='p-2  px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white'
+                        className='p-2 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white'
                         onClick={() => router.push(urls.profile)}
                       >
                         Profile
@@ -127,7 +127,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* Second section border end pages */}
-      <div className='md:flex hidden border-t border-text w-full p-4 mt-3 justify-center items-center gap-6 cursor-pointer'>
+      <div className='md:flex hidden border w-full p-4 mt-3 justify-center items-center gap-6 cursor-pointer'>
         {/* Navbar Pages Data */}
         {NavbarPagesData.map((item, i) => (
           <div
