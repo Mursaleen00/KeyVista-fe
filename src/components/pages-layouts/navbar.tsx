@@ -32,22 +32,20 @@ const Navbar = () => {
   // router
   const router = useRouter();
   return (
-    <nav className='flex flex-col pt-5 justify-center  w-full py-5 md:py-0 mt-5'>
+    <nav
+      className='flex flex-col w-full py-5 md:py-0 border-b md:border-none border-border sticky top-0
+     bg-white'
+    >
       {/* First Section */}
-      <div className='flex justify-around items-center w-full'>
+      <div className='flex justify-around items-center w-full pt-5'>
         {/* Logo  */}
-        <div>
+        <div
+          className='cursor-pointer'
+          onClick={() => router.push(urls.home)}
+        >
           <Logo />
         </div>
-        {/* <div className='cursor-pointer'>
-          <Image
-            src={logo}
-            alt='logo'
-            width={150}
-            height={100}
-            onClick={() => router.push(urls.home)}
-          />
-        </div> */}
+
         {/* Sidebar isOpen Icon */}
         <div data-aos='fade-right'>
           <HiMenuAlt3
@@ -66,7 +64,7 @@ const Navbar = () => {
           {NavbarIconData.map((item, i) => (
             <div
               key={i}
-              className='flex relative border-white border'
+              className='flex relative'
             >
               {/* Properties Drop down */}
               {item.name === 'profile' ? (
@@ -87,9 +85,9 @@ const Navbar = () => {
                     </button>
                   </DropdownMenu.Trigger>
                   <DropdownMenu.Portal>
-                    <DropdownMenu.Content className='absolute flex flex-col  gap-y-4 -left-24 mt-3  bg-white  shadow-lg rounded-xl p-3'>
+                    <DropdownMenu.Content className='absolute flex flex-col gap-y-4 -left-24 mt-3 bg-white shadow-lg rounded-xl p-3'>
                       <DropdownMenu.Item
-                        className='p-2  px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white'
+                        className='p-2 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white'
                         onClick={() => router.push(urls.profile)}
                       >
                         Profile
@@ -120,7 +118,6 @@ const Navbar = () => {
                       alt=''
                       width={item.width}
                       height={item.hight}
-                      // className='flex w-full h-full'
                     />
                   )}
                 </Link>
@@ -130,12 +127,12 @@ const Navbar = () => {
         </div>
       </div>
       {/* Second section border end pages */}
-      <div className='md:flex hidden border border-[#F2F4F7] w-full p-4 mt-3 justify-center items-center  gap-6 cursor-pointer'>
+      <div className='md:flex hidden border w-full p-4 mt-3 justify-center items-center gap-6 cursor-pointer'>
         {/* Navbar Pages Data */}
         {NavbarPagesData.map((item, i) => (
           <div
             key={i}
-            className='flex relative border-white border'
+            className='flex relative'
           >
             {/* Properties Drop down */}
             {item.name === 'Properties' ? (
@@ -144,7 +141,7 @@ const Navbar = () => {
                 onOpenChange={setIsDropdownOpen}
               >
                 <DropdownMenu.Trigger asChild>
-                  <button className='flex items-center gap-x-1'>
+                  <button className='flex items-center gap-x-1 z-50'>
                     {item.icon && (
                       <Image
                         src={item.icon}
