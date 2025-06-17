@@ -6,7 +6,9 @@ import Delete from '@/../public/icons/Delete.svg';
 import Edit from '@/../public/icons/edit.svg';
 import Paragraph from '../common/paragraph';
 import Key from '@/../public/icons/key.svg';
-import Posted from '@/../public/icons/posted.svg';
+console.log('🚀 ~ Key:', Key);
+// import Posted from '@/../public/icons/posted.svg';
+// console.log('🚀 ~ Posted:', Posted);
 import Button from '../buttons/button';
 import { MyPropertyInterfaces } from '@/interfaces/properties/my-properties-interface';
 
@@ -87,7 +89,7 @@ const MyPropertyCard = ({
           </div>
           <div className='flex md:items-center items-start gap-x-1'>
             <Image
-              src={Posted}
+              src={Key}
               alt='Posted'
             />
             <p className='text-text-light text-sm'>
