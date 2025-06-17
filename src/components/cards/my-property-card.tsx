@@ -6,7 +6,9 @@ import Delete from '@/../public/icons/Delete.svg';
 import Edit from '@/../public/icons/edit.svg';
 import Paragraph from '../common/paragraph';
 import Key from '@/../public/icons/key.svg';
+console.log('🚀 ~ Key:', Key);
 import Posted from '@/../public/icons/posted.svg';
+console.log('🚀 ~ Posted:', Posted);
 import Button from '../buttons/button';
 import { MyPropertyInterfaces } from '@/interfaces/properties/my-properties-interface';
 
@@ -21,6 +23,9 @@ const MyPropertyCard = ({
   price,
   posted,
 }: MyPropertyInterfaces) => {
+  console.log('🚀 ~ Posted:', Posted);
+  console.log('🚀 ~ Posted:', Posted);
+  console.log('🚀 ~ Key:', Key);
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2 sm:p-4 ld::p-7 border border-border bg-white shadow-xl max-w-7xl sm:gap-x-5 gap-y-6 rounded-xl m-2'>
       {/* image section */}
@@ -87,7 +92,7 @@ const MyPropertyCard = ({
           </div>
           <div className='flex md:items-center items-start gap-x-1'>
             <Image
-              src={Posted}
+              src={Key}
               alt='Posted'
             />
             <p className='text-text-light text-sm'>
