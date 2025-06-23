@@ -28,7 +28,7 @@ const ProfileView = () => {
   // const { values, errors, touched, handleChange, handleSubmit } = formik;
 
   return (
-    <div className='grid bg-white shadow-2xl p-4 sm:p-9 rounded-3xl my-16 m-2 sm:m-6 md:mx-16 gap-y-6 w-full border border-black'>
+    <div className='grid bg-white shadow-2xl p-4 sm:p-9 rounded-3xl my-16 m-2 sm:m-6 md:mx-16 gap-y-6 border border-black'>
       {/* Profile section */}
       <div className='flex rounded-3xl bg-profile-gradient w-full p-8 items-center justify-between'>
         <div className='flex sm:flex-row flex-col items-center gap-x-8 text-center'>
