@@ -81,6 +81,7 @@ const Filter = () => {
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-end gap-3'>
         <div className='flex gap-x-2 '>
           <Input
+            type='number'
             label='Price'
             placeholder='From'
             className='p-1'
@@ -92,6 +93,7 @@ const Filter = () => {
         </div>
         <div className='flex gap-x-2'>
           <Input
+            type='number'
             label='Area'
             placeholder='From'
             className='p-1'

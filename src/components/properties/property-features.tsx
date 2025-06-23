@@ -8,11 +8,6 @@ import Image from 'next/image';
 const PropertyFeatures = () => {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 bg-white border border-border rounded-xl p-2 md:p-7 sm:gap-x-4 gap-y-4'>
-      {/* <div> samer</div>
-      <div> samer</div>
-      <div> samer</div>
-      <div> samer</div> */}
-
       {/* bedrooms */}
       <div className='flex flex-row sm:flex-col gap-x-4 sm:gap-x-0 sm:gap-y-4 items-center sm:items-start'>
         <h1 className='text-text text-md sm:text-xl order-2 sm:order-1'>
@@ -74,4 +69,3 @@ const PropertyFeatures = () => {
 };
 
 export default PropertyFeatures;
-// grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 text-center border border-border bg-white sm:justify-items-center items-center shadow-md rounded-lg  gap-y-5 w-full
