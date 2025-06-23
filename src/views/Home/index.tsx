@@ -38,7 +38,7 @@ const HomeView = () => {
       <div className='grid px-2 sm:px-6 py-9'>
         {/* Text section */}
         <div className='flex flex-col w-full justify-center md:pl-4'>
-          <Title text='Our Work in Action' />
+          <Title text='Browse Properties' />
           <div className='flex flex-col gap-y-3 pt-5'>
             <p className='text-sm text-text-light'>
               Explore our gallery to see how we’ve helped customers with expert

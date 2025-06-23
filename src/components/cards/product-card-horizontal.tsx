@@ -80,16 +80,18 @@ const ProductCardHorizontal = ({
       {/* Property details Section */}
       <div className='grid grid-cols-1 gap-y-20 lg:col-span-1 sm:col-span-1'>
         {/* Heading */}
-        <div className='relative flex flex-col gap-y-4 md:gap-y-2'>
-          <Title text={title} />
-          <div className='flex md:items-center items-start'>
-            <Image
-              src={Location}
-              alt='location'
-            />
-            <Paragraph text={location} />
+        <div className='flex flex-row justify-between'>
+          <div className='flex flex-col gap-y-2'>
+            <Title text={title} />
+            <div className='flex md:items-center items-start'>
+              <Image
+                src={Location}
+                alt='location'
+              />
+              <Paragraph text={location} />
+            </div>
           </div>
-          <div className='absolute right-0 top-0'>
+          <div className=''>
             <HeartIcon />
           </div>
         </div>

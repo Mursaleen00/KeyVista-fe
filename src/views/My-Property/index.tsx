@@ -3,8 +3,8 @@
 import MyPropertyCard from '@/components/cards/my-property-card';
 import ProductCardHorizontal from '@/components/cards/product-card-horizontal';
 import Title from '@/components/common/title';
-import { MyPropertiesData } from '@/constant/properties/my-properties-data';
-import { ProductCardHorizontalData } from '@/constant/properties/product-card-horizontal-data';
+import { MyPropertiesData } from '@/constant/cards/my-properties-data';
+import { ProductCardHorizontalData } from '@/constant/cards/product-card-horizontal-data';
 import React from 'react';
 
 const MyPropertiesView = () => {
