@@ -20,7 +20,7 @@ const config: Config = {
           light: '#6B6681',
           veryLight: '#E0DEEA',
           dark: '#2C254B',
-          normal:'#9995AC'
+          normal: '#9995AC',
         },
         heading: '#2C254B',
         red: '#F55D5D',
@@ -31,6 +31,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  // plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };
 export default config;
