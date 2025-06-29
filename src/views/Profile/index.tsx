@@ -13,6 +13,9 @@ import Arrow from '@/../public/icons/DownArrow.svg';
 import AllSelect from '@/components/common/select';
 import Button from '@/components/buttons/button';
 import Edit from '@/../public/icons/edit.svg';
+import { useState } from 'react';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 // const initialValues = {
 //   name: '',
@@ -20,6 +23,8 @@ import Edit from '@/../public/icons/edit.svg';
 // };
 
 const ProfileView = () => {
+  const [phone, setPhone] = useState('');
+
   // const formik = useFormik({
   //   initialValues,
   //   validationSchema: ProfileSchema,
@@ -28,10 +33,10 @@ const ProfileView = () => {
   // const { values, errors, touched, handleChange, handleSubmit } = formik;
 
   return (
-    <div className='grid bg-white shadow-2xl p-4 sm:p-9 rounded-3xl my-16 m-2 sm:m-6 md:mx-16 gap-y-6 border border-black'>
+    <div className='grid bg-white shadow-2xl p-2 sm:p-9 rounded-3xl my-16 m-2 sm:m-6 md:mx-16 gap-y-6'>
       {/* Profile section */}
-      <div className='flex rounded-3xl bg-profile-gradient w-full p-8 items-center justify-between'>
-        <div className='flex sm:flex-row flex-col items-center gap-x-8 text-center'>
+      <div className='flex flex-col md:flex-row rounded-3xl bg-profile-gradient w-full p-8 items-center justify-between gap-3'>
+        <div className='flex md:flex-row flex-col items-center gap-x-4 text-center'>
           <Image
             src={profile}
             alt=''
@@ -56,6 +61,7 @@ const ProfileView = () => {
       </div>
       {/* Input Section */}
       <div className='grid gap-y-5'>
+        {/* Name and Email input */}
         <div className='grid grid-cols-1 sm:grid-cols-2 w-full gap-x-4'>
           {ProfileData.map((item, i) => (
             <div
@@ -70,18 +76,21 @@ const ProfileView = () => {
           ))}
         </div>
         <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-x-5'>
+          {/* Mobile input */}
           <div>
-            <AllSelect
-              label={'Country'}
-              placeholder={'Select Country'}
-              icon={Arrow}
-              options={[
-                { value: 'house', label: 'House' },
-                { value: 'apartment', label: 'Apartment' },
-                { value: 'villa', label: 'Villa' },
-              ]}
+            <label className='text-md font-medium text-text-dark mb-1'>
+              Mobile
+            </label>
+            <PhoneInput
+              country={'ae'}
+              value={phone}
+              onChange={setPhone}
+              inputClass='!w-full !h-14 !text-sm !rounded-xl'
+              buttonClass='!border-r !border-gray p-9 flex !rounded-l-xl'
+              containerClass='flex !rounded-full text-text'
             />
           </div>
+          {/* Other input */}
           <div>
             <AllSelect
               label={'Country'}
