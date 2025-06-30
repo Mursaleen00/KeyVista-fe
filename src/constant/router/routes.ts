@@ -3,7 +3,7 @@
 // export urls
 export const urls = {
   // properties
-  home: '/home',
+  home: '/',
   map: '/map',
   chat: '/chat',
   favorite: '/favorite',

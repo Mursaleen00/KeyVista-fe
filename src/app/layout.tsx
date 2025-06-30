@@ -1,6 +1,5 @@
 import Providers from '@/providers';
 import type { Metadata } from 'next';
-// import { Inter } from 'next/font/google';
 import { Poppins } from 'next/font/google';
 
 // Import global.css

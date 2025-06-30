@@ -9,8 +9,8 @@ import React from 'react';
 
 const MyPropertiesView = () => {
   return (
-    <div className='flex p-2 sm:px-8 md:px-11 xl:px-20 py-6 justify-center items-center w-screen'>
-      <div className='flex flex-col rounded-lg border justify-center sm:px-5'>
+    <div className='flex p-2 sm:px-8 md:px-11 xl:px-20 py-14 justify-center items-center w-screen'>
+      <div className='flex flex-col rounded-xl justify-center sm:px-5 shadow-2xl py-5'>
         <div className='grid p-9'>
           <Title text='My Properties' />
         </div>

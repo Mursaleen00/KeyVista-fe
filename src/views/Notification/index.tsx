@@ -5,7 +5,7 @@ import React from 'react';
 
 const NotificationView = () => {
   return (
-    <div className='flex flex-col border-2 m-4 sm:m-9 md:m-9 rounded-3xl shadow-xl'>
+    <div className='flex flex-col m-4 sm:m-9 md:m-9 rounded-3xl shadow-2xl'>
       {/* Title Notification */}
       <div className='p-9'>
         <Title

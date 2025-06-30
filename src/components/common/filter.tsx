@@ -8,7 +8,7 @@ import AllSelect from './select';
 
 const Filter = () => {
   return (
-    <div className='grid bg-white max-w-4xl p-6 gap-3 rounded-xl m-3 shadow-md'>
+    <div className='flex flex-col bg-white max-w-4xl p-6 gap-3 rounded-xl m-3 shadow-md'>
       {/* 1st section  */}
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3'>
         <div className='col-span-1'>
