@@ -1,6 +1,5 @@
 import Providers from '@/providers';
 import type { Metadata } from 'next';
-// import { Inter } from 'next/font/google';
 import { Poppins } from 'next/font/google';
 
 // Import global.css
@@ -24,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
+        suppressHydrationWarning
         className={`scroll-smooth ${poppins.className} flex flex-col min-h-screen`}
       >
         <Providers>{children}</Providers>

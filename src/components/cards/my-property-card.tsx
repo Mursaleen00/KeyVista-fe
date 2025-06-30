@@ -1,16 +1,13 @@
-import Image from 'next/image';
-import React from 'react';
-import Title from '../common/title';
-import Location from '@/../public/icons/location.svg';
 import Delete from '@/../public/icons/Delete.svg';
 import Edit from '@/../public/icons/edit.svg';
-import Paragraph from '../common/paragraph';
 import Key from '@/../public/icons/key.svg';
-console.log('🚀 ~ Key:', Key);
-// import Posted from '@/../public/icons/posted.svg';
-// console.log('🚀 ~ Posted:', Posted);
-import Button from '../buttons/button';
+import Location from '@/../public/icons/location.svg';
+import poste from '@/../public/icons/Posted.svg';
 import { MyPropertyInterfaces } from '@/interfaces/properties/my-properties-interface';
+import Image from 'next/image';
+import Button from '../buttons/button';
+import Paragraph from '../common/paragraph';
+import Title from '../common/title';
 
 const MyPropertyCard = ({
   thumbnail,
@@ -36,6 +33,7 @@ const MyPropertyCard = ({
             height={500}
           />
         </div>
+        {/* room details Images */}
         <div className='lg:grid grid-cols-2 w-full h-full gap-2 sm:col-span-1 hidden lg:col-span-1'>
           <div className='flex w-full rounded-lg h-full'>
             <Image
@@ -89,7 +87,7 @@ const MyPropertyCard = ({
           </div>
           <div className='flex md:items-center items-start gap-x-1'>
             <Image
-              src={Key}
+              src={poste}
               alt='Posted'
             />
             <p className='text-text-light text-sm'>

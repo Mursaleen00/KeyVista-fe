@@ -4,10 +4,10 @@
 
 // Next & React Imports
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { HiMenuAlt3 } from 'react-icons/hi';
-import React, { useState } from 'react';
 
 // DropdownMenu package Import
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
@@ -18,8 +18,8 @@ import SideBar from './sideBar';
 
 // constant Imports
 import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
-import { urls } from '@/constant/router/routes';
 import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
+import { urls } from '@/constant/router/routes';
 
 // Images Import
 import Logo from '../logo/logo';
@@ -33,7 +33,7 @@ const Navbar = () => {
   const router = useRouter();
   return (
     <nav
-      className='flex flex-col w-full py-5 md:py-0 border-b md:border-none border-border sticky top-0
+      className='flex z-20 flex-col w-full py-5 md:py-0 border-b md:border-none border-border sticky top-0
      bg-white'
     >
       {/* First Section */}
@@ -85,21 +85,21 @@ const Navbar = () => {
                     </button>
                   </DropdownMenu.Trigger>
                   <DropdownMenu.Portal>
-                    <DropdownMenu.Content className='absolute flex flex-col gap-y-4 -left-24 mt-3 bg-white shadow-lg rounded-xl p-3'>
+                    <DropdownMenu.Content className='absolute !z-30 flex flex-col gap-y-4 -left-24 mt-3 bg-white shadow-lg rounded-xl p-3'>
                       <DropdownMenu.Item
-                        className='p-2 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white'
+                        className='p-2 px-3 hover:bg-primary outline-none cursor-pointer rounded-xl text-text-light hover:text-white'
                         onClick={() => router.push(urls.profile)}
                       >
                         Profile
                       </DropdownMenu.Item>
                       <DropdownMenu.Item
-                        className='-mt-2 p-2 w-44 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
+                        className='-mt-2 p-2 w-44 px-3 hover:bg-primary outline-none cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
                         onClick={() => router.push(urls.changePassword)}
                       >
                         Change Password
                       </DropdownMenu.Item>
                       <DropdownMenu.Item
-                        className='-mt-2 p-2  px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
+                        className='-mt-2 p-2  px-3 hover:bg-primary cursor-pointer outline-none rounded-xl text-text-light hover:text-white hover:border-none'
                         onClick={() => router.push(urls.myProperties)}
                       >
                         My Properties
@@ -155,7 +155,7 @@ const Navbar = () => {
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Portal>
                   <div className='flex p-2'>
-                    <DropdownMenu.Content className='absolute flex flex-col gap-y-4 -left-16 mt-3 bg-white shadow-lg rounded-xl p-3'>
+                    <DropdownMenu.Content className='absolute !z-30 flex flex-col gap-y-4 -left-16 mt-3 bg-white shadow-lg rounded-xl p-3'>
                       <DropdownMenu.Item
                         className='p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
                         onClick={() => router.push(urls.rentProperties)}

@@ -1,14 +1,13 @@
 'use client';
-import React from 'react';
+import Arrow from '@/../public/icons/DownArrow.svg';
+import location from '@/../public/icons/location.svg';
 import Button from '../buttons/button';
 import Input from '../inputs/input';
-import location from '@/../public/icons/location.svg';
-import Arrow from '@/../public/icons/DownArrow.svg';
 import AllSelect from './select';
 
 const Filter = () => {
   return (
-    <div className='grid bg-white max-w-4xl p-6 gap-3 rounded-xl m-3 shadow-md'>
+    <div className='flex absolute top-[70%] z-10 flex-col bg-white max-w-4xl p-6 gap-3 rounded-xl m-3 shadow-md'>
       {/* 1st section  */}
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3'>
         <div className='col-span-1'>
