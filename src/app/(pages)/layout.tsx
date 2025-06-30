@@ -1,11 +1,11 @@
 'use client';
-import { usePathname } from 'next/navigation';
-import Navbar from '@/components/pages-layouts/navbar';
-import { ReactNode } from 'react';
-import HeroSection from '@/components/pages-layouts/hero-section';
 import Filter from '@/components/common/filter';
-import { urls } from '@/constant/router/routes';
 import Footer from '@/components/pages-layouts/footer';
+import HeroSection from '@/components/pages-layouts/hero-section';
+import Navbar from '@/components/pages-layouts/navbar';
+import { urls } from '@/constant/router/routes';
+import { usePathname } from 'next/navigation';
+import { ReactNode } from 'react';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
@@ -34,14 +34,13 @@ const Layout = ({ children }: { children: ReactNode }) => {
     `${urls.favorite}`,
     `${urls.rentProperties}`,
   ].includes(pathname);
+
   return (
     <div>
       <Navbar />
-      <div>
+      <div className={`${showFilter && 'mb-32'} relative`}>
         {showHero && <HeroSection />}
-        <div className='flex justify-center -mt-16'>
-          {showFilter && <Filter />}
-        </div>
+        <div className='flex justify-center'>{showFilter && <Filter />}</div>
       </div>
       <div className='flex flex-col py-14'>{children}</div>
       {showFooter && <Footer />}

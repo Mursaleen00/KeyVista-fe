@@ -23,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
+        suppressHydrationWarning
         className={`scroll-smooth ${poppins.className} flex flex-col min-h-screen`}
       >
         <Providers>{children}</Providers>

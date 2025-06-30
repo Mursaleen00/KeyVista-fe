@@ -1,14 +1,13 @@
-import Image from 'next/image';
-import React from 'react';
-import Title from '../common/title';
-import Location from '@/../public/icons/location.svg';
 import Delete from '@/../public/icons/Delete.svg';
 import Edit from '@/../public/icons/edit.svg';
-import Paragraph from '../common/paragraph';
 import Key from '@/../public/icons/key.svg';
-import poste from '@/../public/icons/posted.svg';
-import Button from '../buttons/button';
+import Location from '@/../public/icons/location.svg';
+import poste from '@/../public/icons/Posted.svg';
 import { MyPropertyInterfaces } from '@/interfaces/properties/my-properties-interface';
+import Image from 'next/image';
+import Button from '../buttons/button';
+import Paragraph from '../common/paragraph';
+import Title from '../common/title';
 
 const MyPropertyCard = ({
   thumbnail,

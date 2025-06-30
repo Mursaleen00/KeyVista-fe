@@ -5,7 +5,6 @@ import ProductCardHorizontal from '@/components/cards/product-card-horizontal';
 import Title from '@/components/common/title';
 import { MyPropertiesData } from '@/constant/cards/my-properties-data';
 import { ProductCardHorizontalData } from '@/constant/cards/product-card-horizontal-data';
-import React from 'react';
 
 const MyPropertiesView = () => {
   return (
@@ -18,32 +17,13 @@ const MyPropertiesView = () => {
           {MyPropertiesData.map((item, i) => (
             <MyPropertyCard
               key={i}
-              thumbnail={item.thumbnail}
-              kitchen={item.kitchen}
-              washRoom={item.washRoom}
-              tvLaunch={item.tvLaunch}
-              lounge={item.lounge}
-              title={item.title}
-              location={item.location}
-              price={item.price}
-              posted={item.posted}
+              {...item}
             />
           ))}
           {ProductCardHorizontalData.map((item, i) => (
             <ProductCardHorizontal
               key={i}
-              thumbnail={item.thumbnail}
-              washRoom={item.washRoom}
-              tvLaunch={item.tvLaunch}
-              kitchen={item.kitchen}
-              lounge={item.lounge}
-              title={item.title}
-              location={item.location}
-              bath={item.bath}
-              beds={item.beds}
-              square={item.square}
-              price={item.price}
-              rate={item.rate}
+              {...item}
             />
           ))}
         </div>
