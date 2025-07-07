@@ -66,7 +66,7 @@ const Navbar = () => {
               key={i}
               className='flex relative'
             >
-              {/* Properties Drop down */}
+              {/* Profile Drop down */}
               {item.name === 'profile' ? (
                 <DropdownMenu.Root
                   open={isDropdownIconOpen}
@@ -157,7 +157,8 @@ const Navbar = () => {
                   <div className='flex p-2'>
                     <DropdownMenu.Content className='absolute !z-30 flex flex-col gap-y-4 -left-16 mt-3 bg-white shadow-lg rounded-xl p-3'>
                       <DropdownMenu.Item
-                        className='p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
+                        className='p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white
+                         hover:border-none'
                         onClick={() => router.push(urls.rentProperties)}
                       >
                         Rent

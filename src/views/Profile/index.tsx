@@ -1,12 +1,8 @@
 'use client';
 import React from 'react';
 import profile from '@/../public/images/profile.webp';
-// import flag from '@/../public/icons/flag.svg';
-
 import Image from 'next/image';
 import Title from '@/components/common/title';
-// import { useFormik } from 'formik';
-// import { ProfileSchema } from '@/schema/profile-schema';
 import { ProfileData } from '@/constant/common/profile-data';
 import Input from '@/components/inputs/input';
 import Arrow from '@/../public/icons/DownArrow.svg';
@@ -17,20 +13,9 @@ import { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
-// const initialValues = {
-//   name: '',
-//   email: '',
-// };
-
 const ProfileView = () => {
   const [phone, setPhone] = useState('');
-
-  // const formik = useFormik({
-  //   initialValues,
-  //   validationSchema: ProfileSchema,
-  //   onSubmit: () => {},
-  // });
-  // const { values, errors, touched, handleChange, handleSubmit } = formik;
+  const [isEdit, setIsEdit] = useState(false);
 
   return (
     <div className='grid bg-white shadow-2xl p-2 sm:p-9 rounded-3xl my-16 m-2 sm:m-6 md:mx-16 gap-y-6'>
@@ -53,10 +38,11 @@ const ProfileView = () => {
           </div>
         </div>
         <Button
-          text='Edit Profile'
+          text={isEdit ? 'Set Profile' : 'Edit Profile'}
           isOutline
           icon={Edit}
           className='flex gap-x-2 py-7 px-8'
+          onClick={() => setIsEdit(prev => !prev)}
         />
       </div>
       {/* Input Section */}
@@ -71,6 +57,7 @@ const ProfileView = () => {
               <Input
                 {...item}
                 className='flex w-full'
+                disabled={item.name === 'email' ? true : !isEdit}
               />
             </div>
           ))}
@@ -88,14 +75,17 @@ const ProfileView = () => {
               inputClass='!w-full !h-14 !text-sm !rounded-xl'
               buttonClass='!border-r !border-gray p-9 flex !rounded-l-xl'
               containerClass='flex !rounded-full text-text'
+              disabled={!isEdit}
             />
           </div>
           {/* Other input */}
+          {/* Country */}
           <div>
             <AllSelect
               label={'Country'}
               placeholder={'Select Country'}
               icon={Arrow}
+              disabled={!isEdit}
               options={[
                 { value: 'house', label: 'House' },
                 { value: 'apartment', label: 'Apartment' },
@@ -103,11 +93,13 @@ const ProfileView = () => {
               ]}
             />
           </div>
+          {/* City */}
           <div>
             <AllSelect
               label={'City'}
               placeholder={'Select City'}
               icon={Arrow}
+              disabled={!isEdit}
               options={[
                 { value: 'house', label: 'House' },
                 { value: 'apartment', label: 'Apartment' },

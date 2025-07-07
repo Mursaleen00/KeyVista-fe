@@ -12,37 +12,37 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
   // showHero
   const showHero = [
-    `${urls.home}`,
-    `${urls.buyProperties}`,
-    `${urls.favorite}`,
-    `${urls.rentProperties}`,
+    urls.home,
+    urls.buyProperties,
+    urls.favorite,
+    urls.rentProperties,
   ].includes(pathname);
 
   // showFilter
   const showFilter = [
-    `${urls.home}`,
-    `${urls.buyProperties}`,
-    `${urls.rentProperties}`,
+    urls.home,
+    urls.buyProperties,
+    urls.rentProperties,
   ].includes(pathname);
 
   // showFooter
   const showFooter = [
-    `${urls.home}`,
-    `${urls.map}`,
-    `${urls.propertyDetails}`,
-    `${urls.buyProperties}`,
-    `${urls.favorite}`,
-    `${urls.rentProperties}`,
+    urls.home,
+    urls.map,
+    urls.propertyDetails,
+    urls.buyProperties,
+    urls.favorite,
+    urls.rentProperties,
   ].includes(pathname);
 
   return (
     <div>
       <Navbar />
-      <div className={`${showFilter && 'mb-32'} relative`}>
+      <div className={`${showFilter && 'mb-[700px] md:mb-36'} relative`}>
         {showHero && <HeroSection />}
         <div className='flex justify-center'>{showFilter && <Filter />}</div>
       </div>
-      <div className='flex flex-col py-14'>{children}</div>
+      <div className='flex flex-col py-10'>{children}</div>
       {showFooter && <Footer />}
     </div>
   );

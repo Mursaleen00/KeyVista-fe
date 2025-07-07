@@ -32,6 +32,6 @@
     "src/components/common/profile-drop-down.tsx",
     "src/components/common/select.jsx",
     "src/constant/cards/rent-buy-cards-data.ts"
-  ],
+, "src/views/Terms-And-Conditions/index.tsx", "src/components/common/carousel.tsx"  ],
   "exclude": ["node_modules"]
 }

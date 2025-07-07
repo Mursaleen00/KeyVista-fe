@@ -8,8 +8,8 @@ import { ProductCardHorizontalData } from '@/constant/cards/product-card-horizon
 
 const MyPropertiesView = () => {
   return (
-    <div className='flex p-2 sm:px-8 md:px-11 xl:px-20 py-14 justify-center items-center w-screen'>
-      <div className='flex flex-col rounded-xl justify-center sm:px-5 shadow-2xl py-5'>
+    <div className='flex p-2 sm:px-8 md:px-11 xl:px-20 py-1 justify-center items-center'>
+      <div className='flex flex-col rounded-xl justify-center sm:px-5 shadow-2xl py-5 w-full'>
         <div className='grid p-9'>
           <Title text='My Properties' />
         </div>
@@ -20,14 +20,16 @@ const MyPropertiesView = () => {
               {...item}
             />
           ))}
-          {ProductCardHorizontalData.map((item, i) => (
-            <ProductCardHorizontal
-              key={i}
-              {...item}
-            />
-          ))}
         </div>
+        {/* <div className='flex flex-row'> */}
+        {ProductCardHorizontalData.map((item, i) => (
+          <ProductCardHorizontal
+            key={i}
+            {...item}
+          />
+        ))}
       </div>
+      {/* </div> */}
     </div>
   );
 };

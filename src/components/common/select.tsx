@@ -11,13 +11,20 @@ import {
 import Image from 'next/image';
 import { SelectI } from '@/interfaces/common/select-interface';
 
-const AllSelect = ({ label, placeholder, icon, options }: SelectI) => {
+const AllSelect = ({
+  label,
+  placeholder,
+  icon,
+  options,
+  disabled = false,
+}: SelectI) => {
   const [selected, setSelected] = useState('');
 
   return (
     <Select
       value={selected}
       onValueChange={setSelected}
+      disabled={disabled}
     >
       <label className='text-md'>{label}</label>
 

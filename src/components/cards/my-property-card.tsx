@@ -2,7 +2,7 @@ import Delete from '@/../public/icons/Delete.svg';
 import Edit from '@/../public/icons/edit.svg';
 import Key from '@/../public/icons/key.svg';
 import Location from '@/../public/icons/location.svg';
-import poste from '@/../public/icons/Posted.svg';
+import poste from '@/../public/icons/posted.svg';
 import { MyPropertyInterfaces } from '@/interfaces/properties/my-properties-interface';
 import Image from 'next/image';
 import Button from '../buttons/button';
@@ -21,7 +21,7 @@ const MyPropertyCard = ({
   posted,
 }: MyPropertyInterfaces) => {
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2 sm:p-4 ld::p-7 border border-border bg-white shadow-xl max-w-7xl sm:gap-x-5 gap-y-6 rounded-xl m-2'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2 sm:p-4 lg::p-7 border border-border bg-white shadow-xl max-w-7xl sm:gap-x-5 gap-y-6 rounded-xl m-2'>
       {/* image section */}
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 w-full h-full lg:col-span-2'>
         <div className='flex w-full lg:col-span-2'>
