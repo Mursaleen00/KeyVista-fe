@@ -4,9 +4,9 @@ import React from 'react';
 import StatusChip from '../common/status-chip';
 import Title from '../common/title';
 import Paragraph from '../common/paragraph';
-import Bathrooms from '@/../public/icons/bathrooms.svg';
-import Bedrooms from '@/../public/icons/bedrooms.svg';
-import HomeSpace from '@/../public/icons/homeSpace.svg';
+import Bathrooms from '@/../public/icons/bath-rooms.svg';
+import Bedrooms from '@/../public/icons/bed-rooms.svg';
+import HomeSpace from '@/../public/icons/home-space.svg';
 import { CardsInterfaces } from '@/interfaces/properties/cards-interface';
 import HeartIcon from '../common/heart-icon';
 

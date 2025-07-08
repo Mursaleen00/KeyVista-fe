@@ -1,14 +1,14 @@
 import React from 'react';
 import Title from '../common/title';
-import AirConditioning from '@/../public/icons/Air conditioning.svg';
-import MountainView from '@/../public/icons/MountainView.svg';
-import Smoke from '@/../public/icons/Smoke.svg';
+import AirConditioning from '@/../public/icons/air-conditioning.svg';
+import MountainView from '@/../public/icons/mountain-view.svg';
+import Smoke from '@/../public/icons/smoke.svg';
 import car from '@/../public/icons/car.svg';
-import HotPot from '@/../public/icons/HotPot.svg';
+import HotPot from '@/../public/icons/hot-pot.svg';
 import Wifi from '@/../public/icons/wifi.svg';
 import Ratio from '@/../public/icons/ratio.svg';
 import carbon from '@/../public/icons/carbon.svg';
-import ValleyView from '@/../public/icons/ValleyView.svg';
+import ValleyView from '@/../public/icons/valley-view.svg';
 import tv from '@/../public/icons/tv.svg';
 import Image from 'next/image';
 

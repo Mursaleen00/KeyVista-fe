@@ -1,7 +1,7 @@
 // src/app/(authentication)/layout.tsx
 
 // Images Imports
-import purpleAuthHouse from '@/../public/images/purpleAuthHouse.png';
+import purpleAuthHouse from '@/../public/images/purple-auth-house.png';
 
 // Next Import
 import Image from 'next/image';

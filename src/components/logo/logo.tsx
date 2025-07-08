@@ -1,6 +1,6 @@
 import React from 'react';
-import purpleLogo from '@/../public/icons/PurpleLogo.svg';
-import WhiteHouse from '@/../public/images/whiteLogo.png';
+import purpleLogo from '@/../public/icons/purple-logo.svg';
+import WhiteHouse from '@/../public/images/white-logo.png';
 
 import { LogoInterfaces } from '@/interfaces/common/logo';
 import Image from 'next/image';

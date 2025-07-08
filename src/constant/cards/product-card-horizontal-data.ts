@@ -1,4 +1,4 @@
-import house from '@/../public/images/CardHouse.png';
+import house from '@/../public/images/card-house.png';
 
 export const ProductCardHorizontalData = [
   {

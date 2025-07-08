@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Title from '@/components/common/title';
 import { ProfileData } from '@/constant/common/profile-data';
 import Input from '@/components/inputs/input';
-import Arrow from '@/../public/icons/DownArrow.svg';
+import Arrow from '@/../public/icons/down-arrow.svg';
 import AllSelect from '@/components/common/select';
 import Button from '@/components/buttons/button';
 import Edit from '@/../public/icons/edit.svg';

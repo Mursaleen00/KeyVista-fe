@@ -1,4 +1,4 @@
-import grayHouse from '@/../public/images/beautifulHouse.png';
+import grayHouse from '@/../public/images/beautiful-house.png';
 
 export const BuyPropertyData = [
   {

@@ -15,7 +15,7 @@ import Navbar from '@/components/pages-layouts/navbar';
 import { urls } from '@/constant/router/routes';
 
 // Image  Import
-import notFound from '@/../public/images/not found.jpg';
+import notFound from '@/../public/images/not-found.jpg';
 
 const NotFound = () => {
   // router

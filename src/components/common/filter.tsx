@@ -1,5 +1,5 @@
 'use client';
-import Arrow from '@/../public/icons/DownArrow.svg';
+import Arrow from '@/../public/icons/down-arrow.svg';
 import location from '@/../public/icons/location.svg';
 import Button from '../buttons/button';
 import Input from '../inputs/input';

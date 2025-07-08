@@ -1,4 +1,4 @@
-import Delete from '@/../public/icons/Delete.svg';
+import Delete from '@/../public/icons/delete.svg';
 import Edit from '@/../public/icons/edit.svg';
 import Key from '@/../public/icons/key.svg';
 import Location from '@/../public/icons/location.svg';

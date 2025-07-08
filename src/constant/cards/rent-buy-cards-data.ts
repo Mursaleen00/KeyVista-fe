@@ -1,5 +1,5 @@
 // import grayHouse from '@/../public/icons/grayHouse.svg';
-import grayHouse from '@/../public/images/beautifulHouse.png';
+import grayHouse from '@/../public/images/beautiful-house.png';
 
 export const CardsData = [
   {
