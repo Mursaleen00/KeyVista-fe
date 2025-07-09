@@ -20,14 +20,7 @@ const BuyPropertiesIndex = () => {
         {BuyPropertyData.map((item, i) => (
           <PropertyCard
             key={i}
-            thumbnail={item.thumbnail}
-            title={item.title}
-            location={item.location}
-            status={item.status || ''}
-            price={item.price}
-            bathrooms={item.bathrooms}
-            bedrooms={item.bedrooms}
-            area={item.area}
+            {...item}
           />
         ))}
       </div>

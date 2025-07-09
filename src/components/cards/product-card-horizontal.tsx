@@ -3,9 +3,9 @@ import React from 'react';
 import Title from '../common/title';
 import Location from '@/../public/icons/location.svg';
 import Star from '@/../public/icons/star.svg';
-import bathrooms from '@/../public/icons/bathrooms.svg';
-import bedrooms from '@/../public/icons/bedrooms.svg';
-import HomeSpace from '@/../public/icons/homeSpace.svg';
+import bathrooms from '@/../public/icons/bath-rooms.svg';
+import bedrooms from '@/../public/icons/bed-rooms.svg';
+import HomeSpace from '@/../public/icons/home-space.svg';
 import Paragraph from '../common/paragraph';
 import { ProductCardHorizontalInterfaces } from '@/interfaces/properties/product-card-horizontal-interface';
 import HeartIcon from '../common/heart-icon';
@@ -25,9 +25,9 @@ const ProductCardHorizontal = ({
   square,
 }: ProductCardHorizontalInterfaces) => {
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2 sm:p-4 ld::p-7 border border-border bg-white shadow-xl max-w-7xl sm:gap-x-5 gap-y-6 rounded-xl m-2'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 m-2 md:m-0 p-2 sm:p-4 ld::p-7 border-2 bg-white shadow-2xl max-w-7xl sm:gap-x-5 gap-y-6 rounded-xl'>
       {/* image section */}
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 w-full h-full  lg:col-span-2'>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 w-full h-full lg:col-span-2'>
         <div className='flex w-full lg:col-span-2'>
           <Image
             src={thumbnail ?? ''}
@@ -91,7 +91,7 @@ const ProductCardHorizontal = ({
               <Paragraph text={location} />
             </div>
           </div>
-          <div className=''>
+          <div>
             <HeartIcon />
           </div>
         </div>

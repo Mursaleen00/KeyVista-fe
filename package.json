@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "validate": "pnpm format & pnpm lint & pnpm build",
+    "validate": "pnpm format & pnpm lint & pnpm build & pnpm dev --turbopack",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",

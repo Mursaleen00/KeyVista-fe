@@ -4,14 +4,13 @@ import Image from 'next/image';
 import React from 'react';
 import location from '@/../public/icons/location.svg';
 import share from '@/../public/icons/share.svg';
-import Heart from '@/../public/icons/blackHeart.svg';
+import Heart from '@/../public/icons/black-heart.svg';
 import Owner from '@/../public/images/owner.png';
-import Sketch from '@/../public/images/Sketch.png';
+import Sketch from '@/../public/images/sketch.png';
 import PropertyFeatures from '@/components/properties/property-features';
 import PropertiesPrice from '@/components/properties/properties-price';
 import FeaturesAmenities from '@/components/properties/features-amenities';
 import Reviews from '@/components/properties/reviews';
-// import Map from '@/components/map/map';
 
 const PropertyDetailsView = () => {
   return (

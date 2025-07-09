@@ -4,9 +4,9 @@ import React from 'react';
 import StatusChip from '../common/status-chip';
 import Title from '../common/title';
 import Paragraph from '../common/paragraph';
-import Bathrooms from '@/../public/icons/bathrooms.svg';
-import Bedrooms from '@/../public/icons/bedrooms.svg';
-import HomeSpace from '@/../public/icons/homeSpace.svg';
+import Bathrooms from '@/../public/icons/bath-rooms.svg';
+import Bedrooms from '@/../public/icons/bed-rooms.svg';
+import HomeSpace from '@/../public/icons/home-space.svg';
 import { CardsInterfaces } from '@/interfaces/properties/cards-interface';
 import HeartIcon from '../common/heart-icon';
 
@@ -41,7 +41,7 @@ const PropertyCard = ({
       </div>
       {/* Properties details section */}
       <div className='flex flex-col px-4 pt-4 gap-y-3'>
-        <div className='flex'>
+        <div className='flex flex-row justify-between'>
           <div className='flex flex-col gap-y-3'>
             <Title text={title} />
             <Paragraph text={location} />
@@ -57,7 +57,7 @@ const PropertyCard = ({
         </p>
       </div>
       {/* border */}
-      <div className='border border-border-light m-4'></div>
+      <div className='border border-border-light m-4' />
       {/* Home information */}
       <div className='flex px-2 sm:px-4 pb-4 gap-4 justify-around items-center'>
         <div className='flex flex-col sm:flex-row gap-y-2 sm:gap-x-1 items-start sm:items-center'>

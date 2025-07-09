@@ -3,4 +3,5 @@ export interface SelectI {
   placeholder?: string;
   icon: string;
   options: { label: string; value: string }[];
+  disabled?: boolean;
 }

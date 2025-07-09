@@ -20,7 +20,7 @@ const HomeView = () => {
   return (
     <div className='grid'>
       {/* Browse Property by Category */}
-      <div className='grid p-2 sm:p-6'>
+      <div className='grid p-2 sm:px-6 sm:pt-14'>
         <Title text='Browse Property by Category' />
         <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-6 gap-5 w-full'>
           {propertyByCategoryData.map((item, i) => (
@@ -48,12 +48,12 @@ const HomeView = () => {
           </div>
         </div>
         {/* button Section */}
-        <div className='flex gap-x-4 sm:gap-x-14 justify-start pl-8 py-4 text-text-light'>
+        <div className='flex gap-x-4 sm:gap-x-14 justify-start pl-5 py-9 text-text-light'>
           <button
             onClick={() => setSelectedTab('all')}
-            className={` ${
+            className={`${
               selectedTab === 'all'
-                ? 'text-primary border-b-2 border-b-primary font-semibold '
+                ? 'text-primary border-b-2 border-b-primary font-semibold'
                 : 'border-none'
             }`}
           >
@@ -61,20 +61,20 @@ const HomeView = () => {
           </button>
           <button
             onClick={() => setSelectedTab('buy')}
-            className={` ${
+            className={`${
               selectedTab === 'buy'
                 ? 'text-primary border-b-2 border-b-primary font-semibold pb-[1px]'
-                : ' border-none'
+                : 'border-none'
             } `}
           >
             Buy
           </button>
           <button
             onClick={() => setSelectedTab('rent')}
-            className={` ${
+            className={`${
               selectedTab === 'rent'
                 ? 'text-primary border-b-2 border-b-primary font-semibold'
-                : ' border-none'
+                : 'border-none'
             }`}
           >
             Rent
@@ -85,15 +85,16 @@ const HomeView = () => {
           {filteredCard.map((item, i) => (
             <PropertyCard
               key={i}
-              thumbnail={item.thumbnail}
-              title={item.title}
-              location={item.location}
-              duration={item.duration}
-              status={item.status || ''}
-              price={item.price}
-              bathrooms={item.bathrooms}
-              bedrooms={item.bedrooms}
-              area={item.area}
+              {...item}
+              // thumbnail={item.thumbnail}
+              // title={item.title}
+              // location={item.location}
+              // duration={item.duration}
+              // status={item.status || ''}
+              // price={item.price}
+              // bathrooms={item.bathrooms}
+              // bedrooms={item.bedrooms}
+              // area={item.area}
             />
           ))}
         </div>

@@ -1,8 +1,8 @@
 import React from 'react';
-import bathrooms from '@/../public/icons/bathrooms.svg';
-import bedrooms from '@/../public/icons/bedrooms.svg';
-import HomeSpace from '@/../public/icons/homeSpace.svg';
-import Tools from '@/../public/icons/Tools.svg';
+import bathrooms from '@/../public/icons/bath-rooms.svg';
+import bedrooms from '@/../public/icons/bed-rooms.svg';
+import HomeSpace from '@/../public/icons/home-space.svg';
+import Tools from '@/../public/icons/tools.svg';
 import Image from 'next/image';
 
 const PropertyFeatures = () => {

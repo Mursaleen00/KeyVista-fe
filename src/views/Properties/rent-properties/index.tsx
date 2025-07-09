@@ -21,15 +21,7 @@ const RentPropertiesIndex = () => {
         {RentPropertyData.map((item, i) => (
           <PropertyCard
             key={i}
-            thumbnail={item.thumbnail}
-            title={item.title}
-            location={item.location}
-            duration={item.duration}
-            status={item.status || ''}
-            price={item.price}
-            bathrooms={item.bathrooms}
-            bedrooms={item.bedrooms}
-            area={item.area}
+            {...item}
           />
         ))}
       </div>

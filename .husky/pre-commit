@@ -1,1 +1,1 @@
-pnpm format && pnpm lint && pnpm build
+pnpm format && pnpm lint && pnpm build && pnpm prettier --check 
