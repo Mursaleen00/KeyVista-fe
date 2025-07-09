@@ -1,14 +1,14 @@
 import React from 'react';
 import Title from '../common/title';
-import AirConditioning from '@/../public/icons/air-conditioning.svg';
+import airConditioning from '@/../public/icons/air-conditioning.svg';
 import MountainView from '@/../public/icons/mountain-view.svg';
-import Smoke from '@/../public/icons/smoke.svg';
+import smoke from '@/../public/icons/smoke.svg';
 import car from '@/../public/icons/car.svg';
-import HotPot from '@/../public/icons/hot-pot.svg';
+import hotPot from '@/../public/icons/hot-pot.svg';
 import Wifi from '@/../public/icons/wifi.svg';
-import Ratio from '@/../public/icons/ratio.svg';
+import ratio from '@/../public/icons/ratio.svg';
 import carbon from '@/../public/icons/carbon.svg';
-import ValleyView from '@/../public/icons/valley-view.svg';
+import valleyView from '@/../public/icons/valley-view.svg';
 import tv from '@/../public/icons/tv.svg';
 import Image from 'next/image';
 
@@ -26,14 +26,14 @@ const FeaturesAmenities = () => {
         </div>
         <div className='flex gap-x-4'>
           <Image
-            src={AirConditioning}
+            src={airConditioning}
             alt='AirConditioning'
           />
           <p>Air conditioning</p>
         </div>
         <div className='flex gap-x-4'>
           <Image
-            src={Smoke}
+            src={smoke}
             alt='Smoke'
           />
           <p>Smoke alarm</p>
@@ -54,7 +54,7 @@ const FeaturesAmenities = () => {
         </div>
         <div className='flex gap-x-4'>
           <Image
-            src={HotPot}
+            src={hotPot}
             alt='HotPot'
           />
           <p>Private hot tub</p>
@@ -69,7 +69,7 @@ const FeaturesAmenities = () => {
         </div>
         <div className='flex gap-x-4'>
           <Image
-            src={Ratio}
+            src={ratio}
             alt='Ratio'
           />
           <p>Private patio or balcony</p>
@@ -84,7 +84,7 @@ const FeaturesAmenities = () => {
         </div>
         <div className='flex gap-x-4'>
           <Image
-            src={ValleyView}
+            src={valleyView}
             alt='ValleyView'
           />
           <p>Valley view</p>
