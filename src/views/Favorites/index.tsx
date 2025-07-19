@@ -2,9 +2,7 @@
 
 import PropertyCard from '@/components/cards/property-Card';
 import Title from '@/components/common/title';
-import { RentPropertyData } from '@/constant/cards/rent-property-data';
-
-// React Import
+import { RentPropertyData } from '@/constant/cards/rent-buy-property-data';
 
 const FavoriteView = () => {
   return (
@@ -14,15 +12,7 @@ const FavoriteView = () => {
         {RentPropertyData.map((item, i) => (
           <PropertyCard
             key={i}
-            thumbnail={item.thumbnail}
-            title={item.title}
-            location={item.location}
-            duration={item.duration}
-            status={item.status || ''}
-            price={item.price}
-            bathrooms={item.bathrooms}
-            bedrooms={item.bedrooms}
-            area={item.area}
+            {...item}
           />
         ))}
       </div>

@@ -1,11 +1,9 @@
 // src/app/nat-found.tsx
-
 'use client';
 
 // Next & React Imports
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React from 'react';
 
 // Components Imports
 import Button from '@/components/buttons/button';
@@ -19,7 +17,7 @@ import notFound from '@/../public/images/not-found.jpg';
 
 const NotFound = () => {
   // router
-  const router = useRouter();
+  const { push } = useRouter();
 
   return (
     <div className='grid items-center justify-items-center w-full'>
@@ -34,7 +32,7 @@ const NotFound = () => {
       <Button
         text='Go to home'
         className='flex mt-6'
-        onClick={() => router.push(urls.home)}
+        onClick={() => push(urls.home)}
       />
     </div>
   );

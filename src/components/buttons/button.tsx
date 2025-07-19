@@ -1,4 +1,5 @@
 // src/components/buttons/button.tsx
+'use client';
 // Interfaces Import
 import { ButtonInterface } from '@/interfaces/common/button-interface';
 

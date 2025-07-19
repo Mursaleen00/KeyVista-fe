@@ -25,7 +25,6 @@ const PropertyCard = ({
     <div className='grid w-full border border-border rounded-3xl'>
       {/* Image Section  */}
       <div className='relative -z-20'>
-        {/* <div className={`w-full h-full flex`}>{thumbnail}</div> */}
         <Image
           src={thumbnail || ''}
           alt='building'

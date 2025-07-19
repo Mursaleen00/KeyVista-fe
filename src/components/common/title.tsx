@@ -1,5 +1,5 @@
 // src/component/common/title.tsx
-
+'use client';
 // react Import
 import React from 'react';
 

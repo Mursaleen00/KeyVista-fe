@@ -13,26 +13,22 @@ const Layout = ({ children }: { children: ReactNode }) => {
   // showHero
   const showHero = [
     urls.home,
-    urls.buyProperties,
     urls.favorite,
-    urls.rentProperties,
+    '/properties/rent-buy-properties',
   ].includes(pathname);
 
-  // showFilter
-  const showFilter = [
-    urls.home,
-    urls.buyProperties,
-    urls.rentProperties,
-  ].includes(pathname);
+  // showFilters
+  const showFilter = [urls.home, '/properties/rent-buy-properties'].includes(
+    pathname,
+  );
 
   // showFooter
   const showFooter = [
     urls.home,
     urls.map,
     urls.propertyDetails,
-    urls.buyProperties,
     urls.favorite,
-    urls.rentProperties,
+    '/properties/rent-buy-properties',
   ].includes(pathname);
 
   return (
