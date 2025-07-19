@@ -13,6 +13,7 @@ export const urls = {
   // Properties
   addProperty: '/add-property',
   myProperties: '/my-properties',
+  addProperties: '/add-properties',
   rentProperties: '/properties/rent-buy-properties?type=rent',
   buyProperties: '/properties/rent-buy-properties?type=buy',
   propertyDetails: (id: string) => `/property-details/${id}`,

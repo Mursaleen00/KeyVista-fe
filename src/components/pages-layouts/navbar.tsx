@@ -4,7 +4,7 @@
 // Next & React Imports
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { HiMenuAlt3 } from 'react-icons/hi';
 
@@ -30,11 +30,12 @@ const Navbar = () => {
 
   // use states
   const [isOpen, setIsOpen] = useState(false);
+  // const [openHero, setOpenHero] = useState(true);
+
   // router
   const { push } = useRouter();
+  const pathname = usePathname();
 
-  // pathname
-  // const pathname = usePathname();
   return (
     <nav
       className='flex z-20 flex-col w-full py-5 md:py-0 border-b md:border-none border-border sticky top-0
@@ -44,7 +45,7 @@ const Navbar = () => {
       <div className='flex justify-around items-center w-full pt-5'>
         {/* Logo  */}
         <div
-          className='cursor-pointer'
+          className={`cursor-pointer ${isOpen ? 'hidden' : 'block'}`}
           onClick={() => push(urls.home)}
         >
           <Logo />
@@ -62,8 +63,10 @@ const Navbar = () => {
         {/* icon section  */}
         <div className='md:flex hidden gap-x-4 cursor-pointer'>
           <Button
+            className={`cursor-pointer ${pathname === urls.addProperties ? 'hidden' : 'block'}`}
             text='Sell a property'
             isOutline
+            onClick={() => push(urls.addProperties)}
           />
           {/* Navbar Icon Data */}
           {NavbarIconData.map((item, i) => (
