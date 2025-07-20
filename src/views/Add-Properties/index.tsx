@@ -4,7 +4,7 @@ import React from 'react';
 
 const AddPropertiesIndex = () => {
   return (
-    <div>
+    <div className='flex flex-col gap-y-6 w-full h-full'>
       <AddPropertiesHero />
       <StepBar />
     </div>

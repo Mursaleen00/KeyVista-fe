@@ -63,7 +63,7 @@ const Navbar = () => {
         {/* icon section  */}
         <div className='md:flex hidden gap-x-4 cursor-pointer'>
           <Button
-            className={`cursor-pointer ${pathname === urls.addProperties ? 'hidden' : 'block'}`}
+            className={`cursor-pointer ${pathname === urls.addProperties ? 'hidden' : 'block'} hover:bg-primary hover:text-white`}
             text='Sell a property'
             isOutline
             onClick={() => push(urls.addProperties)}
