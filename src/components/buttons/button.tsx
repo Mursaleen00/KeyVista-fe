@@ -22,9 +22,9 @@ const Button = ({
       onClick={onClick}
       className={`${
         isOutline
-          ? 'border border-primary text-primary bg-white font-semibold'
+          ? 'border border-primary text-primary bg-white font-semibold hover:bg-primary hover:text-white'
           : 'bg-primary text-white shadow-sm shadow-primary hover:bg-primary-normal'
-      } ${className} flex px-11 rounded-lg items-center justify-center w-fit h-11 text-lg`}
+      } ${className} flex px-11 rounded-lg items-center justify-center w-fit h-11 text-lg cursor-pointer`}
     >
       {icon && (
         // Image
