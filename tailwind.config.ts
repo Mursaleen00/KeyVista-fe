@@ -7,6 +7,8 @@ const config: Config = {
       backgroundImage: {
         'footer-gradient': 'linear-gradient(180deg, #D48F9A 0%, #6A4C65 90.1%)',
         'profile-gradient': 'linear-gradient(180deg, #B87A8C 0%, #6A4C65 100%)',
+        'hero-gradient':
+          'linear-gradient(244.74deg, #B87A8C 33.97%, #6A4C65 75.66%)',
       },
       colors: {
         primary: {

@@ -13,17 +13,17 @@ export const urls = {
   // Properties
   addProperty: '/add-property',
   myProperties: '/my-properties',
-  Properties: '/properties ',
-  rentProperties: '/rent-properties',
-  buyProperties: 'buy-properties',
+  addProperties: '/add-properties',
+  rentProperties: '/properties/rent-buy-properties?type=rent',
+  buyProperties: '/properties/rent-buy-properties?type=buy',
   propertyDetails: (id: string) => `/property-details/${id}`,
 
   // Authentication
   login: '/login',
   forgetPassword: '/forgot-password',
   verification: '/verification',
-  registration: '/registration ',
-  changePassword: '/change-password ',
+  registration: '/registration',
+  changePassword: '/change-password',
   otpEmail: '/otp-email',
 
   // Payment
@@ -31,6 +31,6 @@ export const urls = {
   cancel: '/Payment/cancel',
 
   //  privacyPolicy
-  privatePolicy: '/private-policy ',
+  privatePolicy: '/private-policy',
   termsAndConditions: '/terms-and-conditions',
 };

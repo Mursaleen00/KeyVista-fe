@@ -1,36 +1,41 @@
 // src/components/pages-layouts/navbar.tsx
-
 'use client';
 
 // Next & React Imports
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { HiMenuAlt3 } from 'react-icons/hi';
 
-// DropdownMenu package Import
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-
 // Components Imports
 import Button from '../buttons/button';
+import Dropdown from '../common/dropdown';
+import Logo from '../logo/logo';
 import SideBar from './sideBar';
 
 // constant Imports
-import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
-import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
+import {
+  NavbarIconData,
+  NavbarPagesData,
+  profileList,
+  propertyList,
+} from '@/constant/layouts-data/navbar-data';
+
+// router import
 import { urls } from '@/constant/router/routes';
 
-// Images Import
-import Logo from '../logo/logo';
-
 const Navbar = () => {
+  const [selectedValue, setSelectedValue] = useState<string>('');
+
   // use states
   const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownIconOpen, setIsDropdownIconOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // const [openHero, setOpenHero] = useState(true);
+
   // router
-  const router = useRouter();
+  const { push } = useRouter();
+  const pathname = usePathname();
+
   return (
     <nav
       className='flex z-20 flex-col w-full py-5 md:py-0 border-b md:border-none border-border sticky top-0
@@ -40,8 +45,8 @@ const Navbar = () => {
       <div className='flex justify-around items-center w-full pt-5'>
         {/* Logo  */}
         <div
-          className='cursor-pointer'
-          onClick={() => router.push(urls.home)}
+          className={`cursor-pointer ${isOpen ? 'hidden' : 'block'}`}
+          onClick={() => push(urls.home)}
         >
           <Logo />
         </div>
@@ -54,11 +59,14 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
           />
         </div>
+
         {/* icon section  */}
         <div className='md:flex hidden gap-x-4 cursor-pointer'>
           <Button
+            className={`cursor-pointer ${pathname === urls.addProperties ? 'hidden' : 'block'} hover:bg-primary hover:text-white`}
             text='Sell a property'
             isOutline
+            onClick={() => push(urls.addProperties)}
           />
           {/* Navbar Icon Data */}
           {NavbarIconData.map((item, i) => (
@@ -68,45 +76,30 @@ const Navbar = () => {
             >
               {/* Profile Drop down */}
               {item.name === 'profile' ? (
-                <DropdownMenu.Root
-                  open={isDropdownIconOpen}
-                  onOpenChange={setIsDropdownIconOpen}
-                >
-                  <DropdownMenu.Trigger asChild>
-                    <button className='flex items-center gap-x-1'>
+                <Dropdown
+                  items={profileList.map(list => list.label)}
+                  img={profileList.map(item => item.img)}
+                  selectedValue={selectedValue}
+                  onClick={selected => {
+                    const found = profileList.find(
+                      item => item.label === selected,
+                    );
+                    setSelectedValue(selected);
+                    if (found) push(found.path);
+                  }}
+                  trigger={
+                    <div className='flex items-center gap-x-1 z-50'>
                       {item.icon && (
                         <Image
                           src={item.icon}
                           alt=''
                           width={50}
-                          height={10}
+                          height={30}
                         />
                       )}
-                    </button>
-                  </DropdownMenu.Trigger>
-                  <DropdownMenu.Portal>
-                    <DropdownMenu.Content className='absolute !z-30 flex flex-col gap-y-4 -left-24 mt-3 bg-white shadow-lg rounded-xl p-3'>
-                      <DropdownMenu.Item
-                        className='p-2 px-3 hover:bg-primary outline-none cursor-pointer rounded-xl text-text-light hover:text-white'
-                        onClick={() => router.push(urls.profile)}
-                      >
-                        Profile
-                      </DropdownMenu.Item>
-                      <DropdownMenu.Item
-                        className='-mt-2 p-2 w-44 px-3 hover:bg-primary outline-none cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
-                        onClick={() => router.push(urls.changePassword)}
-                      >
-                        Change Password
-                      </DropdownMenu.Item>
-                      <DropdownMenu.Item
-                        className='-mt-2 p-2  px-3 hover:bg-primary cursor-pointer outline-none rounded-xl text-text-light hover:text-white hover:border-none'
-                        onClick={() => router.push(urls.myProperties)}
-                      >
-                        My Properties
-                      </DropdownMenu.Item>
-                    </DropdownMenu.Content>
-                  </DropdownMenu.Portal>
-                </DropdownMenu.Root>
+                    </div>
+                  }
+                />
               ) : (
                 <Link
                   href={item.link || ''}
@@ -126,6 +119,7 @@ const Navbar = () => {
           ))}
         </div>
       </div>
+
       {/* Second section border end pages */}
       <div className='md:flex hidden border w-full p-4 mt-3 justify-center items-center gap-6 cursor-pointer'>
         {/* Navbar Pages Data */}
@@ -136,12 +130,18 @@ const Navbar = () => {
           >
             {/* Properties Drop down */}
             {item.name === 'Properties' ? (
-              <DropdownMenu.Root
-                open={isDropdownOpen}
-                onOpenChange={setIsDropdownOpen}
-              >
-                <DropdownMenu.Trigger asChild>
-                  <button className='flex items-center gap-x-1 z-50'>
+              <Dropdown
+                items={propertyList.map(item => item.label)}
+                onClick={selected => {
+                  const found = propertyList.find(
+                    item => item.label === selected,
+                  );
+                  setSelectedValue(selected);
+                  if (found) push(found.path);
+                }}
+                selectedValue={selectedValue}
+                trigger={
+                  <div className='flex items-center gap-x-1 z-50'>
                     {item.icon && (
                       <Image
                         src={item.icon}
@@ -151,28 +151,9 @@ const Navbar = () => {
                       />
                     )}
                     <p className='flex text-xl text-text'>{item.name}</p>
-                  </button>
-                </DropdownMenu.Trigger>
-                <DropdownMenu.Portal>
-                  <div className='flex p-2'>
-                    <DropdownMenu.Content className='absolute !z-30 flex flex-col gap-y-4 -left-16 mt-3 bg-white shadow-lg rounded-xl p-3'>
-                      <DropdownMenu.Item
-                        className='p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white
-                         hover:border-none'
-                        onClick={() => router.push(urls.rentProperties)}
-                      >
-                        Rent
-                      </DropdownMenu.Item>
-                      <DropdownMenu.Item
-                        className='-mt-2 p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
-                        onClick={() => router.push(urls.buyProperties)}
-                      >
-                        Buy
-                      </DropdownMenu.Item>
-                    </DropdownMenu.Content>
                   </div>
-                </DropdownMenu.Portal>
-              </DropdownMenu.Root>
+                }
+              />
             ) : (
               <Link
                 href={item.link || ''}

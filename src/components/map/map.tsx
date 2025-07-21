@@ -9,11 +9,11 @@ import {
 
 import { useState } from 'react';
 
+import markerIcon from '@/../public/icons/marker.svg';
 import { dummyMarkersData } from '@/constant/map/dummy-markers';
 import { IMapProps } from '@/interfaces/common/map.interface';
 import { TCurrentLocation, TMarkersData } from '@/types/map.type';
 import Image from 'next/image';
-import markerIcon from '@/../public/icons/marker.svg';
 
 const Map = ({ width, height, isCurrentLocation, markers }: IMapProps) => {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY as string;
