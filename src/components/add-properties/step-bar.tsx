@@ -1,4 +1,4 @@
-import { StepBarData } from '@/constant/properties/step-bar-data';
+import { StepBarData } from '@/constant/add-properties/step-bar-data';
 import Image from 'next/image';
 import React from 'react';
 
