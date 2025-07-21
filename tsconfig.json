@@ -27,11 +27,15 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/constant/layouts-data/navbar-icon-data.tsx",
+    "src/constant/layouts-data/navbar-data.tsx",
     "src/components/cards/property-by-city-card.tsx",
     "src/components/common/profile-drop-down.tsx",
     "src/components/common/select.jsx",
-    "src/constant/cards/rent-buy-cards-data.ts"
-, "src/views/Terms-And-Conditions/index.tsx", "src/components/common/carousel.tsx"  ],
+    "src/constant/cards/rent-buy-cards-data.ts",
+    "src/views/Terms-And-Conditions/index.tsx",
+    "src/components/common/carousel.tsx",
+    "src/views/Properties/rent-buy-properties/index.tsx",
+    "src/app/(pages)/properties/rent-buy-properties/page.tsx"
+  ],
   "exclude": ["node_modules"]
 }

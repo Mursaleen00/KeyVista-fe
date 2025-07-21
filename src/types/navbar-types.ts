@@ -9,9 +9,15 @@ export type IconT = {
   hight?: number;
 };
 
-// export IconT
+// export PagesT
 export type PagesT = {
   link?: string;
   name: string;
   icon?: string;
+};
+
+// export  PropertiesT
+export type PropertiesT = {
+  label?: string;
+  path?: string;
 };

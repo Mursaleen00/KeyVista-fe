@@ -1,7 +1,9 @@
+// import Notifications from '@/components/common/notification';
 import Title from '@/components/common/title';
-import { NotificationData } from '@/constant/common/notification-data';
-import Image from 'next/image';
-import React from 'react';
+// import { NotificationData } from '@/constant/common/notification-data';
+// import Image from 'next/image';
+// import { NotificationData } from '@/constant/common/notification-data';
+// import Image from 'next/image';
 
 const NotificationView = () => {
   return (
@@ -13,15 +15,23 @@ const NotificationView = () => {
           className='text-3xl'
         />
       </div>
-      <div>
+
+      {/* <main className='px-4 sm:px-6 lg:px-8 py-6 max-w-4xl mx-auto'>
+        <Notifications />
+      </main> */}
+    </div>
+  );
+};
+
+export default NotificationView;
+{
+  /* <div>
         {NotificationData.map((item, i) => (
-          // title days
           <div key={i}>
             <p className='flex text-text-dark font-semibold p-5 md:px-12 text-xl'>
               {item.title}
             </p>
             <div className='flex flex-col'>
-              {/* Today Section */}
               {item.title === 'Today' ? (
                 <div className='flex flex-col gap-y-6'>
                   {item.data.map((list, index) => (
@@ -53,7 +63,6 @@ const NotificationView = () => {
                   ))}
                 </div>
               ) : (
-                // Yesterday Section
                 <div className='flex flex-col gap-y-6'>
                   {item.data.map((list, index) => (
                     <div
@@ -87,9 +96,5 @@ const NotificationView = () => {
             </div>
           </div>
         ))}
-      </div>
-    </div>
-  );
-};
-
-export default NotificationView;
+      </div> */
+}
