@@ -36,7 +36,7 @@ const initialValues = {
 };
 const RegistrationView = () => {
   // router
-  const router = useRouter();
+  const { push } = useRouter();
 
   //  formik
   const formik = useFormik({
@@ -84,15 +84,28 @@ const RegistrationView = () => {
         ))}
       </div>
       <div className='flex w-full gap-x-2 items-center pt-3'>
-        <input
+        <Input
           type='checkbox'
-          className='flex w-[20px] accent-primary border border-black'
+          className='px-none py-none rounded-none border-none w-fit'
         />
 
         <p className='text-text-light '>
           By signing up, you agree to our
-          <span className='text-primary'> Privacy Policy </span> &
-          <span className='text-primary'> Terms of Service</span>
+          <span
+            className='text-primary cursor-pointer'
+            onClick={() => push(urls.privacyPolicy)}
+          >
+            {' '}
+            Privacy Policy{' '}
+          </span>{' '}
+          &
+          <span
+            className='text-primary cursor-pointer'
+            onClick={() => push(urls.termsAndConditions)}
+          >
+            {' '}
+            Terms of Service
+          </span>
         </p>
       </div>
       {/* button  */}
@@ -106,7 +119,7 @@ const RegistrationView = () => {
         Already have an account?
         <span
           className='text-primary cursor-pointer'
-          onClick={() => router.push(urls.login)}
+          onClick={() => push(urls.login)}
         >
           Login
         </span>

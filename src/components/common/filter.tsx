@@ -3,7 +3,7 @@ import Arrow from '@/../public/icons/down-arrow.svg';
 import location from '@/../public/icons/location.svg';
 import Button from '../buttons/button';
 import Input from '../inputs/input';
-import AllSelect from './select';
+import AllSelect from '../common/select';
 
 const Filter = () => {
   return (

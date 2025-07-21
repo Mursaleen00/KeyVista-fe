@@ -1,6 +1,5 @@
-type ResidentialType = {
-  text: string;
-};
+import { ResidentialType } from '@/types/add-properties-types';
+
 export const ResidentialData: ResidentialType[] = [
   { text: 'Upper Portion' },
   { text: 'Commercial' },
