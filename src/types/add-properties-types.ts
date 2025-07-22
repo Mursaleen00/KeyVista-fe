@@ -14,3 +14,6 @@ export type StepBarT = {
   icon: string;
   darkIcon?: string;
 };
+export type AmenitiesType = {
+  text: string;
+};

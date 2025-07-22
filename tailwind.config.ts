@@ -26,7 +26,7 @@ const config: Config = {
         },
         heading: '#2C254B',
         red: '#F55D5D',
-        white: '#FFFFFF',
+        white: { DEFAULT: '#FFFFFF', light: '#FAFAFAB2' },
         orange: '#F8A748',
         light: { SeGreen: '#ECF8F8' },
         border: { DEFAULT: '#E0DEEA', light: '#F2F1F5' },

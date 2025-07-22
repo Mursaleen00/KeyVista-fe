@@ -7,7 +7,7 @@ import Arrow from '@/../public/icons/down-arrow.svg';
 
 const LocationAndPurpose = () => {
   return (
-    <div>
+    <div className='text-text-light flex flex-col'>
       {/* Main Hading */}
       <h1 className='flex text-text-dark font-semibold text-xl'>
         Purpose & Location

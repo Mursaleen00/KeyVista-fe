@@ -29,17 +29,17 @@ const Input = ({
     // Label
     <label
       htmlFor='input'
-      className='space-y-1'
+      className='space-y-2'
     >
       {label && (
-        <p className='text-secondary-700 text-sm font-normal capitalize line-clamp-1'>
+        <p className='text-secondary-700 text-sm font-normal line-clamp-1'>
           {label}
           {required && <span className='text-red'>*</span>}
         </p>
       )}
       {/* Cn  */}
       <div
-        className={`flex justify-between items-center w-full bg-white border !border-border rounded-xl shadow-box-shadow pr-3 ${className} ${isError && `!border-red`}`}
+        className={`flex justify-between items-center w-full bg-white border !border-border rounded-xl shadow-box-shadow pr-3 ${className} ${isError && `!border-red`} ${type === 'checkbox' ? 'border-none' : ''} `}
       >
         {/* Input  */}
         <input
