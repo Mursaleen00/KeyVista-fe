@@ -3,8 +3,9 @@ import Input from '../inputs/input';
 import Image from 'next/image';
 import upload from '@/../public/icons/upload.svg';
 import Button from '../buttons/button';
+import { descriptionI } from '@/interfaces/properties/Add-properties-interface';
 
-const Description = () => {
+const Description: React.FC<descriptionI> = ({ prevStep, setStep }) => {
   return (
     <div className='flex flex-col gap-y-4 text-text-light'>
       {/* Main Hading */}
@@ -15,8 +16,8 @@ const Description = () => {
           <div className='w-full'>
             <Input
               type='text'
-              label='What is the size of your property?'
-              placeholder='Enter Property Size'
+              label='Name your property'
+              placeholder='Enter Property Name'
               className='p-1 flex w-full'
             />
           </div>
@@ -46,7 +47,7 @@ const Description = () => {
                   className='inline-block'
                 />
               </label>
-              <input
+              <Input
                 type='file'
                 id='myfile'
                 className='hidden'
@@ -74,7 +75,7 @@ const Description = () => {
                   className='inline-block'
                 />
               </label>
-              <input
+              <Input
                 type='file'
                 id='myfile'
                 className='hidden'
@@ -86,8 +87,14 @@ const Description = () => {
           </div>
           {/* Last and Button Section */}
           <div className='flex flex-col sm:flex-row gap-5 items-end mt-4 justify-end '>
-            <Button text='Back' />
-            <Button text='Submit Ad' />
+            <Button
+              text='Back'
+              onClick={prevStep}
+            />
+            <Button
+              text='Submit Ad'
+              onClick={setStep}
+            />
           </div>
         </div>
       </div>

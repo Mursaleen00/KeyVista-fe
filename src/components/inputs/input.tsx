@@ -32,7 +32,7 @@ const Input = ({
       className='space-y-2'
     >
       {label && (
-        <p className='text-secondary-700 text-sm font-normal line-clamp-1'>
+        <p className='text-text-dark text-sm font-normal line-clamp-1'>
           {label}
           {required && <span className='text-red'>*</span>}
         </p>

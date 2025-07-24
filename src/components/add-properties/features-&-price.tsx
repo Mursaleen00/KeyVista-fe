@@ -2,13 +2,16 @@
 import React from 'react';
 import Button from '../buttons/button';
 import Input from '../inputs/input';
-import { bedroomsData } from '@/constant/add-properties/bedrooms-data';
-import { bathroomsData } from '@/constant/add-properties/bathrooms-data';
-import { AmenitiesData } from '@/constant/add-properties/amenities-data';
+import {
+  bedroomsData,
+  bathroomsData,
+  AmenitiesData,
+} from '@/constant/add-properties/add-properties-data';
 import AllSelect from '../common/select';
 import Arrow from '@/../public/icons/down-arrow.svg';
+import { featurePriceI } from '@/interfaces/properties/Add-properties-interface';
 
-const FeatureAndPrice = () => {
+const FeatureAndPrice: React.FC<featurePriceI> = ({ setStep, prevStep }) => {
   return (
     <div className='flex flex-col gap-y-4 mt-6 text-text-light'>
       {/* Main Hading */}
@@ -29,13 +32,13 @@ const FeatureAndPrice = () => {
           </div>
           {/* bedrooms Section */}
           <div className='flex flex-col w-full py-7'>
-            <h1 className='flex text-text-light'>
+            <h1 className='flex text-text-dark'>
               How many bathrooms does it have?
             </h1>
             <div className='flex flex-wrap gap-2 w-full mt-4'>
               {bedroomsData.map((item, i) => (
                 <Button
-                  text={item.text || ''}
+                  text={item.bedrooms || ''}
                   isOutline
                   key={i}
                   className='flex rounded-xl'
@@ -45,13 +48,13 @@ const FeatureAndPrice = () => {
           </div>
           {/* bathrooms Section */}
           <div className='flex flex-col w-full'>
-            <h1 className='flex text-text-light'>
+            <h1 className='flex text-text-dark'>
               How many bathrooms does it have?
             </h1>
             <div className='flex flex-wrap gap-2 w-full mt-4'>
               {bathroomsData.map((item, i) => (
                 <Button
-                  text={item.text || ''}
+                  text={item.bathrooms || ''}
                   isOutline
                   key={i}
                   className='flex rounded-xl'
@@ -60,16 +63,24 @@ const FeatureAndPrice = () => {
             </div>
           </div>
           {/* Amenities */}
-          <div className='grid grid-cols-1 md:grid-cols-2 w-full py-7'>
-            {AmenitiesData.map((item, i) => (
-              <div
-                key={i}
-                className='flex items-center gap-x-2 w-full mt-4'
-              >
-                <Input type='checkbox' />
-                <p className='text-text-light'>{item.text}</p>
-              </div>
-            ))}
+          <div className='flex flex-col w-full my-4'>
+            <h1 className='flex text-text-dark'>
+              What amenities are available?
+            </h1>
+            <div className='grid grid-cols-1 md:grid-cols-2 w-full'>
+              {AmenitiesData.map((item, i) => (
+                <div
+                  key={i}
+                  className='flex items-center w-full mt-4 gap-x-2'
+                >
+                  <input
+                    type='checkbox'
+                    className='w-4 h-4 rounded-2xl'
+                  />
+                  <p className='text-text-light'>{item.Amenities}</p>
+                </div>
+              ))}
+            </div>
           </div>
           {/* 2nd input */}
           <div className='flex flex-col w-full gap-y-3'>
@@ -95,8 +106,14 @@ const FeatureAndPrice = () => {
           </div>
           {/* Last and Button Section */}
           <div className='flex flex-col sm:flex-row gap-5 items-end mt-4 justify-end '>
-            <Button text='Back' />
-            <Button text='Next' />
+            <Button
+              text='Back'
+              onClick={prevStep}
+            />
+            <Button
+              text='Next'
+              onClick={setStep}
+            />
           </div>
         </div>
       </div>
