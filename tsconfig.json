@@ -36,6 +36,6 @@
     "src/components/common/carousel.tsx",
     "src/views/Properties/rent-buy-properties/index.tsx",
     "src/app/(pages)/properties/rent-buy-properties/page.tsx"
-  ],
+, "src/views/Auth/registration.tsx"  ],
   "exclude": ["node_modules"]
 }

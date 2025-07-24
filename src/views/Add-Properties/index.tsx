@@ -4,9 +4,11 @@ import React from 'react';
 
 const AddPropertiesIndex = () => {
   return (
-    <div className='flex flex-col gap-y-6 w-full h-full'>
+    <div className='flex flex-col gap-y-6 w-full'>
       <AddPropertiesHero />
-      <AddPropertiesSection />
+      <div className='flex justify-center items-center p-5'>
+        <AddPropertiesSection />
+      </div>
     </div>
   );
 };

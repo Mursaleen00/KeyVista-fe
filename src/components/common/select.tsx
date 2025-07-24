@@ -26,7 +26,7 @@ const AllSelect = ({
       onValueChange={setSelected}
       disabled={disabled}
     >
-      <label className='text-md'>{label}</label>
+      <label className='text-sm'>{label}</label>
 
       <SelectTrigger className='flex rounded-xl py-7'>
         <div className='text-text flex'>

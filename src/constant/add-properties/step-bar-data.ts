@@ -3,13 +3,8 @@ import dolor from '@/../public/properties-hero/dolor.svg';
 import information from '@/../public/properties-hero/information.svg';
 import grayDolor from '@/../public/properties-hero/gray-dolor.svg';
 import grayInformation from '@/../public/properties-hero/gray-information.svg';
+import { StepBarT } from '@/types/add-properties-types';
 
-type StepBarT = {
-  id: number;
-  tittle: string;
-  icon: string;
-  darkIcon?: string;
-};
 export const StepBarData: StepBarT[] = [
   { id: 1, tittle: 'location & purpose', icon: location.src },
   {

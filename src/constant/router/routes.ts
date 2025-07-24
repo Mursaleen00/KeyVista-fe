@@ -31,6 +31,6 @@ export const urls = {
   cancel: '/Payment/cancel',
 
   //  privacyPolicy
-  privatePolicy: '/private-policy',
+  privacyPolicy: '/privacy-policy',
   termsAndConditions: '/terms-and-conditions',
 };
