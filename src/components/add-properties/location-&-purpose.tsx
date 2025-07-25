@@ -1,11 +1,16 @@
 'use client';
 import React from 'react';
 import Button from '../buttons/button';
-import { ResidentialData } from '@/constant/add-properties/residential-data';
+import { ResidentialData } from '@/constant/add-properties/add-properties-data';
 import AllSelect from '../common/select';
 import Arrow from '@/../public/icons/down-arrow.svg';
+import { locationPurposeI } from '@/interfaces/properties/Add-properties-interface';
 
-const LocationAndPurpose = () => {
+const LocationAndPurpose: React.FC<locationPurposeI> = ({
+  setStep,
+  // formik,
+}) => {
+  // const { values, errors, handleBlur } = formik;
   return (
     <div className='text-text-light flex flex-col'>
       {/* Main Hading */}
@@ -14,13 +19,12 @@ const LocationAndPurpose = () => {
       </h1>
       {/* Location and Purpose Section */}
       <div className='flex flex-col gap-y-2 mt-4 items-center text-start'>
-        <div className='flex flex-col gap-y-7'>
+        <div className='flex flex-col gap-y-5'>
           {/* purpose Section */}
           <div className='flex flex-col gap-y-2 mt-4'>
-            <h1 className='text-text-normal'>Select purpose</h1>
+            <h1 className='text-text-light text-lg'>Select Purpose</h1>
             <div className='flex flex-col sm:flex-row gap-x-4'>
               <Button
-                // className=' bg-white text-primary hover:bg-primary hover:text-white cursor-pointer border border-black'
                 text='Sell'
                 isOutline
               />
@@ -30,28 +34,31 @@ const LocationAndPurpose = () => {
               />
             </div>
           </div>
-          {/* Question */}
-          <h1 className='text-text-normal'>
-            What kind of property do you have?
-          </h1>
           {/* Residential Section */}
-          <div className='flex flex-col gap-y-5 justify-start items-start text-start'>
-            <h1 className='text-primary pb-2 border-b-primary border-2 border-t-white border-x-white'>
+          <div className='flex flex-col gap-y-3 justify-start items-start text-start'>
+            {/* Question */}
+            <h1 className='text-text-light text-lg py-0'>
+              What kind of property do you have?
+            </h1>
+            {/* Heading */}
+            <h1 className='text-primary pb-1 border-b-primary border-2 border-t-white border-x-white'>
               Residential
             </h1>
             <div className='flex flex-wrap max-w-[600px] gap-2'>
               {ResidentialData.map((item, i) => (
                 <Button
+                  // values={values[item.Residential as keyof typeof values]}
+                  // errors={errors[item.Residential as keyof typeof errors]}
+                  // onBlur={handleBlur}
                   key={i}
-                  text={item.text}
-                  // className='flex hover:bg-primary hover:text-white cursor-pointer border border-black'
+                  text={item.Residential || ''}
                   isOutline
                 />
               ))}
             </div>
           </div>
           {/* Select Section */}
-          <div className='flex flex-col gap-y-5 justify-start items-start text-start'>
+          <div className='flex flex-col gap-y-2 py-2 justify-start items-start text-start'>
             <AllSelect
               label={'Which City is your property in?'}
               placeholder={'Select City'}
@@ -75,7 +82,10 @@ const LocationAndPurpose = () => {
           </div>
           {/* Button and Section */}
           <div className='flex flex-col gap-y-5 items-end'>
-            <Button text='Next' />
+            <Button
+              text='Next'
+              onClick={setStep}
+            />
           </div>
         </div>
       </div>

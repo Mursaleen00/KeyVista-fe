@@ -1,19 +1,32 @@
-export type bedroomsProps = {
-  text?: string;
-};
-export type bathroomsProps = {
-  text?: string;
+// src/types/add-properties-types.ts
+
+// formik
+import { FormikProps } from 'formik';
+
+//----------------------- Export Type AddToCardOnboardingT ---------------------
+export type AddPropertiesT = {
+  locationAndPurpose: ResidentialT;
+  FeatureAndPrice: FeatureAndPriceT;
 };
 
-export type ResidentialType = {
-  text: string;
+// Export FeatureAndPriceT
+export type FeatureAndPriceT = {
+  bedrooms?: string;
+  bathrooms?: string;
+  Amenities?: string;
 };
+
+// Export ResidentialT
+export type ResidentialT = {
+  Residential: string;
+};
+
+// Export StepBarT
 export type StepBarT = {
-  id: number;
   tittle: string;
-  icon: string;
+  icon?: string;
   darkIcon?: string;
 };
-export type AmenitiesType = {
-  text: string;
-};
+
+// =============================== Export AddToCardOnboardingType ===========================
+export type AddToCardOnboardingType = FormikProps<AddPropertiesT>;

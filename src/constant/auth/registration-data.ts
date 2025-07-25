@@ -9,7 +9,7 @@ export const RegistrationData = [
     name: 'fullName',
   },
   {
-    label: 'phone Number',
+    label: 'Phone Number',
     type: 'number',
     placeholder: 'Number',
     name: 'number',
