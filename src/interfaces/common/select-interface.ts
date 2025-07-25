@@ -1,4 +1,3 @@
-
 export interface SelctI {
   name: string;
   label?: string;

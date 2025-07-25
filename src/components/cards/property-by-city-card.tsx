@@ -36,4 +36,3 @@ const PropertyByCityCard = ({
 };
 
 export default PropertyByCityCard;
-  
