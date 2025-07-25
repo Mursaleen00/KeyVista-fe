@@ -35,7 +35,7 @@ const HomeView = () => {
       </div>
 
       {/* Browse Properties */}
-      <div className='grid px-2 sm:px-6 py-9'>
+      <div className='grid px-2 md:px-4 py-9'>
         {/* Text section */}
         <div className='flex flex-col w-full justify-center md:pl-4'>
           <Title text='Browse Properties' />
@@ -92,7 +92,7 @@ const HomeView = () => {
       </div>
 
       {/* Browse Properties by city */}
-      <div className='grid bg-light-SeGreen w-full p-4 sm:p-7 gap-y-9'>
+      <div className='grid bg-light-SeGreen w-full p-4 sm:p-5  gap-y-9'>
         {/* text section */}
         <div className='grid gap-y-5'>
           <Title text='Browse Properties by city' />
@@ -104,7 +104,7 @@ const HomeView = () => {
         </div>
 
         {/* PropertyByCityCard */}
-        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2'>
+        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
           {PropertyByCityCardData.map((item, i) => (
             <PropertyByCityCard
               key={i}

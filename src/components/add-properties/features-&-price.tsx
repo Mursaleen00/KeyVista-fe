@@ -7,9 +7,9 @@ import {
   bathroomsData,
   AmenitiesData,
 } from '@/constant/add-properties/add-properties-data';
-import AllSelect from '../common/select';
 import Arrow from '@/../public/icons/down-arrow.svg';
 import { featurePriceI } from '@/interfaces/properties/Add-properties-interface';
+import { SelectForm } from '../common/select';
 
 const FeatureAndPrice: React.FC<featurePriceI> = ({ setStep, prevStep }) => {
   return (
@@ -93,7 +93,7 @@ const FeatureAndPrice: React.FC<featurePriceI> = ({ setStep, prevStep }) => {
           </div>
           {/* Select Section */}
           <div className='flex flex-col w-full gap-y-2 mt-4'>
-            <AllSelect
+            <SelectForm
               label={'Which City is your property in?'}
               placeholder={'Select City'}
               icon={Arrow}

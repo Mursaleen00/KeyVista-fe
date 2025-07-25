@@ -2,9 +2,9 @@
 import React from 'react';
 import Button from '../buttons/button';
 import { ResidentialData } from '@/constant/add-properties/add-properties-data';
-import AllSelect from '../common/select';
 import Arrow from '@/../public/icons/down-arrow.svg';
 import { locationPurposeI } from '@/interfaces/properties/Add-properties-interface';
+import { SelectForm } from '../common/select';
 
 const LocationAndPurpose: React.FC<locationPurposeI> = ({
   setStep,
@@ -59,7 +59,7 @@ const LocationAndPurpose: React.FC<locationPurposeI> = ({
           </div>
           {/* Select Section */}
           <div className='flex flex-col gap-y-2 py-2 justify-start items-start text-start'>
-            <AllSelect
+            <SelectForm
               label={'Which City is your property in?'}
               placeholder={'Select City'}
               icon={Arrow}
@@ -69,7 +69,7 @@ const LocationAndPurpose: React.FC<locationPurposeI> = ({
                 { value: 'villa', label: 'Villa' },
               ]}
             />
-            <AllSelect
+            <SelectForm
               label={'Which Area is your property in?'}
               placeholder={'Select Area'}
               icon={Arrow}
