@@ -36,9 +36,15 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <Navbar />
       <div className={`${showFilter && 'mb-[700px] md:mb-36'} relative`}>
         {showHero && <HeroSection />}
-        <div className='flex justify-center'>{showFilter && <Filter />}</div>
+        <div className='flex justify-center w-full absolute top-96 md:top-[75%] z-10 p-4'>
+          {showFilter && <Filter />}
+        </div>
       </div>
-      <div className='flex flex-col py-10'>{children}</div>
+      <div
+        className={`flex flex-col py-10 ${showFilter && <Filter /> ? 'mt-[900px] sm:mt-52' : ''}`}
+      >
+        {children}
+      </div>
       {showFooter && <Footer />}
     </div>
   );

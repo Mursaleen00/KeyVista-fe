@@ -6,12 +6,12 @@ import Title from '@/components/common/title';
 import { ProfileData } from '@/constant/common/profile-data';
 import Input from '@/components/inputs/input';
 import Arrow from '@/../public/icons/down-arrow.svg';
-import AllSelect from '@/components/common/select';
 import Button from '@/components/buttons/button';
 import Edit from '@/../public/icons/edit.svg';
 import { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { SelectForm } from '@/components/common/select';
 
 const ProfileView = () => {
   const [phone, setPhone] = useState('');
@@ -38,7 +38,7 @@ const ProfileView = () => {
           </div>
         </div>
         <Button
-          text={isEdit ? 'Set Profile' : 'Edit Profile'}
+          text={isEdit ? 'Update Profile' : 'Edit Profile'}
           isOutline
           icon={Edit}
           className='flex gap-x-2 py-7 px-8'
@@ -73,15 +73,15 @@ const ProfileView = () => {
               value={phone}
               onChange={setPhone}
               inputClass='!w-full !h-14 !text-sm !rounded-xl'
-              buttonClass='!border-r !border-gray p-9 flex !rounded-l-xl'
+              buttonClass='!border-r !border-gray p-4 flex !rounded-l-xl'
               containerClass='flex !rounded-full text-text'
               disabled={!isEdit}
             />
           </div>
-          {/* Other input */}
+          {/* Select Section */}
           {/* Country */}
           <div>
-            <AllSelect
+            <SelectForm
               label={'Country'}
               placeholder={'Select Country'}
               icon={Arrow}
@@ -95,7 +95,7 @@ const ProfileView = () => {
           </div>
           {/* City */}
           <div>
-            <AllSelect
+            <SelectForm
               label={'City'}
               placeholder={'Select City'}
               icon={Arrow}
