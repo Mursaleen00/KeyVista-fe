@@ -59,7 +59,7 @@ const PropertyCard = ({
       <div className='border border-border-light m-4' />
       {/* Home information */}
       <div className='flex px-2 sm:px-4 pb-4 gap-4 justify-around items-center'>
-        <div className='flex flex-col sm:flex-row gap-y-2 sm:gap-x-1 items-start sm:items-center'>
+        <div className='flex flex-col gap-y-2 sm:gap-x-1 items-start'>
           <Image
             src={Bedrooms}
             alt=''
@@ -70,7 +70,7 @@ const PropertyCard = ({
             className='text-heading'
           />
         </div>
-        <div className='flex flex-col sm:flex-row gap-y-2 sm:gap-x-1 items-start sm:items-center'>
+        <div className='flex flex-col gap-y-2 sm:gap-x-1 items-start'>
           <Image
             src={Bathrooms}
             alt=''
@@ -80,7 +80,7 @@ const PropertyCard = ({
             className='text-heading'
           />
         </div>
-        <div className='flex flex-col sm:flex-row gap-y-2 sm:gap-x-1 items-start sm:items-center'>
+        <div className='flex flex-col gap-y-2 sm:gap-x-1 items-start'>
           <Image
             src={HomeSpace}
             alt=''

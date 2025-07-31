@@ -4,7 +4,7 @@
 // Next & React Imports
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 // constant Imports
@@ -21,10 +21,13 @@ import { NavbarProps } from '@/interfaces/common/navbar-interfaces';
 // component Import
 import Dropdown from '../common/dropdown';
 import Button from '../buttons/button';
+import { urls } from '@/constant/router/routes';
 
 const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
   // router
   const { push } = useRouter();
+  // pathname
+  const pathname = usePathname();
   // pathname
   const [selectedValue, setSelectedValue] = useState<string>('');
   // isOpen;
@@ -140,8 +143,10 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
       {/* Button */}
       <div className='flex pl-10 pt-6 items-end justify-start'>
         <Button
+          className={`cursor-pointer ${pathname === urls.addProperties ? 'hidden' : 'block'} hover:bg-primary hover:text-white`}
           text='Sell a property'
           isOutline
+          onClick={() => push(urls.addProperties)}
         />
       </div>
     </div>

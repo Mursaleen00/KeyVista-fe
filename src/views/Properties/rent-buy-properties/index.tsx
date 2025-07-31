@@ -18,9 +18,9 @@ const RentAndBuyPropertiesIndex: FC<IProps> = ({ type }) => {
   const isRent = type === 'rent';
 
   return (
-    <div className='grid gap-4 sm:px-9'>
+    <div className='grid gap-4 p-2 sm:px-5'>
       {/* Text section */}
-      <div className='grid p-4 gap-4 pt-9'>
+      <div className='grid sm:px-3 gap-4'>
         <Title text={isRent ? 'Rent Properties' : 'Buy Properties'} />
         <Paragraph
           text={

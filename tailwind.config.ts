@@ -12,7 +12,7 @@ const config: Config = {
       },
       colors: {
         primary: {
-          DEFAULT: '#6A4C65', // Dusty Plum
+          DEFAULT: '#6A4C65',
           medium: '#9E7B8A',
           normal: '#D29BB0',
           light: '#D0B4C3',
@@ -33,7 +33,6 @@ const config: Config = {
       },
     },
   },
-  // plugins: [],
   plugins: [require('@tailwindcss/line-clamp')],
 };
 export default config;

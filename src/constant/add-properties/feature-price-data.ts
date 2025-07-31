@@ -1,6 +1,6 @@
 import { FeatureAndPriceT } from '@/types/add-properties-types';
-import { ResidentialT } from '@/types/add-properties-types';
 
+// Export AmenitiesData
 export const AmenitiesData: FeatureAndPriceT[] = [
   { Amenities: 'Air Conditioning' },
   { Amenities: 'Balcony' },
@@ -21,6 +21,7 @@ export const AmenitiesData: FeatureAndPriceT[] = [
   { Amenities: 'Swimming Pool' },
 ];
 
+// Export bedroomsData
 export const bedroomsData: FeatureAndPriceT[] = [
   { bedrooms: 'Studio' },
   { bedrooms: '1' },
@@ -34,6 +35,7 @@ export const bedroomsData: FeatureAndPriceT[] = [
   { bedrooms: '10+' },
 ];
 
+// Export bathroomsData
 export const bathroomsData: FeatureAndPriceT[] = [
   { bathrooms: '1' },
   { bathrooms: '2' },
@@ -44,15 +46,4 @@ export const bathroomsData: FeatureAndPriceT[] = [
   { bathrooms: '8' },
   { bathrooms: '9' },
   { bathrooms: '10+' },
-];
-
-export const ResidentialData: ResidentialT[] = [
-  { Residential: 'Upper Portion' },
-  { Residential: 'Commercial' },
-  { Residential: 'Hostel' },
-  { Residential: 'Flat' },
-  { Residential: 'House' },
-  { Residential: 'Lower Portion' },
-  { Residential: 'Plot' },
-  { Residential: 'Room' },
 ];

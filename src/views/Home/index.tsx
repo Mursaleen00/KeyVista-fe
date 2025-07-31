@@ -16,11 +16,15 @@ const HomeView = () => {
     selectedTab === 'all'
       ? CardsData
       : CardsData.filter(card => card.category === selectedTab);
+  const [showAll, setShowAll] = useState(false);
+  const visibleCards = showAll
+    ? PropertyByCityCardData
+    : PropertyByCityCardData.slice(0, 4);
 
   return (
     <div className='grid'>
       {/* Browse Property by Category */}
-      <div className='grid p-2 sm:px-6 sm:pt-14'>
+      <div className='grid p-2 sm:px-6'>
         <Title text='Browse Property by Category' />
         <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-6 gap-5 w-full'>
           {propertyByCategoryData.map((item, i) => (
@@ -35,7 +39,7 @@ const HomeView = () => {
       </div>
 
       {/* Browse Properties */}
-      <div className='grid px-2 sm:px-6 py-9'>
+      <div className='grid px-2 md:px-4 py-9'>
         {/* Text section */}
         <div className='flex flex-col w-full justify-center md:pl-4'>
           <Title text='Browse Properties' />
@@ -92,7 +96,7 @@ const HomeView = () => {
       </div>
 
       {/* Browse Properties by city */}
-      <div className='grid bg-light-SeGreen w-full p-4 sm:p-7 gap-y-9'>
+      <div className='grid bg-light-SeGreen w-full p-4 sm:p-5  gap-y-9'>
         {/* text section */}
         <div className='grid gap-y-5'>
           <Title text='Browse Properties by city' />
@@ -104,8 +108,8 @@ const HomeView = () => {
         </div>
 
         {/* PropertyByCityCard */}
-        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2'>
-          {PropertyByCityCardData.map((item, i) => (
+        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+          {visibleCards.map((item, i) => (
             <PropertyByCityCard
               key={i}
               thumbnail={item.thumbnail}
@@ -115,9 +119,12 @@ const HomeView = () => {
           ))}
         </div>
 
-        {/* button */}
+        {/* Toggle Button */}
         <div className='flex justify-around'>
-          <Button text='Show more' />
+          <Button
+            text={showAll ? 'Show Less' : 'Show More'}
+            onClick={() => setShowAll(prev => !prev)}
+          />
         </div>
       </div>
     </div>
