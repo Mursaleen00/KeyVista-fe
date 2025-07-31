@@ -34,14 +34,16 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div>
       <Navbar />
-      <div className={`${showFilter && 'mb-[700px] md:mb-36'} relative`}>
+      <div className={`relative`}>
         {showHero && <HeroSection />}
-        <div className='flex justify-center w-full absolute top-96 md:top-[75%] z-10 p-4'>
+        <div className='flex justify-center w-full absolute top-[370px] md:top-[75%] z-10 p-4'>
           {showFilter && <Filter />}
         </div>
       </div>
       <div
-        className={`flex flex-col py-10 ${showFilter && <Filter /> ? 'mt-[900px] sm:mt-52' : ''}`}
+        className={`flex flex-col
+           ${showFilter && <Filter /> && showHero && <HeroSection /> ? 'mt-[870px] sm:mt-[410px] md:mt-[230px]' : 'my-10'} 
+            `}
       >
         {children}
       </div>

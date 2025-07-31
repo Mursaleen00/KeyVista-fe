@@ -3,17 +3,33 @@ import React from 'react';
 import profile from '@/../public/images/profile.webp';
 import Image from 'next/image';
 import Title from '@/components/common/title';
-import { ProfileData } from '@/constant/common/profile-data';
+import {
+  ProfileInputData,
+  ProfileSelectedData,
+} from '@/constant/common/profile-data';
 import Input from '@/components/inputs/input';
-import Arrow from '@/../public/icons/down-arrow.svg';
 import Button from '@/components/buttons/button';
 import Edit from '@/../public/icons/edit.svg';
 import { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-import { SelectForm } from '@/components/common/select';
+import SelectForm from '@/components/common/select-form';
+import { useFormik } from 'formik';
+
+const initialValues = {
+  PriceFrom: '',
+  PriceTo: '',
+  AreaFrom: '',
+  AreaTo: '',
+  City: '',
+};
 
 const ProfileView = () => {
+  const { values, setFieldValue } = useFormik({
+    initialValues,
+    // validationSchema: FilterSchema,
+    onSubmit: () => {},
+  });
   const [phone, setPhone] = useState('');
   const [isEdit, setIsEdit] = useState(false);
 
@@ -45,11 +61,12 @@ const ProfileView = () => {
           onClick={() => setIsEdit(prev => !prev)}
         />
       </div>
+
       {/* Input Section */}
-      <div className='grid gap-y-5'>
+      <div className='grid gap-y-3'>
         {/* Name and Email input */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 w-full gap-x-4'>
-          {ProfileData.map((item, i) => (
+        <div className='grid grid-cols-1 sm:grid-cols-2 w-full gap-x-4 gap-y-3'>
+          {ProfileInputData.map((item, i) => (
             <div
               key={i}
               className='w-full'
@@ -62,10 +79,11 @@ const ProfileView = () => {
             </div>
           ))}
         </div>
-        <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-x-5'>
+
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-3'>
           {/* Mobile input */}
-          <div>
-            <label className='text-md font-medium text-text-dark mb-1'>
+          <div className='flex flex-col w-full sm:col-span-2 lg:col-span-1'>
+            <label className=' flex text-md font-normal  text-text-dark mb-2'>
               Mobile
             </label>
             <PhoneInput
@@ -78,35 +96,19 @@ const ProfileView = () => {
               disabled={!isEdit}
             />
           </div>
+
           {/* Select Section */}
-          {/* Country */}
-          <div>
+          {ProfileSelectedData.map((item, i) => (
             <SelectForm
-              label={'Country'}
-              placeholder={'Select Country'}
-              icon={Arrow}
+              {...item}
+              key={i}
+              setFieldValue={setFieldValue}
+              name={item.name}
+              value={values[item.name as keyof typeof values]}
               disabled={!isEdit}
-              options={[
-                { value: 'house', label: 'House' },
-                { value: 'apartment', label: 'Apartment' },
-                { value: 'villa', label: 'Villa' },
-              ]}
+              className={`flex gap-y-2 p-0`}
             />
-          </div>
-          {/* City */}
-          <div>
-            <SelectForm
-              label={'City'}
-              placeholder={'Select City'}
-              icon={Arrow}
-              disabled={!isEdit}
-              options={[
-                { value: 'house', label: 'House' },
-                { value: 'apartment', label: 'Apartment' },
-                { value: 'villa', label: 'Villa' },
-              ]}
-            />
-          </div>
+          ))}
         </div>
       </div>
     </div>

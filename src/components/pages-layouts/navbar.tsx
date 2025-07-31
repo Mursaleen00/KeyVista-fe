@@ -30,7 +30,6 @@ const Navbar = () => {
 
   // use states
   const [isOpen, setIsOpen] = useState(false);
-  // const [openHero, setOpenHero] = useState(true);
 
   // router
   const { push } = useRouter();
@@ -45,7 +44,7 @@ const Navbar = () => {
       <div className='flex justify-around items-center w-full pt-5'>
         {/* Logo  */}
         <div
-          className={`cursor-pointer ${isOpen ? 'hidden' : 'block'}`}
+          className={`cursor-pointer`}
           onClick={() => push(urls.home)}
         >
           <Logo />

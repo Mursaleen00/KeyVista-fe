@@ -3,38 +3,39 @@
 import Arrow from '@/../public/icons/down-arrow.svg';
 import location from '@/../public/icons/location.svg';
 
-// Export FilterData
+// Export PriceAndAreaData
 export const PriceAndAreaData = [
   {
     label: 'Price',
     type: 'number',
     placeholder: 'From',
-    name: 'PriceFrom',
+    name: 'priceFrom',
   },
   {
     type: 'number',
     placeholder: 'To',
-    name: 'PriceTo',
+    name: 'priceTo',
   },
   {
     label: 'Area',
     type: 'number',
     placeholder: 'From',
-    name: 'AreaFrom',
+    name: 'areaFrom',
   },
   {
     type: 'number',
     placeholder: 'To',
-    name: 'AreaTo',
+    name: 'areaTo',
   },
 ];
 
+// Export SelectData
 export const SelectData = [
   {
     label: 'City',
     icon: Arrow.src,
     placeholder: 'Select City',
-    // name: 'City',
+    name: 'city',
     options: [
       { value: 'house', label: 'House' },
       { value: 'apartment', label: 'Apartment' },
@@ -54,7 +55,7 @@ export const SelectData = [
     label: 'Location',
     icon: location.src,
     placeholder: 'Add Location',
-    // name: 'Location',
+    name: 'location',
     options: [
       { value: 'house', label: 'House' },
       { value: 'apartment', label: 'Apartment' },
@@ -65,7 +66,7 @@ export const SelectData = [
     label: 'Property',
     icon: Arrow.src,
     placeholder: 'Select Property Type',
-    // name: 'Property',
+    name: 'property',
     options: [
       { value: 'house', label: 'House' },
       { value: 'apartment', label: 'Apartment' },
@@ -76,7 +77,7 @@ export const SelectData = [
     label: 'Purpose',
     icon: Arrow.src,
     placeholder: 'Select Purpose',
-    // name: 'Purpose',
+    name: 'purpose',
     options: [
       { value: 'house', label: 'House' },
       { value: 'apartment', label: 'Apartment' },
@@ -87,7 +88,7 @@ export const SelectData = [
     label: 'Beds',
     icon: Arrow.src,
     placeholder: 'Select Beds',
-    // name: 'Beds',
+    name: 'beds',
     options: [
       { value: 'house', label: 'House' },
       { value: 'apartment', label: 'Apartment' },

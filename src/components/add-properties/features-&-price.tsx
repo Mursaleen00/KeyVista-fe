@@ -6,12 +6,21 @@ import {
   bedroomsData,
   bathroomsData,
   AmenitiesData,
-} from '@/constant/add-properties/add-properties-data';
+} from '@/constant/add-properties/feature-price-data';
 import Arrow from '@/../public/icons/down-arrow.svg';
 import { featurePriceI } from '@/interfaces/properties/Add-properties-interface';
-import { SelectForm } from '../common/select';
+import SelectForm from '../common/select-form';
+import { useFormik } from 'formik';
 
+const initialValues = {
+  condition: '',
+};
 const FeatureAndPrice: React.FC<featurePriceI> = ({ setStep, prevStep }) => {
+  const { values, setFieldValue } = useFormik({
+    initialValues,
+    // validationSchema: FilterSchema,
+    onSubmit: () => {},
+  });
   return (
     <div className='flex flex-col gap-y-4 mt-6 text-text-light'>
       {/* Main Hading */}
@@ -94,9 +103,12 @@ const FeatureAndPrice: React.FC<featurePriceI> = ({ setStep, prevStep }) => {
           {/* Select Section */}
           <div className='flex flex-col w-full gap-y-2 mt-4'>
             <SelectForm
-              label={'Which City is your property in?'}
-              placeholder={'Select City'}
+              label={'What is the condition of your property?'}
+              placeholder={'Select the Condition'}
               icon={Arrow}
+              name='condition'
+              setFieldValue={setFieldValue}
+              value={values.condition}
               options={[
                 { value: 'house', label: 'House' },
                 { value: 'apartment', label: 'Apartment' },

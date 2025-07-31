@@ -16,11 +16,15 @@ const HomeView = () => {
     selectedTab === 'all'
       ? CardsData
       : CardsData.filter(card => card.category === selectedTab);
+  const [showAll, setShowAll] = useState(false);
+  const visibleCards = showAll
+    ? PropertyByCityCardData
+    : PropertyByCityCardData.slice(0, 4);
 
   return (
     <div className='grid'>
       {/* Browse Property by Category */}
-      <div className='grid p-2 sm:px-6 sm:pt-14'>
+      <div className='grid p-2 sm:px-6'>
         <Title text='Browse Property by Category' />
         <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-6 gap-5 w-full'>
           {propertyByCategoryData.map((item, i) => (
@@ -105,7 +109,7 @@ const HomeView = () => {
 
         {/* PropertyByCityCard */}
         <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-          {PropertyByCityCardData.map((item, i) => (
+          {visibleCards.map((item, i) => (
             <PropertyByCityCard
               key={i}
               thumbnail={item.thumbnail}
@@ -115,9 +119,12 @@ const HomeView = () => {
           ))}
         </div>
 
-        {/* button */}
+        {/* Toggle Button */}
         <div className='flex justify-around'>
-          <Button text='Show more' />
+          <Button
+            text={showAll ? 'Show Less' : 'Show More'}
+            onClick={() => setShowAll(prev => !prev)}
+          />
         </div>
       </div>
     </div>

@@ -1,16 +1,25 @@
 'use client';
 import React from 'react';
 import Button from '../buttons/button';
-import { ResidentialData } from '@/constant/add-properties/add-properties-data';
-import Arrow from '@/../public/icons/down-arrow.svg';
+import {
+  CityAndAreaData,
+  ResidentialData,
+} from '@/constant/add-properties/location-purpose-data';
 import { locationPurposeI } from '@/interfaces/properties/Add-properties-interface';
-import { SelectForm } from '../common/select';
+import SelectForm from '../common/select-form';
+import { useFormik } from 'formik';
 
-const LocationAndPurpose: React.FC<locationPurposeI> = ({
-  setStep,
-  // formik,
-}) => {
-  // const { values, errors, handleBlur } = formik;
+const initialValues = {
+  area: '',
+  city: '',
+};
+
+const LocationAndPurpose: React.FC<locationPurposeI> = ({ setStep }) => {
+  const { values, setFieldValue } = useFormik({
+    initialValues,
+    // validationSchema: FilterSchema,
+    onSubmit: () => {},
+  });
   return (
     <div className='text-text-light flex flex-col'>
       {/* Main Hading */}
@@ -59,26 +68,17 @@ const LocationAndPurpose: React.FC<locationPurposeI> = ({
           </div>
           {/* Select Section */}
           <div className='flex flex-col gap-y-2 py-2 justify-start items-start text-start'>
-            <SelectForm
-              label={'Which City is your property in?'}
-              placeholder={'Select City'}
-              icon={Arrow}
-              options={[
-                { value: 'house', label: 'House' },
-                { value: 'apartment', label: 'Apartment' },
-                { value: 'villa', label: 'Villa' },
-              ]}
-            />
-            <SelectForm
-              label={'Which Area is your property in?'}
-              placeholder={'Select Area'}
-              icon={Arrow}
-              options={[
-                { value: 'house', label: 'House' },
-                { value: 'apartment', label: 'Apartment' },
-                { value: 'villa', label: 'Villa' },
-              ]}
-            />
+            {/* Select Section */}
+            {CityAndAreaData.map((item, i) => (
+              <SelectForm
+                {...item}
+                key={i}
+                setFieldValue={setFieldValue}
+                name={item.name}
+                value={values[item.name as keyof typeof values]}
+                className={`flex gap-y-2 w-full`}
+              />
+            ))}
           </div>
           {/* Button and Section */}
           <div className='flex flex-col gap-y-5 items-end'>

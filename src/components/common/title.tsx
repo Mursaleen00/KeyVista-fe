@@ -7,7 +7,7 @@ import React from 'react';
 import { Props } from '@/interfaces/common/title-interface';
 
 const Title: React.FC<Props> = ({ text, className }) => (
-  <p className={`text-heading text-2xl font-semibold ${className}`}>{text}</p>
+  <p className={`text-text-dark text-2xl font-semibold ${className}`}>{text}</p>
 );
 
 export default Title;
