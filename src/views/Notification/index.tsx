@@ -1,100 +1,115 @@
-// import Notifications from '@/components/common/notification';
+// src/views/Notification/index.tsx
+'use client';
 import Title from '@/components/common/title';
-// import { NotificationData } from '@/constant/common/notification-data';
-// import Image from 'next/image';
-// import { NotificationData } from '@/constant/common/notification-data';
-// import Image from 'next/image';
+import moment from 'moment';
+import Image from 'next/image';
+import { notifications } from '@/constant/notification/notification-data';
+import { dataT } from '@/types/notification-type';
 
 const NotificationView = () => {
+  // sortedDate
+  const sortedDate = notifications.sort((a, b) => {
+    return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+  });
+
+  // getDateLabel
+  const getDateLabel = (time: string) => {
+    const itemDate = moment(time);
+    const today = moment();
+    const yesterday = moment().subtract(1, 'day');
+
+    // Check if the item date is today
+    if (itemDate.isSame(today, 'day')) {
+      return 'Today';
+    } else if (itemDate.isSame(yesterday, 'day')) {
+      return 'Yesterday';
+    } else {
+      return itemDate.format('dddd');
+    }
+  };
+
+  //  data type
+  const data: dataT[] = sortedDate.reduce((acc: dataT[], item) => {
+    const dateLabel = getDateLabel(item.updatedAt);
+    const existingGroup = acc.find(group => group.title === dateLabel);
+
+    //  if existingGroup is true or false
+    if (existingGroup) {
+      existingGroup.data.push(item);
+    } else {
+      acc.push({
+        title: dateLabel,
+        data: [item],
+      });
+    }
+
+    return acc;
+  }, []);
+
   return (
     <div className='flex flex-col m-4 sm:m-9 md:m-9 rounded-3xl shadow-2xl'>
-      {/* Title Notification */}
-      <div className='p-9'>
+      {/* Notification Title */}
+      <div className='px-9 pt-9'>
         <Title
           text='Notification'
           className='text-3xl'
         />
       </div>
 
-      {/* <main className='px-4 sm:px-6 lg:px-8 py-6 max-w-4xl mx-auto'>
-        <Notifications />
-      </main> */}
-    </div>
-  );
-};
-
-export default NotificationView;
-{
-  /* <div>
-        {NotificationData.map((item, i) => (
-          <div key={i}>
-            <p className='flex text-text-dark font-semibold p-5 md:px-12 text-xl'>
-              {item.title}
-            </p>
+      {/* Notification List */}
+      <div className='flex flex-col py-3'>
+        {data.map(group => (
+          <div
+            key={group.title}
+            className='flex flex-col rounded-full'
+          >
+            {/* Title */}
+            <h3 className='text-lg font-medium my-2 px-12'>{group.title}</h3>
+            {/* Group Data */}
             <div className='flex flex-col'>
-              {item.title === 'Today' ? (
-                <div className='flex flex-col gap-y-6'>
-                  {item.data.map((list, index) => (
-                    <div
-                      key={index}
-                      className='flex flex-col sm:flex-row items-start justify-between gap-y-6 px-3'
-                    >
-                      <div className='flex flex-col lg:flex-row items-start gap-3 w-full'>
-                        {list.profile && (
-                          <Image
-                            src={list.profile}
-                            alt=''
-                            width={40}
-                            height={20}
-                          />
-                        )}
-
-                        <p className='text-text-light line-clamp-1 max-w-[250px]'>
-                          {list.name}
-                        </p>
-                        <p className='text-heading font-semibold line-clamp-1 max-w-[350px]'>
-                          {list.message}
-                        </p>
-                      </div>
-                      <p className='flex text-text-normal text-sm'>
-                        {list.time}
-                      </p>
+              {group.data.map(item => (
+                <div
+                  key={item._id + item.updatedAt}
+                  className='flex items-end bg-white px-2 md:px-14 py-2 rounded-2xl'
+                >
+                  {/* Name + Message + Time + profile */}
+                  <div className='flex items-start gap-4 w-full'>
+                    {/* Profile Image */}
+                    <div className='flex-shrink-0'>
+                      <Image
+                        src={item.sender.profilePicture}
+                        alt={item.sender.name}
+                        width={40}
+                        height={40}
+                        className='rounded-full object-cover'
+                      />
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <div className='flex flex-col gap-y-6'>
-                  {item.data.map((list, index) => (
-                    <div
-                      key={index}
-                      className='flex flex-col sm:flex-row items-start justify-between gap-y-6 px-3'
-                    >
-                      <div className='flex flex-col lg:flex-row items-start gap-3 w-full'>
-                        {list.profile && (
-                          <Image
-                            src={list.profile}
-                            alt=''
-                            width={40}
-                            height={20}
-                          />
-                        )}
 
-                        <p className='text-text-light line-clamp-1 max-w-[250px]'>
-                          {list.name}
-                        </p>
-                        <p className='text-heading font-semibold line-clamp-1 max-w-[350px]'>
-                          {list.message}
-                        </p>
+                    {/* Name + Message + Time */}
+                    <div className='flex flex-col w-full text-gray-700'>
+                      <div className='flex md:flex-row flex-col justify-between w-full'>
+                        {/* Name + Message */}
+                        <div className='text-sm break-words whitespace-pre-wrap pt-2'>
+                          <span className='font-semibold text-base'>
+                            {item.sender.name} :
+                          </span>{' '}
+                          <span>{item.message}</span>
+                        </div>
+
+                        {/* Time */}
+                        <div className='text-xs text-gray-500 whitespace-nowrap py-3 sm:py-0 sm:pl-4 sm:pt-3 '>
+                          {moment(item.updatedAt).format('hh:mm A')}
+                        </div>
                       </div>
-                      <p className='flex text-text-normal text-sm'>
-                        {list.time}
-                      </p>
                     </div>
-                  ))}
+                  </div>
                 </div>
-              )}
+              ))}
             </div>
           </div>
         ))}
-      </div> */
-}
+      </div>
+    </div>
+  );
+};
+export default NotificationView;

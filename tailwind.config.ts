@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       backgroundImage: {
@@ -12,7 +12,7 @@ const config: Config = {
       },
       colors: {
         primary: {
-          DEFAULT: '#6A4C65', // Dusty Plum
+          DEFAULT: '#6A4C65',
           medium: '#9E7B8A',
           normal: '#D29BB0',
           light: '#D0B4C3',
@@ -30,10 +30,9 @@ const config: Config = {
         orange: '#F8A748',
         light: { SeGreen: '#ECF8F8' },
         border: { DEFAULT: '#E0DEEA', light: '#F2F1F5' },
+        lightBlack: 'hsba(0, 0%, 0%, 0.04)',
       },
     },
   },
-  // plugins: [],
-  plugins: [require('@tailwindcss/line-clamp')],
 };
 export default config;

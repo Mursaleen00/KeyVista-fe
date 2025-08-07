@@ -28,11 +28,11 @@ const Input = ({
   return (
     // Label
     <label
-      htmlFor='input'
+      htmlFor={res.id || res.name || 'input'}
       className='space-y-2'
     >
       {label && (
-        <p className='text-text-dark text-sm font-normal line-clamp-1'>
+        <p className={`text-text-dark text-sm font-normal line-clamp-1`}>
           {label}
           {required && <span className='text-red'>*</span>}
         </p>
@@ -44,7 +44,7 @@ const Input = ({
         {/* Input  */}
         <input
           type={type === 'password' ? (isVisible ? 'text' : 'password') : type}
-          id='input'
+          id={res.id || res.name || 'input'}
           className='w-full h-full px-3 py-3 outline-none ring-0 rounded-xl'
           {...res}
         />

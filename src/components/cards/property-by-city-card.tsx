@@ -15,7 +15,7 @@ const PropertyByCityCard = ({
   description,
 }: PropertyByCityInterfaces) => {
   return (
-    <div className='grid bg-white w-full rounded-3xl shadow-xl max-w-sm'>
+    <div className='grid bg-white w-full rounded-3xl shadow-xl'>
       {/* Image */}
       {thumbnail && (
         <Image

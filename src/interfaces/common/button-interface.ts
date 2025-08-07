@@ -8,4 +8,9 @@ export interface ButtonInterface {
   icon?: string;
   onClick?: () => void | string | object;
   type?: 'submit' | 'button';
+  isSelected?: boolean;
+  value?: string;
+  name?: string;
+  onBlur?: () => void;
+  onChange?: () => void;
 }

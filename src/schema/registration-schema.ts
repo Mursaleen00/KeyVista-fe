@@ -1,9 +1,9 @@
-// src/schema/profile-schema.ts
+// src/schema/registration-schema.ts
 
 // Yup Import
 import * as yup from 'yup';
 
-// Export profileSchema
+// Export  registrationSchema
 export const registrationSchema = yup.object().shape({
   fullName: yup.string().required('Full Name is required'),
   number: yup.string().required('Phone Number is required'),
