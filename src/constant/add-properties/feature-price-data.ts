@@ -1,27 +1,20 @@
-import { FeatureAndPriceT } from '@/types/add-properties-types';
+import { FeatureAndPriceT } from '@/types/add-properties-types/feature-price-types';
 
-// Export AmenitiesData
+// -------------------------------------- Export AmenitiesData --------------------------------------
 export const AmenitiesData: FeatureAndPriceT[] = [
-  { Amenities: 'Air Conditioning' },
-  { Amenities: 'Balcony' },
-  { Amenities: 'Barbeque Area' },
-  { Amenities: 'CCTV Security' },
-  { Amenities: 'Central Heating' },
-  { Amenities: 'Electricity Backup' },
-  { Amenities: 'Fire Alarm' },
-  { Amenities: 'Gymnasium' },
-  { Amenities: 'Intercom Facility' },
-  { Amenities: 'Jacuzzi' },
-  { Amenities: 'Kids Play Area' },
-  { Amenities: 'Laundry Facility' },
-  { Amenities: 'Maintenance Staff' },
-  { Amenities: 'Parking Space' },
-  { Amenities: 'Power Backup' },
-  { Amenities: 'Security Staff' },
-  { Amenities: 'Swimming Pool' },
+  { Amenities: 'Mountain view' },
+  { Amenities: 'Wifi' },
+  { Amenities: 'Private hot tub' },
+  { Amenities: 'Air conditioning' },
+  { Amenities: 'Carbon monoxide alarm' },
+  { Amenities: 'Valley view' },
+  { Amenities: 'Free parking on premises' },
+  { Amenities: 'TV with Apple TV, Netflix' },
+  { Amenities: 'Private patio or balcony' },
+  { Amenities: 'Smoke alarm' },
 ];
 
-// Export bedroomsData
+// -------------------------------------- Export bedroomsData --------------------------------------
 export const bedroomsData: FeatureAndPriceT[] = [
   { bedrooms: 'Studio' },
   { bedrooms: '1' },
@@ -35,7 +28,7 @@ export const bedroomsData: FeatureAndPriceT[] = [
   { bedrooms: '10+' },
 ];
 
-// Export bathroomsData
+// -------------------------------------- Export bathroomsData --------------------------------------
 export const bathroomsData: FeatureAndPriceT[] = [
   { bathrooms: '1' },
   { bathrooms: '2' },

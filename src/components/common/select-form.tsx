@@ -1,3 +1,9 @@
+// src/components/common/select-form.tsx
+
+// Next & React Imports
+import Image from 'next/image';
+
+// Components Imports
 import {
   Select,
   SelectContent,
@@ -5,8 +11,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+
+// Interfaces Imports
 import { SelectI } from '@/interfaces/add-properties.ts/select-interface';
-import Image from 'next/image';
 
 const SelectForm = ({
   name,
@@ -18,20 +25,37 @@ const SelectForm = ({
   setFieldValue,
   placeholder,
   disabled,
+  error,
+  touched,
+  required,
 }: SelectI) => {
+  // is Error
+  const isError = error && touched;
   return (
+    // Select Form
     <Select
       value={value}
       name={name}
       onValueChange={v => setFieldValue?.(name, v)}
       disabled={disabled}
     >
-      <div className={`flex flex-col  ${className}`}>
-        <label className='flex flex-col text-text-dark text-md'> {label}</label>
+      {/* inner Select Form */}
+      <div className={`flex flex-col gap-y-1 ${className}`}>
+        {/* Label */}
+        <label className={`flex flex-col text-text-dark text-md`}>
+          {label}
+          {required && <span className='text-red'>*</span>}
+        </label>
+        {/* Select Trigger */}
         <SelectTrigger
-          className={`flex justify-between w-full rounded-lg p-4 ${placeholder ? 'text-text-light' : value ? 'text-text-dark ' : 'text-text-light'}`}
+          className={`flex justify-between w-full rounded-xl p-4 ${value ? 'text-text-dark' : 'text-text-normal'}
+           ${isError && `!border-red`}`}
         >
-          <SelectValue placeholder={value || placeholder} />
+          {/* Select Value Amd placeholder */}
+          <SelectValue
+            placeholder={value || placeholder}
+            className='flex border border-yellow-400'
+          />
           {icon && (
             <Image
               src={icon}
@@ -42,6 +66,7 @@ const SelectForm = ({
           )}
         </SelectTrigger>
       </div>
+      {/* Select Content / options */}
       <SelectContent className='bg-white'>
         {options?.map((item, i) => (
           <SelectItem
@@ -52,6 +77,8 @@ const SelectForm = ({
           </SelectItem>
         ))}
       </SelectContent>
+      {/* Error Message */}
+      {isError && <p className='text-sm text-red'>{error}</p>}
     </Select>
   );
 };

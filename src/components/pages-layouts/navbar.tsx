@@ -4,8 +4,8 @@
 // Next & React Imports
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { HiMenuAlt3 } from 'react-icons/hi';
 
 // Components Imports
@@ -18,14 +18,18 @@ import SideBar from './sideBar';
 import {
   NavbarIconData,
   NavbarPagesData,
+  notificationList,
   profileList,
   propertyList,
 } from '@/constant/layouts-data/navbar-data';
 
 // router import
 import { urls } from '@/constant/router/routes';
+import NotificationDropdown from '../common/notification-dropdown';
 
 const Navbar = () => {
+  const type = useSearchParams().get('type');
+
   const [selectedValue, setSelectedValue] = useState<string>('');
 
   // use states
@@ -34,6 +38,16 @@ const Navbar = () => {
   // router
   const { push } = useRouter();
   const pathname = usePathname();
+
+  const handleDropdownClick = (value: string, url: string) => {
+    setSelectedValue(value);
+    push(url);
+  };
+
+  useEffect(() => {
+    if (type) setSelectedValue(type);
+    else setSelectedValue(pathname);
+  }, [type, pathname]);
 
   return (
     <nav
@@ -68,29 +82,29 @@ const Navbar = () => {
             onClick={() => push(urls.addProperties)}
           />
           {/* Navbar Icon Data */}
-          {NavbarIconData.map((item, i) => (
+          {NavbarIconData.map((items, i) => (
             <div
               key={i}
               className='flex relative'
             >
               {/* Profile Drop down */}
-              {item.name === 'profile' ? (
+              {items.name === 'profile' ? (
                 <Dropdown
-                  items={profileList.map(list => list.label)}
+                  items={profileList.map(({ name, value }) => ({
+                    name,
+                    value,
+                  }))}
                   img={profileList.map(item => item.img)}
                   selectedValue={selectedValue}
-                  onClick={selected => {
-                    const found = profileList.find(
-                      item => item.label === selected,
-                    );
-                    setSelectedValue(selected);
-                    if (found) push(found.path);
+                  onClick={v => {
+                    const found = profileList.find(item => item.value === v);
+                    handleDropdownClick(v, found?.path || '');
                   }}
                   trigger={
                     <div className='flex items-center gap-x-1 z-50'>
-                      {item.icon && (
+                      {items.icon && (
                         <Image
-                          src={item.icon}
+                          src={items.icon}
                           alt=''
                           width={50}
                           height={30}
@@ -99,17 +113,52 @@ const Navbar = () => {
                     </div>
                   }
                 />
+              ) : items.name === 'notification' ? (
+                <NotificationDropdown
+                  className='flex w-full max-w-sm'
+                  items={notificationList
+                    .filter(item => item.value)
+                    .map(({ name, value = '', massage, time }) => ({
+                      name,
+                      value,
+                      massage,
+                      time,
+                    }))}
+                  img={notificationList.map(icon => icon.img)}
+                  onClick={() => {
+                    push(urls.notification);
+                  }}
+                  // onClick={v => {
+                  //   const found = notificationList.find(
+                  //     item => item.value === v,
+                  //   );
+                  //   handleDropdownClick(v, found?.path || '');
+                  // }}
+                  selectedValue={selectedValue}
+                  trigger={
+                    <div className='flex items-center gap-x-1 z-50'>
+                      {items.icon && (
+                        <Image
+                          src={items.icon}
+                          alt=''
+                          width={50}
+                          height={50}
+                        />
+                      )}
+                    </div>
+                  }
+                />
               ) : (
                 <Link
-                  href={item.link || ''}
+                  href={items.link || ''}
                   className='flex gap-x-1 items-center'
                 >
-                  {item.icon && (
+                  {items.icon && (
                     <Image
-                      src={item.icon}
+                      src={items.icon}
                       alt=''
-                      width={item.width}
-                      height={item.hight}
+                      width={items.width}
+                      height={items.hight}
                     />
                   )}
                 </Link>
@@ -130,13 +179,13 @@ const Navbar = () => {
             {/* Properties Drop down */}
             {item.name === 'Properties' ? (
               <Dropdown
-                items={propertyList.map(item => item.label)}
-                onClick={selected => {
-                  const found = propertyList.find(
-                    item => item.label === selected,
-                  );
-                  setSelectedValue(selected);
-                  if (found) push(found.path);
+                items={propertyList.map(({ name, value }) => ({
+                  name,
+                  value,
+                }))}
+                onClick={v => {
+                  const found = propertyList.find(item => item.value === v);
+                  handleDropdownClick(v, found?.path || '');
                 }}
                 selectedValue={selectedValue}
                 trigger={
@@ -176,7 +225,7 @@ const Navbar = () => {
       {/* side bar */}
       <SideBar
         isOpen={isOpen}
-        setIsOpen={() => setIsOpen(!isOpen)}
+        setIsOpen={setIsOpen}
       />
     </nav>
   );

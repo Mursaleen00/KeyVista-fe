@@ -1,3 +1,4 @@
+// src/components/common/dropdown.tsx
 'use client';
 import {
   DropdownMenu,
@@ -6,18 +7,10 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import Image from 'next/image';
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
+import { DropdownProps } from '@/interfaces/common/navbar-interfaces';
 
-interface IProps {
-  trigger: ReactNode;
-  items: Array<string>;
-  onClick?: (selected: string) => void;
-  className?: string;
-  img?: string[];
-  selectedValue?: string;
-}
-
-const Dropdown: FC<IProps> = ({
+const Dropdown: FC<DropdownProps> = ({
   items,
   trigger,
   onClick,
@@ -29,19 +22,17 @@ const Dropdown: FC<IProps> = ({
     <DropdownMenu>
       <DropdownMenuTrigger>{trigger}</DropdownMenuTrigger>
       <DropdownMenuContent className='flex flex-col rounded-lg'>
-        {items.map((label, i) => {
+        {items.map(({ name, value }, i) => {
           return (
             <DropdownMenuItem
               key={i}
               className={`
                 hover:bg-primary-medium cursor-pointer rounded-xl text-text-light
                      hover:text-white hover:border-none py-2 px-4 pl-4 m-2 text-md 
-                ${selectedValue == label ? 'bg-primary text-white' : 'bg-white text-text-light'}
+                ${selectedValue?.toLowerCase() == value?.toLowerCase() ? 'bg-primary text-white' : 'bg-white text-text-light'}
                ${className}
               `}
-              onClick={() => {
-                if (onClick) onClick(label);
-              }}
+              onClick={() => onClick?.(value)}
             >
               {img && img[i] && (
                 <Image
@@ -51,7 +42,7 @@ const Dropdown: FC<IProps> = ({
                   height={30}
                 />
               )}
-              {label}
+              {name}
             </DropdownMenuItem>
           );
         })}
@@ -61,3 +52,4 @@ const Dropdown: FC<IProps> = ({
 };
 
 export default Dropdown;
+// truncate

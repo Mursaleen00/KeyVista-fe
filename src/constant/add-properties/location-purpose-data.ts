@@ -1,9 +1,15 @@
 // src/constant/common/location-purpose-data.ts
-import { ResidentialT } from '@/types/add-properties-types';
 
+// Import Icon
 import Arrow from '@/../public/icons/down-arrow.svg';
 
-// Export FilterData
+// Types Imports
+import {
+  PurposeT,
+  ResidentialT,
+} from '@/types/add-properties-types/location-purpose-types';
+
+// ---------------------------------------Export CityAndAreaData----------------------------
 export const CityAndAreaData = [
   {
     label: 'Which City is your property in?',
@@ -45,6 +51,7 @@ export const CityAndAreaData = [
   },
 ];
 
+// ---------------------------------------Export ResidentialData----------------------------
 export const ResidentialData: ResidentialT[] = [
   { Residential: 'Upper Portion' },
   { Residential: 'Commercial' },
@@ -54,4 +61,10 @@ export const ResidentialData: ResidentialT[] = [
   { Residential: 'Lower Portion' },
   { Residential: 'Plot' },
   { Residential: 'Room' },
+];
+
+// ---------------------------------------Export PurposeData----------------------------
+export const PurposeData: PurposeT[] = [
+  { Purpose: 'Sell' },
+  { Purpose: 'Rent' },
 ];

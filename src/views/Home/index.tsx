@@ -1,21 +1,33 @@
+// src/views/Home/index.tsx
 'use client';
+
+// Import React
+import React from 'react';
+import { useState } from 'react';
+
+// Imports Components
 import Button from '@/components/buttons/button';
 import PropertyByCityCard from '@/components/cards/property-by-city-card';
 import PropertyCard from '@/components/cards/property-Card';
 import Paragraph from '@/components/common/paragraph';
 import PropertyByCategory from '@/components/common/property-by-category';
 import Title from '@/components/common/title';
+
+// Imports Constants
 import { PropertyByCityCardData } from '@/constant/cards/property-by-city-card-data';
 import { CardsData } from '@/constant/cards/rent-buy-cards-data';
 import { propertyByCategoryData } from '@/constant/properties/property-by-category-data';
-import { useState } from 'react';
 
 const HomeView = () => {
+  //  Browse Property by Category useState
+  const [selected, setSelected] = useState<number | null>(null);
+  // Browse Properties useState
   const [selectedTab, setSelectedTab] = useState('all');
   const filteredCard =
     selectedTab === 'all'
       ? CardsData
       : CardsData.filter(card => card.category === selectedTab);
+  // Browse Properties by city useState
   const [showAll, setShowAll] = useState(false);
   const visibleCards = showAll
     ? PropertyByCityCardData
@@ -26,13 +38,17 @@ const HomeView = () => {
       {/* Browse Property by Category */}
       <div className='grid p-2 sm:px-6'>
         <Title text='Browse Property by Category' />
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-6 gap-5 w-full'>
+        <div
+          className={`grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-6 gap-5 w-full`}
+        >
           {propertyByCategoryData.map((item, i) => (
             <PropertyByCategory
               key={i}
               icon={item.icon}
               tittle={item.tittle}
               text={item.text}
+              onClick={() => setSelected(i)}
+              className={`${selected === i ? 'border border-primary' : ''}`}
             />
           ))}
         </div>

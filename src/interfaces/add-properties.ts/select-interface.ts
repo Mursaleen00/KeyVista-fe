@@ -1,3 +1,6 @@
+// src/interfaces/add-properties.ts/select-interface.ts
+
+// export interface SelectI
 export interface SelectI {
   label?: string;
   placeholder?: string;
@@ -8,4 +11,7 @@ export interface SelectI {
   value: string;
   setFieldValue?: (name: string, value: string | number) => void;
   disabled?: boolean;
+  error?: string;
+  touched?: boolean;
+  required?: boolean;
 }

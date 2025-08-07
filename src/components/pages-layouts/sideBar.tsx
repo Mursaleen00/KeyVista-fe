@@ -4,13 +4,14 @@
 // Next & React Imports
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
 // constant Imports
 import {
   NavbarIconData,
   NavbarPagesData,
+  notificationList,
   profileList,
   propertyList,
 } from '@/constant/layouts-data/navbar-data';
@@ -19,17 +20,32 @@ import {
 import { NavbarProps } from '@/interfaces/common/navbar-interfaces';
 
 // component Import
-import Dropdown from '../common/dropdown';
-import Button from '../buttons/button';
 import { urls } from '@/constant/router/routes';
+import Button from '../buttons/button';
+import Dropdown from '../common/dropdown';
+import NotificationDropdown from '../common/notification-dropdown';
 
-const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
+const SideBar: React.FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
   // router
   const { push } = useRouter();
   // pathname
   const pathname = usePathname();
+  const type = useSearchParams().get('type');
+
   // pathname
   const [selectedValue, setSelectedValue] = useState<string>('');
+
+  const handleDropdownClick = (value: string, url: string) => {
+    setSelectedValue(value);
+    setIsOpen(false);
+    push(url);
+  };
+
+  useEffect(() => {
+    if (type) setSelectedValue(type);
+    else setSelectedValue(pathname);
+  }, [type, pathname]);
+
   // isOpen;
   if (!isOpen) return null;
   return (
@@ -45,13 +61,13 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
             {/* Properties Drop down */}
             {item.name === 'Properties' ? (
               <Dropdown
-                items={propertyList.map(item => item.label)}
-                onClick={selected => {
-                  const found = propertyList.find(
-                    item => item.label === selected,
-                  );
-                  setSelectedValue(selected);
-                  if (found) push(found.path);
+                items={propertyList.map(({ name, value }) => ({
+                  name,
+                  value,
+                }))}
+                onClick={v => {
+                  const found = propertyList.find(item => item.value === v);
+                  handleDropdownClick(v, found?.path || '');
                 }}
                 selectedValue={selectedValue}
                 trigger={
@@ -72,6 +88,7 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
               <Link
                 href={item.link || ''}
                 className='flex gap-x-1'
+                onClick={() => setIsOpen(false)}
               >
                 {item.icon && (
                   <Image
@@ -98,15 +115,15 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
               {/* Properties Drop down */}
               {item.name === 'profile' ? (
                 <Dropdown
-                  items={profileList.map(list => list.label)}
+                  items={profileList.map(({ name, value }) => ({
+                    name,
+                    value,
+                  }))}
                   img={profileList.map(item => item.img)}
                   selectedValue={selectedValue}
-                  onClick={selected => {
-                    const found = profileList.find(
-                      item => item.label === selected,
-                    );
-                    setSelectedValue(selected);
-                    if (found) push(found.path);
+                  onClick={v => {
+                    const found = profileList.find(item => item.value === v);
+                    handleDropdownClick(v, found?.path || '');
                   }}
                   trigger={
                     <div className='flex items-center gap-x-1 z-50'>
@@ -121,10 +138,46 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
                     </div>
                   }
                 />
+              ) : item.name === 'notification' ? (
+                <NotificationDropdown
+                  className='flex w-full max-w-sm'
+                  items={notificationList
+                    .filter(item => item.value)
+                    .map(({ name, value = '', massage, time }) => ({
+                      name,
+                      value,
+                      massage,
+                      time,
+                    }))}
+                  img={notificationList.map(icon => icon.img)}
+                  onClick={() => {
+                    push(urls.notification);
+                  }}
+                  // onClick={v => {
+                  //   const found = notificationList.find(
+                  //     item => item.value === v,
+                  //   );
+                  //   handleDropdownClick(v, found?.path || '');
+                  // }}
+                  selectedValue={selectedValue}
+                  trigger={
+                    <div className='flex items-center gap-x-1 z-50'>
+                      {item.icon && (
+                        <Image
+                          src={item.icon}
+                          alt=''
+                          width={50}
+                          height={50}
+                        />
+                      )}
+                    </div>
+                  }
+                />
               ) : (
                 <Link
                   href={item.link || ''}
                   className='flex gap-x-1'
+                  onClick={() => setIsOpen(false)}
                 >
                   {item.icon && (
                     <Image
