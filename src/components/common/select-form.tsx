@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/select';
 
 // Interfaces Imports
-import { SelectI } from '@/interfaces/add-properties.ts/select-interface';
+import { SelectI } from '@/interfaces/add-properties/select-interface';
 
 const SelectForm = ({
   name,

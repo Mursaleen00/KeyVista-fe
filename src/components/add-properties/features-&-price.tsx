@@ -13,10 +13,10 @@ import {
   bathroomsData,
   bedroomsData,
 } from '@/constant/add-properties/feature-price-data';
-import { FeatureAndPriceInitial } from '@/constant/add-properties/initial-values/add-properties-initial-values';
+import { featureAndPriceInitial } from '@/constant/add-properties/initial-values/add-properties-initial-values';
 
 // Import Interfaces
-import { featurePriceI } from '@/interfaces/properties/Add-properties-interface';
+import { featurePriceI } from '@/interfaces/add-properties/Add-properties-interface';
 
 // Import Formik
 import { useFormik } from 'formik';
@@ -44,13 +44,14 @@ const FeatureAndPrice: React.FC<featurePriceI> = ({
     handleChange,
     handleBlur,
   } = useFormik({
-    initialValues: FeatureAndPriceInitial,
+    initialValues: featureAndPriceInitial,
     validationSchema: featurePriceSchema,
     onSubmit: v => {
       setData(prev => ({ ...prev, ...v }));
       setStep();
     },
   });
+
   return (
     <div className='flex flex-col gap-y-4 mt-6 text-text-light'>
       {/* Main Hading */}
@@ -135,28 +136,34 @@ const FeatureAndPrice: React.FC<featurePriceI> = ({
               What amenities are available?
             </h1>
             <div className='grid grid-cols-1 md:grid-cols-2 w-full'>
-              {AmenitiesData.map((item, i) => (
-                <div
-                  key={i}
-                  className='flex items-center w-full mt-4 gap-x-2'
-                >
-                  <label
-                    htmlFor={item.Amenities}
-                    className='flex items-center gap-x-2'
+              {AmenitiesData.map((item, i) => {
+                return (
+                  <div
+                    key={i}
+                    className='flex items-center w-full mt-4 gap-x-2'
                   >
-                    <input
-                      id={item.Amenities}
-                      type='checkbox'
-                      name='amenities'
-                      className='w-4 h-4 rounded-2xl'
-                      value={values[item.Amenities as keyof typeof values]}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />
-                    <p className='text-text-light'>{item.Amenities}</p>
-                  </label>
-                </div>
-              ))}
+                    <label
+                      htmlFor={item.Amenities}
+                      className='flex items-center gap-x-2'
+                      onClick={() => setFieldValue('amenities', item.Amenities)}
+                    >
+                      <input
+                        id={item.Amenities}
+                        type='checkbox'
+                        name='amenities'
+                        className='w-4 h-4 rounded-2xl'
+                        value={item.Amenities}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      />
+                      <p className='text-text-light'>{item.Amenities}</p>
+                    </label>
+                  </div>
+                );
+              })}
+              {errors.amenities && touched.amenities && !values.amenities && (
+                <p className='flex text-red pt-3'>{errors.amenities}</p>
+              )}
             </div>
           </div>
           {/* 2nd input */}

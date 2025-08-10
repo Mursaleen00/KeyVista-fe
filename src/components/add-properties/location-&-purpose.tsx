@@ -12,8 +12,7 @@ import {
 } from '@/constant/add-properties/location-purpose-data';
 
 // Import Interfaces And Types
-import { locationPurposeI } from '@/interfaces/properties/Add-properties-interface';
-import { locationAndPurpose } from '@/types/add-properties-types/location-purpose-types';
+import { locationPurposeI } from '@/interfaces/add-properties/Add-properties-interface';
 
 // Import Schema
 import { locationPurposeSchema } from '@/schema/add-properties-schema';
@@ -24,20 +23,14 @@ import { useFormik } from 'formik';
 // Import Components
 import Button from '../buttons/button';
 import SelectForm from '../common/select-form';
-
-const initialValues: locationAndPurpose = {
-  area: '',
-  city: '',
-  purpose: '',
-  residential: '',
-};
+import { locationAndPurposeInitial } from '@/constant/add-properties/initial-values/add-properties-initial-values';
 
 const LocationAndPurpose: React.FC<locationPurposeI> = ({
   setStep,
   setData,
 }) => {
   const { values, setFieldValue, errors, touched, handleSubmit } = useFormik({
-    initialValues,
+    initialValues: locationAndPurposeInitial,
     validationSchema: locationPurposeSchema,
     onSubmit: v => {
       setData(prev => ({ ...prev, ...v }));

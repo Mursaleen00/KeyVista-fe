@@ -1,3 +1,5 @@
+// src/components/cards/property-Card.tsx
+
 'use client';
 import Image from 'next/image';
 import React from 'react';
@@ -7,9 +9,13 @@ import Paragraph from '../common/paragraph';
 import Bathrooms from '@/../public/icons/bath-rooms.svg';
 import Bedrooms from '@/../public/icons/bed-rooms.svg';
 import HomeSpace from '@/../public/icons/home-space.svg';
-import { CardsInterfaces } from '@/interfaces/properties/cards-interface';
+import { PropertyCardsInterfaces } from '@/interfaces/properties/property-cards-interface';
 import HeartIcon from '../common/heart-icon';
-
+// import { useDispatch, useSelector } from 'react-redux';
+// import { toggleFavorite } from '@/store/Slice/silce';
+// import { RootState } from '@/store/store';
+// import { useRouter } from 'next/navigation';
+// import { urls } from '@/constant/router/routes';
 const PropertyCard = ({
   duration,
   status,
@@ -20,9 +26,38 @@ const PropertyCard = ({
   bedrooms,
   bathrooms,
   area,
-}: CardsInterfaces) => {
+  id,
+}: PropertyCardsInterfaces) => {
+  // const dispatch = useDispatch();
+  // const { push } = useRouter();
+
+  // const favorites = useSelector((state: RootState) => state.favorites.items);
+  // const isFavorite = favorites.some(item => item.id === id);
+  // const handleFavoriteClick = () => {
+  //   dispatch(
+  //     toggleFavorite({
+  //       duration,
+  //       status,
+  //       title,
+  //       location,
+  //       price,
+  //       thumbnail,
+  //       bedrooms,
+  //       bathrooms,
+  //       area,
+  //       id,
+  //     }),
+  //   );
+  // Pehli baar add karte hi favorites page pe le jao (optional)
+  // if (!isFavorite) {
+  //   push(urls.favorite);
+  // }
+  // };
   return (
-    <div className='grid w-full border border-border rounded-3xl'>
+    <div
+      className='grid w-full border border-border rounded-3xl'
+      key={id}
+    >
       {/* Image Section  */}
       <div className='relative -z-20'>
         <Image
@@ -46,13 +81,16 @@ const PropertyCard = ({
             <Paragraph text={location} />
           </div>
           <div>
-            <HeartIcon />
+            <HeartIcon
+            // onClick={handleFavoriteClick}
+            // isFilled={isFavorite}
+            />
           </div>
         </div>
 
         <p className='text-primary text-2xl items-center flex'>
           {price}
-          <span className='text-text-light text-[15px]'> {duration}</span>
+          <span className='text-text-light text-[15px]'>{duration}</span>
         </p>
       </div>
       {/* border */}

@@ -13,6 +13,9 @@ import Navbar from '@/components/pages-layouts/navbar';
 
 // Constant Imports
 import { urls } from '@/constant/router/routes';
+// import { Providers } from '../common/provider';
+// import Providers from '@/providers';
+// import Providers from '@/providers';
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();

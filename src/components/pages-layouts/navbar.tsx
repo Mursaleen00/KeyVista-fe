@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { HiMenuAlt3 } from 'react-icons/hi';
+// import { useSelector } from 'react-redux';
 
 // Components Imports
 import Button from '../buttons/button';
@@ -26,6 +27,8 @@ import {
 // router import
 import { urls } from '@/constant/router/routes';
 import NotificationDropdown from '../common/notification-dropdown';
+// import { LikedState, RootState } from '@/store/store';
+// import likedProductSlice from '@/store/Slice/like-property-slice';
 
 const Navbar = () => {
   const type = useSearchParams().get('type');
@@ -43,7 +46,10 @@ const Navbar = () => {
     setSelectedValue(value);
     push(url);
   };
+  // Like product
+  // const likedProducts = useSelector((state: RootState) => state.property) || [];
 
+  // use Effect
   useEffect(() => {
     if (type) setSelectedValue(type);
     else setSelectedValue(pathname);
@@ -113,7 +119,8 @@ const Navbar = () => {
                     </div>
                   }
                 />
-              ) : items.name === 'notification' ? (
+              ) : // Notification Dropdown
+              items.name === 'notification' ? (
                 <NotificationDropdown
                   className='flex w-full max-w-sm'
                   items={notificationList
@@ -128,12 +135,6 @@ const Navbar = () => {
                   onClick={() => {
                     push(urls.notification);
                   }}
-                  // onClick={v => {
-                  //   const found = notificationList.find(
-                  //     item => item.value === v,
-                  //   );
-                  //   handleDropdownClick(v, found?.path || '');
-                  // }}
                   selectedValue={selectedValue}
                   trigger={
                     <div className='flex items-center gap-x-1 z-50'>
@@ -151,16 +152,21 @@ const Navbar = () => {
               ) : (
                 <Link
                   href={items.link || ''}
-                  className='flex gap-x-1 items-center'
+                  className='flex items-center rounded-3xl justify-center'
                 >
                   {items.icon && (
                     <Image
                       src={items.icon}
-                      alt=''
+                      alt='Icon'
                       width={items.width}
                       height={items.hight}
                     />
                   )}
+                  {/* {likedProducts && likedProducts?.length > 0 && i == 0 && (
+                    <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>
+                      {likedProducts?.length}
+                    </div>
+                  )} */}
                 </Link>
               )}
             </div>
@@ -169,7 +175,7 @@ const Navbar = () => {
       </div>
 
       {/* Second section border end pages */}
-      <div className='md:flex hidden border w-full p-4 mt-3 justify-center items-center gap-6 cursor-pointer'>
+      <div className='md:flex hidden border w-full p-4 mt-3 justify-center items-center gap-6'>
         {/* Navbar Pages Data */}
         {NavbarPagesData.map((item, i) => (
           <div
@@ -189,7 +195,7 @@ const Navbar = () => {
                 }}
                 selectedValue={selectedValue}
                 trigger={
-                  <div className='flex items-center gap-x-1 z-50'>
+                  <div className={`flex items-center gap-x-1 z-50`}>
                     {item.icon && (
                       <Image
                         src={item.icon}
@@ -205,7 +211,7 @@ const Navbar = () => {
             ) : (
               <Link
                 href={item.link || ''}
-                className='flex gap-x-1'
+                className={`flex gap-x-1`}
               >
                 {item.icon && (
                   <Image

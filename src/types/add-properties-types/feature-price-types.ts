@@ -9,10 +9,10 @@ export type FeatureAndPriceT = {
 
 //  =================================== Export initialFeaturePriceT ===================================
 export type initialFeaturePriceT = {
-  size?: string;
-  bathrooms?: string;
-  bedrooms?: string;
-  amenities?: string;
-  price?: string;
-  condition?: string;
+  size: string;
+  bathrooms: string;
+  bedrooms: string;
+  amenities: string;
+  price: string;
+  condition: string;
 };

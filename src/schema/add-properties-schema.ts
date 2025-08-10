@@ -18,15 +18,19 @@ export const featurePriceSchema = yup.object().shape({
   price: yup.string().required('Price is required !'),
   size: yup.string().required('Size is required !'),
   condition: yup.string().required('Condition is required !'),
-  // amenities: yup.array().of(yup.string()).required('Amenities are required'),
+  amenities: yup
+    .array()
+    .of(yup.string())
+    .min(1, 'At least one Amenities is required !')
+    .required('At least one Amenities is required !'),
 });
 
 // -------------------------------- Description Schema ---------------------------
 export const descriptionSchema = yup.object().shape({
   propertyName: yup.string().required('Property Name is required !'),
   description: yup.string().required('Description is required !'),
-  image: yup.array().of(yup.string()).required('Image is required !'),
-  sketch: yup.array().of(yup.string()).required('Sketch is required !'),
+  // image: yup.array().of(yup.string()).required('Image is required !'),
+  // sketch: yup.string().required('Sketch is required !'),
 });
 
 // Export location & purpose Schema

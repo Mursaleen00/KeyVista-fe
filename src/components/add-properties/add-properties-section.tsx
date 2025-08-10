@@ -3,6 +3,7 @@
 
 // Import React
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 // Import Components
 import Description from './description';
@@ -11,25 +12,32 @@ import LocationAndPurpose from './location-&-purpose';
 import StepBar from './step-bar';
 
 // Import Types
-import { locationAndPurpose } from '@/types/add-properties-types/location-purpose-types';
+import { AddPropertiesT } from '@/types/add-properties-types/add-properties-section-types';
+import { useRouter } from 'next/navigation';
+import { urls } from '@/constant/router/routes';
 
 const AddPropertiesSection = () => {
-  const [data, setData] = useState<locationAndPurpose>({
+  const [data, setData] = useState<AddPropertiesT>({
     area: '',
     city: '',
     purpose: '',
     residential: '',
-    // size: '',
-    // bathrooms: '',
-    // bedrooms: '',
-    // amenities: '',
-    // price: '',
-    // condition: '',
+    size: '',
+    bedrooms: '',
+    bathrooms: '',
+    amenities: '',
+    price: '',
+    condition: '',
+    propertyName: '',
+    description: '',
+    image: '',
+    sketch: '',
   });
 
   // State to manage the current step
   const [step, setStep] = useState(0);
 
+  const { push } = useRouter();
   // Function to handle previous steps
   const handlePrev = () => {
     if (step >= 1) setStep(step - 1);
@@ -37,8 +45,11 @@ const AddPropertiesSection = () => {
 
   // Function to handle next steps
   const handleNext: () => void = () => {
-    if (data && step >= 0) setStep(step + 1);
-    // else toast.error('Please fill all the fields');
+    if (data && step >= 0 && step < 2) setStep(step + 1);
+    else if (data && step === 2) {
+      toast.success('Property added successfully');
+      push(urls.myProperties);
+    }
   };
 
   return (

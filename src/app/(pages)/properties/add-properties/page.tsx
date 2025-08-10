@@ -1,4 +1,4 @@
-import AddPropertiesIndex from '@/views/Add-Properties';
+import AddPropertiesIndex from '@/views/Properties/Add-Properties';
 import React from 'react';
 
 const AddPropertiesPage = () => <AddPropertiesIndex />;

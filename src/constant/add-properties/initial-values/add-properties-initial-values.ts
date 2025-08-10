@@ -1,13 +1,13 @@
 // src/constant/add-properties/initial-values/add-properties-initial-values.ts
 
 // Types Imports
-import { locationAndPurpose } from '@/types/add-properties-types/location-purpose-types';
+import { initialLocationAndPurposeT } from '@/types/add-properties-types/location-purpose-types';
 import { initialDescriptionT } from '@/types/add-properties-types/description-type';
 import { initialFeaturePriceT } from '@/types/add-properties-types/feature-price-types';
 
 // --------------------------- LocationAndPurpose --------------------------
 
-export const LocationAndPurposeInitial: locationAndPurpose = {
+export const locationAndPurposeInitial: initialLocationAndPurposeT = {
   area: '',
   city: '',
   purpose: '',
@@ -16,7 +16,7 @@ export const LocationAndPurposeInitial: locationAndPurpose = {
 
 // --------------------------- FeatureAndPrice --------------------------
 
-export const FeatureAndPriceInitial: initialFeaturePriceT = {
+export const featureAndPriceInitial: initialFeaturePriceT = {
   size: '',
   bathrooms: '',
   bedrooms: '',
@@ -27,7 +27,7 @@ export const FeatureAndPriceInitial: initialFeaturePriceT = {
 
 // --------------------------- Description --------------------------
 
-export const DescriptionInitial: initialDescriptionT = {
+export const descriptionInitial: initialDescriptionT = {
   propertyName: '',
   description: '',
   image: '',

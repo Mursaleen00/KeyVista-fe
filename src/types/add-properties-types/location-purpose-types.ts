@@ -11,7 +11,15 @@ export type ResidentialT = {
 };
 
 // =================================== Export locationAndPurpose ===================================
-export type locationAndPurpose = {
+export type locationAndPurposeT = {
+  area: string;
+  city: string;
+  purpose: string;
+  residential: string;
+};
+
+// =================================== Export initialLocationAndPurposeT ===================================
+export type initialLocationAndPurposeT = {
   area: string;
   city: string;
   purpose: string;

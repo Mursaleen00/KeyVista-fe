@@ -11,6 +11,8 @@ export const MyPropertiesData = [
     posted: 'May 08',
     title: 'Arabian Villas',
     price: '$ 1,050',
+    purpose: 'Rent',
+    duration: '/month',
   },
   {
     thumbnail: house.src,
@@ -22,6 +24,8 @@ export const MyPropertiesData = [
     posted: 'May 08',
     title: 'Arabian Villas',
     price: '$ 1,050',
+    purpose: 'Rent',
+    duration: '/month',
   },
   {
     thumbnail: house.src,
@@ -33,6 +37,7 @@ export const MyPropertiesData = [
     posted: 'May 08',
     title: 'Arabian Villas',
     price: '$ 1,050',
+    purpose: 'Sell',
   },
   {
     thumbnail: house.src,
@@ -44,5 +49,7 @@ export const MyPropertiesData = [
     posted: 'May 08',
     title: 'Arabian Villas',
     price: '$ 1,050',
+    purpose: 'Rent',
+    duration: '/month',
   },
 ];

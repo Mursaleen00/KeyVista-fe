@@ -1,6 +1,7 @@
 //  src/interfaces/properties/cards-interface.tsx
 
-export interface CardsInterfaces {
+export interface PropertyCardsInterfaces {
+  id?: number;
   thumbnail: string;
   status: string;
   title: string;

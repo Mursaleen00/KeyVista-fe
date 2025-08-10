@@ -4,13 +4,12 @@
 import { Dispatch } from 'react';
 
 // Types Imports
-import { locationAndPurpose } from '@/types/add-properties-types/location-purpose-types';
-
+import { AddPropertiesT } from '@/types/add-properties-types/add-properties-section-types';
 // --------------------------------------------- locationPurposeI ----------------------------------------
 export interface locationPurposeI {
   setStep: () => void;
   step?: number;
-  setData: Dispatch<React.SetStateAction<locationAndPurpose>>;
+  setData: Dispatch<React.SetStateAction<AddPropertiesT>>;
 }
 
 // -------------------------------- featurePriceI ----------------------------------------
@@ -18,7 +17,7 @@ export interface featurePriceI {
   setStep: () => void;
   prevStep: () => void;
   step?: number;
-  setData: Dispatch<React.SetStateAction<locationAndPurpose>>;
+  setData: Dispatch<React.SetStateAction<AddPropertiesT>>;
 }
 
 // ---------------------------------- descriptionI ----------------------------------------
@@ -26,16 +25,10 @@ export interface descriptionI {
   setStep: () => void;
   prevStep: () => void;
   step?: number;
-  setData: Dispatch<React.SetStateAction<locationAndPurpose>>;
+  setData: Dispatch<React.SetStateAction<AddPropertiesT>>;
 }
 
-// -------------------------------- AddPropertiesI ----------------------------------------
-export interface AddPropertiesI {
-  setStep: () => void;
-  step?: number;
-}
-// -------------------------------- AddPropertiesHeroI ----------------------------------------
-export interface AddPropertiesHeroI {
-  title?: string;
-  description?: string;
+export interface addPropertiesHeroI {
+  title: string;
+  description: string;
 }

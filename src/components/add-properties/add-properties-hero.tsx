@@ -1,7 +1,7 @@
 // src/components/add-properties/add-properties-hero.tsx
 
 // Import Interfaces
-import { AddPropertiesHeroI } from '@/interfaces/properties/Add-properties-interface';
+import { addPropertiesHeroI } from '@/interfaces/add-properties/Add-properties-interface';
 
 // Import React And Next Image
 import Image from 'next/image';
@@ -10,7 +10,7 @@ import React from 'react';
 // Import Image
 import heroImage from '@/../public/properties-hero/add-properties-hero.png';
 
-const AddPropertiesHero: React.FC<AddPropertiesHeroI> = ({
+const AddPropertiesHero: React.FC<addPropertiesHeroI> = ({
   title,
   description,
 }) => {

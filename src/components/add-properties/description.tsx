@@ -1,7 +1,7 @@
 // src/components/add-properties/description.tsx
 
 // Import React And Next
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 // Import Components
@@ -12,7 +12,7 @@ import Button from '../buttons/button';
 import upload from '@/../public/icons/upload.svg';
 
 // Import Interfaces
-import { descriptionI } from '@/interfaces/properties/Add-properties-interface';
+import { descriptionI } from '@/interfaces/add-properties/Add-properties-interface';
 
 // Import Formik
 import { useFormik } from 'formik';
@@ -21,7 +21,7 @@ import { useFormik } from 'formik';
 import { descriptionSchema } from '@/schema/add-properties-schema';
 
 // Import Initial Values
-import { DescriptionInitial } from '@/constant/add-properties/initial-values/add-properties-initial-values';
+import { descriptionInitial } from '@/constant/add-properties/initial-values/add-properties-initial-values';
 
 const Description: React.FC<descriptionI> = ({
   setStep,
@@ -30,24 +30,13 @@ const Description: React.FC<descriptionI> = ({
 }) => {
   const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
     useFormik({
-      initialValues: DescriptionInitial,
+      initialValues: descriptionInitial,
       validationSchema: descriptionSchema,
       onSubmit: v => {
         setData(prev => ({ ...prev, ...v }));
         setStep();
       },
     });
-  const [preview, setPreview] = useState<string | null>(null);
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
   return (
     <div className='flex flex-col gap-y-4 text-text-light'>
       {/* Main Hading */}
@@ -73,7 +62,7 @@ const Description: React.FC<descriptionI> = ({
           <div className='flex flex-col w-full gap-y-3'>
             <label className='text-sm w-full'>Property Description</label>
             <textarea
-              className={`resize border rounded-xl p-2 h-32 ${errors.description && touched.description && 'border-red'}`}
+              className={`resize border rounded-xl p-2 h-32 max-w-[600px] ${errors.description && touched.description && 'border-red'}`}
               placeholder='Write Property Description'
               value={values.description}
               name='description'
@@ -88,7 +77,8 @@ const Description: React.FC<descriptionI> = ({
           <div className='flex flex-col w-full gap-y-1'>
             <div
               className={`flex flex-col border border-dashed border-border mt-5 w-full h-60 rounded-xl bg-white-light justify-center
-           items-center text-center gap-y-4 ${errors.sketch && touched.sketch && 'border-red'}`}
+           items-center text-center gap-y-4`}
+              // ${errors.image && touched.image && 'border-red'}
             >
               <div>
                 <label
@@ -113,15 +103,16 @@ const Description: React.FC<descriptionI> = ({
                 Click here to upload your property image
               </p>
             </div>
-            {errors.image && touched.image && (
+            {/* {errors.image && touched.image && (
               <p className='text-red text-sm'>{errors.image}</p>
-            )}
+            )} */}
           </div>
           {/* Sketch Section */}
           <div className='flex flex-col w-full gap-y-1'>
             <div
               className={`flex flex-col border border-dashed border-border mt-5 w-full h-60 rounded-xl bg-white-light justify-center
-           items-center text-center gap-y-4 ${errors.sketch && touched.sketch && 'border-red'}`}
+           items-center text-center gap-y-4`}
+              //  ${errors.sketch && touched.sketch && 'border-red'}
             >
               <div>
                 <label
@@ -147,58 +138,9 @@ const Description: React.FC<descriptionI> = ({
               </p>
             </div>
 
-            {errors.sketch && touched.sketch && (
+            {/* {errors.sketch && touched.sketch && (
               <p className='text-red text-sm'>{errors.sketch}</p>
-            )}
-          </div>
-          {/* gpt solve */}
-          <div className='flex flex-col w-full gap-y-1'>
-            <div
-              className={`flex flex-col border border-dashed border-border mt-5 w-full h-60 rounded-xl bg-white-light justify-center items-center text-center gap-y-4 relative overflow-hidden ${
-                errors.sketch && touched.sketch && 'border-red'
-              }`}
-            >
-              {/* Image Preview Box */}
-              {preview ? (
-                <Image
-                  src={preview}
-                  alt='Preview'
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  className='rounded-xl'
-                />
-              ) : (
-                <div>
-                  <label
-                    htmlFor='myfile'
-                    className='cursor-pointer px-8 py-4 bg-white border border-primary text-white rounded-3xl hover:bg-primary-medium hover:text-white transition-colors duration-300'
-                  >
-                    <Image
-                      src={upload}
-                      alt='upload icon'
-                      width={24}
-                      height={24}
-                      className='inline-block'
-                    />
-                  </label>
-                  <Input
-                    type='file'
-                    id='myfile'
-                    accept='image/*'
-                    className='hidden'
-                    onChange={handleFileChange}
-                  />
-                  <p className='text-text-dark mt-4'>
-                    Click here to your property image
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {/* Validation Error */}
-            {errors.image && touched.image && (
-              <p className='text-red text-sm'>{errors.image}</p>
-            )}
+            )} */}
           </div>
           {/* Last and Button Section */}
           <div className='flex flex-col sm:flex-row gap-5 items-end mt-4 justify-end '>

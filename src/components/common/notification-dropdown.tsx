@@ -41,7 +41,7 @@ const NotificationDropdown: FC<NotificationDropdownProps> = ({
             <DropdownMenuItem
               key={i}
               className={`
-                hover:bg-primary-medium cursor-pointer rounded-xl text-text-light
+                cursor-pointer rounded-xl text-text-light
                      hover:text-white hover:border-none py-2 px-4 pl-4 m-2 text-md flex
                 ${selectedValue?.toLowerCase() == value?.toLowerCase() ? 'bg-primary text-white' : 'bg-white text-text-light'}
                ${className}
@@ -78,7 +78,7 @@ const NotificationDropdown: FC<NotificationDropdownProps> = ({
           );
         })}
         <div
-          className={`flex justify-center items-center w-full px-5 ${pathname === urls.notification ? 'hidden' : 'block'}`}
+          className={`flex justify-center items-center w-full px-5 py-4 ${pathname === urls.notification ? 'hidden' : 'block'}`}
         >
           <Button
             className='flex justify-center items-center w-full px-5'

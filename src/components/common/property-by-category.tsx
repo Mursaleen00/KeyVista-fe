@@ -1,7 +1,7 @@
 // src/component/common/auth-heading.tsx
 
 // interface Import
-import { props } from '@/interfaces/properties/property-by-category-interface';
+import { PropertyByCategoryInterface } from '@/interfaces/properties/property-by-category-interface';
 
 // Next Import
 import Image from 'next/image';
@@ -15,10 +15,11 @@ const PropertyByCategory = ({
   text,
   onClick,
   className,
-}: props) => {
+}: PropertyByCategoryInterface) => {
   return (
     <div
-      className={`flex gap-x-2 items-center rounded-md p-3 w-full bg-white shadow-md cursor-pointer hover:border-2 hover:border-primary ${className}`}
+      className={`flex gap-x-2 items-center rounded-md p-3 w-full bg-white shadow-md cursor-pointer hover:border-primary
+         ${className}`}
       onClick={onClick}
     >
       {/* Icon */}

@@ -1,7 +1,6 @@
+import PropertyDetailsView from '@/views/Properties/property-details';
 import React from 'react';
 
-const CancelView = () => {
-  return <div>CancelView</div>;
-};
+const CancelView = () => <PropertyDetailsView />;
 
 export default CancelView;
