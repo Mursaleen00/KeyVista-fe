@@ -1,17 +1,17 @@
 import { FeatureAndPriceT } from '@/types/add-properties-types/feature-price-types';
 
 // -------------------------------------- Export AmenitiesData --------------------------------------
-export const AmenitiesData: FeatureAndPriceT[] = [
-  { Amenities: 'Mountain view' },
-  { Amenities: 'Wifi' },
-  { Amenities: 'Private hot tub' },
-  { Amenities: 'Air conditioning' },
-  { Amenities: 'Carbon monoxide alarm' },
-  { Amenities: 'Valley view' },
-  { Amenities: 'Free parking on premises' },
-  { Amenities: 'TV with Apple TV, Netflix' },
-  { Amenities: 'Private patio or balcony' },
-  { Amenities: 'Smoke alarm' },
+export const amenitiesData: FeatureAndPriceT[] = [
+  { amenities: 'Mountain view' },
+  { amenities: 'Wifi' },
+  { amenities: 'Private hot tub' },
+  { amenities: 'Air conditioning' },
+  { amenities: 'Carbon monoxide alarm' },
+  { amenities: 'Valley view' },
+  { amenities: 'Free parking on premises' },
+  { amenities: 'TV with Apple TV, Netflix' },
+  { amenities: 'Private patio or balcony' },
+  { amenities: 'Smoke alarm' },
 ];
 
 // -------------------------------------- Export bedroomsData --------------------------------------

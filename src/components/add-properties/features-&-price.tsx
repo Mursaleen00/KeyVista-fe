@@ -9,7 +9,7 @@ import Arrow from '@/../public/icons/down-arrow.svg';
 
 // Import Constants
 import {
-  AmenitiesData,
+  amenitiesData,
   bathroomsData,
   bedroomsData,
 } from '@/constant/add-properties/feature-price-data';
@@ -136,27 +136,27 @@ const FeatureAndPrice: React.FC<featurePriceI> = ({
               What amenities are available?
             </h1>
             <div className='grid grid-cols-1 md:grid-cols-2 w-full'>
-              {AmenitiesData.map((item, i) => {
+              {amenitiesData.map((item, i) => {
                 return (
                   <div
                     key={i}
                     className='flex items-center w-full mt-4 gap-x-2'
                   >
                     <label
-                      htmlFor={item.Amenities}
+                      htmlFor={item.amenities}
                       className='flex items-center gap-x-2'
-                      onClick={() => setFieldValue('amenities', item.Amenities)}
+                      onClick={() => setFieldValue('amenities', item.amenities)}
                     >
                       <input
-                        id={item.Amenities}
+                        id={item.amenities}
                         type='checkbox'
                         name='amenities'
                         className='w-4 h-4 rounded-2xl'
-                        value={item.Amenities}
+                        value={item.amenities}
                         onChange={handleChange}
                         onBlur={handleBlur}
                       />
-                      <p className='text-text-light'>{item.Amenities}</p>
+                      <p className='text-text-light'>{item.amenities}</p>
                     </label>
                   </div>
                 );

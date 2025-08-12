@@ -4,7 +4,7 @@
 export type FeatureAndPriceT = {
   bedrooms?: string;
   bathrooms?: string;
-  Amenities?: string;
+  amenities?: string;
 };
 
 //  =================================== Export initialFeaturePriceT ===================================

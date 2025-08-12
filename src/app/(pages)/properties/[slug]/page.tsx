@@ -1,12 +1,14 @@
-// src/views/Payment/Cancel/index.tsx
-import PropertyDetailsView from '@/views/Properties/property-details';
+// src/app/(pages)/properties/[slug]/page.tsx
+
+// React Imports
 import React from 'react';
+import PropertyDetailsView from '@/views/Properties/property-details';
 import owner from '@/../public/images/owner.png';
 import sketch from '@/../public/images/sketch.png';
 import thumbnail from '@/../public/images/beautiful-house.png';
 import { amenitiesData } from '@/constant/properties/property-details/amenities-data';
 
-const CancelView = () => (
+const RentPropertiesPage = () => (
   <PropertyDetailsView
     id={1}
     thumbnail={thumbnail.src}
@@ -31,4 +33,5 @@ const CancelView = () => (
     amenities={amenitiesData}
   />
 );
-export default CancelView;
+
+export default RentPropertiesPage;

@@ -1,11 +1,24 @@
+// src/components/properties/property-details/property-features.tsx
+
+// React & Next imports
 import React from 'react';
-import bathrooms from '@/../public/icons/bath-rooms.svg';
-import bedrooms from '@/../public/icons/bed-rooms.svg';
-import HomeSpace from '@/../public/icons/home-space.svg';
-import Tools from '@/../public/icons/tools.svg';
 import Image from 'next/image';
 
-const PropertyFeatures = () => {
+// Icons imports
+import Bathrooms from '@/../public/icons/bath-rooms.svg';
+import Bedrooms from '@/../public/icons/bed-rooms.svg';
+import HomeSpace from '@/../public/icons/home-space.svg';
+import Tools from '@/../public/icons/tools.svg';
+
+// Interfaces imports
+import { PropertyFeaturesProps } from '@/interfaces/properties/property-details-interface';
+
+const PropertyFeatures = ({
+  bedrooms,
+  bathrooms,
+  area,
+  quality,
+}: PropertyFeaturesProps) => {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 bg-white border border-border rounded-xl p-2 md:p-7 sm:gap-x-4 gap-y-4'>
       {/* bedrooms */}
@@ -15,11 +28,11 @@ const PropertyFeatures = () => {
         </h1>
         <div className='flex gap-3 sm:order-2 order-1 items-center'>
           <Image
-            src={bedrooms}
+            src={Bedrooms}
             alt=''
             width={35}
           />
-          <p className='text-xl sm:text-2xl text-text-dark'>5</p>
+          <p className='text-xl sm:text-2xl text-text-dark'>{bedrooms}</p>
         </div>
       </div>
       {/* Bathrooms */}
@@ -29,11 +42,11 @@ const PropertyFeatures = () => {
         </h1>
         <div className='flex gap-3 items-center sm:order-2 order-1'>
           <Image
-            src={bathrooms}
+            src={Bathrooms}
             alt=''
             width={35}
           />
-          <p className='text-xl sm:text-2xl text-text-dark'>6</p>
+          <p className='text-xl sm:text-2xl text-text-dark'>{bathrooms}</p>
         </div>
       </div>
       {/* Square Area */}
@@ -47,7 +60,7 @@ const PropertyFeatures = () => {
             alt=''
             width={35}
           />
-          <p className='text-xl sm:text-2xl text-text-dark'>400 SQ.YD</p>
+          <p className='text-xl sm:text-2xl text-text-dark'>{area}</p>
         </div>
       </div>
       {/* Repair Quality */}
@@ -61,7 +74,7 @@ const PropertyFeatures = () => {
             alt=''
             width={35}
           />
-          <p className='flex items-start text-md sm:text-2xl'>Modern Loft</p>
+          <p className='flex items-start text-md sm:text-2xl'>{quality}</p>
         </div>
       </div>
     </div>

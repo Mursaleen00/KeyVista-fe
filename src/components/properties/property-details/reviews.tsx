@@ -1,12 +1,18 @@
-import React from 'react';
-import Title from '../common/title';
+// src/components/properties/property-details/reviews.tsx
+
+// React & Next imports
 import Image from 'next/image';
+import React from 'react';
+
+// Components imports
+import Title from '../../common/title';
+
+// Icons imports
 import Star from '@/../public/icons/star.svg';
 
 const Reviews = () => {
   return (
     <div className='grid gap-y-5'>
-      {/* <div className='flex w-[500px]'></div> */}
       {/* Heading section */}
       <div className='grid gap-y-5'>
         <Title text='Reviews' />
@@ -25,7 +31,7 @@ const Reviews = () => {
           <p>5.0</p>
           <div className='grid gap-y-5'>
             <div className=' w-[200px] sm:w-[350px] h-[6px] bg-text-veryLight rounded-r-md rounded-l-md flex'>
-              <div className='flex w-[95%] h-[6px] bg-orange rounded-l-md rounded-r-md '></div>
+              <div className='flex w-[95%] h-[6px] bg-orange rounded-l-md rounded-r-md ' />
             </div>
           </div>
           <p>(12)</p>
@@ -35,7 +41,7 @@ const Reviews = () => {
           <p>5.0</p>
           <div className='grid gap-y-5'>
             <div className=' w-[200px] sm:w-[350px] h-[6px] bg-text-veryLight rounded-r-md rounded-l-md flex'>
-              <div className='flex w-[70%] h-[6px] bg-orange rounded-l-md rounded-r-md '></div>
+              <div className='flex w-[70%] h-[6px] bg-orange rounded-l-md rounded-r-md ' />
             </div>
           </div>
           <p>(12)</p>
@@ -45,7 +51,7 @@ const Reviews = () => {
           <p>5.0</p>
           <div className='grid gap-y-5'>
             <div className=' w-[200px] sm:w-[350px] h-[6px] bg-text-veryLight rounded-r-md rounded-l-md flex'>
-              <div className='flex w-[65%] h-[6px] bg-orange rounded-l-md rounded-r-md '></div>
+              <div className='flex w-[65%] h-[6px] bg-orange rounded-l-md rounded-r-md ' />
             </div>
           </div>
           <p>(12)</p>
@@ -55,7 +61,7 @@ const Reviews = () => {
           <p>5.0</p>
           <div className='grid gap-y-5'>
             <div className=' w-[200px] sm:w-[350px] h-[6px] bg-text-veryLight rounded-r-md rounded-l-md flex'>
-              <div className='flex w-[55%] h-[6px] bg-orange rounded-l-md rounded-r-md '></div>
+              <div className='flex w-[55%] h-[6px] bg-orange rounded-l-md rounded-r-md ' />
             </div>
           </div>
           <p>(12)</p>
@@ -65,7 +71,7 @@ const Reviews = () => {
           <p>5.0</p>
           <div className='grid gap-y-5'>
             <div className=' w-[200px] sm:w-[350px] h-[6px] bg-text-veryLight rounded-r-md rounded-l-md flex'>
-              <div className='flex w-[45%] h-[6px] bg-orange rounded-l-md rounded-r-md '></div>
+              <div className='flex w-[45%] h-[6px] bg-orange rounded-l-md rounded-r-md ' />
             </div>
           </div>
           <p>(12)</p>
