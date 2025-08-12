@@ -2,6 +2,10 @@
 
 'use client';
 
+// Next & React Import
+import React from 'react';
+import { useRouter } from 'next/navigation';
+
 // components Imports
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
@@ -17,22 +21,15 @@ import { ForgotPasswordSchema } from '@/schema/forgot-password-schema';
 // Formik Import
 import { useFormik } from 'formik';
 
-// Next & React Import
-import React from 'react';
-import { useRouter } from 'next/navigation';
-
-// initialValues
-const initialValues = {
-  password: '',
-  conformPassword: '',
-};
+// Initial Values Import
+import { forgotPasswordInitialValues } from '@/initial-values/auth/auth-all-initial-values';
 
 const ForgotPasswordView = () => {
   // router
-  const router = useRouter();
+  const { push } = useRouter();
   // formik
   const formik = useFormik({
-    initialValues,
+    initialValues: forgotPasswordInitialValues,
     validationSchema: ForgotPasswordSchema,
     onSubmit: () => {},
   });
@@ -42,7 +39,7 @@ const ForgotPasswordView = () => {
     <div className='grid w-full gap-y-5 p-5'>
       {/* logo */}
       <Logo className='flex lg:hidden pb-11' />
-
+      {/* Heading  */}
       <div className='text-2xl text-heading font-semibold'>New Password</div>
       <p className='text-text-light'>
         Enter your new password and remember it.
@@ -72,11 +69,12 @@ const ForgotPasswordView = () => {
         className='flex w-full mt-7'
         onClick={handleSubmit}
       />
+      {/* Already have an account? */}
       <div className='flex gap-x-3 items-end justify-center lg:absolute text-md md:top-10 right-20 md:right-40 text-black'>
         Already have an account?
         <span
           className='text-primary cursor-pointer'
-          onClick={() => router.push(urls.login)}
+          onClick={() => push(urls.login)}
         >
           Login
         </span>

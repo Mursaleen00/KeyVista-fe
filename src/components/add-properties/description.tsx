@@ -21,7 +21,7 @@ import { useFormik } from 'formik';
 import { descriptionSchema } from '@/schema/add-properties-schema';
 
 // Import Initial Values
-import { descriptionInitial } from '@/constant/add-properties/initial-values/add-properties-initial-values';
+import { descriptionInitial } from '@/initial-values/add-properties/add-properties-initial';
 
 const Description: React.FC<descriptionI> = ({
   setStep,

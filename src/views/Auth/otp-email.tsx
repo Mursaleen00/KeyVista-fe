@@ -19,17 +19,16 @@ import { useRouter } from 'next/navigation';
 // schema Import
 import { OtpEmailSchema } from '@/schema/otp-email-schema';
 
-// initialValues
-const initialValues = {
-  email: '',
-};
+// Initial Values Import
+import { otpEmailInitialValues } from '@/initial-values/auth/auth-all-initial-values';
+
 const OtpEmailView = () => {
   // router
   const router = useRouter();
 
   // formik
   const formik = useFormik({
-    initialValues,
+    initialValues: otpEmailInitialValues,
     validationSchema: OtpEmailSchema,
     onSubmit: () => {},
   });
@@ -40,7 +39,7 @@ const OtpEmailView = () => {
       {/* logo */}
       <Logo className='flex lg:hidden pb-11' />
 
-      {/* heading */}
+      {/* Heading */}
       <div className='text-2xl text-heading font-semibold'>Forgot Password</div>
       <p className='text-text-light'>
         Enter a email address associated Your account
@@ -69,6 +68,7 @@ const OtpEmailView = () => {
         className='flex w-full mt-7'
         onClick={handleSubmit}
       />
+      {/* Create an account? */}
       <div className='flex gap-x-2 items-end justify-center lg:absolute text-lg xl:text-xl  md:top-3  right-20 md:right-40 text-black pt-5'>
         New User?
         <span

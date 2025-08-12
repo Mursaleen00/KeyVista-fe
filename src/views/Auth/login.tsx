@@ -2,6 +2,9 @@
 
 'use client';
 
+// Next Import
+import { useRouter } from 'next/navigation';
+
 // components Imports
 import Logo from '@/components/logo/logo';
 import Button from '@/components/buttons/button';
@@ -18,14 +21,8 @@ import { loginSchema } from '@/schema/login-schema';
 // formik
 import { useFormik } from 'formik';
 
-// Next Import
-import { useRouter } from 'next/navigation';
-
-// initialValues
-const initialValues = {
-  email: '',
-  password: '',
-};
+// Initial Values Import
+import { loginInitialValues } from '@/initial-values/auth/auth-all-initial-values';
 
 const LoginView = () => {
   // router
@@ -33,7 +30,7 @@ const LoginView = () => {
 
   // formik
   const formik = useFormik({
-    initialValues,
+    initialValues: loginInitialValues,
     validationSchema: loginSchema,
     onSubmit: () => {},
   });
@@ -77,6 +74,7 @@ const LoginView = () => {
         className='flex w-full mt-7'
         onClick={handleSubmit}
       />
+      {/* Create an account? */}
       <div className='flex gap-x-2 items-end justify-center lg:absolute text-lg xl:text-xl  md:top-3  right-20 md:right-40 text-black pt-5'>
         New User?
         <span

@@ -4,12 +4,11 @@
 
 // component Import
 import Button from '@/components/buttons/button';
+import Logo from '@/components/logo/logo';
 
 // React Import
 import React, { useEffect, useState } from 'react';
-
 import OtpInput from 'react-otp-input';
-import Logo from '@/components/logo/logo';
 
 const EmailVerificationView = () => {
   const [timer, setTimer] = useState(60);

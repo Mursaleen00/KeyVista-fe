@@ -1,6 +1,11 @@
 // src/app/views/Auth/registration.tsx
 
 'use client';
+
+// next Imports
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+
 // components Imports
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
@@ -17,30 +22,19 @@ import { registrationSchema } from '@/schema/registration-schema';
 // formik Import
 import { useFormik } from 'formik';
 
-// next Imports
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-
 // Images Imports
 import profile from '@/../public/images/profile.webp';
 
-// initialValues
-const initialValues = {
-  fullName: '',
-  email: '',
-  password: '',
-  conformPassword: '',
-  country: '',
-  city: '',
-  number: '',
-};
+// Initial Values Imports
+import { registrationInitialValues } from '@/initial-values/auth/auth-all-initial-values';
+
 const RegistrationView = () => {
   // router
   const { push } = useRouter();
 
   //  formik
   const formik = useFormik({
-    initialValues,
+    initialValues: registrationInitialValues,
     validationSchema: registrationSchema,
     onSubmit: () => {},
   });
@@ -83,6 +77,8 @@ const RegistrationView = () => {
           </div>
         ))}
       </div>
+
+      {/* Privacy Policy & Terms of Service */}
       <div className='flex w-full gap-x-2 items-center pt-3'>
         <Input
           type='checkbox'
@@ -114,7 +110,7 @@ const RegistrationView = () => {
         className='flex w-full mt-7'
         onClick={handleSubmit}
       />
-      {/* go to login */}
+      {/* Already have an account? */}
       <div className='flex gap-x-2 items-end justify-center lg:absolute text-md md:top-7  right-20 md:right-40 text-black'>
         Already have an account?
         <span

@@ -23,7 +23,7 @@ import { useFormik } from 'formik';
 // Import Components
 import Button from '../buttons/button';
 import SelectForm from '../common/select-form';
-import { locationAndPurposeInitial } from '@/constant/add-properties/initial-values/add-properties-initial-values';
+import { locationAndPurposeInitial } from '@/initial-values/add-properties/add-properties-initial';
 
 const LocationAndPurpose: React.FC<locationPurposeI> = ({
   setStep,

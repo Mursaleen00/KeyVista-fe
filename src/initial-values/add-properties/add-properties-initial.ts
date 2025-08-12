@@ -1,4 +1,4 @@
-// src/constant/add-properties/initial-values/add-properties-initial-values.ts
+// src/initial-values/add-properties/add-properties-initial.ts
 
 // Types Imports
 import { initialLocationAndPurposeT } from '@/types/add-properties-types/location-purpose-types';

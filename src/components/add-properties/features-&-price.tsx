@@ -13,7 +13,7 @@ import {
   bathroomsData,
   bedroomsData,
 } from '@/constant/add-properties/feature-price-data';
-import { featureAndPriceInitial } from '@/constant/add-properties/initial-values/add-properties-initial-values';
+import { featureAndPriceInitial } from '@/initial-values/add-properties/add-properties-initial';
 
 // Import Interfaces
 import { featurePriceI } from '@/interfaces/add-properties/Add-properties-interface';

@@ -9,21 +9,20 @@ import Input from '@/components/inputs/input';
 // Constant Import
 import { ChangePasswordData } from '@/constant/common/change-password-data';
 import { ChangePasswordSchema } from '@/schema/change-password-schema';
-import { useFormik } from 'formik';
+
+// Initial Values Import
+import { changePasswordInitialValues } from '@/initial-values/auth/auth-all-initial-values';
 
 // React Import
 import React from 'react';
 
-// initialValues
-const initialValues = {
-  OldPassword: '',
-  NewPassword: '',
-  conformPassword: '',
-};
+// Formik Import
+import { useFormik } from 'formik';
+
 const ChangePasswordView = () => {
   // formik
   const formik = useFormik({
-    initialValues,
+    initialValues: changePasswordInitialValues,
     validationSchema: ChangePasswordSchema,
     onSubmit: () => {},
   });
