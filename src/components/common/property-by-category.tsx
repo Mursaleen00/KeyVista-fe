@@ -1,13 +1,11 @@
 // src/component/common/auth-heading.tsx
 
-// interface Import
-import { PropertyByCategoryInterface } from '@/interfaces/properties/property-by-category-interface';
-
-// Next Import
+// React & Next Import
+import React from 'react';
 import Image from 'next/image';
 
-// React Import
-import React from 'react';
+// interface Import
+import { PropertyByCategoryInterface } from '@/interfaces/properties/property-by-category-interface';
 
 const PropertyByCategory = ({
   icon,

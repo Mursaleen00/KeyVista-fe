@@ -1,10 +1,16 @@
 // src/constant/notification/notification-data.ts
 
-import profile from '@/../public/navbar/profile.svg';
-import { Notification } from '@/interfaces/notification/notification-interfaces';
+// Moment Import
 import moment from 'moment';
 
-export const notifications: Array<Notification> = [
+// Image Import
+import profile from '@/../public/navbar/profile.svg';
+
+// Interface Import
+import { NotificationI } from '@/interfaces/notification/notification-interfaces';
+
+// ====================================== notificationsData =============================================
+export const notificationsData: Array<NotificationI> = [
   {
     _id: 'notif1',
     userId: 'user123',

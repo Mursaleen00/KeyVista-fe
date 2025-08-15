@@ -1,6 +1,10 @@
+// src/interfaces/common/map.interface.ts
+
+// Type Import
 import { TMarkersData } from '@/types/map.type';
 
-export interface IMapProps {
+// -------------------------- MapI -----------------------------
+export interface MapI {
   width?: string;
   height?: string;
   isCurrentLocation?: boolean;

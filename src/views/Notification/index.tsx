@@ -1,14 +1,24 @@
 // src/views/Notification/index.tsx
 'use client';
-import Title from '@/components/common/title';
-import moment from 'moment';
+
+// React & Next Imports
 import Image from 'next/image';
-import { notifications } from '@/constant/notification/notification-data';
-import { dataT } from '@/types/notification-type';
+
+// Component Import
+import Title from '@/components/common/title';
+
+// Moment Import
+import moment from 'moment';
+
+// Constant Import
+import { notificationsData } from '@/constant/notification/notification-data';
+
+// Type Import
+import { notificationT } from '@/types/notification-type';
 
 const NotificationView = () => {
   // sortedDate
-  const sortedDate = notifications.sort((a, b) => {
+  const sortedDate = notificationsData.sort((a, b) => {
     return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
   });
 
@@ -29,22 +39,25 @@ const NotificationView = () => {
   };
 
   //  data type
-  const data: dataT[] = sortedDate.reduce((acc: dataT[], item) => {
-    const dateLabel = getDateLabel(item.updatedAt);
-    const existingGroup = acc.find(group => group.title === dateLabel);
+  const data: notificationT[] = sortedDate.reduce(
+    (acc: notificationT[], item) => {
+      const dateLabel = getDateLabel(item.updatedAt);
+      const existingGroup = acc.find(group => group.title === dateLabel);
 
-    //  if existingGroup is true or false
-    if (existingGroup) {
-      existingGroup.data.push(item);
-    } else {
-      acc.push({
-        title: dateLabel,
-        data: [item],
-      });
-    }
+      //  if existingGroup is true or false
+      if (existingGroup) {
+        existingGroup.data.push(item);
+      } else {
+        acc.push({
+          title: dateLabel,
+          data: [item],
+        });
+      }
 
-    return acc;
-  }, []);
+      return acc;
+    },
+    [],
+  );
 
   return (
     <div className='flex flex-col m-4 sm:m-9 md:m-9 rounded-3xl shadow-2xl'>
@@ -58,7 +71,9 @@ const NotificationView = () => {
 
       {/* Notification List */}
       <div className='flex flex-col py-3'>
+        {/* Data Map */}
         {data.map(group => (
+          // Today & Tomorrow title
           <div
             key={group.title}
             className='flex flex-col rounded-full'

@@ -28,7 +28,13 @@ export interface descriptionI {
   setData: Dispatch<React.SetStateAction<AddPropertiesT>>;
 }
 
+// ---------------------------------- addPropertiesHeroI ----------------------------------------
 export interface addPropertiesHeroI {
   title: string;
   description: string;
+}
+
+// ---------------------------------- stepBarI ----------------------------------------
+export interface stepBarI {
+  step: number;
 }

@@ -1,5 +1,6 @@
 // src/views/Terms-And-Conditions/index.tsx
 
+// React & Next Import
 import * as React from 'react';
 import Link from 'next/link';
 

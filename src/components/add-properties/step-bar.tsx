@@ -1,13 +1,19 @@
-import { StepBarData } from '@/constant/add-properties/step-bar-data';
+// src/components/add-properties/step-bar.tsx
+
+// React & Next Import
 import Image from 'next/image';
 import React from 'react';
 
-interface Props {
-  step: number;
-}
-const StepBar = ({ step }: Props) => {
+// Constant Import
+import { StepBarData } from '@/constant/add-properties/step-bar-data';
+
+// interface Import
+import { stepBarI } from '@/interfaces/add-properties/Add-properties-interface';
+
+const StepBar = ({ step }: stepBarI) => {
   return (
     <div className='relative flex justify-between items-center w-full'>
+      {/* Border */}
       <div className='flex border border-text w-full absolute -z-10 top-5' />
 
       {/* steps view */}

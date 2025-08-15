@@ -8,7 +8,7 @@ import Image from 'next/image';
 import React from 'react';
 
 // Import Image
-import heroImage from '@/../public/properties-hero/add-properties-hero.png';
+import heroImage from '@/../public/add-properties/add-properties-hero.png';
 
 const AddPropertiesHero: React.FC<addPropertiesHeroI> = ({
   title,

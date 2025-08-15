@@ -1,5 +1,9 @@
+// src/constant/cards/product-card-horizontal-data.ts
+
+// Image Import
 import house from '@/../public/images/card-house.png';
 
+// ================================ ProductCardHorizontalData =====================================
 export const ProductCardHorizontalData = [
   {
     thumbnail: house.src,

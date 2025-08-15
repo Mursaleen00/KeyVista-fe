@@ -1,11 +1,11 @@
 // src/constant/add-properties/step-bar-data.ts
 
 // Imports Icons
-import location from '@/../public/properties-hero/location.svg';
-import dolor from '@/../public/properties-hero/dolor.svg';
-import information from '@/../public/properties-hero/information.svg';
-import grayDolor from '@/../public/properties-hero/gray-dolor.svg';
-import grayInformation from '@/../public/properties-hero/gray-information.svg';
+import location from '@/../public/add-properties/location.svg';
+import dolor from '@/../public/add-properties/dolor.svg';
+import information from '@/../public/add-properties/information.svg';
+import grayDolor from '@/../public/add-properties/gray-dolor.svg';
+import grayInformation from '@/../public/add-properties/gray-information.svg';
 
 // Types Imports
 import { StepBarT } from '@/types/add-properties-types/add-properties-section-types';

@@ -1,4 +1,6 @@
 // src/views/Privacy-Policy/index.tsx
+
+// React Import
 import React from 'react';
 
 const PrivacyPolicyView = () => {

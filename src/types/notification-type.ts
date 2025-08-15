@@ -1,7 +1,10 @@
-import { Notification } from '@/interfaces/notification/notification-interfaces';
-
 // src/types/notification-type.ts
-export type dataT = {
+
+// Interface Import
+import { NotificationI } from '@/interfaces/notification/notification-interfaces';
+
+// ------------------------- notificationT --------------------------
+export type notificationT = {
   title: string;
-  data: Notification[];
+  data: NotificationI[];
 };

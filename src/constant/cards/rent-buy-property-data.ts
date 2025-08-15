@@ -1,5 +1,9 @@
+// src/constant/cards/rent-buy-property-data.ts
+
+// Image Import
 import grayHouse from '@/../public/images/beautiful-house.png';
 
+// ============================== RentPropertyData =============================
 export const RentPropertyData = [
   {
     id: 1,
@@ -94,6 +98,7 @@ export const RentPropertyData = [
   },
 ];
 
+// ============================== RentPropertyData =============================
 export const BuyPropertyData = [
   {
     id: 1,

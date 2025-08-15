@@ -9,6 +9,8 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
+
+// Component Import
 import ProductCardHorizontal from '../cards/product-card-horizontal';
 
 // Constant Imports
