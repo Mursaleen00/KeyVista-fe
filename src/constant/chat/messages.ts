@@ -1,5 +1,9 @@
+// src/constant/chat/messages.ts
+
+// interface Import
 import { MessageProps } from '@/interfaces/common/chat.interface';
 
+// ============================================== chatMessages ==================================================
 export const chatMessages: Partial<MessageProps>[] = [
   {
     message: "Hey! How's it going?",
