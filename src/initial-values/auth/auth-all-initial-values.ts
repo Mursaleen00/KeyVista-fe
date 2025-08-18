@@ -32,5 +32,7 @@ export const registrationInitialValues = {
   conformPassword: '',
   country: '',
   city: '',
-  number: '',
+  phoneNumber: '',
+  profilePicture: '', // Default value for profile picture
+  agreeWithPT: false, // Default value for agreeing with terms and privacy
 };

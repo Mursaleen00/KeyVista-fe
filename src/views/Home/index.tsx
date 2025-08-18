@@ -2,7 +2,6 @@
 'use client';
 
 // Import React
-import React from 'react';
 import { useState } from 'react';
 
 // Imports Components
@@ -15,23 +14,43 @@ import Title from '@/components/common/title';
 
 // Imports Constants
 import { PropertyByCityCardData } from '@/constant/cards/property-by-city-card-data';
-import { CardsData } from '@/constant/cards/rent-buy-cards-data';
+// import { CardsData } from '@/constant/cards/rent-buy-cards-data';
 import { propertyByCategoryData } from '@/constant/properties/property-by-category-data';
+import { useGetAllPropertiesQuery } from '@/services/properties/get-all-properties';
 
 const HomeView = () => {
   //  Browse Property by Category useState
   const [selected, setSelected] = useState<number | null>(null);
   // Browse Properties useState
-  const [selectedTab, setSelectedTab] = useState('all');
-  const filteredCard =
-    selectedTab === 'all'
-      ? CardsData
-      : CardsData.filter(card => card.category === selectedTab);
+
+  // const filteredCard =
+  //   selectedTab === 'all'
+  //     ? CardsData
+  //     : CardsData.filter(card => card.category === selectedTab);
+
   // Browse Properties by city useState
   const [showAll, setShowAll] = useState(false);
   const visibleCards = showAll
     ? PropertyByCityCardData
     : PropertyByCityCardData.slice(0, 4);
+
+  const { data } = useGetAllPropertiesQuery();
+  const { properties } = data || {};
+  const [selectedTab, setSelectedTab] = useState('all');
+
+  // {
+  //   id: 1,
+  //   category: 'rent',
+  //   thumbnail: grayHouse.src,
+  //   title: 'The City Card',
+  //   location: '1011 Robson Street, Vancouver, BC V6E 1C2',
+  //   duration: '/Mouth',
+  //   price: '$ 8000',
+  //   status: 'Rent',
+  //   bathrooms: '6 bathrooms',
+  //   bedrooms: '5 bedrooms',
+  //   area: '700 SQ.YD',
+  // },
 
   return (
     <div className='grid'>
@@ -102,7 +121,7 @@ const HomeView = () => {
         </div>
         {/* filteredCard */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2'>
-          {filteredCard.map((item, i) => (
+          {properties?.map((item, i) => (
             <PropertyCard
               key={i}
               {...item}

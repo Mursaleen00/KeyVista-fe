@@ -5,7 +5,7 @@ import { ReactNode, Suspense } from 'react';
 
 // Components Imports
 import Loader from '@/components/common/loader';
-import HomeLayout from '@/components/layouts/home-layout';
+import PagesLayout from '@/components/layouts/pages-layout';
 import Providers from '@/providers';
 
 const Layout = ({ children }: { children: ReactNode }) => {
@@ -17,9 +17,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
         </div>
       }
     >
-      <HomeLayout>
+      <PagesLayout>
         <Providers>{children}</Providers>
-      </HomeLayout>
+      </PagesLayout>
     </Suspense>
   );
 };

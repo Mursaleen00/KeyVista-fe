@@ -10,7 +10,7 @@ import Logo from '@/components/logo/logo';
 import React, { useEffect, useState } from 'react';
 import OtpInput from 'react-otp-input';
 
-const EmailVerificationView = () => {
+const OtpVerificationView = () => {
   const [timer, setTimer] = useState(60);
   const [isActive, setIsActive] = useState(true);
 
@@ -95,4 +95,4 @@ const EmailVerificationView = () => {
   );
 };
 
-export default EmailVerificationView;
+export default OtpVerificationView;

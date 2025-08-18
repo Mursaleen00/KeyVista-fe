@@ -12,7 +12,6 @@ export const URLS = {
   PATCH_CHANGE_PASSWORD: `${baseUrl}/user/change-password`,
 
   // Authentication
-
   POST_REGISTER: `${baseUrl}/auth/register`,
   POST_lOGIN: `${baseUrl}/auth/login`,
   POST_VERIFY_OTP: `${baseUrl}/auth/verify-otp`,

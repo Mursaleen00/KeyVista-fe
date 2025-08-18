@@ -6,10 +6,10 @@
 import { useRouter } from 'next/navigation';
 
 // components Imports
-import Logo from '@/components/logo/logo';
 import Button from '@/components/buttons/button';
-import Input from '@/components/inputs/input';
 import AuthHeading from '@/components/common/auth-heading';
+import Input from '@/components/inputs/input';
+import Logo from '@/components/logo/logo';
 
 // constant Imports
 import { LoginData } from '@/constant/auth/login-data';
@@ -23,16 +23,27 @@ import { useFormik } from 'formik';
 
 // Initial Values Import
 import { loginInitialValues } from '@/initial-values/auth/auth-all-initial-values';
+import { useLoginMutation } from '@/services/auth/login-api';
+import { setCookie } from 'cookies-next';
 
 const LoginView = () => {
   // router
   const router = useRouter();
 
+  const { mutateAsync } = useLoginMutation();
+
   // formik
   const formik = useFormik({
     initialValues: loginInitialValues,
     validationSchema: loginSchema,
-    onSubmit: () => {},
+    onSubmit: async ({ email, password }) => {
+      try {
+        const { token } = await mutateAsync({ email, password });
+        setCookie('accessToken', token);
+      } catch (error) {
+        console.log('🚀 ~ LoginView ~ error:', error);
+      }
+    },
   });
   const { values, errors, touched, handleChange, handleSubmit } = formik;
 

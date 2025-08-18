@@ -17,7 +17,7 @@ import { urls } from '@/constant/router/routes';
 // import Providers from '@/providers';
 // import Providers from '@/providers';
 
-const HomeLayout = ({ children }: { children: ReactNode }) => {
+const PagesLayout = ({ children }: { children: ReactNode }) => {
   const pathname = usePathname();
 
   // showHero
@@ -67,4 +67,4 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default HomeLayout;
+export default PagesLayout;
