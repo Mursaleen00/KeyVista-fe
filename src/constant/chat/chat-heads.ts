@@ -1,3 +1,6 @@
+//  src/constant/chat/chat-heads.ts
+
+//  ================================== chatHeads ==================================
 export const chatHeads = [
   {
     id: 1,

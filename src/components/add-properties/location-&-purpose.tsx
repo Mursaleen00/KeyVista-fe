@@ -1,16 +1,43 @@
+// src/components/add-properties/location-&-purpose.tsx
 'use client';
+
+// Import React
 import React from 'react';
+
+// Import Constants
+import {
+  CityAndAreaData,
+  PurposeData,
+  ResidentialData,
+} from '@/constant/add-properties/location-purpose-data';
+
+// Import Interfaces And Types
+import { locationPurposeI } from '@/interfaces/add-properties/Add-properties-interface';
+
+// Import Schema
+import { locationPurposeSchema } from '@/schema/add-properties-schema';
+
+// Import Formik
+import { useFormik } from 'formik';
+
+// Import Components
 import Button from '../buttons/button';
-import { ResidentialData } from '@/constant/add-properties/add-properties-data';
-import AllSelect from '../common/select';
-import Arrow from '@/../public/icons/down-arrow.svg';
-import { locationPurposeI } from '@/interfaces/properties/Add-properties-interface';
+import SelectForm from '../common/select-form';
+import { locationAndPurposeInitial } from '@/initial-values/add-properties/add-properties-initial';
 
 const LocationAndPurpose: React.FC<locationPurposeI> = ({
   setStep,
-  // formik,
+  setData,
 }) => {
-  // const { values, errors, handleBlur } = formik;
+  const { values, setFieldValue, errors, touched, handleSubmit } = useFormik({
+    initialValues: locationAndPurposeInitial,
+    validationSchema: locationPurposeSchema,
+    onSubmit: v => {
+      setData(prev => ({ ...prev, ...v }));
+      setStep();
+    },
+  });
+
   return (
     <div className='text-text-light flex flex-col'>
       {/* Main Hading */}
@@ -23,15 +50,28 @@ const LocationAndPurpose: React.FC<locationPurposeI> = ({
           {/* purpose Section */}
           <div className='flex flex-col gap-y-2 mt-4'>
             <h1 className='text-text-light text-lg'>Select Purpose</h1>
-            <div className='flex flex-col sm:flex-row gap-x-4'>
-              <Button
-                text='Sell'
-                isOutline
-              />
-              <Button
-                text='Rent'
-                isOutline
-              />
+            <div className='flex flex-col gap-y-2'>
+              <div className={`flex flex-col sm:flex-row gap-x-4`}>
+                {PurposeData.map((item, i) => {
+                  const isSelected = values.purpose === item.Purpose;
+                  return (
+                    <Button
+                      key={i}
+                      isOutline={!isSelected}
+                      isSelected={isSelected}
+                      onClick={() => {
+                        setFieldValue('purpose', item.Purpose);
+                      }}
+                      text={item.Purpose || ''}
+                      value={item.Purpose || ''}
+                      name='purpose'
+                    />
+                  );
+                })}
+              </div>
+              {errors.purpose && touched.purpose && !values.purpose && (
+                <p className='flex text-red'>{errors.purpose}</p>
+              )}
             </div>
           </div>
           {/* Residential Section */}
@@ -44,47 +84,54 @@ const LocationAndPurpose: React.FC<locationPurposeI> = ({
             <h1 className='text-primary pb-1 border-b-primary border-2 border-t-white border-x-white'>
               Residential
             </h1>
-            <div className='flex flex-wrap max-w-[600px] gap-2'>
-              {ResidentialData.map((item, i) => (
-                <Button
-                  // values={values[item.Residential as keyof typeof values]}
-                  // errors={errors[item.Residential as keyof typeof errors]}
-                  // onBlur={handleBlur}
-                  key={i}
-                  text={item.Residential || ''}
-                  isOutline
-                />
-              ))}
+            {/* ResidentialData Map */}
+            <div className='flex flex-col gap-y-2'>
+              <div className='flex flex-wrap max-w-[600px] gap-2'>
+                {ResidentialData.map((item, i) => {
+                  const isSelected = values.residential === item.Residential;
+                  return (
+                    <Button
+                      key={i}
+                      isOutline={!isSelected}
+                      isSelected={isSelected}
+                      onClick={() => {
+                        setFieldValue('residential', item.Residential);
+                      }}
+                      text={item.Residential || ''}
+                      value={item.Residential || ''}
+                      name='residential'
+                    />
+                  );
+                })}
+              </div>
+              {errors.residential &&
+                touched.residential &&
+                !values.residential && (
+                  <p className='flex text-red'>{errors.residential}</p>
+                )}
             </div>
           </div>
           {/* Select Section */}
           <div className='flex flex-col gap-y-2 py-2 justify-start items-start text-start'>
-            <AllSelect
-              label={'Which City is your property in?'}
-              placeholder={'Select City'}
-              icon={Arrow}
-              options={[
-                { value: 'house', label: 'House' },
-                { value: 'apartment', label: 'Apartment' },
-                { value: 'villa', label: 'Villa' },
-              ]}
-            />
-            <AllSelect
-              label={'Which Area is your property in?'}
-              placeholder={'Select Area'}
-              icon={Arrow}
-              options={[
-                { value: 'house', label: 'House' },
-                { value: 'apartment', label: 'Apartment' },
-                { value: 'villa', label: 'Villa' },
-              ]}
-            />
+            {/* Select Section */}
+            {CityAndAreaData.map((item, i) => (
+              <SelectForm
+                {...item}
+                key={i}
+                setFieldValue={setFieldValue}
+                name={item.name}
+                value={values[item.name as keyof typeof values]}
+                className={`flex gap-y-2 w-full`}
+                error={errors[item.name as keyof typeof errors]}
+                touched={touched[item.name as keyof typeof touched]}
+              />
+            ))}
           </div>
           {/* Button and Section */}
           <div className='flex flex-col gap-y-5 items-end'>
             <Button
               text='Next'
-              onClick={setStep}
+              onClick={handleSubmit}
             />
           </div>
         </div>

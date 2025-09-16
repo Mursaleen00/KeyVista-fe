@@ -12,7 +12,7 @@ export const RegistrationData = [
     label: 'Phone Number',
     type: 'number',
     placeholder: 'Number',
-    name: 'number',
+    name: 'phoneNumber',
   },
   {
     label: 'Email Address',
@@ -22,13 +22,13 @@ export const RegistrationData = [
   },
   {
     label: 'Country',
-    type: 'country',
+    type: 'text',
     placeholder: 'Enter Country Name',
     name: 'country',
   },
   {
     label: 'City',
-    type: 'city',
+    type: 'text',
     placeholder: 'Enter City Name',
     name: 'city',
   },

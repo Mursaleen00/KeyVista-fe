@@ -35,7 +35,9 @@
     "src/views/Terms-And-Conditions/index.tsx",
     "src/components/common/carousel.tsx",
     "src/views/Properties/rent-buy-properties/index.tsx",
-    "src/app/(pages)/properties/rent-buy-properties/page.tsx"
-, "src/views/Auth/registration.tsx"  ],
+    "src/app/(pages)/properties/rent-buy-properties/page.tsx",
+    "src/views/Auth/registration/index.tsx",
+    "src/interfaces/add-properties"
+  ],
   "exclude": ["node_modules"]
 }

@@ -7,19 +7,22 @@ import Image from 'next/image';
 
 const Logo = ({ className, WhiteLogo }: LogoInterfaces) => {
   return (
-    <div className={`${className} flex items-center gap-x-2`}>
+    <div
+      className={`${className} flex items-center gap-x-2 cursor-pointer`}
+      onClick={() => (window.location.href = '/')}
+    >
       <div>
         {WhiteLogo ? (
           <Image
             src={WhiteHouse}
-            alt=''
+            alt='Logo'
             width={50}
             height={100}
           />
         ) : (
           <Image
             src={purpleLogo}
-            alt=''
+            alt='Logo'
             width={50}
             height={100}
           />

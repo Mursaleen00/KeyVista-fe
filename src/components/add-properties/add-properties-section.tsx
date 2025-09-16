@@ -1,38 +1,57 @@
+// src/components/add-properties/add-properties-section.tsx
 'use client';
-import React, { useState } from 'react';
-import StepBar from './step-bar';
-import LocationAndPurpose from './location-&-purpose';
-import FeatureAndPrice from './features-&-price';
-import Description from './description';
+
+// Import React
+import { useState } from 'react';
 import toast from 'react-hot-toast';
-// import { useFormik } from 'formik';
+
+// Import Components
+import Description from './description';
+import FeatureAndPrice from './features-&-price';
+import LocationAndPurpose from './location-&-purpose';
+import StepBar from './step-bar';
+
+// Import Types
+import { AddPropertiesT } from '@/types/add-properties-types/add-properties-section-types';
+import { useRouter } from 'next/navigation';
+import { urls } from '@/constant/router/routes';
 
 const AddPropertiesSection = () => {
+  const [data, setData] = useState<AddPropertiesT>({
+    area: '',
+    city: '',
+    purpose: '',
+    residential: '',
+    size: '',
+    bedrooms: '',
+    bathrooms: '',
+    amenities: '',
+    price: '',
+    condition: '',
+    propertyName: '',
+    description: '',
+    image: '',
+    sketch: '',
+  });
+
   // State to manage the current step
   const [step, setStep] = useState(0);
 
+  const { push } = useRouter();
   // Function to handle previous steps
   const handlePrev = () => {
     if (step >= 1) setStep(step - 1);
-    // else if (step == 2) setStep(step - 1)
   };
 
   // Function to handle next steps
-  const handleNext = () => {
-    if (step >= 0) setStep(step + 1);
-    else toast.error('Please fill all the fields');
+  const handleNext: () => void = () => {
+    if (data && step >= 0 && step < 2) setStep(step + 1);
+    else if (data && step === 2) {
+      toast.success('Property added successfully');
+      push(urls.myProperties);
+    }
   };
-  // formik
-  // const formik = useFormik({
-  //   initialValues,
-  //   validationSchema:
-  //     step == 1 ? personalDetailSchema : step == 2 ? bankDetailSchema : null,
-  //   onSubmit: () => {
-  //     toast.success('Order placed successfully');
-  //     router.push(urls.home);
-  //     dispatch(removeAllProducts());
-  //   },
-  // });
+
   return (
     <div className='rounded-lg bg-white shadow-2xl w-full max-w-6xl px-5 md:px-9 flex flex-col py-9 gap-y-9 z-0'>
       {/* Step Bar */}
@@ -44,7 +63,7 @@ const AddPropertiesSection = () => {
         {step == 0 && (
           <LocationAndPurpose
             setStep={handleNext}
-            // formik={formik}
+            setData={setData}
           />
         )}
 
@@ -53,7 +72,7 @@ const AddPropertiesSection = () => {
           <FeatureAndPrice
             setStep={handleNext}
             prevStep={handlePrev}
-            // formik={formik}
+            setData={setData}
           />
         )}
 
@@ -62,6 +81,7 @@ const AddPropertiesSection = () => {
           <Description
             setStep={handleNext}
             prevStep={handlePrev}
+            setData={setData}
           />
         )}
       </div>

@@ -1,52 +1,22 @@
+// src/views/Map/index.tsx
 'use client';
+
+// Import Components
 import Map from '@/components/map/map';
-import ProductCardHorizontal from '@/components/cards/product-card-horizontal';
-import { ProductCardHorizontalData } from '@/constant/cards/product-card-horizontal-data';
+import { ProductCardHorizontalCarousel } from '@/components/properties/product-card-horizontal-carousel';
+
+// Import React
 import * as React from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const MapView = () => {
-  // Card Constant
-  const [currentIndex, setCurrentIndex] = React.useState(0);
-
-  const prevIcon = () => {
-    setCurrentIndex(ProductCardHorizontal =>
-      ProductCardHorizontal === 0
-        ? ProductCardHorizontalData.length - 1
-        : ProductCardHorizontal - 1,
-    );
-  };
-
-  const nextIcon = () => {
-    setCurrentIndex(ProductCardHorizontal =>
-      ProductCardHorizontal === ProductCardHorizontalData.length - 1
-        ? 0
-        : ProductCardHorizontal + 1,
-    );
-  };
-
-  const currentData = ProductCardHorizontalData[currentIndex];
-  // Card Constant
   return (
-    <div>
+    <div className='flex flex-col gap-y-10 w-full justify-center items-center'>
+      {/* Map */}
       <Map height='100dvh' />
-      <div className='relative w-full mx-auto overflow-hidden mt-20 flex justify-around'>
-        <ProductCardHorizontal {...currentData} />
-        {/* Left Button */}
-        <button
-          className='absolute top-1/2 left-4  translate-y-28 sm:-translate-y-1/2 bg-black/50 text-white p-2 rounded-full'
-          onClick={prevIcon}
-        >
-          <FaChevronLeft />
-        </button>
 
-        {/* Right Button */}
-        <button
-          className='absolute top-1/2 right-4 translate-y-28 sm:-translate-y-1/2 bg-black/50 text-white p-2 rounded-full'
-          onClick={nextIcon}
-        >
-          <FaChevronRight />
-        </button>
+      {/* ProductCardHorizontalCarousel */}
+      <div className='flex w-full justify-center items-center'>
+        <ProductCardHorizontalCarousel />
       </div>
     </div>
   );

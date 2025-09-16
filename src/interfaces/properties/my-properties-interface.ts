@@ -10,4 +10,6 @@ export interface MyPropertyInterfaces {
   title: string;
   price: string;
   posted: string;
+  purpose: string;
+  duration?: string;
 }

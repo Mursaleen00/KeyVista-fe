@@ -1,13 +1,22 @@
+// src/views/Properties/rent-buy-properties/index.tsx
+
 'use client';
+
+// React Import
+import { FC } from 'react';
+
+// Component Import
 import PropertyCard from '@/components/cards/property-Card';
 import Paragraph from '@/components/common/paragraph';
 import Title from '@/components/common/title';
+
+// Constant Import
 import {
   BuyPropertyData,
   RentPropertyData,
 } from '@/constant/cards/rent-buy-property-data';
-import { FC } from 'react';
 
+// Type Export
 export type CategoryT = 'rent' | 'buy';
 
 interface IProps {
@@ -15,13 +24,16 @@ interface IProps {
 }
 
 const RentAndBuyPropertiesIndex: FC<IProps> = ({ type }) => {
+  // Rent or Not
   const isRent = type === 'rent';
 
   return (
-    <div className='grid gap-4 sm:px-9'>
+    <div className='grid gap-4 p-2 sm:px-5'>
       {/* Text section */}
-      <div className='grid p-4 gap-4 pt-9'>
+      <div className='grid sm:px-3 gap-4'>
+        {/* Title */}
         <Title text={isRent ? 'Rent Properties' : 'Buy Properties'} />
+        {/* Description */}
         <Paragraph
           text={
             isRent
@@ -32,7 +44,7 @@ const RentAndBuyPropertiesIndex: FC<IProps> = ({ type }) => {
         />
       </div>
 
-      {/* Rent Property */}
+      {/* Rent & Buy Properties */}
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2'>
         {(isRent ? RentPropertyData : BuyPropertyData).map((item, i) => (
           <PropertyCard
