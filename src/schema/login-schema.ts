@@ -1,4 +1,4 @@
-// src/schema/forgot-password-schema/ts
+// src/schema/login-schema.ts
 
 // Yup Import
 import * as yup from 'yup';

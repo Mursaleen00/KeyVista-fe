@@ -1,6 +1,9 @@
-// import grayHouse from '@/../public/icons/grayHouse.svg';
+// src/constant/cards/rent-buy-cards-data.ts
+
+// Image Import
 import grayHouse from '@/../public/images/beautiful-house.png';
 
+// ================================ cardData =======================================
 export const CardsData = [
   {
     id: 1,

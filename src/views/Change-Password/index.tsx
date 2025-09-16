@@ -9,35 +9,36 @@ import Input from '@/components/inputs/input';
 // Constant Import
 import { ChangePasswordData } from '@/constant/common/change-password-data';
 import { ChangePasswordSchema } from '@/schema/change-password-schema';
-import { useFormik } from 'formik';
+
+// Initial Values Import
+import { changePasswordInitialValues } from '@/initial-values/auth/auth-all-initial-values';
 
 // React Import
 import React from 'react';
 
-// initialValues
-const initialValues = {
-  OldPassword: '',
-  conformPassword: '',
-  NewPassword: '',
-};
+// Formik Import
+import { useFormik } from 'formik';
+
 const ChangePasswordView = () => {
   // formik
   const formik = useFormik({
-    initialValues,
+    initialValues: changePasswordInitialValues,
     validationSchema: ChangePasswordSchema,
     onSubmit: () => {},
   });
   const { values, errors, touched, handleChange, handleSubmit } = formik;
 
   return (
-    <div className='relative bg-white shadow-2xl p-3 md:p-9 pt-14 my-9 mx-2 sm:mx-9 rounded-2xl'>
+    <div className=' flex flex-col m-2 sm:mx-8 md:mx-11 xl:mx-32 bg-white shadow-2xl p-3 md:px-9 mt-9 rounded-3xl'>
       {/* Title */}
-      <h1 className='absolute md:left-14 top-9'>
-        <Title text='Change Password' />
-      </h1>
+      <Title
+        text='Change Password'
+        className='my-10'
+      />
 
       {/* Password Data */}
-      <div className='grid grid-cols-1 w-full justify-center items-center pt-20 gap-y-9'>
+      <div className='grid grid-cols-1 w-full justify-center items-center mb-9'>
+        {/* ChangePasswordData */}
         <div className='flex flex-col w-full gap-y-7 justify-center items-center'>
           {ChangePasswordData.map((item, i) => (
             <div
@@ -54,6 +55,7 @@ const ChangePasswordView = () => {
               />
             </div>
           ))}
+          {/* Button */}
           <Button
             onClick={handleSubmit}
             text='Conform'

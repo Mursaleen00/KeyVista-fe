@@ -11,9 +11,8 @@ export const urls = {
   profile: '/profile',
 
   // Properties
-  addProperty: '/add-property',
-  myProperties: '/my-properties',
-  addProperties: '/add-properties',
+  myProperties: '/properties/my-properties',
+  addProperties: '/properties/add-properties',
   rentProperties: '/properties/rent-buy-properties?type=rent',
   buyProperties: '/properties/rent-buy-properties?type=buy',
   propertyDetails: (id: string) => `/property-details/${id}`,

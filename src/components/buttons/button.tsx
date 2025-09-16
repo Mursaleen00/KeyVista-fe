@@ -14,17 +14,25 @@ const Button = ({
   className,
   icon,
   text,
+  value,
+  name,
+  onBlur,
+  onChange,
 }: ButtonInterface) => {
   return (
     // button
     <button
+      value={value}
+      name={name}
       type={type}
+      onBlur={onBlur}
+      onChange={onChange}
       onClick={onClick}
       className={`${
         isOutline
           ? 'border border-primary text-primary bg-white font-semibold hover:bg-primary-medium hover:text-white'
-          : 'bg-primary text-white shadow-sm shadow-primary hover:bg-primary-medium'
-      } ${className} flex px-11 rounded-lg items-center justify-center w-fit h-11 text-lg cursor-pointer`}
+          : 'bg-primary text-white shadow-sm shadow-primary hover:bg-primary-medium font-semibold'
+      } ${className}  flex px-11 rounded-lg items-center justify-center w-fit h-11 text-lg cursor-pointer`}
     >
       {icon && (
         // Image

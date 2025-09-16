@@ -1,14 +1,23 @@
+// src/components/cards/product-card-horizontal.tsx
+
+// React & Next Imports
 import Image from 'next/image';
 import React from 'react';
+
+// Component Import
 import Title from '../common/title';
+import Paragraph from '../common/paragraph';
+import HeartIcon from '../common/heart-icon';
+
+// Icons Import
 import Location from '@/../public/icons/location.svg';
 import Star from '@/../public/icons/star.svg';
 import bathrooms from '@/../public/icons/bath-rooms.svg';
 import bedrooms from '@/../public/icons/bed-rooms.svg';
 import HomeSpace from '@/../public/icons/home-space.svg';
-import Paragraph from '../common/paragraph';
+
+// Interface Import
 import { ProductCardHorizontalInterfaces } from '@/interfaces/properties/product-card-horizontal-interface';
-import HeartIcon from '../common/heart-icon';
 
 const ProductCardHorizontal = ({
   thumbnail,

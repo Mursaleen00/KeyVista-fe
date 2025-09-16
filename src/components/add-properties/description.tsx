@@ -1,10 +1,42 @@
+// src/components/add-properties/description.tsx
+
+// Import React And Next
 import React from 'react';
-import Input from '../inputs/input';
 import Image from 'next/image';
-import upload from '@/../public/icons/upload.svg';
+
+// Import Components
+import Input from '../inputs/input';
 import Button from '../buttons/button';
 
-const Description = () => {
+// Import Icons
+import upload from '@/../public/icons/upload.svg';
+
+// Import Interfaces
+import { descriptionI } from '@/interfaces/add-properties/Add-properties-interface';
+
+// Import Formik
+import { useFormik } from 'formik';
+
+// Import Schema
+import { descriptionSchema } from '@/schema/add-properties-schema';
+
+// Import Initial Values
+import { descriptionInitial } from '@/initial-values/add-properties/add-properties-initial';
+
+const Description: React.FC<descriptionI> = ({
+  setStep,
+  setData,
+  prevStep,
+}) => {
+  const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
+    useFormik({
+      initialValues: descriptionInitial,
+      validationSchema: descriptionSchema,
+      onSubmit: v => {
+        setData(prev => ({ ...prev, ...v }));
+        setStep();
+      },
+    });
   return (
     <div className='flex flex-col gap-y-4 text-text-light'>
       {/* Main Hading */}
@@ -15,79 +47,111 @@ const Description = () => {
           <div className='w-full'>
             <Input
               type='text'
-              label='What is the size of your property?'
-              placeholder='Enter Property Size'
+              label='Name your property'
+              placeholder='Enter Property Name'
               className='p-1 flex w-full'
+              value={values.propertyName}
+              name='propertyName'
+              error={errors.propertyName}
+              touched={touched.propertyName}
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
           </div>
           {/* 2nd textarea */}
           <div className='flex flex-col w-full gap-y-3'>
             <label className='text-sm w-full'>Property Description</label>
             <textarea
-              className='resize border rounded-xl p-2 h-32'
+              className={`resize border rounded-xl p-2 h-32 max-w-[600px] ${errors.description && touched.description && 'border-red'}`}
               placeholder='Write Property Description'
+              value={values.description}
+              name='description'
+              onChange={handleChange}
+              onBlur={handleBlur}
             ></textarea>
+            {errors.description && touched.description && (
+              <p className='text-red text-sm'>{errors.description}</p>
+            )}
           </div>
           {/* image Section */}
-          <div
-            className='flex flex-col border border-dashed border-border mt-5 w-full h-60 rounded-xl bg-white-light justify-center
-           items-center text-center gap-y-4'
-          >
-            <div>
-              <label
-                htmlFor='myfile'
-                className='cursor-pointer px-8 py-4 bg-white border border-primary text-white rounded-3xl hover:bg-primary-medium hover:text-white transition-colors duration-300'
-              >
-                <Image
-                  src={upload}
-                  alt='upload icon'
-                  width={24}
-                  height={24}
-                  className='inline-block'
+          <div className='flex flex-col w-full gap-y-1'>
+            <div
+              className={`flex flex-col border border-dashed border-border mt-5 w-full h-60 rounded-xl bg-white-light justify-center
+           items-center text-center gap-y-4`}
+              // ${errors.image && touched.image && 'border-red'}
+            >
+              <div>
+                <label
+                  htmlFor='myfile'
+                  className='cursor-pointer px-8 py-4 bg-white border border-primary text-white rounded-3xl hover:bg-primary-medium hover:text-white transition-colors duration-300'
+                >
+                  <Image
+                    src={upload}
+                    alt='upload icon'
+                    width={24}
+                    height={24}
+                    className='inline-block'
+                  />
+                </label>
+                <Input
+                  type='file'
+                  id='myfile'
+                  className='hidden'
                 />
-              </label>
-              <input
-                type='file'
-                id='myfile'
-                className='hidden'
-              />
+              </div>
+              <p className='text-text-dark'>
+                Click here to upload your property image
+              </p>
             </div>
-            <p className='text-text-dark'>
-              Click here to upload your property image
-            </p>
+            {/* {errors.image && touched.image && (
+              <p className='text-red text-sm'>{errors.image}</p>
+            )} */}
           </div>
           {/* Sketch Section */}
-          <div
-            className='flex flex-col border border-dashed border-border mt-5 w-full h-60 rounded-xl bg-white-light justify-center
-           items-center text-center gap-y-4'
-          >
-            <div>
-              <label
-                htmlFor='myfile'
-                className='cursor-pointer px-8 py-4 bg-white border border-primary text-white rounded-3xl hover:bg-primary-medium hover:text-white transition-colors duration-300'
-              >
-                <Image
-                  src={upload}
-                  alt='upload icon'
-                  width={24}
-                  height={24}
-                  className='inline-block'
+          <div className='flex flex-col w-full gap-y-1'>
+            <div
+              className={`flex flex-col border border-dashed border-border mt-5 w-full h-60 rounded-xl bg-white-light justify-center
+           items-center text-center gap-y-4`}
+              //  ${errors.sketch && touched.sketch && 'border-red'}
+            >
+              <div>
+                <label
+                  htmlFor='myfile'
+                  className='cursor-pointer px-8 py-4 bg-white border border-primary text-white rounded-3xl hover:bg-primary-medium hover:text-white transition-colors duration-300'
+                >
+                  <Image
+                    src={upload}
+                    alt='upload icon'
+                    width={24}
+                    height={24}
+                    className='inline-block'
+                  />
+                </label>
+                <Input
+                  type='file'
+                  id='myfile'
+                  className='hidden'
                 />
-              </label>
-              <input
-                type='file'
-                id='myfile'
-                className='hidden'
-              />
+              </div>
+              <p className='text-text-dark'>
+                Click here to upload your property Sketch
+              </p>
             </div>
-            <p className='text-text-dark'>
-              Click here to upload your property Sketch
-            </p>
+
+            {/* {errors.sketch && touched.sketch && (
+              <p className='text-red text-sm'>{errors.sketch}</p>
+            )} */}
           </div>
           {/* Last and Button Section */}
           <div className='flex flex-col sm:flex-row gap-5 items-end mt-4 justify-end '>
-            <Button text='Back' />
-            <Button text='Submit Ad' />
+            <Button
+              text='Back'
+              onClick={prevStep}
+            />
+            <Button
+              text='Submit Ad'
+              onClick={handleSubmit}
+            />
           </div>
         </div>
       </div>
