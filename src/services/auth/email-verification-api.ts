@@ -9,7 +9,7 @@ export interface EmailVerificationPayload {
 
 export const useEmailVerificationMutation = () => {
   const emailVerification = async ({ email }: EmailVerificationPayload) => {
-    const { data } = await axios.post(URLS.POST_RESEND_OTP, {
+    const { data } = await axios.post(URLS.POST_VERIFY_OTP, {
       email,
     });
 
