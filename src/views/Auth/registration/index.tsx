@@ -17,7 +17,7 @@ import { urls } from '@/constant/router/routes';
 import { RegistrationData } from '@/constant/auth/registration-data';
 
 // schema Import
-import { registrationSchema } from '@/schema/registration-schema';
+import { registrationSchema } from '@/schema/auth/registration-schema';
 
 // formik Import
 import { useFormik } from 'formik';

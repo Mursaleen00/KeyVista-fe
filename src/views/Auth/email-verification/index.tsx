@@ -17,20 +17,71 @@ import { useFormik } from 'formik';
 import { useRouter } from 'next/navigation';
 
 // schema Import
-import { OtpEmailSchema } from '@/schema/otp-email-schema';
+import { EmailVerificationSchema } from '@/schema/auth/email-verification-schema';
 
 // Initial Values Import
-import { otpEmailInitialValues } from '@/initial-values/auth/auth-all-initial-values';
+import { EmailVerificationInitialValues } from '@/initial-values/auth/auth-all-initial-values';
+import { useEmailVerificationMutation } from '@/services/auth/email-verification-api';
+// import { setCookie } from 'cookies-next';
+import toast from 'react-hot-toast';
 
 const EmailVerificationView = () => {
   // router
   const { push } = useRouter();
+  const { mutateAsync } = useEmailVerificationMutation();
 
   // formik
   const formik = useFormik({
-    initialValues: otpEmailInitialValues,
-    validationSchema: OtpEmailSchema,
-    onSubmit: () => {},
+    initialValues: EmailVerificationInitialValues,
+    validationSchema: EmailVerificationSchema,
+    // onSubmit: async email => {
+    //   try {
+    //     const { token, alreadyRegistered } = await mutateAsync(email);
+
+    //     if (alreadyRegistered) {
+    //       toast.success('OTP sent to your email!');
+    //       push('/verify-otp');
+    //     } else {
+    //       setCookie('accessToken', token);
+    //       push('/dashboard');
+    //     }
+    //   } catch (error) {
+    //     toast.error(
+    //       error instanceof Error ? error.message : 'Registration failed',
+    //     );
+    //   }
+    // },
+    onSubmit: async values => {
+      try {
+        // Step 1: API call karke OTP bhejo
+        const response = await mutateAsync({ email: values.email });
+
+        if (response.success) {
+          // Step 2: Email ko localStorage ya context me save karo (OTP verify page me use karne ke liye)
+          localStorage.setItem('email', values.email);
+
+          // Step 3: Redirect to OTP page
+          push(urls.otpVerification);
+        } else {
+          toast.error('Failed to send OTP');
+        }
+      } catch (error) {
+        toast.error(
+          error instanceof Error ? error.message : 'Failed to send OTP',
+        );
+      }
+    },
+
+    // onSubmit: async email => {
+    //   try {
+    //     const { token } = await mutateAsync(email);
+    //     setCookie('accessToken', token);
+    //   } catch (error) {
+    //     toast.error(
+    //       error instanceof Error ? error.message : 'Registration failed',
+    //     );
+    //   }
+    // },
   });
   const { values, errors, touched, handleChange, handleSubmit } = formik;
 
@@ -54,7 +105,7 @@ const EmailVerificationView = () => {
       {/* Heading */}
       <div className='flex flex-col gap-y-6 justify-center my-20'>
         <div className='text-2xl text-heading font-semibold'>
-          Forgot Password
+          Enter your Email
         </div>
         <p className='text-text-light'>
           Enter a email address associated Your account

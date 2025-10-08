@@ -8,7 +8,7 @@ import Input from '@/components/inputs/input';
 
 // Constant Import
 import { ChangePasswordData } from '@/constant/common/change-password-data';
-import { ChangePasswordSchema } from '@/schema/change-password-schema';
+import { ChangePasswordSchema } from '@/schema/auth/change-password-schema';
 
 // Initial Values Import
 import { changePasswordInitialValues } from '@/initial-values/auth/auth-all-initial-values';

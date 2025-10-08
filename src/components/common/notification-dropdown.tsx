@@ -42,7 +42,7 @@ const NotificationDropdown: FC<NotificationDropdownProps> = ({
               key={i}
               className={`
                 cursor-pointer rounded-xl text-text-light
-                     hover:text-white hover:border-none py-2 px-4 pl-4 m-2 text-md flex
+                     hover:text-white hover:border-none py-2 px- pl- text-md flex border
                 ${selectedValue?.toLowerCase() == value?.toLowerCase() ? 'bg-primary text-white' : 'bg-white text-text-light'}
                ${className}
               `}
@@ -78,10 +78,10 @@ const NotificationDropdown: FC<NotificationDropdownProps> = ({
           );
         })}
         <div
-          className={`flex justify-center items-center w-full px-5 py-4 ${pathname === urls.notification ? 'hidden' : 'block'}`}
+          className={`flex justify-center items-center w-full px-2 py-4 ${pathname === urls.notification ? 'hidden' : 'block'}`}
         >
           <Button
-            className='flex justify-center items-center w-full px-5'
+            className='flex justify-center items-center w-full'
             text='View All'
             onClick={() => {
               push(urls.notification);

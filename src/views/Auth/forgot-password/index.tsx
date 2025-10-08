@@ -16,7 +16,7 @@ import { ForgotPasswordData } from '@/constant/auth/forgot-password-data';
 import { urls } from '@/constant/router/routes';
 
 // schema Import
-import { ForgotPasswordSchema } from '@/schema/forgot-password-schema';
+import { ForgotPasswordSchema } from '@/schema/auth/forgot-password-schema';
 
 // Formik Import
 import { useFormik } from 'formik';

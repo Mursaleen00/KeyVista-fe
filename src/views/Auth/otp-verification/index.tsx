@@ -5,10 +5,21 @@
 // component Import
 import Button from '@/components/buttons/button';
 import Logo from '@/components/logo/logo';
+import { OtpVerificationSchema } from '@/schema/auth/otp-verification-schema';
 
 // React Import
 import React, { useEffect, useState } from 'react';
 import OtpInput from 'react-otp-input';
+
+// form.tsx
+// import { useForm } from 'react-hook-form';
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import { publicDecrypt } from 'crypto';
+import { useRouter } from 'next/navigation';
+import { urls } from '@/constant/router/routes';
+import { useFormik } from 'formik';
+import { otpVerificationInitialValues } from '@/initial-values/auth/auth-all-initial-values';
+// import toast from 'react-hot-toast';
 
 const OtpVerificationView = () => {
   const [timer, setTimer] = useState(60);
@@ -33,6 +44,22 @@ const OtpVerificationView = () => {
 
   // UseState
   const [otp, setOtp] = useState('');
+  const { push } = useRouter();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm({
+  //   resolver: yupResolver(OtpVerificationSchema),
+  // });
+  const formik = useFormik({
+    initialValues: otpVerificationInitialValues,
+    validationSchema: OtpVerificationSchema,
+    onSubmit: () => {
+      push(urls.forgetPassword);
+    },
+  });
+  const { errors, handleSubmit } = formik;
 
   return (
     <div className='grid w-full gap-y-9 justify-center p-4'>
@@ -53,6 +80,10 @@ const OtpVerificationView = () => {
       <div className='grid justify-center'>
         <OtpInput
           value={otp}
+          // {...register('otp')}
+          // value={values.otp}
+          // touched={touched.otp}
+          // onChange={handleChange}
           onChange={setOtp}
           numInputs={6}
           renderInput={props => <input {...props} />}
@@ -68,6 +99,9 @@ const OtpVerificationView = () => {
           }}
           inputType='number'
         />
+        {errors.otp && (
+          <p className='text-red text-sm px-3 py-3'>fill all input</p>
+        )}
       </div>
       {/* Timer */}
       <div className='grid items-center justify-items-center gap-y-2 w-full pt-0 '>
@@ -90,6 +124,7 @@ const OtpVerificationView = () => {
       <Button
         text='verify'
         className='flex w-full'
+        onClick={handleSubmit}
       />
     </div>
   );
