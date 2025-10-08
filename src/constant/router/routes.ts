@@ -20,10 +20,10 @@ export const urls = {
   // Authentication
   login: '/login',
   forgetPassword: '/forgot-password',
-  verification: '/verification',
+  emailVerification: '/email-verification',
   registration: '/registration',
   changePassword: '/change-password',
-  otpEmail: '/otp-email',
+  otpVerification: '/otp-verification',
 
   // Payment
   success: '/Payment/success',

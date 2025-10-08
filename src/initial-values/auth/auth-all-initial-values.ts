@@ -20,7 +20,7 @@ export const loginInitialValues = {
 };
 
 // ------------------------------- Otp Email initialValues ----------------------------
-export const otpEmailInitialValues = {
+export const EmailVerificationInitialValues = {
   email: '',
 };
 
@@ -35,4 +35,8 @@ export const registrationInitialValues = {
   phoneNumber: '',
   profilePicture: '', // Default value for profile picture
   agreeWithPT: false, // Default value for agreeing with terms and privacy
+};
+
+export const otpVerificationInitialValues = {
+  otp: '',
 };

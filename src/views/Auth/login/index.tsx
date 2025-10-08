@@ -16,7 +16,7 @@ import { LoginData } from '@/constant/auth/login-data';
 import { urls } from '@/constant/router/routes';
 
 // schema Import
-import { loginSchema } from '@/schema/login-schema';
+import { loginSchema } from '@/schema/auth/login-schema';
 
 // formik
 import { useFormik } from 'formik';
@@ -74,7 +74,7 @@ const LoginView = () => {
 
       <div
         className='flex w-full items-end justify-end text-primary cursor-pointer'
-        onClick={() => router.push(urls.otpEmail)}
+        onClick={() => router.push(urls.emailVerification)}
       >
         Forgot password?
       </div>

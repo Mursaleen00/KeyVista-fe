@@ -140,7 +140,7 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
                 />
               ) : item.name === 'notification' ? (
                 <NotificationDropdown
-                  className='flex w-full max-w-sm'
+                  className='flex w-full max-w-[280px ]'
                   items={notificationList
                     .filter(item => item.value)
                     .map(({ name, value = '', massage, time }) => ({
