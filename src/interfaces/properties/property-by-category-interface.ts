@@ -1,6 +1,6 @@
 //  src/interfaces/properties/property-by-category-interface.tsx
 
-// interfaces Export
+// PropertyByCategoryInterface interfaces Export
 export interface PropertyByCategoryInterface {
   icon: string;
   tittle?: string;

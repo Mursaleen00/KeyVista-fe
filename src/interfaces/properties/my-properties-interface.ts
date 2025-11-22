@@ -1,5 +1,6 @@
 //  src/interfaces/properties/my-properties-interface.tsx
 
+ // MyPropertyInterfaces interface Export 
 export interface MyPropertyInterfaces {
   thumbnail: string;
   washRoom: string;

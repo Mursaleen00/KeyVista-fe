@@ -1,6 +1,6 @@
 //  src/interfaces/common/logo.tsx
 
-// interface Export
+// LogoInterfaces interface Export
 export interface LogoInterfaces {
   className?: string;
   WhiteLogo?: boolean;

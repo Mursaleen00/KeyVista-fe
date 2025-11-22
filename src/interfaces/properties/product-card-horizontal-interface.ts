@@ -1,5 +1,6 @@
 //  src/interfaces/properties/product-card-horizontal-interface.tsx
 
+// ProductCardHorizontalInterfaces interface Export
 export interface ProductCardHorizontalInterfaces {
   thumbnail?: string;
   washRoom: string;
