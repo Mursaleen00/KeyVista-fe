@@ -1,6 +1,6 @@
 //  src/interfaces/common/input-interface.tsx
 
-// interface Export
+// InputProps interface Export
 export interface InputProps {
   label?: string;
   error?: string;

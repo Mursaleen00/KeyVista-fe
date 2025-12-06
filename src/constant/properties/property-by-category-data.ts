@@ -1,8 +1,12 @@
+// src/constant/properties/property-by-category-data.ts
+
+// icons Import
 import Accommodation from '@/../public/icons/accommodation.svg';
 import Apartments from '@/../public/icons/apartments.svg';
 import greenHome from '@/../public/icons/house.svg';
 import office from '@/../public/icons/office.svg';
 
+// ============================= propertyByCategoryData ===============================
 export const propertyByCategoryData = [
   {
     icon: greenHome.src,

@@ -1,20 +1,29 @@
+// src/components/chat/chat-room.tsx
 'use client';
+
+// Reacts & Next Imports
 import Image from 'next/image';
 import React from 'react';
+import { FaArrowLeft } from 'react-icons/fa6';
+
+// Interface Import
 import { ChatMRoomProps } from '@/interfaces/common/chat.interface';
 
+// Icons Imports
 import attachmentIcon from '@/../public/icons/attachment.svg';
 import imageIcon from '@/../public/icons/image.svg';
 import phoneIcon from '@/../public/icons/phone.svg';
 import sendIcon from '@/../public/icons/send.svg';
 import threeDotsIcon from '@/../public/icons/three-dots.svg';
 
+// Components Imports
 import Button from '@/components/buttons/button';
 import Input from '@/components/inputs/input';
-import { chatMessages } from '@/constant/chat/messages';
-import { FaArrowLeft } from 'react-icons/fa6';
 import Avatar from '../common/avatar';
 import Message from './message';
+
+// Constant Import
+import { chatMessages } from '@/constant/chat/messages';
 
 const ChatRoom: React.FC<ChatMRoomProps> = ({
   handleBack,

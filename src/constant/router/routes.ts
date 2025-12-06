@@ -3,7 +3,7 @@
 // export urls
 export const urls = {
   // properties
-  home: '/home',
+  home: '/',
   map: '/map',
   chat: '/chat',
   favorite: '/favorite',
@@ -11,22 +11,25 @@ export const urls = {
   profile: '/profile',
 
   // Properties
-  addProperty: '/add-property',
-  myProperties: '/my-properties',
-  Properties: '/properties ',
-  rentProperties: '/rent-properties',
-  buyProperties: 'buy-properties',
+  myProperties: '/properties/my-properties',
+  addProperties: '/properties/add-properties',
+  rentProperties: '/properties/rent-buy-properties?type=rent',
+  buyProperties: '/properties/rent-buy-properties?type=buy',
   propertyDetails: (id: string) => `/property-details/${id}`,
 
   // Authentication
   login: '/login',
   forgetPassword: '/forgot-password',
-  verification: '/verification',
-  registration: '/registration ',
-  changePassword: '/change-password ',
-  otpEmail: '/otp-email',
+  emailVerification: '/email-verification',
+  registration: '/registration',
+  changePassword: '/change-password',
+  otpVerification: '/otp-verification',
+
+  // Payment
+  success: '/Payment/success',
+  cancel: '/Payment/cancel',
 
   //  privacyPolicy
-  privatePolicy: '/private-policy ',
+  privacyPolicy: '/privacy-policy',
   termsAndConditions: '/terms-and-conditions',
 };

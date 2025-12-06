@@ -4,36 +4,54 @@
 // Next & React Imports
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
-
-// DropdownMenu package Imports
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
 // constant Imports
-import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
-import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
-import { urls } from '@/constant/router/routes';
+import {
+  NavbarIconData,
+  NavbarPagesData,
+  notificationList,
+  profileList,
+  propertyList,
+} from '@/constant/layouts-data/navbar-data';
 
 // interfaces Import
 import { NavbarProps } from '@/interfaces/common/navbar-interfaces';
 
 // component Import
+import { urls } from '@/constant/router/routes';
 import Button from '../buttons/button';
+import Dropdown from '../common/dropdown';
+import NotificationDropdown from '../common/notification-dropdown';
 
-const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
-  //  UseStates
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isDropdownIconOpen, setIsDropdownIconOpen] = useState(false);
+const SideBar: React.FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
   // router
-  const router = useRouter();
+  const { push } = useRouter();
+  // pathname
+  const pathname = usePathname();
+  const type = useSearchParams().get('type');
+
+  // pathname
+  const [selectedValue, setSelectedValue] = useState<string>('');
+
+  const handleDropdownClick = (value: string, url: string) => {
+    setSelectedValue(value);
+    setIsOpen(false);
+    push(url);
+  };
+
+  useEffect(() => {
+    if (type) setSelectedValue(type);
+    else setSelectedValue(pathname);
+  }, [type, pathname]);
 
   // isOpen;
   if (!isOpen) return null;
   return (
     <div className='flex flex-col md:hidden'>
       {/* First Section */}
-      <div className='flex flex-col md:hidden border border-[#F2F4F7] py-7  w-full mt-5 justify-start items-start  gap-6 cursor-pointer pl-9'>
+      <div className='flex flex-col md:hidden border border-[#F2F4F7] py-7 w-full mt-5 justify-start items-start gap-6 cursor-pointer pl-9'>
         {/* Navbar Pages Data  */}
         {NavbarPagesData.map((item, i) => (
           <div
@@ -42,12 +60,18 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
           >
             {/* Properties Drop down */}
             {item.name === 'Properties' ? (
-              <DropdownMenu.Root
-                open={isDropdownOpen}
-                onOpenChange={setIsDropdownOpen}
-              >
-                <DropdownMenu.Trigger asChild>
-                  <button className='flex items-center gap-x-1'>
+              <Dropdown
+                items={propertyList.map(({ name, value }) => ({
+                  name,
+                  value,
+                }))}
+                onClick={v => {
+                  const found = propertyList.find(item => item.value === v);
+                  handleDropdownClick(v, found?.path || '');
+                }}
+                selectedValue={selectedValue}
+                trigger={
+                  <div className='flex items-center gap-x-1 z-50'>
                     {item.icon && (
                       <Image
                         src={item.icon}
@@ -56,32 +80,15 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
                         height={10}
                       />
                     )}
-                    <p className='flex text-xl'>{item.name}</p>
-                  </button>
-                </DropdownMenu.Trigger>
-                <DropdownMenu.Portal>
-                  <div className='flex p-2'>
-                    <DropdownMenu.Content className='absolute flex flex-col  gap-y-4 left-16 top-0  bg-white  shadow-lg rounded-xl p-3 text-text-light hover:text-white'>
-                      <DropdownMenu.Item
-                        className='p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl'
-                        onClick={() => router.push(urls.rentProperties)}
-                      >
-                        Rent
-                      </DropdownMenu.Item>
-                      <DropdownMenu.Item
-                        className='-mt-2 p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl'
-                        onClick={() => router.push(urls.buyProperties)}
-                      >
-                        Buy
-                      </DropdownMenu.Item>
-                    </DropdownMenu.Content>
+                    <p className='flex text-xl text-text'>{item.name}</p>
                   </div>
-                </DropdownMenu.Portal>
-              </DropdownMenu.Root>
+                }
+              />
             ) : (
               <Link
                 href={item.link || ''}
                 className='flex gap-x-1'
+                onClick={() => setIsOpen(false)}
               >
                 {item.icon && (
                   <Image
@@ -91,7 +98,7 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
                     height={10}
                   />
                 )}
-                <p className='flex text-xl'>{item.name}</p>
+                <p className='flex text-xl text-text'>{item.name}</p>
               </Link>
             )}
           </div>
@@ -107,50 +114,70 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
             >
               {/* Properties Drop down */}
               {item.name === 'profile' ? (
-                <DropdownMenu.Root
-                  open={isDropdownIconOpen}
-                  onOpenChange={setIsDropdownIconOpen}
-                >
-                  <DropdownMenu.Trigger asChild>
-                    <button className='flex items-center gap-x-1'>
+                <Dropdown
+                  items={profileList.map(({ name, value }) => ({
+                    name,
+                    value,
+                  }))}
+                  img={profileList.map(item => item.img)}
+                  selectedValue={selectedValue}
+                  onClick={v => {
+                    const found = profileList.find(item => item.value === v);
+                    handleDropdownClick(v, found?.path || '');
+                  }}
+                  trigger={
+                    <div className='flex items-center gap-x-1 z-50'>
                       {item.icon && (
                         <Image
                           src={item.icon}
                           alt=''
-                          width={30}
-                          height={10}
+                          width={50}
+                          height={30}
                         />
                       )}
-                      {/* <p className='flex text-xl'>{item.name}</p> */}
-                    </button>
-                  </DropdownMenu.Trigger>
-                  <DropdownMenu.Portal>
-                    <DropdownMenu.Content className='absolute flex flex-col  gap-y-4 -left-24 mt-3  bg-white  shadow-lg rounded-xl p-3'>
-                      <DropdownMenu.Item
-                        className='p-2  px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white'
-                        onClick={() => router.push(urls.profile)}
-                      >
-                        Profile
-                      </DropdownMenu.Item>
-                      <DropdownMenu.Item
-                        className='-mt-2 p-2 w-44 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
-                        onClick={() => router.push(urls.changePassword)}
-                      >
-                        Change Password
-                      </DropdownMenu.Item>
-                      <DropdownMenu.Item
-                        className='-mt-2 p-2  px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
-                        onClick={() => router.push(urls.buyProperties)}
-                      >
-                        My Properties
-                      </DropdownMenu.Item>
-                    </DropdownMenu.Content>
-                  </DropdownMenu.Portal>
-                </DropdownMenu.Root>
+                    </div>
+                  }
+                />
+              ) : item.name === 'notification' ? (
+                <NotificationDropdown
+                  className='flex w-full max-w-[280px ]'
+                  items={notificationList
+                    .filter(item => item.value)
+                    .map(({ name, value = '', massage, time }) => ({
+                      name,
+                      value,
+                      massage,
+                      time,
+                    }))}
+                  img={notificationList.map(icon => icon.img)}
+                  onClick={() => {
+                    push(urls.notification);
+                  }}
+                  // onClick={v => {
+                  //   const found = notificationList.find(
+                  //     item => item.value === v,
+                  //   );
+                  //   handleDropdownClick(v, found?.path || '');
+                  // }}
+                  selectedValue={selectedValue}
+                  trigger={
+                    <div className='flex items-center gap-x-1 z-50'>
+                      {item.icon && (
+                        <Image
+                          src={item.icon}
+                          alt=''
+                          width={50}
+                          height={50}
+                        />
+                      )}
+                    </div>
+                  }
+                />
               ) : (
                 <Link
                   href={item.link || ''}
                   className='flex gap-x-1'
+                  onClick={() => setIsOpen(false)}
                 >
                   {item.icon && (
                     <Image
@@ -160,7 +187,6 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
                       height={10}
                     />
                   )}
-                  {/* <p className='flex text-xl'>{item.name}</p> */}
                 </Link>
               )}
             </div>
@@ -170,8 +196,10 @@ const SideBar: React.FC<NavbarProps> = ({ isOpen }) => {
       {/* Button */}
       <div className='flex pl-10 pt-6 items-end justify-start'>
         <Button
+          className={`cursor-pointer ${pathname === urls.addProperties ? 'hidden' : 'block'} hover:bg-primary hover:text-white`}
           text='Sell a property'
           isOutline
+          onClick={() => push(urls.addProperties)}
         />
       </div>
     </div>

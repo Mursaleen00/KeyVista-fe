@@ -1,5 +1,10 @@
+// src/components/map/map.tsx
+
 'use client';
 
+// Reacts & Next Imports
+import { useState } from 'react';
+import Image from 'next/image';
 import {
   GoogleMap,
   InfoWindow,
@@ -7,24 +12,30 @@ import {
   Marker,
 } from '@react-google-maps/api';
 
-import { useState } from 'react';
+// image Import
+import markerIcon from '@/../public/icons/marker.svg';
 
+// Constant Import
 import { dummyMarkersData } from '@/constant/map/dummy-markers';
-import { IMapProps } from '@/interfaces/common/map.interface';
-import { TCurrentLocation, TMarkersData } from '@/types/map.type';
-import Image from 'next/image';
-import MarkerIcon from './../../../public/icons/Marker.svg';
 
-const Map = ({ width, height, isCurrentLocation, markers }: IMapProps) => {
+// Interface Import
+import { MapI } from '@/interfaces/common/map.interface';
+
+// Type Import
+import { TCurrentLocation, TMarkersData } from '@/types/map.type';
+
+const Map = ({ width, height, isCurrentLocation, markers }: MapI) => {
+  // Api key
   const apiKey = process.env.GOOGLE_MAPS_API_KEY as string;
 
+  // selectedMarker State
   const [selectedMarker, setSelectedMarker] = useState<TMarkersData | null>(
     null,
   );
-
+  // currentLocation State
   const [currentLocation, setCurrentLocation] =
     useState<TCurrentLocation>(null);
-
+  // Condition
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
       setCurrentLocation({
@@ -34,6 +45,7 @@ const Map = ({ width, height, isCurrentLocation, markers }: IMapProps) => {
     });
   }
 
+  // mapOptions
   const mapOptions = {
     zoom: 15,
     center: isCurrentLocation
@@ -41,13 +53,16 @@ const Map = ({ width, height, isCurrentLocation, markers }: IMapProps) => {
       : (markers?.[0] ?? { lat: 37.7749, lng: -122.4194 }),
   };
 
+  // Style
   const containerStyle = {
     width: width ?? '100%',
     height: height ?? '500px',
   };
 
   return (
+    // Api key
     <LoadScript googleMapsApiKey={apiKey}>
+      {/* Google Map */}
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapOptions.center}
@@ -56,12 +71,13 @@ const Map = ({ width, height, isCurrentLocation, markers }: IMapProps) => {
       >
         {(markers ?? dummyMarkersData).map((marker: TMarkersData) => {
           return (
+            // Maker
             <Marker
               key={marker.id}
               position={{ lat: marker.lat, lng: marker.lng }}
               title={marker.title}
               onClick={() => setSelectedMarker(marker)}
-              icon={{ url: MarkerIcon.src }}
+              icon={{ url: markerIcon.src }}
             />
           );
         })}

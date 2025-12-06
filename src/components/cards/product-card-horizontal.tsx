@@ -1,33 +1,56 @@
+// src/components/cards/product-card-horizontal.tsx
+
+// React & Next Imports
 import Image from 'next/image';
 import React from 'react';
+
+// Component Import
 import Title from '../common/title';
-import location from '@/../public/icons/location.svg';
-import Star from '@/../public/icons/star.svg';
-import bathrooms from '@/../public/icons/bathrooms.svg';
-import bedrooms from '@/../public/icons/bedrooms.svg';
-import HomeSpace from '@/../public/icons/homeSpace.svg';
 import Paragraph from '../common/paragraph';
 import HeartIcon from '../common/heart-icon';
-import house from '@/../public/images/CardHouse.png';
 
-const ProductCardHorizontal = () => {
+// Icons Import
+import Location from '@/../public/icons/location.svg';
+import Star from '@/../public/icons/star.svg';
+import bathrooms from '@/../public/icons/bath-rooms.svg';
+import bedrooms from '@/../public/icons/bed-rooms.svg';
+import HomeSpace from '@/../public/icons/home-space.svg';
+
+// Interface Import
+import { ProductCardHorizontalInterfaces } from '@/interfaces/properties/product-card-horizontal-interface';
+
+const ProductCardHorizontal = ({
+  thumbnail,
+  washRoom,
+  tvLaunch,
+  lounge,
+  kitchen,
+  location,
+  title,
+  price,
+  rate,
+  beds,
+  bath,
+  square,
+}: ProductCardHorizontalInterfaces) => {
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-2 sm:p-4 ld::p-7 border border-border bg-white shadow-xl max-w-7xl sm:gap-x-5 gap-y-6 rounded-xl m-2'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 m-2 md:m-0 p-2 sm:p-4 ld::p-7 border-2 bg-white shadow-2xl max-w-7xl sm:gap-x-5 gap-y-6 rounded-xl'>
       {/* image section */}
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 w-full h-full  lg:col-span-2'>
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 w-full h-full lg:col-span-2'>
         <div className='flex w-full lg:col-span-2'>
           <Image
-            src={house}
+            src={thumbnail ?? ''}
             alt='Placeholder'
             className='rounded-lg w-full h-[300px]'
             width={500}
             height={500}
           />
         </div>
+        {/* room details  */}
         <div className='lg:grid grid-cols-2 w-full h-full gap-2 sm:col-span-1 hidden lg:col-span-1'>
           <div className='flex w-full rounded-lg h-full'>
             <Image
-              src='https://placehold.co/600x600/png'
+              src={washRoom}
               alt=''
               width={500}
               height={500}
@@ -36,7 +59,7 @@ const ProductCardHorizontal = () => {
           </div>
           <div>
             <Image
-              src='https://placehold.co/600x600/png'
+              src={tvLaunch}
               alt=''
               width={300}
               height={150}
@@ -45,7 +68,7 @@ const ProductCardHorizontal = () => {
           </div>
           <div>
             <Image
-              src='https://placehold.co/600x600/png'
+              src={lounge}
               alt=''
               width={300}
               height={150}
@@ -54,7 +77,7 @@ const ProductCardHorizontal = () => {
           </div>
           <div>
             <Image
-              src='https://placehold.co/600x600/png'
+              src={kitchen}
               alt=''
               width={300}
               height={150}
@@ -66,16 +89,18 @@ const ProductCardHorizontal = () => {
       {/* Property details Section */}
       <div className='grid grid-cols-1 gap-y-20 lg:col-span-1 sm:col-span-1'>
         {/* Heading */}
-        <div className='relative flex flex-col gap-y-4 md:gap-y-2'>
-          <Title text='Charming Triplex' />
-          <div className='flex md:items-center items-start'>
-            <Image
-              src={location}
-              alt='location'
-            />
-            <Paragraph text='1213 Rue Papineau, Montreal, QC H2L 3B5' />
+        <div className='flex flex-row justify-between'>
+          <div className='flex flex-col gap-y-2'>
+            <Title text={title} />
+            <div className='flex md:items-center items-start'>
+              <Image
+                src={Location}
+                alt='location'
+              />
+              <Paragraph text={location} />
+            </div>
           </div>
-          <div className='absolute right-0 top-0'>
+          <div>
             <HeartIcon />
           </div>
         </div>
@@ -84,7 +109,7 @@ const ProductCardHorizontal = () => {
           <div className='flex justify-between'>
             <div className='flex items-center'>
               <Title
-                text='$ 1,050'
+                text={price}
                 className='text-primary'
               />
               <p className='flex text-text text-lg'>/mouth</p>
@@ -94,7 +119,7 @@ const ProductCardHorizontal = () => {
                 src={Star}
                 alt=''
               />
-              <p className='flex text-text text-md font-normal'>4.8</p>
+              <p className='flex text-text text-md font-normal'>{rate}</p>
             </div>
           </div>
           {/* border */}
@@ -107,7 +132,7 @@ const ProductCardHorizontal = () => {
                 alt=''
               />
               <Paragraph
-                text='6 badRooms'
+                text={beds}
                 className='text-heading'
               />
             </div>
@@ -117,7 +142,7 @@ const ProductCardHorizontal = () => {
                 alt=''
               />
               <Paragraph
-                text='5 bathrooms'
+                text={bath}
                 className='text-heading'
               />
             </div>
@@ -127,7 +152,7 @@ const ProductCardHorizontal = () => {
                 alt=''
               />
               <Paragraph
-                text='150 SQ.YD'
+                text={square}
                 className='text-heading'
               />
             </div>

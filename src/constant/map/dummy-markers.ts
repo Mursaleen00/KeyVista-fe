@@ -1,5 +1,9 @@
+// src/constant/map/dummy-markers.ts
+
+// Type Import
 import { TMarkersData } from '@/types/map.type';
 
+// ================================= dummyMarkersData ===============================
 export const dummyMarkersData: TMarkersData[] = [
   {
     id: 1,

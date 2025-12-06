@@ -1,18 +1,21 @@
-import Image from 'next/image';
-import React from 'react';
-import Heart from '@/../public/icons/Heart.svg';
-import { Props } from '@/interfaces/common/herat-icon-interface';
+'use client';
+import React, { useState } from 'react';
+import { IoMdHeartEmpty } from 'react-icons/io';
+import { GoHeartFill } from 'react-icons/go';
 
-const HeartIcon = ({ className }: Props) => {
+const HeartIcon = () => {
+  const [liked, setLiked] = useState(false);
+
   return (
-    <div
-      className={`bg-primary-light w-fit p-3 rounded-full items-center justify-center text-primary ${className}`}
+    <button
+      onClick={() => {
+        setLiked(liked);
+        // onClick();
+      }}
+      className={`bg-primary-light w-fit p-3 rounded-full items-center justify-center text-primary`}
     >
-      <Image
-        src={Heart}
-        alt=''
-      />
-    </div>
+      {liked ? <GoHeartFill /> : <IoMdHeartEmpty />}
+    </button>
   );
 };
 

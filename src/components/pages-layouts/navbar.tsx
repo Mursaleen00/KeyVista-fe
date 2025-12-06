@@ -1,53 +1,75 @@
 // src/components/pages-layouts/navbar.tsx
-
 'use client';
 
 // Next & React Imports
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { HiMenuAlt3 } from 'react-icons/hi';
-import React, { useState } from 'react';
-
-// DropdownMenu package Import
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+// import { useSelector } from 'react-redux';
 
 // Components Imports
 import Button from '../buttons/button';
+import Dropdown from '../common/dropdown';
+import Logo from '../logo/logo';
 import SideBar from './sideBar';
 
 // constant Imports
-import { NavbarIconData } from '@/constant/layouts-data/navbar-icon-data';
-import { urls } from '@/constant/router/routes';
-import { NavbarPagesData } from '@/constant/layouts-data/navbar-pages-data';
+import {
+  NavbarIconData,
+  NavbarPagesData,
+  notificationList,
+  profileList,
+  propertyList,
+} from '@/constant/layouts-data/navbar-data';
 
-// Images Import
-import Logo from '../logo/purple-logo';
+// router import
+import { urls } from '@/constant/router/routes';
+import NotificationDropdown from '../common/notification-dropdown';
+// import { LikedState, RootState } from '@/store/store';
+// import likedProductSlice from '@/store/Slice/like-property-slice';
 
 const Navbar = () => {
+  const type = useSearchParams().get('type');
+
+  const [selectedValue, setSelectedValue] = useState<string>('');
+
   // use states
   const [isOpen, setIsOpen] = useState(false);
-  const [isDropdownIconOpen, setIsDropdownIconOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   // router
-  const router = useRouter();
+  const { push } = useRouter();
+  const pathname = usePathname();
+
+  const handleDropdownClick = (value: string, url: string) => {
+    setSelectedValue(value);
+    push(url);
+  };
+  // Like product
+  // const likedProducts = useSelector((state: RootState) => state.property) || [];
+
+  // use Effect
+  useEffect(() => {
+    if (type) setSelectedValue(type);
+    else setSelectedValue(pathname);
+  }, [type, pathname]);
+
   return (
-    <nav className='flex flex-col pt-5 justify-center  w-full py-5 md:py-0 mt-5'>
+    <nav
+      className='flex z-20 flex-col w-full py-5 md:py-0 border-b md:border-none border-border sticky top-0
+     bg-white'
+    >
       {/* First Section */}
-      <div className='flex justify-around items-center w-full'>
+      <div className='flex justify-around items-center w-full pt-5'>
         {/* Logo  */}
-        <div>
+        <div
+          className={`cursor-pointer`}
+          onClick={() => push(urls.home)}
+        >
           <Logo />
         </div>
-        {/* <div className='cursor-pointer'>
-          <Image
-            src={logo}
-            alt='logo'
-            width={150}
-            height={100}
-            onClick={() => router.push(urls.home)}
-          />
-        </div> */}
+
         {/* Sidebar isOpen Icon */}
         <div data-aos='fade-right'>
           <HiMenuAlt3
@@ -56,95 +78,124 @@ const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
           />
         </div>
+
         {/* icon section  */}
         <div className='md:flex hidden gap-x-4 cursor-pointer'>
           <Button
+            className={`cursor-pointer ${pathname === urls.addProperties ? 'hidden' : 'block'} hover:bg-primary hover:text-white`}
             text='Sell a property'
             isOutline
+            onClick={() => push(urls.addProperties)}
           />
           {/* Navbar Icon Data */}
-          {NavbarIconData.map((item, i) => (
+          {NavbarIconData.map((items, i) => (
             <div
               key={i}
-              className='flex relative border-white border'
+              className='flex relative'
             >
-              {/* Properties Drop down */}
-              {item.name === 'profile' ? (
-                <DropdownMenu.Root
-                  open={isDropdownIconOpen}
-                  onOpenChange={setIsDropdownIconOpen}
-                >
-                  <DropdownMenu.Trigger asChild>
-                    <button className='flex items-center gap-x-1'>
-                      {item.icon && (
+              {/* Profile Drop down */}
+              {items.name === 'profile' ? (
+                <Dropdown
+                  items={profileList.map(({ name, value }) => ({
+                    name,
+                    value,
+                  }))}
+                  img={profileList.map(item => item.img)}
+                  selectedValue={selectedValue}
+                  onClick={v => {
+                    const found = profileList.find(item => item.value === v);
+                    handleDropdownClick(v, found?.path || '');
+                  }}
+                  trigger={
+                    <div className='flex items-center gap-x-1 z-50'>
+                      {items.icon && (
                         <Image
-                          src={item.icon}
+                          src={items.icon}
                           alt=''
                           width={50}
-                          height={10}
+                          height={30}
                         />
                       )}
-                    </button>
-                  </DropdownMenu.Trigger>
-                  <DropdownMenu.Portal>
-                    <DropdownMenu.Content className='absolute flex flex-col  gap-y-4 -left-24 mt-3  bg-white  shadow-lg rounded-xl p-3'>
-                      <DropdownMenu.Item
-                        className='p-2  px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white'
-                        onClick={() => router.push(urls.profile)}
-                      >
-                        Profile
-                      </DropdownMenu.Item>
-                      <DropdownMenu.Item
-                        className='-mt-2 p-2 w-44 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
-                        onClick={() => router.push(urls.changePassword)}
-                      >
-                        Change Password
-                      </DropdownMenu.Item>
-                      <DropdownMenu.Item
-                        className='-mt-2 p-2  px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
-                        onClick={() => router.push(urls.myProperties)}
-                      >
-                        My Properties
-                      </DropdownMenu.Item>
-                    </DropdownMenu.Content>
-                  </DropdownMenu.Portal>
-                </DropdownMenu.Root>
+                    </div>
+                  }
+                />
+              ) : // Notification Dropdown
+              items.name === 'notification' ? (
+                <NotificationDropdown
+                  className='flex w-full max-w-sm'
+                  items={notificationList
+                    .filter(item => item.value)
+                    .map(({ name, value = '', massage, time }) => ({
+                      name,
+                      value,
+                      massage,
+                      time,
+                    }))}
+                  img={notificationList.map(icon => icon.img)}
+                  onClick={() => {
+                    push(urls.notification);
+                  }}
+                  selectedValue={selectedValue}
+                  trigger={
+                    <div className='flex items-center gap-x-1 z-50'>
+                      {items.icon && (
+                        <Image
+                          src={items.icon}
+                          alt=''
+                          width={50}
+                          height={50}
+                        />
+                      )}
+                    </div>
+                  }
+                />
               ) : (
                 <Link
-                  href={item.link || ''}
-                  className='flex gap-x-1 items-center'
+                  href={items.link || ''}
+                  className='flex items-center rounded-3xl justify-center'
                 >
-                  {item.icon && (
+                  {items.icon && (
                     <Image
-                      src={item.icon}
-                      alt=''
-                      width={item.width}
-                      height={item.hight}
-                      // className='flex w-full h-full'
+                      src={items.icon}
+                      alt='Icon'
+                      width={items.width}
+                      height={items.hight}
                     />
                   )}
+                  {/* {likedProducts && likedProducts?.length > 0 && i == 0 && (
+                    <div className=' flex size-4 text-[10px] items-center justify-center absolute rounded-full bg-error -top-2 -right-1 text-teal-50'>
+                      {likedProducts?.length}
+                    </div>
+                  )} */}
                 </Link>
               )}
             </div>
           ))}
         </div>
       </div>
+
       {/* Second section border end pages */}
-      <div className='md:flex hidden border border-[#F2F4F7] w-full p-4 mt-3 justify-center items-center  gap-6 cursor-pointer'>
+      <div className='md:flex hidden border w-full p-4 mt-3 justify-center items-center gap-6'>
         {/* Navbar Pages Data */}
         {NavbarPagesData.map((item, i) => (
           <div
             key={i}
-            className='flex relative border-white border'
+            className='flex relative'
           >
             {/* Properties Drop down */}
             {item.name === 'Properties' ? (
-              <DropdownMenu.Root
-                open={isDropdownOpen}
-                onOpenChange={setIsDropdownOpen}
-              >
-                <DropdownMenu.Trigger asChild>
-                  <button className='flex items-center gap-x-1'>
+              <Dropdown
+                items={propertyList.map(({ name, value }) => ({
+                  name,
+                  value,
+                }))}
+                onClick={v => {
+                  const found = propertyList.find(item => item.value === v);
+                  handleDropdownClick(v, found?.path || '');
+                }}
+                selectedValue={selectedValue}
+                trigger={
+                  <div className={`flex items-center gap-x-1 z-50`}>
                     {item.icon && (
                       <Image
                         src={item.icon}
@@ -154,31 +205,13 @@ const Navbar = () => {
                       />
                     )}
                     <p className='flex text-xl text-text'>{item.name}</p>
-                  </button>
-                </DropdownMenu.Trigger>
-                <DropdownMenu.Portal>
-                  <div className='flex p-2'>
-                    <DropdownMenu.Content className='absolute flex flex-col gap-y-4 -left-16 mt-3 bg-white shadow-lg rounded-xl p-3'>
-                      <DropdownMenu.Item
-                        className='p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
-                        onClick={() => router.push(urls.rentProperties)}
-                      >
-                        Rent
-                      </DropdownMenu.Item>
-                      <DropdownMenu.Item
-                        className='-mt-2 p-2 w-32 px-3 hover:bg-primary cursor-pointer rounded-xl text-text-light hover:text-white hover:border-none'
-                        onClick={() => router.push(urls.buyProperties)}
-                      >
-                        Buy
-                      </DropdownMenu.Item>
-                    </DropdownMenu.Content>
                   </div>
-                </DropdownMenu.Portal>
-              </DropdownMenu.Root>
+                }
+              />
             ) : (
               <Link
                 href={item.link || ''}
-                className='flex gap-x-1'
+                className={`flex gap-x-1`}
               >
                 {item.icon && (
                   <Image
@@ -198,7 +231,7 @@ const Navbar = () => {
       {/* side bar */}
       <SideBar
         isOpen={isOpen}
-        setIsOpen={() => setIsOpen(!isOpen)}
+        setIsOpen={setIsOpen}
       />
     </nav>
   );

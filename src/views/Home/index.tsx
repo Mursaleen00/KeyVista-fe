@@ -1,50 +1,83 @@
+// src/views/Home/index.tsx
 'use client';
+
+// Import React
+import { useState } from 'react';
+
+// Imports Components
 import Button from '@/components/buttons/button';
 import PropertyByCityCard from '@/components/cards/property-by-city-card';
+import PropertyCard from '@/components/cards/property-Card';
 import Paragraph from '@/components/common/paragraph';
 import PropertyByCategory from '@/components/common/property-by-category';
 import Title from '@/components/common/title';
-import { CardsData } from '@/constant/cards/rents-buys-cards-data';
+
+// Imports Constants
+import { PropertyByCityCardData } from '@/constant/cards/property-by-city-card-data';
+// import { CardsData } from '@/constant/cards/rent-buy-cards-data';
 import { propertyByCategoryData } from '@/constant/properties/property-by-category-data';
-import { useState } from 'react';
-import Logo from '@/components/logo/purple-logo';
+import { useGetAllPropertiesQuery } from '@/services/properties/get-all-properties';
 
 const HomeView = () => {
+  //  Browse Property by Category useState
+  const [selected, setSelected] = useState<number | null>(null);
+  // Browse Properties useState
+
+  // const filteredCard =
+  //   selectedTab === 'all'
+  //     ? CardsData
+  //     : CardsData.filter(card => card.category === selectedTab);
+
+  // Browse Properties by city useState
+  const [showAll, setShowAll] = useState(false);
+  const visibleCards = showAll
+    ? PropertyByCityCardData
+    : PropertyByCityCardData.slice(0, 4);
+
+  const { data } = useGetAllPropertiesQuery();
+  const { properties } = data || {};
   const [selectedTab, setSelectedTab] = useState('all');
-  const filteredCard =
-    selectedTab === 'all'
-      ? CardsData
-      : CardsData.filter(card => card.category === selectedTab);
+
+  // {
+  //   id: 1,
+  //   category: 'rent',
+  //   thumbnail: grayHouse.src,
+  //   title: 'The City Card',
+  //   location: '1011 Robson Street, Vancouver, BC V6E 1C2',
+  //   duration: '/Mouth',
+  //   price: '$ 8000',
+  //   status: 'Rent',
+  //   bathrooms: '6 bathrooms',
+  //   bedrooms: '5 bedrooms',
+  //   area: '700 SQ.YD',
+  // },
 
   return (
     <div className='grid'>
       {/* Browse Property by Category */}
-      <div className='grid my-10'>
-        <Title
-          text='Browse Property by Category'
-          className='px-6'
-        />
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-6 gap-5 w-full'>
+      <div className='grid p-2 sm:px-6'>
+        <Title text='Browse Property by Category' />
+        <div
+          className={`grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 py-6 gap-5 w-full`}
+        >
           {propertyByCategoryData.map((item, i) => (
             <PropertyByCategory
               key={i}
               icon={item.icon}
               tittle={item.tittle}
               text={item.text}
+              onClick={() => setSelected(i)}
+              className={`${selected === i ? 'border border-primary' : ''}`}
             />
           ))}
         </div>
       </div>
-      <div>
-        <Logo />
-      </div>
 
       {/* Browse Properties */}
-      <div className='grid md:px-10 xl:px-16'>
-        {/* Text section  */}
-        <div className='flex flex-col w-full justify-center pl-4'>
-          <h1 className='text-2xl font-semibold'>Our Work in Action</h1>
-          {/* </div> */}
+      <div className='grid px-2 md:px-4 py-9'>
+        {/* Text section */}
+        <div className='flex flex-col w-full justify-center md:pl-4'>
+          <Title text='Browse Properties' />
           <div className='flex flex-col gap-y-3 pt-5'>
             <p className='text-sm text-text-light'>
               Explore our gallery to see how we’ve helped customers with expert
@@ -53,55 +86,52 @@ const HomeView = () => {
             </p>
           </div>
         </div>
-
-        {/* button Section  */}
-
-        <div className='flex gap-x-4 sm:gap-x-14 justify-start pl-8 py-4 text-text-light'>
+        {/* button Section */}
+        <div className='flex gap-x-4 sm:gap-x-14 justify-start pl-5 py-9 text-text-light'>
           <button
             onClick={() => setSelectedTab('all')}
-            className={` ${
+            className={`${
               selectedTab === 'all'
-                ? 'text-primary border-b-2 border-b-primary font-semibold '
+                ? 'text-primary border-b-2 border-b-primary font-semibold'
                 : 'border-none'
             }`}
           >
             All
           </button>
           <button
-            onClick={() => setSelectedTab('generator')}
-            className={` ${
+            onClick={() => setSelectedTab('buy')}
+            className={`${
               selectedTab === 'buy'
                 ? 'text-primary border-b-2 border-b-primary font-semibold pb-[1px]'
-                : ' border-none'
+                : 'border-none'
             } `}
           >
             Buy
           </button>
           <button
-            onClick={() => setSelectedTab('cooling tower')}
-            className={` ${
+            onClick={() => setSelectedTab('rent')}
+            className={`${
               selectedTab === 'rent'
                 ? 'text-primary border-b-2 border-b-primary font-semibold'
-                : ' border-none'
+                : 'border-none'
             }`}
           >
             Rent
           </button>
         </div>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  w-full gap-x-0'>
-          {filteredCard.map((item, i) => (
-            <div
+        {/* filteredCard */}
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2'>
+          {properties?.map((item, i) => (
+            <PropertyCard
               key={i}
-              className='flex'
-            >
-              {item.component}
-            </div>
+              {...item}
+            />
           ))}
         </div>
       </div>
 
-      {/* Browse Properties by city  */}
-      <div className='grid bg-light-SeGreen w-full p-4 sm:p-9 gap-y-9'>
+      {/* Browse Properties by city */}
+      <div className='grid bg-light-SeGreen w-full p-4 sm:p-5  gap-y-9'>
         {/* text section */}
         <div className='grid gap-y-5'>
           <Title text='Browse Properties by city' />
@@ -113,17 +143,23 @@ const HomeView = () => {
         </div>
 
         {/* PropertyByCityCard */}
-        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full gap-6'>
-          <PropertyByCityCard
-            icon=''
-            cityName='Karachi'
-            description='Browse 120 Properties'
-          />
+        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+          {visibleCards.map((item, i) => (
+            <PropertyByCityCard
+              key={i}
+              thumbnail={item.thumbnail}
+              cityName={item.title}
+              description={item.text}
+            />
+          ))}
         </div>
 
-        {/* button */}
+        {/* Toggle Button */}
         <div className='flex justify-around'>
-          <Button text='Show more' />
+          <Button
+            text={showAll ? 'Show Less' : 'Show More'}
+            onClick={() => setShowAll(prev => !prev)}
+          />
         </div>
       </div>
     </div>

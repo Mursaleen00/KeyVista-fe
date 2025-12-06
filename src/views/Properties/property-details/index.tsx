@@ -1,76 +1,118 @@
-import BreadCrumb from '@/components/common/bread-crumb';
-import Title from '@/components/common/title';
+// src/views/Properties/property-details/index.tsx
+
+'use client';
+
+// React & Next imports
 import Image from 'next/image';
 import React from 'react';
-import location from '@/../public/icons/location.svg';
-import share from '@/../public/icons/share.svg';
-import Heart from '@/../public/icons/blackHeart.svg';
-import Owner from '@/../public/images/owner.png';
-import Sketch from '@/../public/images/Sketch.png';
-import PropertyFeatures from '@/components/properties/property-features';
-import PropertiesPrice from '@/components/properties/properties-price';
-import FeaturesAmenities from '@/components/properties/features-amenities';
-import Reviews from '@/components/properties/reviews';
-// import Map from '@/components/map/map';
 
-const PropertyDetailsView = () => {
+// Components imports
+import Title from '@/components/common/title';
+import BreadCrumb from '@/components/common/bread-crumb';
+import Reviews from '@/components/properties/property-details/reviews';
+import FeaturesAmenities from '@/components/properties/property-details/amenities';
+import PropertiesPrice from '@/components/properties/property-details/properties-price';
+import PropertyFeatures from '@/components/properties/property-details/property-features';
+
+// Icons Import
+import locationI from '@/../public/icons/location.svg';
+import share from '@/../public/icons/share.svg';
+import Heart from '@/../public/icons/black-heart.svg';
+
+// Interfaces Imports
+import { PropertyDetailsInterfaces } from '@/interfaces/properties/property-details-interface';
+
+const PropertyDetailsView = ({
+  id,
+  propertyName,
+  location,
+  thumbnail,
+  kitchen,
+  loan,
+  tvLaunch,
+  room,
+  bedrooms,
+  bathrooms,
+  area,
+  quality,
+  price,
+  duration,
+  status,
+  description,
+  amenities,
+  sketch,
+  ownerName,
+  ownerPhone,
+  ownerProfile,
+}: PropertyDetailsInterfaces) => {
+  // const [property, setProperty] = React.useState<any>(null);
+  // React.useEffect(() => {
+  //   fetch(`${amenities}`)
+  //     .then(res => res.json())
+  //     .then(data => setProperty(data));
+  // }, [amenities]);
   return (
-    <div className='grid px-3 sm:px-4 lg:px-12 py-9 gap-y-7'>
+    <div
+      className='grid px-3 sm:px-4 lg:px-12 py-9 gap-y-7'
+      key={`property?.${id}`}
+    >
       {/* BreadCrumb */}
       <BreadCrumb />
-      {/* Title */}
+
+      {/* Title & location */}
       <div className='flex flex-col gap-y-3'>
         <Title
-          text='Le Plateau Mont-Royal'
+          text={propertyName}
           className='flex'
         />
         {/* location section */}
         <div className='relative flex md:flex-row flex-col md:justify-between gap-y-4'>
-          {/* location */}
           <div className='flex items-start gap-1'>
             <Image
-              src={location}
+              src={locationI}
               alt=''
               width={30}
             />
-            <p className='text-text-dark'>
-              1011 Robson Street, Vancouver, BC V6E 1C2
-            </p>
+            <p className='text-text-dark'>{location || ''}</p>
           </div>
-          {/* Like & share */}
         </div>
       </div>
+
+      {/* Like & share */}
       <div className='flex text-text-dark px-7 items-center justify-end gap-2 font-semibold'>
-        <div className='flex items-center gap-1'>
+        <div className='flex items-center gap-1 cursor-pointer'>
           <Image
             src={share}
-            alt=''
+            alt='🔗'
           />
           <p>Share</p>
         </div>
-        <div className='flex items-center gap-1'>
+        <div className='flex items-center gap-1 cursor-pointer'>
           <Image
             src={Heart}
-            alt=''
+            alt='❤️'
           />
           <p>Like</p>
         </div>
       </div>
+
       {/* image section */}
       <div className='grid grid-cols-1 md:grid-cols-5 gap-3 w-full'>
+        {/* Thumbnail */}
         <div className='flex w-full md:col-span-3'>
           <Image
-            src='https://placehold.co/900x500'
+            src={thumbnail}
             alt='Placeholder'
             className='rounded-lg shadow-md w-full h-full'
             width={1000}
             height={1000}
           />
         </div>
+        {/* Other Images */}
         <div className='grid grid-cols-2 w-full h-full gap-2 md:col-span-2'>
           <div className='flex w-full rounded-lg'>
             <Image
-              src='https://placehold.co/600x400/png'
+              src={kitchen}
               alt=''
               width={500}
               height={500}
@@ -79,7 +121,7 @@ const PropertyDetailsView = () => {
           </div>
           <div>
             <Image
-              src='https://placehold.co/600x400/png'
+              src={tvLaunch}
               alt=''
               width={300}
               height={150}
@@ -88,7 +130,7 @@ const PropertyDetailsView = () => {
           </div>
           <div>
             <Image
-              src='https://placehold.co/600x400/png'
+              src={room}
               alt=''
               width={300}
               height={150}
@@ -97,7 +139,7 @@ const PropertyDetailsView = () => {
           </div>
           <div>
             <Image
-              src='https://placehold.co/600x400/png'
+              src={loan}
               alt=''
               width={300}
               height={150}
@@ -107,34 +149,41 @@ const PropertyDetailsView = () => {
         </div>
       </div>
 
-      {/* more details */}
+      {/* More Details */}
       <div className='grid grid-cols-1 xl:grid-cols-3 xl:gap-x-5 gap-y-9'>
-        {/* 1st section  */}
-        <div className='flex flex-col xl:col-span-2 gap-y-8'>
-          <PropertyFeatures />
+        {/* Property Qualities & Property Description $ Property Amenities */}
+        <div className='flex flex-col xl:col-span-2 gap-y-8 border border-black '>
+          {/* Rooms & area & Repair Quality */}
+          <PropertyFeatures
+            bedrooms={Number(bedrooms)}
+            bathrooms={Number(bathrooms)}
+            area={area}
+            quality={quality}
+          />
 
+          {/* About of Property */}
           <div className='grid gap-y-5'>
             <Title text='About This Villa' />
-            <p>
-              Welcome to this luxurious villa, a perfect blend of elegance and
-              comfort. This exquisite property features three spacious bedrooms,
-              offering ample room for relaxation and personal space. With two
-              beautifully designed bathrooms, each detail is curated for your
-              utmost convenience. The villa boasts a generous square area of 6x8
-              square yards, providing a harmonious balance of open spaces and
-              cozy corners. The architecture seamlessly integrates modern
-              aesthetics with practical functionality, creating a home that is
-              both stylish and welcoming.
-            </p>
+            <p>{description}</p>
           </div>
 
-          <FeaturesAmenities />
+          {/* Features $ Amenities */}
+          <FeaturesAmenities amenities={amenities} />
         </div>
-        {/* 2nd section */}
+
+        {/* Property Price $ Property Review $ Property Map */}
         <div className='grid w-full max-w-lg gap-y-6 '>
-          <PropertiesPrice />
+          {/* Property Price */}
+          <PropertiesPrice
+            status={status}
+            price={price}
+            duration={duration}
+          />
+
+          {/* Property Reviews */}
           <Reviews />
-          {/* Map */}
+
+          {/* Property Map */}
           {/* <div className='grid w-[300px] gap-y-4'>
             <Title text='Location' />
             <Map />
@@ -146,9 +195,10 @@ const PropertyDetailsView = () => {
       <div className='grid pt-7 gap-y-6'>
         <Title text='Sketch' />
         <Image
-          src={Sketch}
+          src={sketch}
           alt='Sketch'
           width={500}
+          height={500}
           className='flex w-full max-w-[600px] md:pl-32'
         />
       </div>
@@ -158,12 +208,13 @@ const PropertyDetailsView = () => {
         <Title text='Owner' />
         <div className='grid items-center shadow-md w-fit py-4 px-7 justify-center text-center gap-y-3 rounded-2xl sm:ml-32 bg-white'>
           <Image
-            src={Owner}
-            alt=''
+            src={ownerProfile}
+            alt='Owner Profile'
             width={150}
+            height={150}
           />
-          <Title text='Jhon Doe' />
-          <p className='text-primary text-sm'>+92 398 765 985 </p>
+          <Title text={ownerName} />
+          <p className='text-primary text-sm'>{ownerPhone}</p>
         </div>
       </div>
     </div>

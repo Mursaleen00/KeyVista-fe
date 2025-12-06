@@ -1,11 +1,11 @@
-// src/app/(authentication)/email-verification/page.tsx
+// src/app/(authentication)/otp-email-verification/page.tsx
+
+// View Import
+import EmailVerificationView from '@/views/Auth/email-verification';
 
 // React Import
 import React from 'react';
 
-// view Import
-import EmailVerificationView from '@/views/Auth/email-verification';
+const otpEmailPage = () => <EmailVerificationView />;
 
-const EmailVerificationPage = () => <EmailVerificationView />;
-
-export default EmailVerificationPage;
+export default otpEmailPage;
