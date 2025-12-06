@@ -12,7 +12,7 @@
 //   bathrooms: string;
 //   area: string;
 // }
-// ------------------------------------- PropertyCardsInterfaces -------------------------------------
+//  PropertyCardsInterfaces interface Export
 export interface PropertyCardsI {
   _id: string;
   city: string;

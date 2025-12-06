@@ -1,5 +1,6 @@
 //  src/interfaces/common/notification-interface.tsx
 
+// NotificationInterfaces interface Export
 export interface NotificationInterfaces {
   profile: string;
   name: string;

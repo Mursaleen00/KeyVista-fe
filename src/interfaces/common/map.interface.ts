@@ -3,7 +3,7 @@
 // Type Import
 import { TMarkersData } from '@/types/map.type';
 
-// -------------------------- MapI -----------------------------
+// MapI interface Export
 export interface MapI {
   width?: string;
   height?: string;
