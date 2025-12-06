@@ -40,7 +40,7 @@ export const useRegisterMutation = () => {
   };
   const mutation = useMutation({
     mutationFn: useRegister,
-    onSuccess: () => toast.success('You are Register Successfully'),
+    onSuccess: () => toast.success('Please check your mail for otp'),
     onError: (error: CustomAxiosErrorType) => {
       toast.error(error.response?.data.message as string);
     },

@@ -8,13 +8,13 @@ import { useRouter } from 'next/navigation';
 
 // components Imports
 import Button from '@/components/buttons/button';
+import AuthHeading from '@/components/common/auth-heading';
 import Input from '@/components/inputs/input';
 import Logo from '@/components/logo/logo';
-import AuthHeading from '@/components/common/auth-heading';
 
 // constants Imports
-import { urls } from '@/constant/router/routes';
 import { RegistrationData } from '@/constant/auth/registration-data';
+import { urls } from '@/constant/router/routes';
 
 // schema Import
 import { registrationSchema } from '@/schema/auth/registration-schema';
@@ -28,10 +28,8 @@ import profilePlaceholder from '@/../public/images/profilePlaceholder.png';
 
 // Initial Values Imports
 import { registrationInitialValues } from '@/initial-values/auth/auth-all-initial-values';
-import { setCookie } from 'cookies-next';
 import { useRegisterMutation } from '@/services/auth/registration-api';
-import toast from 'react-hot-toast';
-
+import { setCookie } from 'cookies-next';
 const RegistrationView = () => {
   // router
   const { push } = useRouter();
@@ -42,41 +40,27 @@ const RegistrationView = () => {
   const formik = useFormik({
     initialValues: registrationInitialValues,
     validationSchema: registrationSchema,
-    onSubmit: async ({
-      email,
-      password,
-      fullName,
-      profilePicture,
-      country,
-      city,
-      phoneNumber,
-      agreeWithPT,
-    }) => {
+    onSubmit: async ({ phoneNumber, ...value }) => {
       try {
         const { token } = await mutateAsync({
-          email,
-          password,
-          fullName,
-          city,
-          country,
-          phoneNumber,
-          profilePicture,
-          agreeWithPT,
+          phoneNumber: phoneNumber.toString(),
+          ...value,
         });
         setCookie('accessToken', token);
       } catch (error) {
         console.log('🚀 ~ LoginView ~ error:', error);
-        toast.error(
-          error instanceof Error ? error.message : 'Registration failed',
-        );
       }
     },
   });
+
   const { values, errors, touched, handleChange, handleSubmit, setFieldValue } =
     formik;
-  // console.log('🚀 ~ RegistrationView ~ values:', values);
+
   return (
-    <div className='grid w-full py-7'>
+    <form
+      onSubmit={handleSubmit}
+      className='grid w-full py-7'
+    >
       <div className='flex flex-col sm:flex-row sm:items-center justify-between'>
         {/* logo */}
         <Logo className='flex lg:hidden pb-11 md:pb-0 pr-20 sm:pr-0' />
@@ -166,11 +150,11 @@ const RegistrationView = () => {
       </div>
       {/* button  */}
       <Button
+        type='submit'
         text='Register'
         className='flex w-full mt-7'
-        onClick={handleSubmit}
       />
-    </div>
+    </form>
   );
 };
 

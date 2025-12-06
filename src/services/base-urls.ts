@@ -1,8 +1,8 @@
-const isLive = true;
+const isLive = false;
 
 const apiUrls = process.env.NEXT_PUBLIC_API_BASE_URL as string;
 
-const localhost = 'http://localhost:3000';
+const localhost = 'http://localhost:8000';
 
 const baseUrl = isLive ? apiUrls : localhost;
 
