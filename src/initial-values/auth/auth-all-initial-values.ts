@@ -33,7 +33,8 @@ export const registrationInitialValues = {
   country: '',
   city: '',
   phoneNumber: '',
-  profilePicture: '', // Default value for profile picture
+  profilePicture:
+    'https://res.cloudinary.com/daxmlpu40/image/upload/v1765058727/key-vista/profile/glduxq2ghxhnnv3escq1.png', // Default value for profile picture
   agreeWithPT: false, // Default value for agreeing with terms and privacy
 };
 

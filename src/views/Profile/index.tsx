@@ -1,22 +1,22 @@
 'use client';
-import React from 'react';
+import Edit from '@/../public/icons/edit.svg';
 import profile from '@/../public/images/profile.webp';
-import Image from 'next/image';
+import Button from '@/components/buttons/button';
+import SelectForm from '@/components/common/select-form';
 import Title from '@/components/common/title';
+import Input from '@/components/inputs/input';
 import {
   ProfileInputData,
   ProfileSelectedData,
 } from '@/constant/common/profile-data';
-import Input from '@/components/inputs/input';
-import Button from '@/components/buttons/button';
-import Edit from '@/../public/icons/edit.svg';
+import { useFormik } from 'formik';
+import Image from 'next/image';
 import { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-import SelectForm from '@/components/common/select-form';
-import { useFormik } from 'formik';
 
 const initialValues = {
+  phoneNumber: '',
   PriceFrom: '',
   PriceTo: '',
   AreaFrom: '',
@@ -30,7 +30,6 @@ const ProfileView = () => {
     // validationSchema: FilterSchema,
     onSubmit: () => {},
   });
-  const [phone, setPhone] = useState('');
   const [isEdit, setIsEdit] = useState(false);
 
   return (
@@ -86,10 +85,11 @@ const ProfileView = () => {
             <label className=' flex text-md font-normal  text-text-dark mb-2'>
               Mobile
             </label>
+
             <PhoneInput
               country={'ae'}
-              value={phone}
-              onChange={setPhone}
+              value={values.phoneNumber}
+              onChange={e => setFieldValue('phoneNumber', e)}
               inputClass='!w-full !h-14 !text-sm !rounded-xl'
               buttonClass='!border-r !border-gray p-4 flex !rounded-l-xl'
               containerClass='flex !rounded-full text-text'
