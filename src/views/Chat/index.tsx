@@ -23,8 +23,8 @@ const ChatView = () => {
   });
 
   // Socket
-  const socketIO = io('http://localhost:3000', {
-    query: { userId: 'your_user_id' },
+  const socketIO = io('http://localhost:8000', {
+    query: { userId: '`your_user_id`' },
   });
 
   socketIO.on('connect', () => {

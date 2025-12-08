@@ -3,6 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { URLS } from '../base-urls';
+import { useRouter } from 'next/navigation';
 
 interface payload {
   email: string;
@@ -30,6 +31,7 @@ export interface User {
 }
 
 export const useLoginMutation = () => {
+  const router = useRouter();
   const useLogin = async ({ email, password }: payload) => {
     const { data } = await axios.post(URLS.POST_lOGIN, {
       email,
@@ -40,7 +42,10 @@ export const useLoginMutation = () => {
 
   const mutation = useMutation({
     mutationFn: useLogin,
-    onSuccess: () => toast.success('Login Successfully'),
+    onSuccess: () => {
+      toast.success('Login Successfully');
+      router.push('/');
+    },
     onError: (error: CustomAxiosErrorType) => {
       toast.error(error.response?.data.message as string);
     },

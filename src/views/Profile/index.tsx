@@ -82,7 +82,7 @@ const ProfileView = () => {
         <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-3'>
           {/* Mobile input */}
           <div className='flex flex-col w-full sm:col-span-2 lg:col-span-1'>
-            <label className=' flex text-md font-normal  text-text-dark mb-2'>
+            <label className=' flex text-md font-normal text-text-dark mb-2'>
               Mobile
             </label>
 
